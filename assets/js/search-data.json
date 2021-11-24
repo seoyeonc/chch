@@ -1,11 +1,22 @@
 {
   
+    
+        "post0": {
+            "title": "Title",
+            "content": "1+1 . 2 .",
+            "url": "https://seoyeonc.github.io/chch/2021/11/23/Untitled.html",
+            "relUrl": "/2021/11/23/Untitled.html",
+            "date": " • Nov 23, 2021"
+        }
+        
+    
+  
 
   
   
 
   
-      "page1": {
+      ,"page1": {
           "title": "About Me",
           "content": "This website is powered by fastpages 1. . (_pages/about에서 수정) . 학력 . 학사…석사…. . 경력 . 어디..ㅇ디.. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://seoyeonc.github.io/chch/about/",
