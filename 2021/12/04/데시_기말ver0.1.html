@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      4 min read
     
 </span></p>
 
@@ -464,322 +464,631 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>MultiIndex([(       '구분',    '구분'),
+            (     '1차접종', '당일 실적'),
+            (     '1차접종', '당일 누계'),
+            (     '2차접종', '당일 실적'),
+            (     '2차접종', '당일 누계'),
+            ('3차(부스터)접종', '당일 실적'),
+            ('3차(부스터)접종', '당일 누계')],
+           )</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span>       <span class="s1">'구분'</span><span class="p">,</span>    <span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span>\
+<span class="n">query</span><span class="p">(</span><span class="s1">'level_1=="당일 누계"'</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span>       <span class="s1">'구분'</span><span class="p">,</span>    <span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(구분, 구분)
+서울     7713303
+부산     2636872
+대구     1834006
+인천     2352331
+광주     1146427
+대전     1135182
+울산      881739
+세종      262391
+경기    10814771
+강원     1239767
+충북     1310105
+충남     1729378
+전북     1463908
+전남     1523884
+경북     2089812
+경남     2620169
+제주      530626
+Name: 2차접종, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span>       <span class="s1">'구분'</span><span class="p">,</span>    <span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span>\
+<span class="n">query</span><span class="p">(</span><span class="s1">'level_1=="당일 실적"'</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span>       <span class="s1">'구분'</span><span class="p">,</span>    <span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(구분, 구분)
+서울    14436
+부산     5221
+대구     3888
+인천     5220
+광주     3087
+대전     2394
+울산     1763
+세종      504
+경기    25158
+강원     2557
+충북     2788
+충남     3799
+전북     3780
+전남     3166
+경북     4478
+경남     5578
+제주     1452
+Name: 2차접종, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span>       <span class="s1">'구분'</span><span class="p">,</span>    <span class="s1">'구분'</span><span class="p">))</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(구분, 구분)</th>
+      <th>level_1</th>
+      <th>2차접종</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>서울</td>
+      <td>당일 누계</td>
+      <td>7713303</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>서울</td>
+      <td>당일 실적</td>
+      <td>14436</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>부산</td>
+      <td>당일 누계</td>
+      <td>2636872</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>부산</td>
+      <td>당일 실적</td>
+      <td>5221</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>대구</td>
+      <td>당일 누계</td>
+      <td>1834006</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>대구</td>
+      <td>당일 실적</td>
+      <td>3888</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>인천</td>
+      <td>당일 누계</td>
+      <td>2352331</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>인천</td>
+      <td>당일 실적</td>
+      <td>5220</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>광주</td>
+      <td>당일 누계</td>
+      <td>1146427</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>광주</td>
+      <td>당일 실적</td>
+      <td>3087</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>대전</td>
+      <td>당일 누계</td>
+      <td>1135182</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>대전</td>
+      <td>당일 실적</td>
+      <td>2394</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>울산</td>
+      <td>당일 누계</td>
+      <td>881739</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>울산</td>
+      <td>당일 실적</td>
+      <td>1763</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>세종</td>
+      <td>당일 누계</td>
+      <td>262391</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>세종</td>
+      <td>당일 실적</td>
+      <td>504</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>경기</td>
+      <td>당일 누계</td>
+      <td>10814771</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>경기</td>
+      <td>당일 실적</td>
+      <td>25158</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>강원</td>
+      <td>당일 누계</td>
+      <td>1239767</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>강원</td>
+      <td>당일 실적</td>
+      <td>2557</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>충북</td>
+      <td>당일 누계</td>
+      <td>1310105</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>충북</td>
+      <td>당일 실적</td>
+      <td>2788</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>충남</td>
+      <td>당일 누계</td>
+      <td>1729378</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>충남</td>
+      <td>당일 실적</td>
+      <td>3799</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>전북</td>
+      <td>당일 누계</td>
+      <td>1463908</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>전북</td>
+      <td>당일 실적</td>
+      <td>3780</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>전남</td>
+      <td>당일 누계</td>
+      <td>1523884</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>전남</td>
+      <td>당일 실적</td>
+      <td>3166</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>경북</td>
+      <td>당일 누계</td>
+      <td>2089812</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>경북</td>
+      <td>당일 실적</td>
+      <td>4478</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>경남</td>
+      <td>당일 누계</td>
+      <td>2620169</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>경남</td>
+      <td>당일 실적</td>
+      <td>5578</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>제주</td>
+      <td>당일 누계</td>
+      <td>530626</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>제주</td>
+      <td>당일 실적</td>
+      <td>1452</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">=</span><span class="n">_</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'city'</span><span class="p">,</span><span class="s1">'value'</span><span class="p">,</span><span class="s1">'vaccination'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[(</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 실적"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 누계"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.001871571750779141,
+ 0.001979997512203854,
+ 0.002119949444004,
+ 0.002219075461744117,
+ 0.0026927139713213313,
+ 0.002108912932023235,
+ 0.001999457889466157,
+ 0.001920797588331917,
+ 0.002326262849208735,
+ 0.002062484321650762,
+ 0.0021280737040160905,
+ 0.002196743569075124,
+ 0.002582129478081956,
+ 0.0020775859579863034,
+ 0.002142776479415373,
+ 0.0021288703133271174,
+ 0.0027363906027974504]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 실적"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 누계"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.001871571750779141</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">14436</span><span class="o">/</span><span class="mi">7713303</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.001871571750779141</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 실적"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'value=="당일 누계"'</span><span class="p">)[</span><span class="s1">'vaccination'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.001979997512203854</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">5221</span><span class="o">/</span><span class="mi">2636872</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.001979997512203854</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">global_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-geo.json'</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'key'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'구분'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">18</span><span class="p">],</span><span class="s1">'value'</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">'2차접종'</span><span class="p">][</span><span class="s1">'당일 실적'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">18</span><span class="p">]})</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_63047/310003325.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'key'</span><span class="ansi-blue-fg">:</span> df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'구분'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">18</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">'value'</span><span class="ansi-blue-fg">:</span> df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'2차접종'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'당일 실적'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">18</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, data, index, columns, dtype, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    612</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dict<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    613</span>             <span class="ansi-red-fg"># GH#38939 de facto copy defaults to False only in non-dict cases</span>
-<span class="ansi-green-fg">--&gt; 614</span><span class="ansi-red-fg">             </span>mgr <span class="ansi-blue-fg">=</span> dict_to_mgr<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> columns<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">,</span> typ<span class="ansi-blue-fg">=</span>manager<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    615</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> ma<span class="ansi-blue-fg">.</span>MaskedArray<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    616</span>             <span class="ansi-green-fg">import</span> numpy<span class="ansi-blue-fg">.</span>ma<span class="ansi-blue-fg">.</span>mrecords <span class="ansi-green-fg">as</span> mrecords
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">dict_to_mgr</span><span class="ansi-blue-fg">(data, index, columns, dtype, typ, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    462</span>         <span class="ansi-red-fg"># TODO: can we get rid of the dt64tz special case above?</span>
-<span class="ansi-green-intense-fg ansi-bold">    463</span> 
-<span class="ansi-green-fg">--&gt; 464</span><span class="ansi-red-fg">     return arrays_to_mgr(
-</span><span class="ansi-green-intense-fg ansi-bold">    465</span>         arrays<span class="ansi-blue-fg">,</span> data_names<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> columns<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> typ<span class="ansi-blue-fg">=</span>typ<span class="ansi-blue-fg">,</span> consolidate<span class="ansi-blue-fg">=</span>copy
-<span class="ansi-green-intense-fg ansi-bold">    466</span>     )
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">arrays_to_mgr</span><span class="ansi-blue-fg">(arrays, arr_names, index, columns, dtype, verify_integrity, typ, consolidate)</span>
-<span class="ansi-green-intense-fg ansi-bold">    122</span> 
-<span class="ansi-green-intense-fg ansi-bold">    123</span>         <span class="ansi-red-fg"># don't force copy because getting jammed in an ndarray anyway</span>
-<span class="ansi-green-fg">--&gt; 124</span><span class="ansi-red-fg">         </span>arrays <span class="ansi-blue-fg">=</span> _homogenize<span class="ansi-blue-fg">(</span>arrays<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span> 
-<span class="ansi-green-intense-fg ansi-bold">    126</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">_homogenize</span><span class="ansi-blue-fg">(data, index, dtype)</span>
-<span class="ansi-green-intense-fg ansi-bold">    587</span>                 val <span class="ansi-blue-fg">=</span> lib<span class="ansi-blue-fg">.</span>fast_multiget<span class="ansi-blue-fg">(</span>val<span class="ansi-blue-fg">,</span> oindex<span class="ansi-blue-fg">.</span>_values<span class="ansi-blue-fg">,</span> default<span class="ansi-blue-fg">=</span>np<span class="ansi-blue-fg">.</span>nan<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    588</span> 
-<span class="ansi-green-fg">--&gt; 589</span><span class="ansi-red-fg">             val = sanitize_array(
-</span><span class="ansi-green-intense-fg ansi-bold">    590</span>                 val<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> raise_cast_failure<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span>
-<span class="ansi-green-intense-fg ansi-bold">    591</span>             )
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/construction.py</span> in <span class="ansi-cyan-fg">sanitize_array</span><span class="ansi-blue-fg">(data, index, dtype, copy, raise_cast_failure, allow_2d)</span>
-<span class="ansi-green-intense-fg ansi-bold">    569</span>             subarr <span class="ansi-blue-fg">=</span> _try_cast<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">,</span> raise_cast_failure<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    570</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 571</span><span class="ansi-red-fg">             </span>subarr <span class="ansi-blue-fg">=</span> maybe_convert_platform<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    572</span>             <span class="ansi-green-fg">if</span> subarr<span class="ansi-blue-fg">.</span>dtype <span class="ansi-blue-fg">==</span> object<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    573</span>                 subarr <span class="ansi-blue-fg">=</span> cast<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>ndarray<span class="ansi-blue-fg">,</span> subarr<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/dtypes/cast.py</span> in <span class="ansi-cyan-fg">maybe_convert_platform</span><span class="ansi-blue-fg">(values)</span>
-<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-green-fg">if</span> arr<span class="ansi-blue-fg">.</span>dtype <span class="ansi-blue-fg">==</span> object<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span>         arr <span class="ansi-blue-fg">=</span> cast<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>ndarray<span class="ansi-blue-fg">,</span> arr<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">         </span>arr <span class="ansi-blue-fg">=</span> lib<span class="ansi-blue-fg">.</span>maybe_convert_objects<span class="ansi-blue-fg">(</span>arr<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    127</span> 
-<span class="ansi-green-intense-fg ansi-bold">    128</span>     <span class="ansi-green-fg">return</span> arr
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/_libs/lib.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.lib.maybe_convert_objects</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-red-fg">ValueError</span>: Buffer has wrong number of dimensions (expected 1, got 2)</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">'https://ncv.kdca.go.kr/mainStatus.es?mid=a11702000000'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'2차접종'</span><span class="p">][</span><span class="s1">'당일 실적'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">18</span><span class="p">]])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1     14436
- 2      5221
- 3      3888
- 4      5220
- 5      3087
- 6      2394
- 7      1763
- 8       504
- 9     25158
- 10     2557
- 11     2788
- 12     3799
- 13     3780
- 14     3166
- 15     4478
- 16     5578
- 17     1452
- Name: 당일 실적, dtype: int64]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">'https://ncv.kdca.go.kr/mainStatus.es?mid=a11702000000'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'2차접종'</span><span class="p">][</span><span class="s1">'당일 실적'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">18</span><span class="p">]])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1     14436
- 2      5221
- 3      3888
- 4      5220
- 5      3087
- 6      2394
- 7      1763
- 8       504
- 9     25158
- 10     2557
- 11     2788
- 12     3799
- 13     3780
- 14     3166
- 15     4478
- 16     5578
- 17     1452
- Name: 당일 실적, dtype: int64]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['서울',
- '부산',
- '대구',
- '인천',
- '광주',
- '대전',
- '울산',
- '세종',
- '경기',
- '강원',
- '충북',
- '충남',
- '전북',
- '전남',
- '경북',
- '경남',
- '제주']</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'key'</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">]),</span><span class="s1">'value'</span><span class="p">:[</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">'https://ncv.kdca.go.kr/mainStatus.es?mid=a11702000000'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'2차접종'</span><span class="p">][</span><span class="s1">'당일 실적'</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">18</span><span class="p">]]})</span>
-<span class="n">df</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_63047/3665722581.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'key'</span><span class="ansi-blue-fg">:</span>list<span class="ansi-blue-fg">(</span>df<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">'value'</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>pd<span class="ansi-blue-fg">.</span>read_html<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'https://ncv.kdca.go.kr/mainStatus.es?mid=a11702000000'</span><span class="ansi-blue-fg">,</span>encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'utf-8'</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'2차접종'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'당일 실적'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">18</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> df
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, data, index, columns, dtype, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    612</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dict<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    613</span>             <span class="ansi-red-fg"># GH#38939 de facto copy defaults to False only in non-dict cases</span>
-<span class="ansi-green-fg">--&gt; 614</span><span class="ansi-red-fg">             </span>mgr <span class="ansi-blue-fg">=</span> dict_to_mgr<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> columns<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">,</span> typ<span class="ansi-blue-fg">=</span>manager<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    615</span>         <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> ma<span class="ansi-blue-fg">.</span>MaskedArray<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    616</span>             <span class="ansi-green-fg">import</span> numpy<span class="ansi-blue-fg">.</span>ma<span class="ansi-blue-fg">.</span>mrecords <span class="ansi-green-fg">as</span> mrecords
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">dict_to_mgr</span><span class="ansi-blue-fg">(data, index, columns, dtype, typ, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    462</span>         <span class="ansi-red-fg"># TODO: can we get rid of the dt64tz special case above?</span>
-<span class="ansi-green-intense-fg ansi-bold">    463</span> 
-<span class="ansi-green-fg">--&gt; 464</span><span class="ansi-red-fg">     return arrays_to_mgr(
-</span><span class="ansi-green-intense-fg ansi-bold">    465</span>         arrays<span class="ansi-blue-fg">,</span> data_names<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">,</span> columns<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> typ<span class="ansi-blue-fg">=</span>typ<span class="ansi-blue-fg">,</span> consolidate<span class="ansi-blue-fg">=</span>copy
-<span class="ansi-green-intense-fg ansi-bold">    466</span>     )
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">arrays_to_mgr</span><span class="ansi-blue-fg">(arrays, arr_names, index, columns, dtype, verify_integrity, typ, consolidate)</span>
-<span class="ansi-green-intense-fg ansi-bold">    117</span>         <span class="ansi-red-fg"># figure out the index, if necessary</span>
-<span class="ansi-green-intense-fg ansi-bold">    118</span>         <span class="ansi-green-fg">if</span> index <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 119</span><span class="ansi-red-fg">             </span>index <span class="ansi-blue-fg">=</span> _extract_index<span class="ansi-blue-fg">(</span>arrays<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    120</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    121</span>             index <span class="ansi-blue-fg">=</span> ensure_index<span class="ansi-blue-fg">(</span>index<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ansi-cyan-fg">_extract_index</span><span class="ansi-blue-fg">(data)</span>
-<span class="ansi-green-intense-fg ansi-bold">    633</span>             lengths <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>set<span class="ansi-blue-fg">(</span>raw_lengths<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    634</span>             <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>lengths<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 635</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> ValueError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"All arrays must be of the same length"</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    636</span> 
-<span class="ansi-green-intense-fg ansi-bold">    637</span>             <span class="ansi-green-fg">if</span> have_dicts<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">ValueError</span>: All arrays must be of the same length</pre>
-</div>
-</div>
-
 </div>
 </div>
 
