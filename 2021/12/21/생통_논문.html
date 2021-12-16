@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>생물통계학 기말 과제_논문 해석 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="생물통계학 기말 과제_논문 해석" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Effect of Intensive vs Standard Blood Pressure Control on Probable Dementia" />
+<meta property="og:description" content="Effect of Intensive vs Standard Blood Pressure Control on Probable Dementia" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/2021/12/21/%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/2021/12/21/%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Effect of Intensive vs Standard Blood Pressure Control on Probable Dementia","url":"https://seoyeonc.github.io/chch/2021/12/21/%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.html","@type":"BlogPosting","headline":"생물통계학 기말 과제_논문 해석","dateModified":"2021-12-21T00:00:00-06:00","datePublished":"2021-12-21T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/2021/12/21/%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">생물통계학 기말 과제_논문 해석</h1><p class="page-description">Effect of Intensive vs Standard Blood Pressure Control on Probable Dementia</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-12-21T00:00:00-06:00" itemprop="datePublished">
+        Dec 21, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2021-12-21-생통_논문.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2021-12-21-%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2021-12-21-생통_논문.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#A.-Title-and-abstract">A. Title and abstract </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Is-the-trial-identified-as-a-RCT-in-the-title?">1. Is the trial identified as a RCT in the title? </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-Is-the-trial-identified-as-a-RCT-in-the-title?">2. Is the trial identified as a RCT in the title? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#B.-Introduction">B. Introduction </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Is-a-proper-description-provided-of-the-scientific-background,-and-is-the-rationale-for-the-trial-explained-sufficiently?-Has-all-the-relevant-information-from-previous-studies-and-other-available-evidence-been-included?">1. Is a proper description provided of the scientific background, and is the rationale for the trial explained sufficiently? Has all the relevant information from previous studies and other available evidence been included? </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-Is-the-primary-aim-of-the-trial-indicated,-preferably-in-relation-to-a-relevant-hypothesis-based-on-the-outcome-of-interest,-and-are-secondary-objectives-described?">2. Is the primary aim of the trial indicated, preferably in relation to a relevant hypothesis based on the outcome of interest, and are secondary objectives described? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#C.-Methods">C. Methods </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Trial-design-Is-the-trial-design-described-adequately?-Are-any-aspects-of-the-design-utilized-to-avoid-bias-fully-described?-For-example:">1. Trial design Is the trial design described adequately? Are any aspects of the design utilized to avoid bias fully described? For example: </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Randomization.-Are-full-details-of-the-randomization-process-provided,-including-the-method-used-to-generate-the-random-allocation-sequence,-the-type-of-randomization,-steps-taken-to-conceal-the-allocation-sequence-and-details-of-the-implementation-of-the-randomization-(e.g.-who-enrolled-the-participants-and-who-assigned-the-participants-to-the-interventions)?">a) Randomization. Are full details of the randomization process provided, including the method used to generate the random allocation sequence, the type of randomization, steps taken to conceal the allocation sequence and details of the implementation of the randomization (e.g. who enrolled the participants and who assigned the participants to the interventions)? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Blinding.-To-what-extent-was-the-study-blind?-If-relevant,-is-a-description-provided-of-the-similarity-of-the-interventions)?">b) Blinding. To what extent was the study blind? If relevant, is a description provided of the similarity of the interventions)? </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-Allocation-concealment.-Was-the-allocation-sequence-concealed-from-the-staff-who-recruited-patients-for-the-trial?">c) Allocation concealment. Was the allocation sequence concealed from the staff who recruited patients for the trial? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2.-Participants">2. Participants </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-there-a-complete-description-of-the-eligibility-(inclusion-and-exclusion)-criteria-for-the-participants?">a) Is there a complete description of the eligibility (inclusion and exclusion) criteria for the participants? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Was-the-study-conducted-using-an-appropriate-spectrum-of-patients?">b) Was the study conducted using an appropriate spectrum of patients? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#3.-Interventions">3. Interventions </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-the-intervention-(treatment-and/or-placebo,-if-appropriate)-for-each-group-described-in-sufficient-detail?">a) Is the intervention (treatment and/or placebo, if appropriate) for each group described in sufficient detail? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Were-the-groups-treated-in-similar-fashion,-aside-from-the-fact-that-they-received-different-Interventions?">b) Were the groups treated in similar fashion, aside from the fact that they received different Interventions? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#4.-Outcomes">4. Outcomes </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-consideration-given-to-all-the-important-outcomes?">a) Is consideration given to all the important outcomes? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Are-the-primary-and-secondary-outcomes-defined-precisely?">b) Are the primary and secondary outcomes defined precisely? </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-Were-there-any-changes-to-the-outcomes-after-the-trial-started?">c) Were there any changes to the outcomes after the trial started? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#5.-Sample-size">5. Sample size </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-there-a-power-statement-to-justify-the-overall-sample-size?-Does-this-power-statement-indicate-the-form-of-the-statistical-analysis-on-which-it-is-based,-and-does-it-include-a-specification-of-the-values-of-all-the-factors-that-affect-sample-size-for-this-calculation?">a) Is there a power statement to justify the overall sample size? Does this power statement indicate the form of the statistical analysis on which it is based, and does it include a specification of the values of all the factors that affect sample size for this calculation? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-If-relevant,-is-there-a-full-explanation-of-any-interim-analysis,-including-the-steps-taken-to-reduce-the-Type-1-error-rate?">b) If relevant, is there a full explanation of any interim analysis, including the steps taken to reduce the Type 1 error rate? </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-If-subgroup-analyses-have-been-performed,-is-there-a-justification-for-the-subgroup-sample-sizes,-based-on-power-calculations,-and-a-description-of-the-steps-taken-to-reduce-the-Type-1-error-rate?-Alternatively.,-are-these-subgroup-analysis-specified-as-being-exploratory-in-nature,-with-an-indication-that-they-may-be-under-powered?">c) If subgroup analyses have been performed, is there a justification for the subgroup sample sizes, based on power calculations, and a description of the steps taken to reduce the Type 1 error rate? Alternatively., are these subgroup analysis specified as being exploratory in nature, with an indication that they may be under-powered? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.-Statistical-methods">6. Statistical methods </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Are-all-the-statistical-methods-used-to-compare-groups-for-primary-and-secondary-outcomes-identified?">a) Are all the statistical methods used to compare groups for primary and secondary outcomes identified? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Are-the-statistical-methods-appropriate-(e.g.-have-underlying-assumptions-been-verified,-and-have-dependencies-in-the-data-(e.g.-pairing)-beem-taken-into-account-in-the-analysis?)?">b) Are the statistical methods appropriate (e.g. have underlying assumptions been verified, and have dependencies in the data (e.g. pairing) beem taken into account in the analysis?)? </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-Is-there-a-description-of-additional-analysis,-such-as-subgroup-analysis?-Were-any-additional-analyses-undertaken-specified-a-priori,-or-were-they-post-hoc-analyses?">c) Is there a description of additional analysis, such as subgroup analysis? Were any additional analyses undertaken specified a priori, or were they post hoc analyses? </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#D.-Results">D. Results </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Participant-numbers-and-dates">1. Participant numbers and dates </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-there-a-full-explanation-(preferably-in-a-participant-flow-chart),-for-each-treatment-group,-of-the-numbers-of-participants-who-were-randomly-assigned,-received-the-intended-treatment-and-were-analyzed-for-the-primary-outcome?">a) Is there a full explanation (preferably in a participant flow chart), for each treatment group, of the numbers of participants who were randomly assigned, received the intended treatment and were analyzed for the primary outcome? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-If-relevant,-are-numbers-of-and-reasons-for-losses-to-follow-up-and-exclusions-after-randomization-documented?">b) If relevant, are numbers of and reasons for losses to follow-up and exclusions after randomization documented? </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-Are-dates-provided-which-define-the-periods-of-recruitment-and-follow-up?">c) Are dates provided which define the periods of recruitment and follow-up? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2.-Baseline-data">2. Baseline data </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-there-a-table-which-shows-the-baseline-demographic-and-clinical-characteristics-for-each-group?">a) Is there a table which shows the baseline demographic and clinical characteristics for each group? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Are-the-groups-comparable?">b) Are the groups comparable? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#3.-Numbers-analyzed">3. Numbers analyzed </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Is-there-a-specification-of-whether-an-‘Intention-to-treat’-(ITT)-analysis-was-performed?-Is-a-justification-given-for-the-choice-of-analysis-(ITT-or-other),-and-is-this-appropriate?">a) Is there a specification of whether an ‘Intention-to-treat’ (ITT) analysis was performed? Is a justification given for the choice of analysis (ITT or other), and is this appropriate? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-If-there-were-protocol-deviations,-was-a-sensitivity-analysis-performed-(e.g.-as-per-protocol-analysis-or-an-analysis-with-imputed-data-for-missing-observations)?">b) If there were protocol deviations, was a sensitivity analysis performed (e.g. as per protocol analysis or an analysis with imputed data for missing observations)? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#4.-Outcomes-of-interest">4. Outcomes of interest </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Main-outcome-of-interest.-Is-an-appropriate-summary-measure-given-the-main-outcome-variable-(i.e.-that-which-relates-to-the-primary-aim-of-the-study)-for-each-comparison-group?-An-example-is-the-rate,-risk-or-odds-of-occurrence-of-the-outcome-(e.g.-death)-if-the-outcome-variable-is-binary,-stating-results-in-absolute-numbers-when-feasible;-or-the-mean-(median)-if-the-outcome-variable-is-numerical.">a) Main outcome of interest. Is an appropriate summary measure given the main outcome variable (i.e. that which relates to the primary aim of the study) for each comparison group? An example is the rate, risk or odds of occurrence of the outcome (e.g. death) if the outcome variable is binary, stating results in absolute numbers when feasible; or the mean (median) if the outcome variable is numerical. </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Magnitude-of-the-effect-of-interest.-Is-there-an-indication-of-the-magnitude-of-the-interest?-Examples-include-a-ratio-such-as-the-relative-rate,-risk,-or-odds,-or-a-difference-such-as-the-absolute-difference-in-risk,-if-the-outcome-variable-is-binary;-or-a-difference-in-means-(medians)-if-the-main-outcome-variable-is-numerical.">b) Magnitude of the effect of interest. Is there an indication of the magnitude of the interest? Examples include a ratio such as the relative rate, risk, or odds, or a difference such as the absolute difference in risk, if the outcome variable is binary; or a difference in means (medians) if the main outcome variable is numerical. </a></li>
+<li class="toc-entry toc-h4"><a href="#c)-Precision-of-the-effect-of-interest.-Is-there-an-indication-of-the-precision-of-the-effect-of-interest-(e.g.-a-95%-confidence-interval-or-standard-error)?">c) Precision of the effect of interest. Is there an indication of the precision of the effect of interest (e.g. a 95% confidence interval or standard error)? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#5.-Additional-analyses:-If-additional-(e.g.-subgroup)-analyses-performed,-are-their-results-provided,-and-are-any-exploratory-analyses-distinguished-from-harms-in-each-group-documented?">5. Additional analyses: If additional (e.g. subgroup) analyses performed, are their results provided, and are any exploratory analyses distinguished from harms in each group documented? </a></li>
+<li class="toc-entry toc-h3"><a href="#6.-Harms:-Are-all-important-harms-in-each-group-documented?">6. Harms: Are all important harms in each group documented? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#E.-Discussion">E. Discussion </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Deciding-whether-the-results-are-important">1. Deciding whether the results are important </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#a)-Are-the-key-findings-summarized-with-reference-to-the-trial-objectives?">a) Are the key findings summarized with reference to the trial objectives? </a></li>
+<li class="toc-entry toc-h4"><a href="#b)-Do-the-results-make-biological-sense?-If-a-confidence-interval-for-the-effect-of-interest-(e.g.-the-difference-in-treatment-means)-has-been-provided:">b) Do the results make biological sense? If a confidence interval for the effect of interest (e.g. the difference in treatment means) has been provided: </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#(i)-Would-you-regard-the-observed-effect-clinically-important-(irrespective-of-whether-or-not-the-result-of-the-relevant-hypothesis-test-is-statistically-significant)-if-lower-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">(i) Would you regard the observed effect clinically important (irrespective of whether or not the result of the relevant hypothesis test is statistically significant) if lower limit of the confidence interval represented the true value of the effect? </a></li>
+<li class="toc-entry toc-h5"><a href="#(ii).-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">(ii). Would you regard the observed effect clinically import if the upper limit of the confidence interval represented the true value of the effect? </a></li>
+<li class="toc-entry toc-h5"><a href="#(iii)-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">(iii) Would you regard the observed effect clinically import if the upper limit of the confidence interval represented the true value of the effect? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#c)-Is-there-an-evaluation-of-the-number-of-patients-needed-to-treat-(NNT)-with-the-experimental-treatment,-rather-than-the-control-treatment-in-order-to-prevent-one-of-them-from-developing-the-“bad”-outcome?">c) Is there an evaluation of the number of patients needed to treat (NNT) with the experimental treatment, rather than the control treatment in order to prevent one of them from developing the “bad” outcome? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2.-Limitations:-Is-there-a-discussion-of-all-the-trial-limitations,-including-sources-of-potential-bias-and-imprecision?">2. Limitations: Is there a discussion of all the trial limitations, including sources of potential bias and imprecision? </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-Generalizability:-Is-there-a-discussion-of-the-generalizability-(external-valid)-of-the-trial-findings-(i.e.-the-extent-to-which-the-participants-are-representative-of-the-wider-population)?">3. Generalizability: Is there a discussion of the generalizability (external valid) of the trial findings (i.e. the extent to which the participants are representative of the wider population)? </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-Interpretation:-Taking-the-benefits-and-harms-into-consideration,-as-well-as-the-limitations-of-the-trial,-any-multiple-testing-and-subgroup-analyses,-is-the-interpretation-of-the-trial-findings-consistent-with-the-results?">4. Interpretation: Taking the benefits and harms into consideration, as well as the limitations of the trial, any multiple testing and subgroup analyses, is the interpretation of the trial findings consistent with the results? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#F.-Other-information">F. Other information </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Registration:-Are-the-trial-registration-number-and-the-name-of-the-trial-registry-provided?">1. Registration: Are the trial registration number and the name of the trial registry provided? </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-Protocol:-Is-there-information-about-where-the-protocol-can-be-accessed?">2. Protocol: Is there information about where the protocol can be accessed? </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-Funding:-Are-sources-of-finding-documented?">3. Funding: Are sources of finding documented? </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-Conflict-of-interest:-Is-there-a-conflict-of-interest-statement-for-each-of-the-investigators?">4. Conflict of interest: Is there a conflict of interest statement for each of the investigators? </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-12-21-생통_논문.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.-Title-and-abstract">
+<a class="anchor" href="#A.-Title-and-abstract" aria-hidden="true"><span class="octicon octicon-link"></span></a>A. Title and abstract<a class="anchor-link" href="#A.-Title-and-abstract"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Is-the-trial-identified-as-a-RCT-in-the-title?">
+<a class="anchor" href="#1.-Is-the-trial-identified-as-a-RCT-in-the-title?" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Is the trial identified as a RCT in the title?<a class="anchor-link" href="#1.-Is-the-trial-identified-as-a-RCT-in-the-title?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Is-the-trial-identified-as-a-RCT-in-the-title?">
+<a class="anchor" href="#2.-Is-the-trial-identified-as-a-RCT-in-the-title?" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Is the trial identified as a RCT in the title?<a class="anchor-link" href="#2.-Is-the-trial-identified-as-a-RCT-in-the-title?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="B.-Introduction">
+<a class="anchor" href="#B.-Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. Introduction<a class="anchor-link" href="#B.-Introduction"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Is-a-proper-description-provided-of-the-scientific-background,-and-is-the-rationale-for-the-trial-explained-sufficiently?-Has-all-the-relevant-information-from-previous-studies-and-other-available-evidence-been-included?">
+<a class="anchor" href="#1.-Is-a-proper-description-provided-of-the-scientific-background,-and-is-the-rationale-for-the-trial-explained-sufficiently?-Has-all-the-relevant-information-from-previous-studies-and-other-available-evidence-been-included?" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Is a proper description provided of the scientific background, and is the rationale for the trial explained sufficiently? Has all the relevant information from previous studies and other available evidence been included?<a class="anchor-link" href="#1.-Is-a-proper-description-provided-of-the-scientific-background,-and-is-the-rationale-for-the-trial-explained-sufficiently?-Has-all-the-relevant-information-from-previous-studies-and-other-available-evidence-been-included?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Is-the-primary-aim-of-the-trial-indicated,-preferably-in-relation-to-a-relevant-hypothesis-based-on-the-outcome-of-interest,-and-are-secondary-objectives-described?">
+<a class="anchor" href="#2.-Is-the-primary-aim-of-the-trial-indicated,-preferably-in-relation-to-a-relevant-hypothesis-based-on-the-outcome-of-interest,-and-are-secondary-objectives-described?" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Is the primary aim of the trial indicated, preferably in relation to a relevant hypothesis based on the outcome of interest, and are secondary objectives described?<a class="anchor-link" href="#2.-Is-the-primary-aim-of-the-trial-indicated,-preferably-in-relation-to-a-relevant-hypothesis-based-on-the-outcome-of-interest,-and-are-secondary-objectives-described?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="C.-Methods">
+<a class="anchor" href="#C.-Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>C. Methods<a class="anchor-link" href="#C.-Methods"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Trial-design-Is-the-trial-design-described-adequately?-Are-any-aspects-of-the-design-utilized-to-avoid-bias-fully-described?-For-example:">
+<a class="anchor" href="#1.-Trial-design-Is-the-trial-design-described-adequately?-Are-any-aspects-of-the-design-utilized-to-avoid-bias-fully-described?-For-example:" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Trial design Is the trial design described adequately? Are any aspects of the design utilized to avoid bias fully described? For example:<a class="anchor-link" href="#1.-Trial-design-Is-the-trial-design-described-adequately?-Are-any-aspects-of-the-design-utilized-to-avoid-bias-fully-described?-For-example:"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Randomization.-Are-full-details-of-the-randomization-process-provided,-including-the-method-used-to-generate-the-random-allocation-sequence,-the-type-of-randomization,-steps-taken-to-conceal-the-allocation-sequence-and-details-of-the-implementation-of-the-randomization-(e.g.-who-enrolled-the-participants-and-who-assigned-the-participants-to-the-interventions)?">
+<a class="anchor" href="#a)-Randomization.-Are-full-details-of-the-randomization-process-provided,-including-the-method-used-to-generate-the-random-allocation-sequence,-the-type-of-randomization,-steps-taken-to-conceal-the-allocation-sequence-and-details-of-the-implementation-of-the-randomization-(e.g.-who-enrolled-the-participants-and-who-assigned-the-participants-to-the-interventions)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Randomization. Are full details of the randomization process provided, including the method used to generate the random allocation sequence, the type of randomization, steps taken to conceal the allocation sequence and details of the implementation of the randomization (e.g. who enrolled the participants and who assigned the participants to the interventions)?<a class="anchor-link" href="#a)-Randomization.-Are-full-details-of-the-randomization-process-provided,-including-the-method-used-to-generate-the-random-allocation-sequence,-the-type-of-randomization,-steps-taken-to-conceal-the-allocation-sequence-and-details-of-the-implementation-of-the-randomization-(e.g.-who-enrolled-the-participants-and-who-assigned-the-participants-to-the-interventions)?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Blinding.-To-what-extent-was-the-study-blind?-If-relevant,-is-a-description-provided-of-the-similarity-of-the-interventions)?">
+<a class="anchor" href="#b)-Blinding.-To-what-extent-was-the-study-blind?-If-relevant,-is-a-description-provided-of-the-similarity-of-the-interventions)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Blinding. To what extent was the study blind? If relevant, is a description provided of the similarity of the interventions)?<a class="anchor-link" href="#b)-Blinding.-To-what-extent-was-the-study-blind?-If-relevant,-is-a-description-provided-of-the-similarity-of-the-interventions)?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Allocation-concealment.-Was-the-allocation-sequence-concealed-from-the-staff-who-recruited-patients-for-the-trial?">
+<a class="anchor" href="#c)-Allocation-concealment.-Was-the-allocation-sequence-concealed-from-the-staff-who-recruited-patients-for-the-trial?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Allocation concealment. Was the allocation sequence concealed from the staff who recruited patients for the trial?<a class="anchor-link" href="#c)-Allocation-concealment.-Was-the-allocation-sequence-concealed-from-the-staff-who-recruited-patients-for-the-trial?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Participants">
+<a class="anchor" href="#2.-Participants" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Participants<a class="anchor-link" href="#2.-Participants"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-there-a-complete-description-of-the-eligibility-(inclusion-and-exclusion)-criteria-for-the-participants?">
+<a class="anchor" href="#a)-Is-there-a-complete-description-of-the-eligibility-(inclusion-and-exclusion)-criteria-for-the-participants?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is there a complete description of the eligibility (inclusion and exclusion) criteria for the participants?<a class="anchor-link" href="#a)-Is-there-a-complete-description-of-the-eligibility-(inclusion-and-exclusion)-criteria-for-the-participants?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Was-the-study-conducted-using-an-appropriate-spectrum-of-patients?">
+<a class="anchor" href="#b)-Was-the-study-conducted-using-an-appropriate-spectrum-of-patients?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Was the study conducted using an appropriate spectrum of patients?<a class="anchor-link" href="#b)-Was-the-study-conducted-using-an-appropriate-spectrum-of-patients?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Interventions">
+<a class="anchor" href="#3.-Interventions" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Interventions<a class="anchor-link" href="#3.-Interventions"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-the-intervention-(treatment-and/or-placebo,-if-appropriate)-for-each-group-described-in-sufficient-detail?">
+<a class="anchor" href="#a)-Is-the-intervention-(treatment-and/or-placebo,-if-appropriate)-for-each-group-described-in-sufficient-detail?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is the intervention (treatment and/or placebo, if appropriate) for each group described in sufficient detail?<a class="anchor-link" href="#a)-Is-the-intervention-(treatment-and/or-placebo,-if-appropriate)-for-each-group-described-in-sufficient-detail?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Were-the-groups-treated-in-similar-fashion,-aside-from-the-fact-that-they-received-different-Interventions?">
+<a class="anchor" href="#b)-Were-the-groups-treated-in-similar-fashion,-aside-from-the-fact-that-they-received-different-Interventions?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Were the groups treated in similar fashion, aside from the fact that they received different Interventions?<a class="anchor-link" href="#b)-Were-the-groups-treated-in-similar-fashion,-aside-from-the-fact-that-they-received-different-Interventions?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Outcomes">
+<a class="anchor" href="#4.-Outcomes" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Outcomes<a class="anchor-link" href="#4.-Outcomes"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-consideration-given-to-all-the-important-outcomes?">
+<a class="anchor" href="#a)-Is-consideration-given-to-all-the-important-outcomes?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is consideration given to all the important outcomes?<a class="anchor-link" href="#a)-Is-consideration-given-to-all-the-important-outcomes?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Are-the-primary-and-secondary-outcomes-defined-precisely?">
+<a class="anchor" href="#b)-Are-the-primary-and-secondary-outcomes-defined-precisely?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Are the primary and secondary outcomes defined precisely?<a class="anchor-link" href="#b)-Are-the-primary-and-secondary-outcomes-defined-precisely?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Were-there-any-changes-to-the-outcomes-after-the-trial-started?">
+<a class="anchor" href="#c)-Were-there-any-changes-to-the-outcomes-after-the-trial-started?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Were there any changes to the outcomes after the trial started?<a class="anchor-link" href="#c)-Were-there-any-changes-to-the-outcomes-after-the-trial-started?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Sample-size">
+<a class="anchor" href="#5.-Sample-size" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Sample size<a class="anchor-link" href="#5.-Sample-size"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-there-a-power-statement-to-justify-the-overall-sample-size?-Does-this-power-statement-indicate-the-form-of-the-statistical-analysis-on-which-it-is-based,-and-does-it-include-a-specification-of-the-values-of-all-the-factors-that-affect-sample-size-for-this-calculation?">
+<a class="anchor" href="#a)-Is-there-a-power-statement-to-justify-the-overall-sample-size?-Does-this-power-statement-indicate-the-form-of-the-statistical-analysis-on-which-it-is-based,-and-does-it-include-a-specification-of-the-values-of-all-the-factors-that-affect-sample-size-for-this-calculation?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is there a power statement to justify the overall sample size? Does this power statement indicate the form of the statistical analysis on which it is based, and does it include a specification of the values of all the factors that affect sample size for this calculation?<a class="anchor-link" href="#a)-Is-there-a-power-statement-to-justify-the-overall-sample-size?-Does-this-power-statement-indicate-the-form-of-the-statistical-analysis-on-which-it-is-based,-and-does-it-include-a-specification-of-the-values-of-all-the-factors-that-affect-sample-size-for-this-calculation?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-If-relevant,-is-there-a-full-explanation-of-any-interim-analysis,-including-the-steps-taken-to-reduce-the-Type-1-error-rate?">
+<a class="anchor" href="#b)-If-relevant,-is-there-a-full-explanation-of-any-interim-analysis,-including-the-steps-taken-to-reduce-the-Type-1-error-rate?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) If relevant, is there a full explanation of any interim analysis, including the steps taken to reduce the Type 1 error rate?<a class="anchor-link" href="#b)-If-relevant,-is-there-a-full-explanation-of-any-interim-analysis,-including-the-steps-taken-to-reduce-the-Type-1-error-rate?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-If-subgroup-analyses-have-been-performed,-is-there-a-justification-for-the-subgroup-sample-sizes,-based-on-power-calculations,-and-a-description-of-the-steps-taken-to-reduce-the-Type-1-error-rate?-Alternatively.,-are-these-subgroup-analysis-specified-as-being-exploratory-in-nature,-with-an-indication-that-they-may-be-under-powered?">
+<a class="anchor" href="#c)-If-subgroup-analyses-have-been-performed,-is-there-a-justification-for-the-subgroup-sample-sizes,-based-on-power-calculations,-and-a-description-of-the-steps-taken-to-reduce-the-Type-1-error-rate?-Alternatively.,-are-these-subgroup-analysis-specified-as-being-exploratory-in-nature,-with-an-indication-that-they-may-be-under-powered?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) If subgroup analyses have been performed, is there a justification for the subgroup sample sizes, based on power calculations, and a description of the steps taken to reduce the Type 1 error rate? Alternatively., are these subgroup analysis specified as being exploratory in nature, with an indication that they may be under-powered?<a class="anchor-link" href="#c)-If-subgroup-analyses-have-been-performed,-is-there-a-justification-for-the-subgroup-sample-sizes,-based-on-power-calculations,-and-a-description-of-the-steps-taken-to-reduce-the-Type-1-error-rate?-Alternatively.,-are-these-subgroup-analysis-specified-as-being-exploratory-in-nature,-with-an-indication-that-they-may-be-under-powered?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.-Statistical-methods">
+<a class="anchor" href="#6.-Statistical-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Statistical methods<a class="anchor-link" href="#6.-Statistical-methods"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Are-all-the-statistical-methods-used-to-compare-groups-for-primary-and-secondary-outcomes-identified?">
+<a class="anchor" href="#a)-Are-all-the-statistical-methods-used-to-compare-groups-for-primary-and-secondary-outcomes-identified?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Are all the statistical methods used to compare groups for primary and secondary outcomes identified?<a class="anchor-link" href="#a)-Are-all-the-statistical-methods-used-to-compare-groups-for-primary-and-secondary-outcomes-identified?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Are-the-statistical-methods-appropriate-(e.g.-have-underlying-assumptions-been-verified,-and-have-dependencies-in-the-data-(e.g.-pairing)-beem-taken-into-account-in-the-analysis?)?">
+<a class="anchor" href="#b)-Are-the-statistical-methods-appropriate-(e.g.-have-underlying-assumptions-been-verified,-and-have-dependencies-in-the-data-(e.g.-pairing)-beem-taken-into-account-in-the-analysis?)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Are the statistical methods appropriate (e.g. have underlying assumptions been verified, and have dependencies in the data (e.g. pairing) beem taken into account in the analysis?)?<a class="anchor-link" href="#b)-Are-the-statistical-methods-appropriate-(e.g.-have-underlying-assumptions-been-verified,-and-have-dependencies-in-the-data-(e.g.-pairing)-beem-taken-into-account-in-the-analysis?)?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Is-there-a-description-of-additional-analysis,-such-as-subgroup-analysis?-Were-any-additional-analyses-undertaken-specified-a-priori,-or-were-they-post-hoc-analyses?">
+<a class="anchor" href="#c)-Is-there-a-description-of-additional-analysis,-such-as-subgroup-analysis?-Were-any-additional-analyses-undertaken-specified-a-priori,-or-were-they-post-hoc-analyses?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Is there a description of additional analysis, such as subgroup analysis? Were any additional analyses undertaken specified a priori, or were they post hoc analyses?<a class="anchor-link" href="#c)-Is-there-a-description-of-additional-analysis,-such-as-subgroup-analysis?-Were-any-additional-analyses-undertaken-specified-a-priori,-or-were-they-post-hoc-analyses?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="D.-Results">
+<a class="anchor" href="#D.-Results" aria-hidden="true"><span class="octicon octicon-link"></span></a>D. Results<a class="anchor-link" href="#D.-Results"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Participant-numbers-and-dates">
+<a class="anchor" href="#1.-Participant-numbers-and-dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Participant numbers and dates<a class="anchor-link" href="#1.-Participant-numbers-and-dates"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-there-a-full-explanation-(preferably-in-a-participant-flow-chart),-for-each-treatment-group,-of-the-numbers-of-participants-who-were-randomly-assigned,-received-the-intended-treatment-and-were-analyzed-for-the-primary-outcome?">
+<a class="anchor" href="#a)-Is-there-a-full-explanation-(preferably-in-a-participant-flow-chart),-for-each-treatment-group,-of-the-numbers-of-participants-who-were-randomly-assigned,-received-the-intended-treatment-and-were-analyzed-for-the-primary-outcome?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is there a full explanation (preferably in a participant flow chart), for each treatment group, of the numbers of participants who were randomly assigned, received the intended treatment and were analyzed for the primary outcome?<a class="anchor-link" href="#a)-Is-there-a-full-explanation-(preferably-in-a-participant-flow-chart),-for-each-treatment-group,-of-the-numbers-of-participants-who-were-randomly-assigned,-received-the-intended-treatment-and-were-analyzed-for-the-primary-outcome?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-If-relevant,-are-numbers-of-and-reasons-for-losses-to-follow-up-and-exclusions-after-randomization-documented?">
+<a class="anchor" href="#b)-If-relevant,-are-numbers-of-and-reasons-for-losses-to-follow-up-and-exclusions-after-randomization-documented?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) If relevant, are numbers of and reasons for losses to follow-up and exclusions after randomization documented?<a class="anchor-link" href="#b)-If-relevant,-are-numbers-of-and-reasons-for-losses-to-follow-up-and-exclusions-after-randomization-documented?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Are-dates-provided-which-define-the-periods-of-recruitment-and-follow-up?">
+<a class="anchor" href="#c)-Are-dates-provided-which-define-the-periods-of-recruitment-and-follow-up?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Are dates provided which define the periods of recruitment and follow-up?<a class="anchor-link" href="#c)-Are-dates-provided-which-define-the-periods-of-recruitment-and-follow-up?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Baseline-data">
+<a class="anchor" href="#2.-Baseline-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Baseline data<a class="anchor-link" href="#2.-Baseline-data"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-there-a-table-which-shows-the-baseline-demographic-and-clinical-characteristics-for-each-group?">
+<a class="anchor" href="#a)-Is-there-a-table-which-shows-the-baseline-demographic-and-clinical-characteristics-for-each-group?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is there a table which shows the baseline demographic and clinical characteristics for each group?<a class="anchor-link" href="#a)-Is-there-a-table-which-shows-the-baseline-demographic-and-clinical-characteristics-for-each-group?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Are-the-groups-comparable?">
+<a class="anchor" href="#b)-Are-the-groups-comparable?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Are the groups comparable?<a class="anchor-link" href="#b)-Are-the-groups-comparable?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Numbers-analyzed">
+<a class="anchor" href="#3.-Numbers-analyzed" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Numbers analyzed<a class="anchor-link" href="#3.-Numbers-analyzed"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Is-there-a-specification-of-whether-an-‘Intention-to-treat’-(ITT)-analysis-was-performed?-Is-a-justification-given-for-the-choice-of-analysis-(ITT-or-other),-and-is-this-appropriate?">
+<a class="anchor" href="#a)-Is-there-a-specification-of-whether-an-%E2%80%98Intention-to-treat%E2%80%99-(ITT)-analysis-was-performed?-Is-a-justification-given-for-the-choice-of-analysis-(ITT-or-other),-and-is-this-appropriate?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Is there a specification of whether an ‘Intention-to-treat’ (ITT) analysis was performed? Is a justification given for the choice of analysis (ITT or other), and is this appropriate?<a class="anchor-link" href="#a)-Is-there-a-specification-of-whether-an-%E2%80%98Intention-to-treat%E2%80%99-(ITT)-analysis-was-performed?-Is-a-justification-given-for-the-choice-of-analysis-(ITT-or-other),-and-is-this-appropriate?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-If-there-were-protocol-deviations,-was-a-sensitivity-analysis-performed-(e.g.-as-per-protocol-analysis-or-an-analysis-with-imputed-data-for-missing-observations)?">
+<a class="anchor" href="#b)-If-there-were-protocol-deviations,-was-a-sensitivity-analysis-performed-(e.g.-as-per-protocol-analysis-or-an-analysis-with-imputed-data-for-missing-observations)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) If there were protocol deviations, was a sensitivity analysis performed (e.g. as per protocol analysis or an analysis with imputed data for missing observations)?<a class="anchor-link" href="#b)-If-there-were-protocol-deviations,-was-a-sensitivity-analysis-performed-(e.g.-as-per-protocol-analysis-or-an-analysis-with-imputed-data-for-missing-observations)?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Outcomes-of-interest">
+<a class="anchor" href="#4.-Outcomes-of-interest" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Outcomes of interest<a class="anchor-link" href="#4.-Outcomes-of-interest"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Main-outcome-of-interest.-Is-an-appropriate-summary-measure-given-the-main-outcome-variable-(i.e.-that-which-relates-to-the-primary-aim-of-the-study)-for-each-comparison-group?-An-example-is-the-rate,-risk-or-odds-of-occurrence-of-the-outcome-(e.g.-death)-if-the-outcome-variable-is-binary,-stating-results-in-absolute-numbers-when-feasible;-or-the-mean-(median)-if-the-outcome-variable-is-numerical.">
+<a class="anchor" href="#a)-Main-outcome-of-interest.-Is-an-appropriate-summary-measure-given-the-main-outcome-variable-(i.e.-that-which-relates-to-the-primary-aim-of-the-study)-for-each-comparison-group?-An-example-is-the-rate,-risk-or-odds-of-occurrence-of-the-outcome-(e.g.-death)-if-the-outcome-variable-is-binary,-stating-results-in-absolute-numbers-when-feasible;-or-the-mean-(median)-if-the-outcome-variable-is-numerical." aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Main outcome of interest. Is an appropriate summary measure given the main outcome variable (i.e. that which relates to the primary aim of the study) for each comparison group? An example is the rate, risk or odds of occurrence of the outcome (e.g. death) if the outcome variable is binary, stating results in absolute numbers when feasible; or the mean (median) if the outcome variable is numerical.<a class="anchor-link" href="#a)-Main-outcome-of-interest.-Is-an-appropriate-summary-measure-given-the-main-outcome-variable-(i.e.-that-which-relates-to-the-primary-aim-of-the-study)-for-each-comparison-group?-An-example-is-the-rate,-risk-or-odds-of-occurrence-of-the-outcome-(e.g.-death)-if-the-outcome-variable-is-binary,-stating-results-in-absolute-numbers-when-feasible;-or-the-mean-(median)-if-the-outcome-variable-is-numerical."> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Magnitude-of-the-effect-of-interest.-Is-there-an-indication-of-the-magnitude-of-the-interest?-Examples-include-a-ratio-such-as-the-relative-rate,-risk,-or-odds,-or-a-difference-such-as-the-absolute-difference-in-risk,-if-the-outcome-variable-is-binary;-or-a-difference-in-means-(medians)-if-the-main-outcome-variable-is-numerical.">
+<a class="anchor" href="#b)-Magnitude-of-the-effect-of-interest.-Is-there-an-indication-of-the-magnitude-of-the-interest?-Examples-include-a-ratio-such-as-the-relative-rate,-risk,-or-odds,-or-a-difference-such-as-the-absolute-difference-in-risk,-if-the-outcome-variable-is-binary;-or-a-difference-in-means-(medians)-if-the-main-outcome-variable-is-numerical." aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Magnitude of the effect of interest. Is there an indication of the magnitude of the interest? Examples include a ratio such as the relative rate, risk, or odds, or a difference such as the absolute difference in risk, if the outcome variable is binary; or a difference in means (medians) if the main outcome variable is numerical.<a class="anchor-link" href="#b)-Magnitude-of-the-effect-of-interest.-Is-there-an-indication-of-the-magnitude-of-the-interest?-Examples-include-a-ratio-such-as-the-relative-rate,-risk,-or-odds,-or-a-difference-such-as-the-absolute-difference-in-risk,-if-the-outcome-variable-is-binary;-or-a-difference-in-means-(medians)-if-the-main-outcome-variable-is-numerical."> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Precision-of-the-effect-of-interest.-Is-there-an-indication-of-the-precision-of-the-effect-of-interest-(e.g.-a-95%-confidence-interval-or-standard-error)?">
+<a class="anchor" href="#c)-Precision-of-the-effect-of-interest.-Is-there-an-indication-of-the-precision-of-the-effect-of-interest-(e.g.-a-95%-confidence-interval-or-standard-error)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Precision of the effect of interest. Is there an indication of the precision of the effect of interest (e.g. a 95% confidence interval or standard error)?<a class="anchor-link" href="#c)-Precision-of-the-effect-of-interest.-Is-there-an-indication-of-the-precision-of-the-effect-of-interest-(e.g.-a-95%-confidence-interval-or-standard-error)?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Additional-analyses:-If-additional-(e.g.-subgroup)-analyses-performed,-are-their-results-provided,-and-are-any-exploratory-analyses-distinguished-from-harms-in-each-group-documented?">
+<a class="anchor" href="#5.-Additional-analyses:-If-additional-(e.g.-subgroup)-analyses-performed,-are-their-results-provided,-and-are-any-exploratory-analyses-distinguished-from-harms-in-each-group-documented?" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Additional analyses: If additional (e.g. subgroup) analyses performed, are their results provided, and are any exploratory analyses distinguished from harms in each group documented?<a class="anchor-link" href="#5.-Additional-analyses:-If-additional-(e.g.-subgroup)-analyses-performed,-are-their-results-provided,-and-are-any-exploratory-analyses-distinguished-from-harms-in-each-group-documented?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.-Harms:-Are-all-important-harms-in-each-group-documented?">
+<a class="anchor" href="#6.-Harms:-Are-all-important-harms-in-each-group-documented?" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Harms: Are all important harms in each group documented?<a class="anchor-link" href="#6.-Harms:-Are-all-important-harms-in-each-group-documented?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="E.-Discussion">
+<a class="anchor" href="#E.-Discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>E. Discussion<a class="anchor-link" href="#E.-Discussion"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Deciding-whether-the-results-are-important">
+<a class="anchor" href="#1.-Deciding-whether-the-results-are-important" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Deciding whether the results are important<a class="anchor-link" href="#1.-Deciding-whether-the-results-are-important"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="a)-Are-the-key-findings-summarized-with-reference-to-the-trial-objectives?">
+<a class="anchor" href="#a)-Are-the-key-findings-summarized-with-reference-to-the-trial-objectives?" aria-hidden="true"><span class="octicon octicon-link"></span></a>a) Are the key findings summarized with reference to the trial objectives?<a class="anchor-link" href="#a)-Are-the-key-findings-summarized-with-reference-to-the-trial-objectives?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="b)-Do-the-results-make-biological-sense?-If-a-confidence-interval-for-the-effect-of-interest-(e.g.-the-difference-in-treatment-means)-has-been-provided:">
+<a class="anchor" href="#b)-Do-the-results-make-biological-sense?-If-a-confidence-interval-for-the-effect-of-interest-(e.g.-the-difference-in-treatment-means)-has-been-provided:" aria-hidden="true"><span class="octicon octicon-link"></span></a>b) Do the results make biological sense? If a confidence interval for the effect of interest (e.g. the difference in treatment means) has been provided:<a class="anchor-link" href="#b)-Do-the-results-make-biological-sense?-If-a-confidence-interval-for-the-effect-of-interest-(e.g.-the-difference-in-treatment-means)-has-been-provided:"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="(i)-Would-you-regard-the-observed-effect-clinically-important-(irrespective-of-whether-or-not-the-result-of-the-relevant-hypothesis-test-is-statistically-significant)-if-lower-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">
+<a class="anchor" href="#(i)-Would-you-regard-the-observed-effect-clinically-important-(irrespective-of-whether-or-not-the-result-of-the-relevant-hypothesis-test-is-statistically-significant)-if-lower-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?" aria-hidden="true"><span class="octicon octicon-link"></span></a>(i) Would you regard the observed effect clinically important (irrespective of whether or not the result of the relevant hypothesis test is statistically significant) if lower limit of the confidence interval represented the true value of the effect?<a class="anchor-link" href="#(i)-Would-you-regard-the-observed-effect-clinically-important-(irrespective-of-whether-or-not-the-result-of-the-relevant-hypothesis-test-is-statistically-significant)-if-lower-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="(ii).-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">
+<a class="anchor" href="#(ii).-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?" aria-hidden="true"><span class="octicon octicon-link"></span></a>(ii). Would you regard the observed effect clinically import if the upper limit of the confidence interval represented the true value of the effect?<a class="anchor-link" href="#(ii).-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="(iii)-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?">
+<a class="anchor" href="#(iii)-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?" aria-hidden="true"><span class="octicon octicon-link"></span></a>(iii) Would you regard the observed effect clinically import if the upper limit of the confidence interval represented the true value of the effect?<a class="anchor-link" href="#(iii)-Would-you-regard-the-observed-effect-clinically-import-if-the-upper-limit-of-the-confidence-interval-represented-the-true-value-of-the-effect?"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="c)-Is-there-an-evaluation-of-the-number-of-patients-needed-to-treat-(NNT)-with-the-experimental-treatment,-rather-than-the-control-treatment-in-order-to-prevent-one-of-them-from-developing-the-“bad”-outcome?">
+<a class="anchor" href="#c)-Is-there-an-evaluation-of-the-number-of-patients-needed-to-treat-(NNT)-with-the-experimental-treatment,-rather-than-the-control-treatment-in-order-to-prevent-one-of-them-from-developing-the-%E2%80%9Cbad%E2%80%9D-outcome?" aria-hidden="true"><span class="octicon octicon-link"></span></a>c) Is there an evaluation of the number of patients needed to treat (NNT) with the experimental treatment, rather than the control treatment in order to prevent one of them from developing the “bad” outcome?<a class="anchor-link" href="#c)-Is-there-an-evaluation-of-the-number-of-patients-needed-to-treat-(NNT)-with-the-experimental-treatment,-rather-than-the-control-treatment-in-order-to-prevent-one-of-them-from-developing-the-%E2%80%9Cbad%E2%80%9D-outcome?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Limitations:-Is-there-a-discussion-of-all-the-trial-limitations,-including-sources-of-potential-bias-and-imprecision?">
+<a class="anchor" href="#2.-Limitations:-Is-there-a-discussion-of-all-the-trial-limitations,-including-sources-of-potential-bias-and-imprecision?" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Limitations: Is there a discussion of all the trial limitations, including sources of potential bias and imprecision?<a class="anchor-link" href="#2.-Limitations:-Is-there-a-discussion-of-all-the-trial-limitations,-including-sources-of-potential-bias-and-imprecision?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Generalizability:-Is-there-a-discussion-of-the-generalizability-(external-valid)-of-the-trial-findings-(i.e.-the-extent-to-which-the-participants-are-representative-of-the-wider-population)?">
+<a class="anchor" href="#3.-Generalizability:-Is-there-a-discussion-of-the-generalizability-(external-valid)-of-the-trial-findings-(i.e.-the-extent-to-which-the-participants-are-representative-of-the-wider-population)?" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Generalizability: Is there a discussion of the generalizability (external valid) of the trial findings (i.e. the extent to which the participants are representative of the wider population)?<a class="anchor-link" href="#3.-Generalizability:-Is-there-a-discussion-of-the-generalizability-(external-valid)-of-the-trial-findings-(i.e.-the-extent-to-which-the-participants-are-representative-of-the-wider-population)?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Interpretation:-Taking-the-benefits-and-harms-into-consideration,-as-well-as-the-limitations-of-the-trial,-any-multiple-testing-and-subgroup-analyses,-is-the-interpretation-of-the-trial-findings-consistent-with-the-results?">
+<a class="anchor" href="#4.-Interpretation:-Taking-the-benefits-and-harms-into-consideration,-as-well-as-the-limitations-of-the-trial,-any-multiple-testing-and-subgroup-analyses,-is-the-interpretation-of-the-trial-findings-consistent-with-the-results?" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Interpretation: Taking the benefits and harms into consideration, as well as the limitations of the trial, any multiple testing and subgroup analyses, is the interpretation of the trial findings consistent with the results?<a class="anchor-link" href="#4.-Interpretation:-Taking-the-benefits-and-harms-into-consideration,-as-well-as-the-limitations-of-the-trial,-any-multiple-testing-and-subgroup-analyses,-is-the-interpretation-of-the-trial-findings-consistent-with-the-results?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="F.-Other-information">
+<a class="anchor" href="#F.-Other-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>F. Other information<a class="anchor-link" href="#F.-Other-information"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Registration:-Are-the-trial-registration-number-and-the-name-of-the-trial-registry-provided?">
+<a class="anchor" href="#1.-Registration:-Are-the-trial-registration-number-and-the-name-of-the-trial-registry-provided?" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Registration: Are the trial registration number and the name of the trial registry provided?<a class="anchor-link" href="#1.-Registration:-Are-the-trial-registration-number-and-the-name-of-the-trial-registry-provided?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Protocol:-Is-there-information-about-where-the-protocol-can-be-accessed?">
+<a class="anchor" href="#2.-Protocol:-Is-there-information-about-where-the-protocol-can-be-accessed?" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Protocol: Is there information about where the protocol can be accessed?<a class="anchor-link" href="#2.-Protocol:-Is-there-information-about-where-the-protocol-can-be-accessed?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Funding:-Are-sources-of-finding-documented?">
+<a class="anchor" href="#3.-Funding:-Are-sources-of-finding-documented?" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Funding: Are sources of finding documented?<a class="anchor-link" href="#3.-Funding:-Are-sources-of-finding-documented?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Conflict-of-interest:-Is-there-a-conflict-of-interest-statement-for-each-of-the-investigators?">
+<a class="anchor" href="#4.-Conflict-of-interest:-Is-there-a-conflict-of-interest-statement-for-each-of-the-investigators?" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Conflict of interest: Is there a conflict of interest statement for each of the investigators?<a class="anchor-link" href="#4.-Conflict-of-interest:-Is-there-a-conflict-of-interest-statement-for-each-of-the-investigators?"> </a>
+</h3>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/2021/12/21/%EC%83%9D%ED%86%B5_%EB%85%BC%EB%AC%B8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
