@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      19 min read
     
 </span></p>
 
@@ -330,6 +330,106 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">TR</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">TR</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+	F test to compare two variances
+
+data:  subset(toenail, TR == "1")$Unaff and subset(toenail, TR == "2")$Unaff
+F = 0.75132, num df = 599, denom df = 599, p-value = 0.0004802
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.6400281 0.8819585
+sample estimates:
+ratio of variances 
+         0.7513176 
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">TR</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">TR</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Welch Two Sample t-test
+
+data:  subset(toenail, TR == "1")$Unaff and subset(toenail, TR == "2")$Unaff
+t = -4.4983, df = 1174.3, p-value = 7.529e-06
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1.0024395 -0.3935605
+sample estimates:
+mean of x mean of y 
+ 6.427333  7.125333 
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>등분산 검정에서 p값은 0.0004802로 나왔고 등분산 가정을 만족하지 않음을 알 수 있었다 따라서 등분산 옵션을 주지 않고 t test 를 실시하였다.</li>
+<li>Welch Two Sample t-test 결과 p값은 7.529e-06로, 귀무가설을 기각하여 대립가설인 두 treatment 간 차이가 0이 아니다를 채택하였다.</li>
+<li>따라서 두 treatment 간 평균적으로 차이가 있다는 evidence 를 제시할 수 있었다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">a</span><span class="o">&lt;-</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">TR</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">)</span>
 <span class="nf">colnames</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="s">"TR"</span><span class="p">,</span><span class="s">"length_12_0"</span><span class="p">)</span>
 </pre></div>
@@ -345,7 +445,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>시험이 끝난 후와 전과의 차이를 이용하여 treatment 간 차이를 비교해보았다.</li>
+<li>시험이 끝난 후(12 Month)와 전(0 Month)과의 차이를 이용하여 treatment 간 비교해보았다. 기저 효과를 제거한, 시험 기간동안 자란 unafflicted nail length가 얼마나 되는지 확인하여 treatment 간 비교함으로써 두 treatment 간 차이를 비교하기 위해서였다.</li>
 </ul>
 
 </div>
@@ -458,6 +558,16 @@ mean of x mean of y
 <li>Welch Two Sample t-test 결과 p값은 0.005478로, 귀무가설을 기각하여 대립가설인 <code>두 treatment 간 차이가 0이 아니다</code>를 채택하였다.</li>
 <li>따라서 두 treatment 간 평균적으로 차이가 있다는 evidence 를 제시할 수 있었다.</li>
 <li><code>These two oral medications differ in their effects on toenail dermatophyte onychomycosis, as reflected by the lengths of the unafflicted part of the nail with base effect.</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>기저효과를 고려하거나 고려하지 않거나 같은 결과가 도출되어 두 treatment 간 평균적으로 차이가 있다는 결과를 제시할 수 있었다.</li>
 </ul>
 
 </div>
@@ -780,7 +890,8 @@ ratio of variances
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">),</span><span class="n">TR</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">),</span><span class="n">TR</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">),</span><span class="n">TR</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">),</span><span class="n">TR</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span>
+      <span class="n">alternative</span><span class="o">=</span><span class="s">"less"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -799,10 +910,10 @@ ratio of variances
 	Welch Two Sample t-test
 
 data:  subset(subset(toenail, Month == 12), TR == "1")$Unaff and subset(subset(toenail, Month == 12), TR == "2")$Unaff
-t = -3.5404, df = 190.12, p-value = 0.0005024
-alternative hypothesis: true difference in means is not equal to 0
+t = -3.5404, df = 190.12, p-value = 0.0002512
+alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
- -2.9227623 -0.8312377
+      -Inf -1.000685
 sample estimates:
 mean of x mean of y 
     8.631    10.508 
@@ -822,8 +933,8 @@ mean of x mean of y
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>t test에서 등분산 옵션을 주지 않고 실행하였다.</li>
-<li>Welch Two Sample t-test 결과 p값은 0.0005024로 0.05보다 작아 귀무가설을 기각하여 대립가설인 <code>두 treatment 간 차이가 0이 아니다를</code> 채택하였다.</li>
-<li>따라서 연구의 마지막 시점인 12월에서 두 treatment 간 평균적으로 차이가 있다는 evidence 를 제시할 수 있었다.</li>
+<li>Welch Two Sample t-test 결과 p값은 0.0002512로 0.05보다 작아 귀무가설을 기각하여 대립가설인 <code>두 treatment 간 차이가 0보다 작다를</code> 채택하였다.</li>
+<li>따라서 연구의 마지막 시점인 12월에서 terbinane이 itraconazole을 투여했을 때 보다 평균적으로 작은 길이를 가졌다는 evidence 를 제시할 수 있었다.</li>
 <li><code>One of the treatments produces longer lengths on average than the other after 12 months with base effect.</code></li>
 </ul>
 
@@ -942,8 +1053,8 @@ mean of x mean of y
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">toenail</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span>
-         <span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">toenail</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span>
+         <span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -961,14 +1072,14 @@ mean of x mean of y
 <pre>
 	F test to compare two variances
 
-data:  subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, toenail$TR)), X2 == "1")$X1 and subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, toenail$TR)), X2 == "2")$X1
-F = 1, num df = 599, denom df = 599, p-value = 1
+data:  subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, subset(toenail, Month == 0)$TR)), X2 == "1")$X1 and subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, subset(toenail, Month == 0)$TR)), X2 == "2")$X1
+F = 0.34724, num df = 99, denom df = 99, p-value = 2.836e-07
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.8518742 1.1738823
+ 0.2336359 0.5160763
 sample estimates:
 ratio of variances 
-                 1 
+         0.3472376 
 </pre>
 </div>
 
@@ -984,7 +1095,7 @@ ratio of variances
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>p값은 1로 확인하여 등분산 가정을 만족함을 알 수 있었다.</li>
+<li>p값은 2.836e-07로 0.05보다 작음을 확인하여 등분산 가정을 만족하지 않다는 것을 알 수 있었다.</li>
 </ul>
 
 </div>
@@ -997,8 +1108,9 @@ ratio of variances
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">toenail</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span>
-       <span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">toenail</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span> <span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span>
+       <span class="nf">subset</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">12</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="o">-</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">)</span><span class="o">$</span><span class="n">TR</span><span class="p">)),</span><span class="n">X2</span><span class="o">==</span><span class="s">"2"</span><span class="p">)</span><span class="o">$</span><span class="n">X1</span><span class="p">,</span>
+       <span class="n">alternative</span><span class="o">=</span><span class="s">"less"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1014,16 +1126,16 @@ ratio of variances
 
 <div class="output_text output_subarea ">
 <pre>
-	Two Sample t-test
+	Welch Two Sample t-test
 
-data:  subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, toenail$TR)), X2 == "1")$X1 and subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, toenail$TR)), X2 == "2")$X1
-t = 0, df = 1198, p-value = 1
-alternative hypothesis: true difference in means is not equal to 0
+data:  subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, subset(toenail, Month == 0)$TR)), X2 == "1")$X1 and subset(data.frame(cbind(subset(toenail, Month == 12)$Unaff - subset(toenail, Month == 0)$Unaff, subset(toenail, Month == 0)$TR)), X2 == "2")$X1
+t = -2.8157, df = 160.36, p-value = 0.002739
+alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
- -0.4755108  0.4755108
+       -Inf -0.6788643
 sample estimates:
 mean of x mean of y 
-    4.184     4.184 
+    3.361     5.007 
 </pre>
 </div>
 
@@ -1039,10 +1151,8 @@ mean of x mean of y
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>t test에서 등분산 옵션을 주고 실행하였다.</li>
-<li>Two Sample t-test 결과 귀무가설을 기각하지 못하여 귀무가설인 <code>두 treatment 간 차이가 0이다</code>를 채택하였다.</li>
-<li>따라서 기저 효과를 제외한 연구의 마지막 시점인 12월에서 두 treatment 간 평균적으로 차이가 없다는 evidence 를 제시할 수 있었다.</li>
-<li><code>One of the treatments dosen't produces longer lengths on average than the other after 12 months without base effect.</code></li>
+<li>t test에서 등분산 옵션을 주지 않고 Welch Two Sample t-test을 검정한 결과 p값은 0.002739로 0.05보다 작아 귀무가설을 기각하여 대립가설인 <code>두 treatment 간 차이가 0보다 작다</code>를 채택하였다.</li>
+<li>따라서 기저 효과를 제외한 연구의 마지막 시점인 12월에서 terbinane이 itraconazole을 투여했을 때보다 평균적으로 작다는 evidence 를 제시할 수 있었다.</li>
 </ul>
 
 </div>
@@ -1052,7 +1162,7 @@ mean of x mean of y
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>length가 길수록 치료 효과가 좋다고 보기 때문에 기저효과를 제거한 결과를 보는 것이 치료 효과 비교에 정확한 것으로 사료되어 12월에 두 treatment간 평균적으로 차이가 없다는 결론을 제시한다.</li>
+<li>length가 길어질수록 치료 효과가 좋다고 보기 때문에 기저효과를 제거한 순수한 치료 결과를 봤다, 기저 효과를 가지거나 가지지 않은 두 경우의 결과는 같았기 때문에 12월에 두 treatment의 효과가 terbinane이 itraconazole보다 평균적으로 길이가 작다는, 즉 효과가 덜 좋다는 결론을 제시할 수 있겠다.</li>
 </ul>
 
 </div>
@@ -1237,7 +1347,8 @@ ratio of variances
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Gender</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Gender</span><span class="o">==</span><span class="s">"0"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Gender</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span>
+       <span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Gender</span><span class="o">==</span><span class="s">"0"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1304,6 +1415,16 @@ mean of x mean of y
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>단순 선형 회귀 분석은 모델이 유의미하지 않아 제시하지 않을 예정</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1526,6 +1647,117 @@ F-statistic: 1.144 on 1 and 2 DF,  p-value: 0.3969
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">var.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Healthclb</span><span class="o">==</span><span class="s">"0"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Healthclb</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+	F test to compare two variances
+
+data:  subset(subset(toenail, Month == 0), Healthclb == "0")$Unaff and subset(subset(toenail, Month == 0), Healthclb == "1")$Unaff
+F = 1.2627, num df = 66, denom df = 132, p-value = 0.2593
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8414385 1.9522222
+sample estimates:
+ratio of variances 
+          1.262694 
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>p값이 0.2593로 0.05보다 크며, before treament 시점에서 health club frequency(0 또는 1) 별로 등분산 가정을 만족하는 모습이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Healthclb</span><span class="o">==</span><span class="s">"0"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span>
+       <span class="nf">subset</span><span class="p">(</span><span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span><span class="n">Healthclb</span><span class="o">==</span><span class="s">"1"</span><span class="p">)</span><span class="o">$</span><span class="n">Unaff</span><span class="p">,</span><span class="n">var.equal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Two Sample t-test
+
+data:  subset(subset(toenail, Month == 0), Healthclb == "0")$Unaff and subset(subset(toenail, Month == 0), Healthclb == "1")$Unaff
+t = 3.7255, df = 198, p-value = 0.0002542
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.4497207 1.4612433
+sample estimates:
+mean of x mean of y 
+ 6.020896  5.065414 
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>등분산 옵션을 주고 Two Sample t-test을 진행해보니 p값은 0.0002542로 0.05보다 작아 귀무가설을 기각하였다.</li>
+<li>따라서 health club frequency에 따라 평균적으로 차이가 0이 아니라는 대립가설을 채택하였다.</li>
+<li>이는 health club 이용 빈도가 onychomycosis이라는 질병에 걸리는데 영향을 미친다고 말할 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">toenail_gym</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">aggregate</span><span class="p">(</span><span class="n">Unaff</span> <span class="o">~</span> <span class="n">TR</span><span class="o">+</span><span class="n">Healthclb</span><span class="p">,</span> <span class="nf">subset</span><span class="p">(</span><span class="n">toenail</span><span class="p">,</span><span class="n">Month</span><span class="o">==</span><span class="m">0</span><span class="p">),</span> <span class="n">mean</span><span class="p">))</span>
 </pre></div>
 
@@ -1677,7 +1909,7 @@ F-statistic: 26.86 on 1 and 2 DF,  p-value: 0.03528
 <li>Health club frequncy의 p값은 0.035275로 0.05보다 작아 Unafflicted nail length와 유의한 관계를 보이고 있었다.</li>
 <li>$Unafflicted nail length=6.0213-0.9546Health club frequency$</li>
 <li>before treatment 시점에서 Health club에 일주일에 1번 이상 간 사람이 일주일에 1번 이나 안 간 사람보다 0.9546만큼 작았다.</li>
-<li>따라서 before treatment 시점에서 health club에서 일주일에 하루 이상 보낸 대상자 군이 그 보다 적게 health club에서 보낸 사람과보다 작다는 evidence를 제시할 수 있었다.</li>
+<li>따라서 before treatment 시점에서 health club에서 일주일에 하루 이상 보낸 대상자 군이 그 보다 적게 health club에서 보낸 사람과보다 길이가 작다는 evidence를 제시할 수 있었다.</li>
 <li><code>The time spent in shared locker rooms and showers is to be associated with developing onychomycosis.</code></li>
 </ul>
 
@@ -2030,8 +2262,8 @@ F-statistic: 113.6 on 3 and 20 DF,  p-value: 9.886e-13
 <li>또한, 수정된 $R^2$ 값은 93.62%로 모형을 잘 설명하고 있음을 나타낸다.</li>
 <li>또한 Gender를 제외한 모든 변수가 Unafflicted nail length와 유의한 관계를 보이고 있었다.</li>
 <li>$Unafflicted nail length=6.26999+0.45678Month-0.18056Gender-1.33842Health club frequency$</li>
-<li>남성(1)은 여성(0)보다 평균적으로 0.18056만큼 낮았다. 하지만 gender 변수는 유의하지 않기 때문에 남성에게 더 효과가 좋은 약으로 판단할 수 없다. </li>
-<li>Health club에 일주일에 1번 이상 간 사람이 일주일에 1번 이나 안 간 사람보다 1.33842만큼 낮았다. 즉, shared loker room에 많이 방문한 사람이 더 낮은 길이를 가져 더 큰 치료 효과를 보기 위해서 health club frequency를 줄이는 것이 도움이 될 것으로 사료된다.</li>
+<li>남성(1)은 여성(0)보다 평균적으로 0.18056만큼 낮았다. 하지만 gender 변수는 유의한 관계를 보이지 않는다. </li>
+<li>Health club에 일주일에 1번 이상 간 사람이 일주일에 1번 이나 안 간 사람보다 1.33842만큼 낮았다. 즉, shared loker room에 많이 방문한 사람이 더 낮은 길이를 가져 더 큰 치료 효과를 보기 위해서 health club frequency를 줄이는 것이 도움이 될 것이다.</li>
 </ul>
 
 </div>
