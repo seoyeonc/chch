@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Ubuntu | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Ubuntu" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ubuntu formet, server setting" />
+<meta property="og:description" content="Ubuntu formet, server setting" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/ubuntu/2021/12/23/ubuntu.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/ubuntu/2021/12/23/ubuntu.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-23T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Ubuntu formet, server setting","url":"https://seoyeonc.github.io/chch/ubuntu/2021/12/23/ubuntu.html","@type":"BlogPosting","headline":"Ubuntu","dateModified":"2021-12-23T00:00:00-06:00","datePublished":"2021-12-23T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/ubuntu/2021/12/23/ubuntu.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ubuntu</h1><p class="page-description">Ubuntu formet, server setting</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-12-23T00:00:00-06:00" itemprop="datePublished">
+        Dec 23, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Ubuntu">Ubuntu</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2021-12-23-ubuntu.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2021-12-23-ubuntu.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2021-12-23-ubuntu.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#우분투-운영체제-설치">우분투 운영체제 설치 </a></li>
+<li class="toc-entry toc-h3"><a href="#server-setting">server setting </a></li>
+<li class="toc-entry toc-h3"><a href="#Anaconda">Anaconda </a></li>
+<li class="toc-entry toc-h3"><a href="#Jupiter-원격-제어">Jupiter 원격 제어 </a></li>
+<li class="toc-entry toc-h3"><a href="#CUDA,-cuDNN,-tensorflow,-pytorch">CUDA, cuDNN, tensorflow, pytorch </a></li>
+<li class="toc-entry toc-h3"><a href="#주피터와-R-커널-연결">주피터와 R 커널 연결 </a></li>
+<li class="toc-entry toc-h3"><a href="#package">package </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-12-23-ubuntu.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2021/12/23 우분투 설치 및 서버 세팅 한 거 기반</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="우분투-운영체제-설치">
+<a class="anchor" href="#%EC%9A%B0%EB%B6%84%ED%88%AC-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>우분투 운영체제 설치<a class="anchor-link" href="#%EC%9A%B0%EB%B6%84%ED%88%AC-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EC%84%A4%EC%B9%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>www.ubuntu.com/download/desktop 접속<ul>
+<li>컴퓨터 사양에 맞게 선택(32bit  ot 62bit 선택)</li>
+<li>download</li>
+<li>결제하라고 나오는 거(옵션인듯?) 지나쳐서!</li>
+<li><code>not now, take me to the download</code></li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>우분투가 설치된 usb 꽂기</li>
+</ol>
+<ul>
+<li>다운받은 우분투 운영체제 실행</li>
+<li>왼쪽 하단 Diskimage 선택하면 오른쪽 ISO 자동 선택 되어 있는듯</li>
+<li>다운 받은 우분투 파일 선택</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>컴퓨터 restart</li>
+</ol>
+<ul>
+<li>delete 키 누르면 Bios setting 나타남</li>
+<li>여기에서 부팅 순서 변경 (깔아줄 우분투로)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>재부팅되면 설치~</li>
+</ol>
+<ul>
+<li>install ubuntu(try ubuntu는 약간..체험용?)</li>
+<li>english</li>
+<li>install this third-party software  (처음 우분투 설치는 선택 안 하기!)</li>
+<li>something else 선텍(partition 직접 조정가능)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>partition 설정</li>
+</ol>
+<ul>
+<li><a href="https://remocon33.tistory.com/328">https://remocon33.tistory.com/328</a></li>
+<li>혹은.. 기억이 잘 안 남..</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>국적 설정 seoul</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>아이디 및 비밀번호 입력</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>설치 진행</li>
+</ol>
+<ul>
+<li>설치 후 재부팅되면 우분투 깔려있는 모습</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="server-setting">
+<a class="anchor" href="#server-setting" aria-hidden="true"><span class="octicon octicon-link"></span></a>server setting<a class="anchor-link" href="#server-setting"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: <a href="https://miruetoto.github.io/yechan/%EC%9A%B0%EB%B6%84%ED%88%AC/2000/01/03/(%EB%85%B8%ED%8A%B8)-%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%8F%AC%EB%A7%B7-%EB%B0%8F-%EA%B0%9C%EB%B0%9C%EC%9A%A9-%EC%84%9C%EB%B2%84-%EC%85%8B%ED%8C%85-%EC%9A%B0%EB%B6%84%ED%88%AC.html">https://miruetoto.github.io/yechan/%EC%9A%B0%EB%B6%84%ED%88%AC/2000/01/03/(%EB%85%B8%ED%8A%B8)-%EC%9A%B0%EB%B6%84%ED%88%AC-%ED%8F%AC%EB%A7%B7-%EB%B0%8F-%EA%B0%9C%EB%B0%9C%EC%9A%A9-%EC%84%9C%EB%B2%84-%EC%85%8B%ED%8C%85-%EC%9A%B0%EB%B6%84%ED%88%AC.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>gedit 열기 및 순서대로 입력</li>
+</ol>
+<ul>
+<li><code>blacklist nouveau</code></li>
+<li><code>options nouveau modeset=0</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>파일이름을 <code>blacklist-nouveau.conf</code>로 지정 및 home에 저장 후 ctrl+alt+F3을 눌러서 까만화면으로 간다.</li>
+</ol>
+<ul>
+<li>
+<code>sudo -i</code> 입력</li>
+<li>우분투 설치시 입력한 아이디/비밀번호 입력해 root 권한을 얻기</li>
+<li><code>sudo cp /home/cgb2/blacklist-nouveau.conf /etc/modprobe.d</code></li>
+<li><code>sudo update-initramfs -u</code></li>
+<li><code>exit</code></li>
+<li>
+<code>sudo rebooting</code>(재부팅) 여기서 sud는 관리자 권한으로 실행이라는 뜻,</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>command 에서 실행</li>
+</ol>
+<ul>
+<li><code>sudo apt install gcc</code></li>
+<li><code>sudo apt install build-essential</code></li>
+<li>엔비디아 공식 홈페이지 <a href="https://www.nvidia.com/en-us/geforce/drivers/">https://www.nvidia.com/en-us/geforce/drivers/</a> 접속</li>
+<li>OS 는 LINUX 64-BIT 선택 후 검색(다운 진행됨)</li>
+<li>다운 후 파일 있는 폴더로 이동 및 <code>chmod +x NVIDIA-Linux-x86_64-410.78.run</code> 실핼</li>
+<li>드라이버 잘 설치되었는지 <code>nvidia-smi</code> 확인</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Anaconda">
+<a class="anchor" href="#Anaconda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anaconda<a class="anchor-link" href="#Anaconda"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>ubuntu 다운</li>
+</ol>
+<ul>
+<li>
+<a href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a> 접속 및 아나콘다 다운</li>
+<li>download 폴더에 있겠지? 그 폴더로 commend 로 가서 </li>
+<li>
+<code>bash Anaconda3-2019.03-Linux-x86_64.sh</code> 실행</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>환경 구성</li>
+</ol>
+<ul>
+<li>(base) <code>conda create -n py38r40 python=3.8</code>
+</li>
+<li>(base) <code>conda create --name py38r40 python=3.8</code>
+</li>
+<li>둘 중 골라 파이썬 설치</li>
+<li>파이썬 버전이 높으면 나중에 <code>conda tensorflow-gpu</code> 실행 안 될 수도</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>SSH</li>
+</ol>
+<ul>
+<li>컴퓨터에 ssh 없으면 검색해서 일단 설치</li>
+<li>있다는 전제 하래 진행</li>
+<li>연결하고 싶은 환경의 command 에서 실행</li>
+<li><code>sudo apt install openssh-server</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Jupiter-원격-제어">
+<a class="anchor" href="#Jupiter-%EC%9B%90%EA%B2%A9-%EC%A0%9C%EC%96%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupiter 원격 제어<a class="anchor-link" href="#Jupiter-%EC%9B%90%EA%B2%A9-%EC%A0%9C%EC%96%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>주피터랩 설치</li>
+</ol>
+<ul>
+<li>콘다 가상환경에서 주피터랩 설치
+<code>(py48r40) conda install -c conda-forge jupyterlab</code>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>패스워드 설정</li>
+</ol>
+<ul>
+<li>주피터랩을 원격으로 접속할 수 있게 만들기</li>
+<li>커멘드에서 실행</li>
+<li>(py38r40) <code>jupyter lab --generate-config</code>
+</li>
+<li>(py38r40) <code>jupyter lab password</code>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>주피터랩 환경설정</li>
+</ol>
+<ul>
+<li>
+<code>/home/"내가 입력한 아이디!!"/.jupyter/jupyter_lab_config.py</code> 파일 열기</li>
+<li>아이피 주소를 바꾸고 port도 바꾸고 싶다면 바꾸기<ul>
+<li>c.ServerApp.ip = '192.168.0.4'</li>
+<li>c.ServerApp.port = 1306</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>192.168.0.4는 내부 IP, 고정 IP 있다면 고정 IP 입력
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CUDA,-cuDNN,-tensorflow,-pytorch">
+<a class="anchor" href="#CUDA,-cuDNN,-tensorflow,-pytorch" aria-hidden="true"><span class="octicon octicon-link"></span></a>CUDA, cuDNN, tensorflow, pytorch<a class="anchor-link" href="#CUDA,-cuDNN,-tensorflow,-pytorch"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>콘다 환경 가서 아래 실행</li>
+</ol>
+<ul>
+<li>(py38r40) <code>conda install -c conda-forge tensorflow-gpu</code>
+</li>
+<li>(py38r40) <code>conda install -c conda-forge pytorch-gpu</code>
+</li>
+<li>실행하면 CUDA, cuDNN, tensorflow, pytorch 모두 설치됨</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="주피터와-R-커널-연결">
+<a class="anchor" href="#%EC%A3%BC%ED%94%BC%ED%84%B0%EC%99%80-R-%EC%BB%A4%EB%84%90-%EC%97%B0%EA%B2%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>주피터와 R 커널 연결<a class="anchor-link" href="#%EC%A3%BC%ED%94%BC%ED%84%B0%EC%99%80-R-%EC%BB%A4%EB%84%90-%EC%97%B0%EA%B2%B0"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>콘다 환경가서 아래 실행</li>
+</ol>
+<ul>
+<li>(py38r40) <code>conda install -c conda-forge r-essentials=4.0</code>
+</li>
+<li>콘다환경에만 R이 설치되고, base에는 설치가 되지 않는다.</li>
+<li>콘다 환경에서 R을 실행</li>
+<li>commend 에서 R 실행( <code>R</code> 만 입력하면 실행~)</li>
+<li>
+<code>install.packages("IRkernel")</code>로 <code>IRkernel</code>설치</li>
+<li>
+<code>IRkernel::installspec()</code> 실행 시 주피터랩과 R 환경 연결</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="package">
+<a class="anchor" href="#package" aria-hidden="true"><span class="octicon octicon-link"></span></a>package<a class="anchor-link" href="#package"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>conda install -c conda-forge jupyterlab 
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+pip install fastai
+pip install plotly 
+pip install ipywidgets
+pip install jupyter-dash
+pip install dash 
+pip install plotnine
+pip install seaboarn
+pip install opencv-python
+pip install folium
+pip install pandas_datareader
+conda install -c conda-forge r-essentials=4 
+pip install rpy2
+conda install -c conda-forge python-graphviz</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>기본 tool 미리 설치</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/ubuntu/2021/12/23/ubuntu.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
