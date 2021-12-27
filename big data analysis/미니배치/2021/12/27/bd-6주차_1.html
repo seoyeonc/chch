@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -156,7 +156,32 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>GPU</li>
+<li>GPU가 빠른 이유 core 수가 많기 때문!</li>
+<li>ref: <a href="https://ang-love-chang.tistory.com/33">https://ang-love-chang.tistory.com/33</a>
+</li>
+<li>GPU도 GPU 메모리를 초과할 경우 에러가 뜨면서 실행되지 않을걸?<div class="highlight"><pre><span></span><span class="n">X_gpu</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">)</span>
+<span class="n">y_gpu</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">)</span>
+<span class="c1"># 전 시간의 이 방법은 X, y를 모두 GPU에 올리는 gpu 메모리를 차지했던 비효율적인 방법이었음</span>
+</pre></div>
+</li>
+<li>방법 1. 가지고 있는 데이터 중 일부만 뽑아 모형을 만들어 STEP을 밟아 나가는 과정<div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">)</span>
+</pre></div>
+</li>
+<li>$\hat{y}=f(X*\hat{w})$</li>
+<li>${n*1}=f({(n*p)}*{(p*1)})$</li>
+<li>p는 조정할 수 없지만 n은 조정할 수 있겠다는 생각.$\to$ 일부를 뽑아볼까<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span> 
+  <span class="c1">## 1 </span>
+  <span class="n">yhat_gpu</span><span class="o">=</span><span class="n">net</span><span class="p">(</span><span class="n">X_gpu</span><span class="p">)</span> <span class="c1"># X_gpu를 나누고</span>
+  <span class="c1">## 2 </span>
+  <span class="n">loss</span><span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">yhat_gpu</span><span class="p">,</span><span class="n">y_gpu</span><span class="p">)</span> <span class="c1"># 위 나눈 결과가 yhat_GPU에 들어가 loss가 계산됨</span>
+  <span class="c1">## 3 </span>
+  <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># 그대로 미분되겠지</span>
+  <span class="c1">## 4 </span>
+  <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+  <span class="n">net</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span> <span class="c1">#모든 일부 뽑은 것들이 계산될 걸!</span>
+</pre></div>
+</li>
+<li>Pytorch 로 이 방법 써보기가 수업!</li>
 </ul>
 
 </div>
