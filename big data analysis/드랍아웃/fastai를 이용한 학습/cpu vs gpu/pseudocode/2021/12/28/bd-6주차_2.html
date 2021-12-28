@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="드랍아웃, fastai를 이용한 학습, CPU vs GPU" />
 <meta property="og:description" content="드랍아웃, fastai를 이용한 학습, CPU vs GPU" />
-<link rel="canonical" href="https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" />
-<meta property="og:url" content="https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/pseudocode/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/pseudocode/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" />
 <meta property="og:site_name" content="Seoyeon Choi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-12-28T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"드랍아웃, fastai를 이용한 학습, CPU vs GPU","url":"https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html","@type":"BlogPosting","headline":"빅데이터 분석 (6주차) 10월19일","dateModified":"2021-12-28T00:00:00-06:00","datePublished":"2021-12-28T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html"},"@context":"https://schema.org"}</script>
+{"description":"드랍아웃, fastai를 이용한 학습, CPU vs GPU","url":"https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/pseudocode/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html","@type":"BlogPosting","headline":"빅데이터 분석 (6주차) 10월19일","dateModified":"2021-12-28T00:00:00-06:00","datePublished":"2021-12-28T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/pseudocode/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -113,6 +113,9 @@ window.onload = wrap_img;
         &nbsp;
       
         <a class="category-tags-link" href="/chch/categories/#CPU vs GPU">CPU vs GPU</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#pseudocode">pseudocode</a>
         
       
       </p>
@@ -1049,11 +1052,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 제 생각</p>
+<p><code>-</code> 교수님 생각</p>
 <ul>
-<li>기업의욕심: read-data를 분석하는 딥러닝 아키텍처 설계 $\to$ 아키텍처별로 결과를 관찰 (편하게) $\Longrightarrow$ fastai + read data </li>
-<li>학생의욕심: 그러면서도 모형이 돌아가는 원리는 아주 세밀하게 알고싶음 $\Longrightarrow$ pytorch + toy example (regression 등을 위주로) </li>
-<li>연구자의욕심: 기존의 모형을 조금 변경해서 쓰고싶음 $\Longrightarrow$ (pytorch +fastai) + any data </li>
+<li>기업의 욕심: real-data를 분석하는 딥러닝 아키텍처 설계 $\to$ 아키텍처별로 결과를 관찰 (편하게) $\Longrightarrow$ fastai + real data </li>
+<li>학생의 욕심: 그러면서도 모형이 돌아가는 원리는 아주 세밀하게 알고싶음 $\Longrightarrow$ pytorch + toy example (regression 등을 위주로) </li>
+<li>연구자의 욕심: 기존의 모형을 조금 변경해서 쓰고싶음 $\Longrightarrow$ (pytorch +fastai) + any data </li>
 </ul>
 
 </div>
@@ -14540,7 +14543,7 @@ window.onload = wrap_img;
 
 
 
-  </div><a class="u-url" href="/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" hidden></a>
+  </div><a class="u-url" href="/chch/big%20data%20analysis/%EB%93%9C%EB%9E%8D%EC%95%84%EC%9B%83/fastai%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%95%99%EC%8A%B5/cpu%20vs%20gpu/pseudocode/2021/12/28/bd-6%EC%A3%BC%EC%B0%A8_2.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
