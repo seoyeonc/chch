@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      50 min read
+      51 min read
     
 </span></p>
 
@@ -727,8 +727,9 @@ window.onload = wrap_img;
 <div class="flash flash-error">
     <svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
     <strong>Warning: </strong>512개 노드들이 업데이트가 될때 잘 된 특정 노드 위주로 노드가 몰리게 된다. 이는 오버피팅을 불러 일으킬 수 있다.
-</div>- 학습할때는  <strong>torch.nn.Dropout(0.8)</strong> 놓고 평가할때는 지워야겠지
+</div>
 <ul>
+<li>학습할때는  <strong>torch.nn.Dropout(0.8)</strong> 놓고 평가할때는 지워야겠지</li>
 <li>80개 train data만 봤을때 dropout한 게 잘 맞는지 아닌지는 관점의 차이일 수 있지만</li>
 <li>20개 test data 봤을때 dropout한 게 잘 맞는다는 것을 알 수 있지</li>
 </ul>
@@ -998,7 +999,7 @@ window.onload = wrap_img;
 <p><code>-</code> 다 좋은데 코드를 짜는것이 너무 힘들다.</p>
 <ul>
 <li>생각해보니까 미니배치도 만들어야 함 + 미니배치를 나눈상태에서 GPU 메모리에 파라메터도 올려야함. </li>
-<li>조기종료와 같은 기능도 구현해야함 + 기타등등을 구현해야함. </li>
+<li>조기종료(과적합 전 종료)와 같은 기능도 구현해야함 + 기타등등을 구현해야함. </li>
 <li>나중에는 학습률을 서로 다르게 돌려가며 결과도 기록해야함 $\to$ 그래야 좋은 학습률 선택가능 </li>
 <li>for문안에 step1~step4를 넣는것도 너무 반복작업임. </li>
 <li>등등.. </li>
@@ -1011,6 +1012,22 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위와 같은 것들의 특징: 머리로 상상하기는 쉽지만 실제 구현하는 것은 까다롭다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>pseudocode 의사코드:  In computer science, pseudocode is a plain language description of the steps in an algorithm or another system. Pseudocode often uses structural conventions of a normal programming language, but is intended for human reading rather than machine reading. It typically omits details that are essential for machine understanding of the algorithm, such as variable declarations and language-specific code. The programming language is augmented with natural language description details, where convenient, or with compact mathematical notation. The purpose of using pseudocode is that it is easier for people to understand than conventional programming language code, and that it is an efficient and environment-independent description of the key principles of an algorithm. It is commonly used in textbooks and scientific publications to document algorithms and in planning of software and other algorithms.
+</div>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Pseudocode">https://en.wikipedia.org/wiki/Pseudocode</a>
+</li>
+</ul>
 
 </div>
 </div>
