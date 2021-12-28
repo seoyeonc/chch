@@ -7425,7 +7425,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net_fastai</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net_fastai</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span> <span class="c1">#  net_fastai 의 파라메터가 알아서 GPU로 옮겨져서 학습되기 때문에 필요한 옵션</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">'.'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_tr</span><span class="p">,</span><span class="n">net_fastai</span><span class="p">(</span><span class="n">X_tr</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span><span class="n">net_fastai</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> 
