@@ -140,7 +140,7 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h3"><a href="#import">import </a></li>
 <li class="toc-entry toc-h3"><a href="#data">data </a></li>
-<li class="toc-entry toc-h3"><a href="#1.-지난시간까지의-모형-(직접네트워크설계,-pytorch)">1. 지난시간까지의 모형 (직접네트워크설계, pytorch) </a>
+<li class="toc-entry toc-h3"><a href="#1.-지난시간까지의-모형-(직접-네트워크-설계,-pytorch)">1. 지난시간까지의 모형 (직접 네트워크 설계, pytorch) </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#2d-convolution-with-windowsize=5">2d convolution with windowsize=5 </a></li>
 <li class="toc-entry toc-h4"><a href="#MaxPool2d">MaxPool2d </a></li>
@@ -294,7 +294,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(#3) [Path('/home/cgb4/.fastai/data/mnist_sample/labels.csv'),Path('/home/cgb4/.fastai/data/mnist_sample/train'),Path('/home/cgb4/.fastai/data/mnist_sample/valid')]</pre>
+<pre>(#3) [Path('/home/csy/.fastai/data/mnist_sample/train'),Path('/home/csy/.fastai/data/mnist_sample/labels.csv'),Path('/home/csy/.fastai/data/mnist_sample/valid')]</pre>
 </div>
 
 </div>
@@ -361,7 +361,7 @@ window.onload = wrap_img;
 
 
 <div class="output_png output_subarea output_execute_result">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAsElEQVR4nGNgGMSA0WPOx3//93BikxNc8evFZP/+f5JY5HKfL1FnYGAI+y2BRTJQg4GBgYHlxFzc9sb8lMYpx3q3AbfGyTuFccp1PhDBLffeBadc8Pt43HJfM3A7ZvO/BzcnqyCLMCKY/LKeDP6a1fN/4tLNVvoNt70MDKEfxfDIPkyDM5kwJE/KYpOUyWBgYGAQdLiCzTzGY5tlGbSOvxbEahvfrDe//izmweMe6gAAmeAvxrqtyvIAAAAASUVORK5CYII=%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAhklEQVR4nMWSQRLCMAwD3Q7/qngZ6svcvkwcgsGhTqcn8MkTeT1SErPf15R6wJad5RglSfJKk+QkXAm9RbO1hYAV4v2CQddYozDU0JudO67M8ZJa0GIxJDlBKSd9g2xIfw+HUlieT4YGpI1IuK1fJx/p6DYO2OWc8q4FtmYsvgnNHvGmf60nEPdCJuAMZEQAAAAASUVORK5CYII=%0A">
 </div>
 
 </div>
@@ -410,48 +410,48 @@ window.onload = wrap_img;
            0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
         [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
            0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  64, 128, 128,
+         191, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0, 128, 255, 255, 255, 255,
+         255, 255, 191,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0, 255, 255, 255, 191, 128, 128,
+          64, 191, 255, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0, 191, 128,   0,   0,   0,   0,
+           0, 128, 255, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0, 128, 255, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0, 191, 255,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+         128, 255,  64,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  64,
+         255, 191,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 128, 255,
+         255, 191,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 128, 191, 255, 255,
+         255, 255, 255, 191,  64,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,  64, 255, 255, 255, 191, 128,
+          64, 128, 255, 255, 255, 128,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0, 128, 128,  64,   0,   0,
+           0,   0,   0,  64, 191, 255, 128,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0,   0,   0,   0,   0, 255, 255,  64,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0,   0,   0,   0,   0, 255, 255,  64,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0,   0,   0,   0,   0, 255, 255,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+           0,   0,   0,  64, 191, 255, 128,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,  64,   0,   0,   0,   0,   0,   0,   0,
+           0,  64, 191, 255, 255, 128,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0, 255, 128,   0,   0,   0,   0,   0,   0,
+         128, 255, 255, 191,  64,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,  64, 255, 255, 128, 128, 128, 191, 255,
+         255, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [  0,   0,   0,   0,   0,   0,   0, 128, 128, 128, 255, 255, 191, 128,
+           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
         [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
            0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  72, 156,
-         241, 254, 255, 188,   9,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  17, 168, 250, 232,
-         147,  79, 143, 254,  25,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0, 109, 231, 164,  39,   0,
-           0,   0,  86, 251,  24,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,  81,  40,   0,   0,   0,
-           0,   4, 200, 157,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           0,  92, 249,  27,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           5, 221, 128,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-         147, 185,  19,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 137,
-         224,  20,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 137, 239,
-          68,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  83, 239,  95,
-           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  83, 245, 104,   0,
-           0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 179, 254, 224, 217,
-         147,  36,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  15,  44, 117, 117,
-         196, 237, 104,   7,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           6, 117, 246,  95,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           0,   0,  85, 241,  22,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           0,   0,   0, 225, 102,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
-           0,   0,   0, 170, 131,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  28, 104,   0,   0,
-           0,   0,  17, 234,  87,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   1, 198, 179,  29,
-           0,  42, 199, 235,  17,   0,   0,   0,   0,   0,   0,   0,   0,   0],
-        [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  14, 154, 236,
-         250, 252, 163,  12,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
         [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
            0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
         [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
@@ -666,8 +666,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-지난시간까지의-모형-(직접네트워크설계,-pytorch)">
-<a class="anchor" href="#1.-%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84%EA%B9%8C%EC%A7%80%EC%9D%98-%EB%AA%A8%ED%98%95-(%EC%A7%81%EC%A0%91%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%84%A4%EA%B3%84,-pytorch)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 지난시간까지의 모형 (직접네트워크설계, pytorch)<a class="anchor-link" href="#1.-%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84%EA%B9%8C%EC%A7%80%EC%9D%98-%EB%AA%A8%ED%98%95-(%EC%A7%81%EC%A0%91%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%84%A4%EA%B3%84,-pytorch)"> </a>
+<h3 id="1.-지난시간까지의-모형-(직접-네트워크-설계,-pytorch)">
+<a class="anchor" href="#1.-%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84%EA%B9%8C%EC%A7%80%EC%9D%98-%EB%AA%A8%ED%98%95-(%EC%A7%81%EC%A0%91-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EA%B3%84,-pytorch)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 지난시간까지의 모형 (직접 네트워크 설계, pytorch)<a class="anchor-link" href="#1.-%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84%EA%B9%8C%EC%A7%80%EC%9D%98-%EB%AA%A8%ED%98%95-(%EC%A7%81%EC%A0%91-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EA%B3%84,-pytorch)"> </a>
 </h3>
 </div>
 </div>
