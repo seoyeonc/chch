@@ -3100,17 +3100,27 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <p>(1) 아키텍처 $(\star)$</p>
 <ul>
 <li>한 영역의 전문적인 지식이 필요한 것이 아닌것 같다. </li>
-<li>끈기, 약간의 운, 직관, 좋은컴퓨터.. </li>
+<li>끈기, 약간의 운, 직관, 좋은컴퓨터.. <ul>
+<li>yhat &lt;- X,net</li>
+</ul>
+</li>
 </ul>
 <p>(2) 손실함수</p>
 <ul>
-<li>통계적지식필요 // 기존의 손실함수를 변형하는 형태 (패널티텀활용)</li>
+<li>통계적지식필요 // 기존의 손실함수를 변형하는 형태 (패널티텀활용)<ul>
+<li>수렴하는 해가 달라지기 때문</li>
+<li>loss &lt;- (y,yhat)</li>
 </ul>
-<p>(3) 미분계산</p>
+</li>
+</ul>
+<p>(3) 미분계산 (컴공)</p>
 <ul>
-<li>병렬처리등에 대한 지식 필요 </li>
+<li>병렬처리등에 대한 지식 필요 <ul>
+<li>(d/dw)loss &lt;- loss</li>
 </ul>
-<p>(4) 옵티마이저</p>
+</li>
+</ul>
+<p>(4) 옵티마이저 (산공)</p>
 <ul>
 <li>최적화에 대한 이론적 토대 필요 </li>
 </ul>
@@ -3123,9 +3133,9 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 딥러닝 이전까지의 아키텍처에 대한 연구</p>
 <ul>
-<li>파라메트릭 모형: 전문가 </li>
-<li>넌파라메트릭 모형: 전문가</li>
-<li>딥러닝: 상대적으로 비전문가</li>
+<li>파라메트릭 모형: 전문가 (실제 전문가가 해석한 거 바탕으로)</li>
+<li>넌파라메트릭 모형: 전문가(보통 통계 전문가)</li>
+<li>딥러닝: 상대적으로 비전문가(지금 우리가 할 수 있는 수준...)</li>
 </ul>
 
 </div>
@@ -3135,6 +3145,9 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 특징: 비전문가도 만들수 있다 + 블랙박스 (내부연산을 뜯어볼 수는 있지만 우리가 해석하기 어려움)</p>
+<ul>
+<li>신뢰받기 어려워</li>
+</ul>
 
 </div>
 </div>
@@ -3143,6 +3156,14 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 설명가능한 딥러닝에 대한 요구 (XAI)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>8번째 영상</p>
 
 </div>
 </div>
