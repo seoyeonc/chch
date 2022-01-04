@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      20 min read
     
 </span></p>
 
@@ -2218,6 +2218,39 @@ cnn_learner<span class="ansi-blue-fg">(</span>
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 이런식으로 층별 접근 가능</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Conv2d(1, 16, kernel_size=(5, 5), stride=(1, 1))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2269,6 +2302,14 @@ torch.Size([12396, 1]) --&gt; Linear
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>피드 forward 과정...뭐....</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2358,28 +2399,27 @@ torch.Size([12396, 1]) --&gt; Linear
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>두 결과가 일치하는 모습</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> lrnr1자체를 활용해도 층별변환과정을 추적할수 있음. (lrnr1.model = net 임을 이용)</p>
 
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
+<div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">4</span><span class="n">번째</span> <span class="n">영상</span><span class="err">!</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>지금까지는 lrnr1를 이용해서 for문 돌림으로써 원하는 층별 세부과정을 관찰했지만, lrnr1자체에서도 모형을 확인할 수 있음</p>
 
 </div>
-    
-
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2475,13 +2515,13 @@ torch.Size([12396, 1]) --&gt; Linear
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[-8.1382],
-        [-6.9877],
-        [ 0.7937],
+<pre>tensor([[-10.0864],
+        [ -3.9130],
+        [ -8.5445],
         ...,
-        [12.1038],
-        [15.0634],
-        [ 7.9055]], device='cuda:0', grad_fn=&lt;AddmmBackward&gt;)</pre>
+        [  9.9780],
+        [  0.6508],
+        [  3.4112]], device='cuda:0', grad_fn=&lt;AddmmBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2492,6 +2532,14 @@ torch.Size([12396, 1]) --&gt; Linear
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\uparrow$ 2d colv이 진행되는 과정</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2555,9 +2603,25 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>엄밀히 말하면  Flatten은 2d를 1d로 바꿔주는 과정이긴 해..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>엄밀히 말하면 공식적인 분류는 아닌 1d-part 2d-part</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 2d-part:</p>
 <ul>
-<li>2d선형변환: nn.torch.nn.Conv2d()</li>
+<li>2d선형변환: torch.nn.Conv2d()</li>
 <li>2d비선형변환: torch.nn.MaxPool2d(), torch.nn.ReLU()</li>
 </ul>
 
@@ -2600,6 +2664,14 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1d-part랑 2d-part 몰아서 아키텍쳐 설계 $\to$ 이렇게 층별로 몰아서 관리하기도 함</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2713,13 +2785,13 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[-8.1382],
-        [-6.9877],
-        [ 0.7937],
+<pre>tensor([[-10.0864],
+        [ -3.9130],
+        [ -8.5445],
         ...,
-        [12.1038],
-        [15.0634],
-        [ 7.9055]], device='cuda:0', grad_fn=&lt;AddmmBackward&gt;)</pre>
+        [  9.9780],
+        [  0.6508],
+        [  3.4112]], device='cuda:0', grad_fn=&lt;AddmmBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2742,7 +2814,7 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 아래의 모형은 현재 가장 성능이 좋은 모형(state of the art)중 하나인 resnet이다.</p>
+<p><code>-</code> 아래의 모형은 현재 가장 성능이 좋은 모형(<strong>state of the art</strong>)중 하나인 resnet이다.</p>
 
 </div>
 </div>
@@ -2938,9 +3010,17 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 특징</p>
 <ul>
-<li>2d-part: 입력채널이3이다, Conv2d에 padding/stride의 옵션이 있다, 드랍아웃이 없다, 배치정규화가 있다. </li>
-<li>1d-part: 배치정규화가 있다, 출력의 차원이 2이다.</li>
+<li>lrnr2.model[0] _ 2d-part: 입력채널이 3이다, Conv2d에 padding/stride의 옵션이 있다, 드랍아웃이 없다, 배치정규화BatchNorm2d가 있다. </li>
+<li>lrnr2.model[1] _ 1d-part: 배치정규화BatchNorm1d가 있다, 출력의 차원이 2이다.</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>우리가 네트워크 만들때 입력 채널은 1이기 때문에 resnet 기본 입력채널 3과 다르다. 그래서 Data Load Set 만들때도 network만들때도 이에 맞는 dls 따로 만들어줘야 한다. 왜 3일까.. 컬러이미지를 기본으로 생각하고 있는 resnet34.. padding은 shape 변하지 않음..</p>
 
 </div>
 </div>
@@ -2955,6 +3035,14 @@ torch.Size([12396, 1]) --&gt; Linear</code></pre>
 <li>CNN모형: 입력이 $1\times 28 \times 28$, 첫 네트워크의 형태가 $1\times 28 \times 28 \to 16 \times 24 \times 24$ 인 torch.nn.Conv2d()</li>
 <li>Resnet34: 입력이 $3\times 28 \times 28$, 첫 네트워크의 형태가 $3\times 28 \times 28 \to ??$ </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Multi Linear Perceptron(= Deep Neural Network)</p>
 
 </div>
 </div>
