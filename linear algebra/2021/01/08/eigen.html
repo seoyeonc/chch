@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -139,6 +139,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h5"><a href="#ex-1)">ex 1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -266,7 +267,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A is a Markov matrix(각 열 벡터들을 더하면 1이 되는 행렬).</p>
+<p><strong>A is a Markov matrix(각 열 벡터들을 더하면 1이 되는 행렬).</strong></p>
+<ul>
+<li>Its eigenvector $x_l = (.6,.4)$ is the steady state-which all columns of Ak will approach.</li>
+</ul>
 
 </div>
 </div>
@@ -277,6 +281,108 @@ window.onload = wrap_img;
 <h5 id="ex2)">
 <a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The projection matrix $P=\begin{bmatrix}{.5}&amp;{.5}\\{.5}&amp;{.5} \end{bmatrix}$ has eigencalues $\lambda=1$ and $\lambda=0$</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위 예는 markov matrices, singular matrices, 그리고 symmetric matrices를 설명한다.</p>
+<ul>
+<li>All have special A's and x 's: <ul>
+<li>$P=\begin{bmatrix}{.5}&amp;{.5}\\{.5}&amp;{.5} \end{bmatrix}$의 각 열은 1을 추가해서 람다=1이 고유값</li>
+<li>P는 singular여서 람다=0이 고유값</li>
+<li>P는 대칭이어서 고유벡터(1,1)과 (1,-1)이 직각</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>영공간nullspace는 0에 투영되어있음</li>
+<li>열 공간은 그 스스로를 투영함</li>
+<li>Project each aprt $v=\begin{bmatrix}{1}&amp;{-1}\\{2}&amp;{2} \end{bmatrix}$ projects onto $P_v=\begin{bmatrix}{0}&amp;{0}\\{2}&amp;{2} \end{bmatrix}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Projections have $\lambda = 0$ and $1$. Permutations have all $|A| = 1$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex3)">
+<a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The reflection matrix $R=\begin{bmatrix}{0}&amp;{1}\\{1}&amp;{0} \end{bmatrix}$ has eigenvalues 1 snd -1</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>고유벡터(1,1)은 R에 의해 변하지 않음!</li>
+<li>$reflection = 2(projection)-I$ 때문에 R에서 고유벡터은 P에서와 같다.</li>
+<li>$R=2P-I, \begin{bmatrix}{0}&amp;{1}\\{1}&amp;{0} \end{bmatrix}=2\begin{bmatrix}{.5}&amp;{.5}\\{.5}&amp;{.5} \end{bmatrix}-\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{1} \end{bmatrix}.\dots (2)$</li>
+<li>$2Px=2\lambda x$처럼 행렬이 두 배가 되면 고유값이 2배가 된다.</li>
+<li>그 결과가 $(2p-i)X=(2\lambda-1)x$!!</li>
+<li>행렬이 I에 의해 변하면 각 $\lambda$는 1에 의해 바뀐다. 고유벡터 내에서는 변화 없음!!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key idea: The eigenvalues of Rand P are related exactly as the matrices are related:</p>
+<ul>
+<li>The eigenvalues of $R = 2P - I$ are 2(1) - 1 = 1 and 2(0) - 1 = -1. </li>
+<li>The eigenvalues of $R^2$ are $\lambda^2$. In this case $R^2 = I$. Check $(I)^2$ = 1 and $(-1)^2$ = 1. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The Equation for the Eigenvalues: $P x = x, P x = 0, Rx = -x$ is the key caculation almost every application starts by solving $Ax = \lambda x$. 
+</div>
+
 </div>
 </div>
 </div>
