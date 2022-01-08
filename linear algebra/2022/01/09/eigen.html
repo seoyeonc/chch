@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -183,6 +183,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h4"><a href="#Stability-of-2-by-2-Matrices">Stability of 2 by 2 Matrices </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -1710,6 +1711,127 @@ $$u(t)=c_1e^{\lambda_1 t}\begin{bmatrix}{1}\\{\lambda_1} \end{bmatrix}+c_we^{\la
 <h5 id="ex3)">
 <a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Motion around a circle with $y" + y = 0$ and $y = cos t$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\begin{matrix}{\text{Forward from }n-1}\\{\text{ Centeren at }n}\\{\text{ Backward from }n+1} \end{matrix}\frac{Y_{n+1}-2Y_n +Y_{n-1}}{(\Delta t)^2}=\begin{matrix}{-Y_{n-1}}\\{-Y_n}\\{-Y_{n+1}} \end{matrix}$$
+</p>
+<ul>
+<li>이 세가지 방법은 완전한 원을 구성하진 않아, $\Delta t = \frac{2\pi}{32}$ 길이의 32단계에서</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Foward }|\lambda|&gt;1\text{  (spiral out) Centered} |\lambda|=1\text{(best) Backward } |\lambda|&lt;1 \text{ (spiral in)}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Forward }\begin{matrix}{Y_{n+1}=Y_n+\Delta tZ_n}\\{Z_{n+1}=Z_n-\Delta tY_n}\end{matrix}\text{ becomes } U_{n+1}=\begin{bmatrix}{1}&amp;{\Delta t}\\{-\Delta t}&amp;{1} \end{bmatrix}\begin{bmatrix}{Y_n}\\{A_n} \end{bmatrix}=AU_n$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Eigenvalues of A } \lambda = 1 \pm i\Delta t \text{  } |\lambda | &gt;1 \text{ and } (Y_n, Z_n) \text{ spirals out}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Backward }\begin{matrix} {Y_{n+1}=Y_n+\Delta t Z_{n+1}}\\{Z_{n+1}=Z_n-\Delta t T_{n+1}}\end{matrix} \text{ is } \begin{bmatrix}{1} &amp;{-\Delta t}\\{\Delta}&amp;{1}\end{bmatrix}\begin{bmatrix}{Y_{n+1}\\{Z_{n+1}}}\end{bmatrix}=\begin{bmatrix}{Y_n}\\{Z_n}\end{bmatrix}=U_n$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Stability-of-2-by-2-Matrices">
+<a class="anchor" href="#Stability-of-2-by-2-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stability of 2 by 2 Matrices<a class="anchor-link" href="#Stability-of-2-by-2-Matrices"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>complete solution $u(t)$ 는 $e^{\lambda t}$로 만들어짐!</li>
+<li>만약 고유값 람다가 있다면, $e^{\lambda t}$가 0에 가까워지면 그땐 정확하게 람다가 음수여야 한다는 것을 알지.</li>
+<li>만약 고유값이 복소수 $\lambda = r+is$라면 실제 부분 r은 음수여야 하지.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$e^{ist} =\cos st + i \sin st \text{ has }|e^{ist}|^2=\cos ^2 st+\sin ^2 st =1 $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Which matrices have negative eigenvalues? More accurately, when are the real parts of the $\lambda$'s all negative?</strong></p>
+<p>
+$$\text{Stability; a is stable and } u(t)\rightarrow 0 \text{ when all eigenvalues have negative real parts.}$$
+</p>
+<p>
+$$\text{The 2 by 2 matrix } A=\begin{bmatrix}{a}&amp;{b}\\{c}&amp;{d}\end{bmatrix} \text{must pass two tests:}$$
+</p>
+<p>
+$$\begin{matrix}{\lambda_1+\lambda_2&lt;0}\\{\lambda_1\lambda_2 &gt;0}\end{matrix} \begin{matrix}{\text{The trace } T=a+d \text{must be negative}}\\{\text{The determinant } D=ad-bc \text{ must be positive}}\end{matrix}$$
+</p>
+<ul>
+<li>람다들이 음수로 존재하면 합은 음수일테니까, 그 합이 trace T이고. 그럼 곱은 양수가 되겠지. 이게 determinant D야.</li>
+<li>람다들이 복소수라면 $r\pm is$로부터 얻을 수 있겠지, dkslais T,D는 얻을 수 없어</li>
+</ul>
+
 </div>
 </div>
 </div>
