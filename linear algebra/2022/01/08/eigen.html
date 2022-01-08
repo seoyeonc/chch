@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      15 min read
     
 </span></p>
 
@@ -166,6 +166,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Matrix-Powers-$A^k$">Matrix Powers $A^k$ </a>
 <ul>
 <li class="toc-entry toc-h5"><a href="#ex-3)">ex 3) </a></li>
+<li class="toc-entry toc-h4"><a href="#Nondiagonalizable-Matrices-(Optional)">Nondiagonalizable Matrices (Optional) </a></li>
+<li class="toc-entry toc-h4"><a href="#Eigenvalues-of-A-B-and-A-+-B">Eigenvalues of A B and A + B </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -1158,6 +1160,233 @@ choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ c
 <h5 id="ex-3)">
 <a class="anchor" href="#ex-3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex 3)<a class="anchor-link" href="#ex-3)"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>고유벡터와 고유값을 가진 S와 람다집합일때, $A^Ku_0$를 계산해보자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$u_0=(1,0)$</li>
+<li>$A=\begin{bmatrix}{1}&amp;{2}\\{1}&amp;{0}\end{bmatrix} \text{ has } \lambda_1=2 \text{ and } x_1=\begin{bmatrix}{2}\\{1}\end{bmatrix}$</li>
+<li>$\lambda_2=-1 \text{ and } x_2=\begin{bmatrix}{1}\\{-1}\end{bmatrix}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solution in three steps: $u_0=c_1x_1+c_2x_2$를 찾고 $u_k=c_1(\lambda_1)^kx_1+c_2(\lambda_2)^kx_2$도 찾자</p>
+<ul>
+<li>
+<strong>step 1</strong> $u_0=\begin{bmatrix}{1}\\{0}\end{bmatrix} = \frac{1}{3}\begin{bmatrix}{2}\\{1}\end{bmatrix} + \frac{1}{3}\begin{bmatrix}{1}\\{-1}\end{bmatrix} \text{ so } c_1 = c_2=\frac{1}{3}$</li>
+<li>
+<strong>step 2</strong> Multiply the two parts by $(\lambda_1)^k=2^k \text{ and } (\lambda_2)^k=(-1)^k$</li>
+<li>
+<strong>step 3</strong> Combine eigenvectors $c_1(\lambda_1)^kx_1 \text{ and }c_2(\lambda_2)^kx_2 \text{ into } u_k $<ul>
+<li>$u_k=A^ku_0$ $u_k=\frac{1}{3}2^k\begin{bmatrix}{2}\\{1}\end{bmatrix}+\frac{1}{3}(-1)^k\begin{bmatrix}{1}\\{-1}\end{bmatrix}$</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Nondiagonalizable-Matrices-(Optional)">
+<a class="anchor" href="#Nondiagonalizable-Matrices-(Optional)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nondiagonalizable Matrices (Optional)<a class="anchor-link" href="#Nondiagonalizable-Matrices-(Optional)"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>람다가 A의 고유값일때 우리는 두가지를 알아냈지</p>
+<ol>
+<li>기하학적으로 고유벡터; 0이 아닌nonzero 해결책은 $Ax=\lambda x$</li>
+<li>대수로 고유값; $A-\lambda I $의 determinant는 0이야.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For exceptional matrices, an eigenvalue can be repeated. Then there are two different ways to count its multiplicity. Always OM &lt; AM for each A: 고유값들이 반복되는 예외적인 경우에 중복도(?)를 세는 두가지 다른 방법이 있다.</p>
+<ol>
+<li>기하학적 중복도 Geomatric Multiplicity=GM<ul>
+<li>$\lambda$에서 독립적인 고유벡터를 센다.이건 $A-\lambda I$의 nullspace의 차원이다.</li>
+</ul>
+</li>
+<li>대수적 중복도 Algebraic Multiplicity=AM<ul>
+<li>고유값을 사용한 $\lambda$의 반복을 센다. $det(A-\lambda I)=0$의 n개의 근을 본다.</li>
+</ul>
+</li>
+</ol>
+<p>$\lambda=4,4,4$이면 GM은 3이고 AM은 1 또는 2 또는 3임!!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>AM=2, GM=1 일때, 고유값은 2개인데 고유벡터가 1개인 경우가 있다. 이는 A가 대각선화 할 수 없은AM평균 아래에 있을때 고유벡터의 단점이다.(?)When repeats = [1 1. .. 1] we know that the n eigenvalues are 
+</div>all different and A is diagonalizable.
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>When repeats = [1 1. .. 1] we know that the n eigenvalues are all different and A is diagonalizable.<ul>
+<li>The sum of all components in "repeats" is always n, because every nth degree equation $det(A - \lambda I) = 0$ has n roots (counting repetitions). The sum of all components in "repeats" is always $n$, because every $n^{th}$ degree equation $det(A - \lambda I) = 0$ has $n$ roots (counting repetitions). </li>
+</ul>
+</li>
+<li>The total number of independent eigenvectors might be less than n. Then A is not diagonalizable.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Eigenvalues-of-A-B-and-A-+-B">
+<a class="anchor" href="#Eigenvalues-of-A-B-and-A-+-B" aria-hidden="true"><span class="octicon octicon-link"></span></a>Eigenvalues of A B and A + B<a class="anchor-link" href="#Eigenvalues-of-A-B-and-A-+-B"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An eigenvalue $\lambda$ of A times an eigenvalue $\beta$ of B usually does not give an eigenvalue of AB:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>False proof</strong>: $ABx = A\beta x = \beta A x = \beta \lambda x$.</p>
+<ul>
+<li>이건 베타를 곱한 람다가 고유값처럼 보인다.</li>
+<li>x가 A,B의 고유벡터일때 이는 옳은 증명이다.</li>
+<li>하지만 항상 그렇지는 않지!</li>
+<li>A의 고유벡터들은 일반적으로 B의 고유벡터들이 아니다.</li>
+<li>1이 AB의 고유값일때, A,B는 모두 0 고유값을 가질 수 있다.</li>
+<li>이 때문에 A+B의 고유값은 일반적으로 $\lambda+\beta$가 아니다.</li>
+<li>이 잘못된 증명은 위 사실을 보인다.</li>
+<li>x가 진짜 A,B 모두의 고유벡터라면, $ABx=\lambda \beta x$와 $BAx= \beta \lambda x$가 나와야 한다.</li>
+<li>n개의 고유벡터가 공유된다면 고유값들을 곱할 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Commuting matrics share eigenvectpors: A와 B가 대각화할 수 있다고 가정할떄 $AB=BA$일 경우에만 같은 고유벡터 행렬 S가 공유된다.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>REVIEW OF THE KEY IDEAS</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>If $A$ has $n$ independent eigenvectors $x_1 \dots x_n$, they go into the columns of $S$. </li>
+</ol>
+<ul>
+<li>
+<strong>$A$ is diagonalized by $S$</strong> $S^{-1}AS = \Lambda$ and $A = S\Lambda S^{-1}$.</li>
+</ul>
+<ol>
+<li>The powers of $A$ are $A^k = S\Lambda^kS^{-1}$. The eigenvectors in $S$ are unchanged.</li>
+<li>The eigenvalues of $A^k$ are $(\lambda_1)^k, ... , (\lambda_n)^k$ in the matrix $\Lambda^k$. </li>
+<li>The solution to $u_{k+l} = Au_k$ starting from $u_0$ is $u_k = A^ku_0 = S\Lambda^kS^{-1}u_0$:</li>
+</ol>
+<ul>
+<li>$u_k=c_1(\lambda_1)^kx_1+\dots+c_n(\lambda_n)^kx_n$ provided $u_0 = c_1x_1 + c_nx_n$</li>
+<li>That shows Steps 1,2,3 ($c$'s from $S^{-1} u_O , \lambda^k$ from $\Lambda^k$, and $x$'s from $S$)</li>
+</ul>
+<ol>
+<li>A is diagonalizable if every eigenvalue has enough eigenvectors (GM = AM). </li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em> WORKED EXAMPLES</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
 </div>
 </div>
 </div>
