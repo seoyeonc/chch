@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -137,9 +137,10 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#Chapter-6-Eilgenvalues-and-Eigenvectors">Chapter 6 Eilgenvalues and Eigenvectors </a>
 <ul>
-<li class="toc-entry toc-h5"><a href="#ex-1)">ex 1) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -210,8 +211,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="ex-1)">
-<a class="anchor" href="#ex-1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex 1)<a class="anchor-link" href="#ex-1)"> </a>
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
 </h5>
 </div>
 </div>
@@ -377,11 +378,86 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p></p>
-<div class="flash">
-    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>The Equation for the Eigenvalues: $P x = x, P x = 0, Rx = -x$ is the key caculation almost every application starts by solving $Ax = \lambda x$. 
+<p>The Equation for the Eigenvalues: $P x = x, P x = 0, Rx = -x$ is the key caculation almost every application starts by solving $Ax = \lambda x$.</p>
+<ul>
+<li>일단 $\lambda x$를 왼쪽으로 넘기면 $(A-\lambda I)x=0$을 쓸 수 있고</li>
+<li>행렬 $(A-\lambda I)$매를 한 고유벡터 x는 0 벡터임.</li>
+<li><strong>The eigenvectors make up the nullspace of $A - \lambda I$</strong></li>
+<li>고유값 람다를 알때, $(A-\lambda I)x=0$을 풀어서 고유벡터를 찾을 수 있음</li>
+</ul>
+
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $(A - \lambda I)X = 0$ has a nonzero solution, $A - \lambda I$ is not invertible. The determinant of $A -\lambda I$ must be zero.</p>
+<ul>
+<li>고유값 람다 알아내는 법<ul>
+<li><strong>The number $\lambda$ is an eignvalue of A if and only if $A-\lambda I$ is singular:</strong></li>
+<li>Equtation for the eigenvalues $\rightarrow det(A-\lambda I)=0$<ul>
+<li>$det(A-\lambda I)=0$ 여기에는 x가 아닌 람다만 들어있음</li>
+<li>A가 N $\times$ N 행렬일때 $det(A-\lambda I)=0$는 degree N을 가지게 됨</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>For each elgenvalue $\lambda$ solve $(A - \lambda I)x = 0$ or $A_x=\lambda x$ to find an eigenvector x.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex4)">
+<a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$A=\begin{bmatrix}{1}&amp;{2}\\{2}&amp;{4} \end{bmatrix}$ is already singular (zero determinant). Find its $\lambda$'s and $x$'s</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A가 singular일때 $\lambda=0$은 고유값들 중 하나이다.</li>
+<li>$Ax=0x$가 solution을 가짐! 이는 $\lambda=0$에 대한 고유 벡터임</li>
+<li>하지만 $det(A-\lambda I)=0$은 모든 람다들과 x들을 찾는 방법임</li>
+<li><strong>Subtract $\lambda$ from the diagonal to find $a-\lambda i =\begin{bmatrix}{1-\lambda}&amp;{2}\\{2}&amp;{4-\lambda} \end{bmatrix}$</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Take the determinant "ad - bc" of this 2 by 2 matrix.</strong></p>
+<ul>
+<li>$det\begin{bmatrix}{1-\lambda}&amp;{2}\\{2}&amp;{4-\lambda} \end{bmatrix}=(1-\lambda)(4-\lambda)-(2)(2)=\lambda^{2}-5\lambda$</li>
+<li>$\lambda^{2}-5\lambda$를 0으로 놓으면 근은 람다가 0 또는 5</li>
+<li>One solution is $\lambda = 0$ (as expected, since A is singular). Factoring into $\lambda$ times $\lambda - 5$, the other root is $\lambda = 5$.:</li>
+<li>$det(a$</li>
+</ul>
 
 </div>
 </div>
