@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      10 min read
     
 </span></p>
 
@@ -154,6 +154,12 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h4"><a href="#Eigshow-in-MATLAB">Eigshow in MATLAB </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.2-Diagonalizing-a-Matrix">6.2 Diagonalizing a Matrix </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
 </ul>
 </li>
 </ul>
@@ -720,8 +726,239 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The eigenvalue A is the length of $A_x$ , when the unit eigenvector x lines up. The built-in 
-choices for A illustrate three possibilities: 0,1, or 2 directions where Ax crosses x.</p>
+<p>The eigenvalue A is the length of $Ax$ , when the unit eigenvector x lines up. The built-in 
+choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ crosses x.</p>
+<ul>
+<li>
+<strong>0</strong>: 실제 고유벡터가 없음. $Ax$가 x의 뒤 혹은 앞에 있음. 이건 고유값과 고유벡터들이 rotation Q에서 복소수라는 것을 의미함.</li>
+<li>
+<strong>1</strong>: 고유벡터들의 오직 한 line만이 존재. Ax와 x는 움직이는 방향에서 만나긴 하는데 교차하진 않음.(2$\times$2행렬에서)</li>
+<li>
+<strong>2</strong>: 두 독립적인 방향의 고유벡터가 있음. This is typica! Ax는 x와 첫번째 고유벡터 $x_1$에서 교차하고, 두번째 고유벡터 $x_2$에서 다시 돌아옴(cross back). 그러면 Ax와 x는 $-x_1$과 $-x_2$에서 다시 교차함.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>REVIEW OF THE KEY IDEAS</em></strong></p>
+<ol>
+<li>$Ax = \lambda x$ says that <strong>eigenvectors x keep the same direction</strong> when multiplied by A. </li>
+<li>$Ax = \lambda x$ also says that <strong>$det(A - \lambda I) = 0$</strong>. This determines <strong>n eigenvalues</strong>. </li>
+<li>
+<strong>The eigenvalues of $A^2$ and $A^{-1}$ are $\lambda^2$ and $\lambda^{-1}$</strong>, with the <strong>same eigenvectors</strong>. </li>
+<li>
+<strong>The sum of the A'S equals the sum down the main diagonal of A (the trace). The product of the A'S equals the determinant</strong>. </li>
+<li>
+<strong>Projections $P$, reflections $R$, $90^o$ rotations $Q$</strong> have special eigenvalues $1,0, -1, i, -i$. <strong>Singular matrices</strong> have $\lambda = O$. <strong>Triangular matrices</strong> have A'S on their diagonal.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>WORKED EXAMPLES</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>6.1.A 다 끝내고 시간 나면 할 것,,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.2-Diagonalizing-a-Matrix">
+<a class="anchor" href="#6.2-Diagonalizing-a-Matrix" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2 Diagonalizing a Matrix<a class="anchor-link" href="#6.2-Diagonalizing-a-Matrix"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Does the matrix A turn into a diagonal matrix A when we use the eigenvectors properly?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Diagonalization: Suppose the n by n matrix A has n linearly independent eigervectors $x_1,\dots,x_n$. Put them into the columns of an eigenvectors matrix S. Then $S^{-1}AS$ is tje eigenvalue matrix $\Lambda$</p>
+<ul>
+<li>Eigenvector matrix S, Eigenvalue matrix $\Lambda$, $S^{-1}AS=\Lambda=\begin{bmatrix}{\lambda_1}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{\lambda_n}\end{bmatrix}$</li>
+<li>i.e. $AS=S\Lambda$ is $S^{-1}AS=\Lambda$ or $A=SAS^{-1}$</li>
+<li>행렬 S는 역을 취할 수 있기 때문에 그 열들은 선형적으로 독립이 될 수 있다. n개의 독립적인 고유벡터 없이 대각선화 할 수 없다.</li>
+<li>$A$와 $\Lambda$는 같은 고유값 $\lambda_1,\dots\lambda_n$을 가지고 있다.</li>
+<li>이 고유 벡터들은 다르다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Eigenvectors $\begin{bmatrix}{1}\\{0}\end{bmatrix}$$\begin{bmatrix}{1}\\{1}\end{bmatrix}$ $\begin{matrix}\begin{bmatrix}{1}&amp;{-1}\\{0}&amp;{1}\end{bmatrix}\\S^{-1}\end{matrix}$ $\begin{matrix}\begin{bmatrix}{1}&amp;{5}\\{0}&amp;{6}\end{bmatrix}\\A\end{matrix}$$\begin{matrix}\begin{bmatrix}{1}&amp;{1}\\{0}&amp;{1}\end{bmatrix}\\S\end{matrix}$ = $\begin{matrix}\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{6}\end{bmatrix}\\ \Lambda\end{matrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$A=S\Lambda S^{-1} \rightarrow A^2=S \Lambda S^{-1}S \Lambda S^{-1} \rightarrow \text{ remove } S^{-1}S=I \rightarrow S \Lambda^2S^{-1}$</p>
+<ul>
+<li>The $k^{th}$ power will be $A^k = S \Lambda^k S^{-1}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark</strong></p>
+<ol>
+<li>고유값 $\lambda_1,\dots\lambda_n$는 다 달라서 자동으로 고유벡터 $x_1,\dots,x_n$도 독립적이다. 반복죄지 않는 고유값을 가진 어느 행렬도 대각성화 할 수 없다.
+2.어느 nonzero constats를 고유벡터에 곱할 수 있다.$Ax=\lambda x$는 true로 남아있다.</li>
+<li>S에서 고유벡터는 $\Lambda$의 고유값에 따라 같은 정렬에 있다.(The eigenvectors in $S$ come in the same order as the eigenvalues in $\Lambda$)
+4.어떤 행렬이 너무 적은 고유벡터를 가지고 있으면 그 행렬은 대각선화할 수 없다.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Remember that there is no connection between invertibility and diagonalizability; 1. Invertibility is concerened with the eigenvalues($\lambda=0 \text{ or } \lambda \neq 0$) 2. Diagonalizability is concerend with the eigenvectors(too few or enough for S)
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>Each eigenvalue has at least one eigenvector! $A - \lambda I$ is singular. If $(A - \lambda I)x = 0$ leads you to $x = 0$, $\lambda$ is not an eigenvalue. Look for a mistake in solving $det(A - \lambda I) = O$
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>n개의 람다들에 대해 고유벡터들은 독립적이다. 그러면 우리는 A를 대각화할 수 있다.</strong></p>
+<p><strong>Independent $x$ from differentt $\lambda$</strong></p>
+<ul>
+<li>구별되는 고유값들에 관련된 고유벡터 $x_1,\dots,x_n$는 선형적으로 독립이다.</li>
+<li>n개의 다른 고유값들을(반복되지 않은 람다들) 가진 n by n 행렬은 대각화되어야만 한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex2)">
+<a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Powers of A</strong></p>
+<ul>
+<li>A가 Markov matrix이면?<ul>
+<li>$A=S\Lambda S^{-1}$에서 구한 고유벡터들은 S의 열 아넹 있고, $A^2$의 고유벡터이기도 함.</li>
+</ul>
+</li>
+<li>$A^2$은 $S$와 같고, $A^2$ 고유벡터 행렬은 $\Lambda^2$임을 보여보자.<ul>
+<li>SAME $S$ for $A^2$<ul>
+<li>$A^2 = S\Lambda S^{-1}S\Lambda S^{-1} = S\Lambda^2 S^{-1}$</li>
+</ul>
+</li>
+<li>Powers of A<ul>
+<li>$A^k = S\Lambda^k S^{-1}$</li>
+</ul>
+</li>
+<li>Limit $k \rightarrow \infty$<ul>
+<li>$A^{100}=S\Lambda S^{-1}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
