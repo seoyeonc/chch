@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      17 min read
     
 </span></p>
 
@@ -168,6 +168,17 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#ex-3)">ex 3) </a></li>
 <li class="toc-entry toc-h4"><a href="#Nondiagonalizable-Matrices-(Optional)">Nondiagonalizable Matrices (Optional) </a></li>
 <li class="toc-entry toc-h4"><a href="#Eigenvalues-of-A-B-and-A-+-B">Eigenvalues of A B and A + B </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.3-Applications-to-Differential-Equations">6.3 Applications to Differential Equations </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Solution-of-du/dt-=-Au">Solution of du/dt = Au </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#Second-Order-Equations">Second Order Equations </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -1387,6 +1398,260 @@ choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ c
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>Problem Set 6.2 </em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.3-Applications-to-Differential-Equations">
+<a class="anchor" href="#6.3-Applications-to-Differential-Equations" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.3 Applications to Differential Equations<a class="anchor-link" href="#6.3-Applications-to-Differential-Equations"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The whole point of the section is this: To convert constant-coefficient differential equations into linear algebra.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>One equation</em> $\frac{du}{dt}=\lambda u$ has the solutions $u(t) = Ce^{\lambda t}$.</p>
+<ul>
+<li>Linear algebra moves to n by n. The unknown is  a vector u (now boldface).</li>
+<li>우리는 n exponentials $e^{\lambda t}x$ in $u(t)$를 expect하지.</li>
+</ul>
+<p><em>n equations</em> $\frac{du}{dt}=Au$ starting from the vector $u(0)$ at t=0</p>
+<ul>
+<li>These differential equations are linear. If u(t) and vet) are solutions, so is $C u(t) + Dv(t)$.</li>
+<li>우리가 가장 먼저 할 일: "pure exponential solutions" $Ax=\lambda x$를 사용하여 $u=e^{\lambda t}x$ 를찾는 것</li>
+<li>Notice that A is a constant matrix. </li>
+<li>$\frac{du}{dt} = Au$ is "linear with constant coefficients"</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>The main point will be:Solve linear constant coefficient equations by exponentials $e^{\lambda t}x$, when $Ax = \lambda X$.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Solution-of-du/dt-=-Au">
+<a class="anchor" href="#Solution-of-du/dt-=-Au" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution of du/dt = Au<a class="anchor-link" href="#Solution-of-du/dt-=-Au"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Use $u=e^{\lambda t}x$ when $Ax=\lambda x$ $\frac{du}{dt}=\lambda e^{\lambda t}x$ agrees with $Au=Ae^{\lambda t}x$</strong></p>
+<ul>
+<li>All components of this special solution $u = e^{\lambda t}x$ share the same $e^{\lambda t}$. The solution grows when $\lambda &gt; O$. It decays when $\lambda &lt; O$. If $\lambda$ is a complex number, its real part decides growth or decay. The imaginary part $w$ gives oscillation ei wt like a sine wave.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solve $\frac{du}{dt}=Au=\begin{bmatrix}{0}&amp;{1}\\{1}&amp;{0}\end{bmatrix}u$ starting from $u(0)=\begin{bmatrix}{4}\\{2}\end{bmatrix}$</p>
+<ul>
+<li>u에 대한 벡터방정식</li>
+<li>y,z라는 스칼라를 포함</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\frac{du}{dt}=Au$, $frac{d}{dt}\begin{bmatrix}{y}\\{z}\end{bmatrix} = \begin{bmatrix}{1}&amp;{1}\\{1}&amp;{0}\end{bmatrix} \begin{bmatrix}{y}\\{z}\end{bmatrix}$ means that $\frac{dy}{dt}=z$ and $\frac{dz}{dt}=y$</p>
+<ul>
+<li>This matrix A has eigenvalues 1 and -1. The eigenvectors are (1, 1) and (1, -1). </li>
+<li>$u_1(t)=e^{\lambda_1 t}x_1=e^t \begin{bmatrix} {1}\\{1}\end{bmatrix}$ and $u_2(t)=e^{\lambda_2 t}x_2=e^{-t} \begin{bmatrix} {1}\\{-1}\end{bmatrix}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>위의 u는 고유벡터임!, $e^t,e^{-t}$들은 시간에 따라 변함!
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To find all other solutions, multiply those special solutions by any C and D and add:</p>
+<ul>
+<li>Complete solution<ul>
+<li>$u(t) = Ce^t\begin{bmatrix}{1}\\{1}\end{bmatrix}+De^{-t}\begin{bmatrix}{1}\\{-1}\end{bmatrix} = \begin{bmatrix}{4}\\{2}\end{bmatrix}$ yields $C=3$ and $D=1$</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same three steps that solved Uk+l = AUk now solve $\frac{du}{dt} = Au:$</p>
+<ol>
+<li>Write $u (0)$ as a combination $c_1 x_1 + ... + c_n x_n$ of the eigenvectors of $A$. </li>
+<li>Multiply each eigenvector $x_i$ by $e^{\lambda_i t}$ . </li>
+<li>The solution is the combination of pure solutions $e^{\lambda t}x$: <ul>
+<li>$u(t)=c_1e^{\lambda_1 t}x_1+\dots+c_ne^{\lambda_n t}x_n$</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>Not included: If two $\lambda$’S are equal, with only one eigenvector, another solution is needed. (It will be $te^{\lambda t} x$). Step 1 needs $A = S\Lambda S^{-1}$ to be diagonalizable: a basis of eigenvectors.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex2)">
+<a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solve $\frac{du}{dt}=Au$ knowing tjhe eigenvalues $\lambda=1,2,3$ of A</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\frac{du}{dt}=\begin{bmatrix}{1}&amp;{1}&amp;{1}\\{0}&amp;{2}&amp;{2}\\{0}&amp;{0}&amp;{3} \end{bmatrix}u \text{ starting from } u(0)=\begin{bmatrix}{9}\\{7}\\{4} \end{bmatrix}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The eigenvectors are $x_1 = (1,0,0)$ and $x_2 = (1,1,0)$ and $x_3 = (1,1,1)$.</p>
+<ul>
+<li>Step 1 The vector $u(0) = (9,7,4)$ is $2x_1 + 3x_2 + 4x_3$. Thus ($c_1, c_2, c_3) = (2,3,4)$. </li>
+<li>Step 2 The pure exponential solutions are $e^t x_1$ and $e^{2t} x_2$ and $e^{3t} x_3$. </li>
+<li>Step 3 The combination that starts from $u(0)$ is $u(t) = 2e^{t}x_1 + 3e^{2t} x_2 + 4e^{3t} x_3$. </li>
+</ul>
+<p>The coefficients 2, 3, 4 came from solving the linear equation $c_1x_1 + c_2x_2 + c_3x_3 = u(0)$:</p>
+<p>
+$$\begin{bmatrix}{}&amp;{}&amp;{}\\{x_1}&amp;{x_2}&amp;{x_3}\\{}&amp;{}&amp;{} \end{bmatrix}\begin{bmatrix}{c_1}\\{c_2}\\{c_3} \end{bmatrix}=\begin{bmatrix}{1}&amp;{1}&amp;{1}\\{0}&amp;{1}&amp;{1}\\{0}&amp;{0}{1} \end{bmatrix}\begin{bmatrix}{2}\\{3}\\{4} \end{bmatrix}=\begin{bmatrix}{9}\\{7}\\{4} \end{bmatrix} \text{ which is } Sc=u(0)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Second-Order-Equations">
+<a class="anchor" href="#Second-Order-Equations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Second Order Equations<a class="anchor-link" href="#Second-Order-Equations"> </a>
+</h4>
 </div>
 </div>
 </div>
