@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      21 min read
     
 </span></p>
 
@@ -184,8 +184,16 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h4"><a href="#Stability-of-2-by-2-Matrices">Stability of 2 by 2 Matrices </a></li>
+<li class="toc-entry toc-h4"><a href="#The-Exponential-of-a-Matrix">The Exponential of a Matrix </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex5)">ex5) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex6)">ex6) </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.4-Symmetric-Matrices">6.4 Symmetric Matrices </a></li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
@@ -875,7 +883,9 @@ choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ c
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Eigenvectors $\begin{bmatrix}{1}\\{0}\end{bmatrix}$$\begin{bmatrix}{1}\\{1}\end{bmatrix}$ $\begin{matrix}\begin{bmatrix}{1}&amp;{-1}\\{0}&amp;{1}\end{bmatrix}\\S^{-1}\end{matrix}$ $\begin{matrix}\begin{bmatrix}{1}&amp;{5}\\{0}&amp;{6}\end{bmatrix}\\A\end{matrix}$$\begin{matrix}\begin{bmatrix}{1}&amp;{1}\\{0}&amp;{1}\end{bmatrix}\\S\end{matrix}$ = $\begin{matrix}\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{6}\end{bmatrix}\\ \Lambda\end{matrix}$</p>
+<p>
+$$\text{Eigenvectors }\begin{bmatrix}{1}\\{0}\end{bmatrix}\begin{bmatrix}{1}\\{1}\end{bmatrix} \begin{matrix}\begin{bmatrix}{1}&amp;{-1}\\{0}&amp;{1}\end{bmatrix}\\S^{-1}\end{matrix}\begin{matrix}\begin{bmatrix}{1}&amp;{5}\\{0}&amp;{6}\end{bmatrix}\\A\end{matrix}\begin{matrix}\begin{bmatrix}{1}&amp;{1}\\{0}&amp;{1}\end{bmatrix}\\S\end{matrix}$ = $\begin{matrix}\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{6}\end{bmatrix}\\ \Lambda\end{matrix}$$
+</p>
 
 </div>
 </div>
@@ -1829,9 +1839,254 @@ $$\begin{matrix}{\lambda_1+\lambda_2&lt;0}\\{\lambda_1\lambda_2 &gt;0}\end{matri
 </p>
 <ul>
 <li>람다들이 음수로 존재하면 합은 음수일테니까, 그 합이 trace T이고. 그럼 곱은 양수가 되겠지. 이게 determinant D야.</li>
-<li>람다들이 복소수라면 $r\pm is$로부터 얻을 수 있겠지, dkslais T,D는 얻을 수 없어</li>
+<li>람다들이 복소수라면 $r\pm is$로부터 얻을 수 있겠지, 그렇지 않으면 T,D는 얻을 수 없어</li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Exponential-of-a-Matrix">
+<a class="anchor" href="#The-Exponential-of-a-Matrix" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Exponential of a Matrix<a class="anchor-link" href="#The-Exponential-of-a-Matrix"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to write the solution $u(t)$ in a new form $e^{At} u(0)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Matrix exponentil }e^{At} \text{    } e^{At} = I At +\frac{1}{2}(At)^2 + \frac{1}{6}(At)^3+\dots$$
+</p>
+<p>
+$$\text{Its derivative is } Ae^{At} \text{     }A+A^2+\frac{1}{2}A^3t^2+\dots = Ae^{At}$$
+</p>
+<p>
+$$\text{Its eigenvalues are } e^{\lambda r}\text{   }(I+At +\frac{1}{2}(At)^2)x=(1+\lambda t +\frac{1}{2}(\lambda t)^2+\dots)x$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This chapter emphasizes how to find$ u(t) = e^{At} u(0)$ by diagonalization. Assume A does have $n$ independent eigenvectors, so it is diagonalizable. Substitute $A = S\Lambda S^{-1}$ into the series for $e^{At}$. Whenever $\Lambda S^{-1} S\Lambda S^{-1}$ appears, cancel $S^{-1} S$ in the middle:</p>
+<p>
+$$\text{Use the series  } e^{At}=I+S\Lambda S^{-1}t +\frac{1}{2}(S\Lambda S^{-1}t)(S\Lambda S^{-1}t)+\dots$$
+</p>
+<p>
+$$\text{Factor out } S \text{ and } S^{-1} \text{   } = S[I+\Lambda t +\frac{1}{2}(\Lambda t)^2+\dots]S^{-1}$$
+</p>
+<p>
+$$\text{Diagonalize } e^{At} \text{  } = Se^{\Lambda t}S^{-1}$$
+</p>
+<p>
+$$e^{At}u(0) = Se^{\Lambda t}S^{-1}u(0)=\begin{bmatrix}{}\\{x_1}&amp;{\dots}&amp;{x_n}\\{}\end{bmatrix}\begin{bmatrix}{e^{\lambda_1t}}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{e^{\lambda)n t}}\end{bmatrix}\begin{bmatrix}{c_1}\\{\vdots}\\{c_n}\end{bmatrix}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$e^{At}u(0)$의 solution</p>
+<ol>
+<li>$u(0)=c_1x_1+\dots+c_nx_n$을 쓰자, n개의 독립적인 고유벡터가 필요하다.</li>
+<li>$e^{\lambda_i t}$에 각 $x_i$를 곱하자</li>
+<li>$e^{At}u(0)$의 best form은 $u(t)=c_1e^{\lambda_1 t}x_1+\dots+c_ne^{\lambda_n t}x_n$</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex4)">
+<a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When you substitute $y = e^{\lambda t}$ into $y" - 2y' + y = 0$, you get an equation with repeated roots: $\lambda^2 - 2\lambda + 1 = 0 = (\lambda-1)$.</p>
+<p>
+$$\text{Short series  }e^{At}=e^{It}e^P-I{t=e^t[I+(A-I)t}$$
+</p>
+<p>
+$$u(t)=e^t\begin{bmatrix}I+\begin{bmatrix}{-1}&amp;{1}\\{-1}&amp;{1}\end{bmatrix} t \end{bmatrix}u(0)$$
+</p>
+<p>
+$$y(t) = e^ty(0) -te^ty(0) +te^t y[0]$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex5)">
+<a class="anchor" href="#ex5)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex5)<a class="anchor-link" href="#ex5)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the infinite series to find $e^{At}$ for $A=\begin{bmatrix}{0}&amp;{1}\\{-1}&amp;{1}\end{bmatrix}$. Notice that $A^4=I$</p>
+<p>
+$$A=\begin{bmatrix}{0}&amp;{1}\\{-1}&amp;{1}\end{bmatrix}$$
+</p>
+<p>
+$$e^{At}=\begin{bmatrix}{\cos t}&amp;{\sin t}\\{\sin t}&amp;{\cos t}\end{bmatrix}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The eigenvalues of eAt are e it and e-it . Three rules:</p>
+<ol>
+<li>$e^{At}$ always has the inverse $e^{-A}$t . </li>
+<li>The eigenvalues of $e^{At}$ are always $e^{\lambda t}$. </li>
+<li>When A is skew-symmetric, $e^{At}$ is orthogonal. Inverse = transpose = $e^{-At}. </li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex6)">
+<a class="anchor" href="#ex6)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex6)<a class="anchor-link" href="#ex6)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solve</p>
+<p>$\frac{du}{dt}=Au=\begin{bmatrix}{1}&amp;{1}\\{0}&amp;{2}\end{bmatrix}u$ starting from $u(0)=\begin{bmatrix}{2}\\{1}\end{bmatrix}$ at t=0</p>
+<p>Solution</p>
+<p>$u(t)=e^t\begin{bmatrix}{1}\\{0}\end{bmatrix}+e^{2t}\begin{bmatrix}{1}\\{1}\end{bmatrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>REVIEW OF THE KEY IDEAS</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>WORKED EXAMPLES</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Problem Set 6.3</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.4-Symmetric-Matrices">
+<a class="anchor" href="#6.4-Symmetric-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.4 Symmetric Matrices<a class="anchor-link" href="#6.4-Symmetric-Matrices"> </a>
+</h3>
 </div>
 </div>
 </div>
