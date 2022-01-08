@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      21 min read
+      23 min read
     
 </span></p>
 
@@ -193,7 +193,12 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#6.4-Symmetric-Matrices">6.4 Symmetric Matrices </a></li>
+<li class="toc-entry toc-h3"><a href="#6.4-Symmetric-Matrices">6.4 Symmetric Matrices </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
@@ -2087,6 +2092,195 @@ $$e^{At}=\begin{bmatrix}{\cos t}&amp;{\sin t}\\{\sin t}&amp;{\cos t}\end{bmatrix
 <h3 id="6.4-Symmetric-Matrices">
 <a class="anchor" href="#6.4-Symmetric-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.4 Symmetric Matrices<a class="anchor-link" href="#6.4-Symmetric-Matrices"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>I have to write "can be chosen" because the two in the plane are not automatically perpendicular.</strong></p>
+<p><strong>This section makes that best possible choice for symmetric matrices: The eigenvectors of $P = P^T$ are perpendicular unit vectors.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is special about $A x = \lambda x$ when A is symmetric?</p>
+<ul>
+<li>A와 trsnspose한 A가 같을 때 고유값 람다와 고유벡터 엑스의 특징을 볼거야</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>diagonalization $A=S\Lambda S^{-1}$는 A의 대칭을 반영할걸, $A^T=(S^{-1})^T \Lambda S^{T}$에서 힌트를 얻어볼까!</p>
+<ul>
+<li>A와 trsnpose A가 같다 했으니까.</li>
+<li>$S = S^{-1}$ 겠네?<ul>
+<li>That makes each eigenvector in S orthogonal to the other eigenvectors.</li>
+<li>S의 각 고유 벡터를 다르 고유벡터와 직교하게 만듦!</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>key fact</strong></p>
+<ol>
+<li>Asymmetric matrix has only real eigenvalues.</li>
+<li>The eigenvectors can be chosen orthonormal.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Its eigenvector matrix $S$ becomes an orthogonal matrix $Q$. Orthogonal matrices have $Q^{-l} = Q^T$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>직교한 고유벡터를 선택할 떄 S = Q 라 쓴다는 것을 기억하자
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why do we use the word "choose"? Because the eigenvectors do not have to be unit vectors.</p>
+<p>Their lengths are at our disposal. We will choose unit vectors-eigenvectors of length one, which are orthnormal and not just orthogonal.</p>
+<p>Then $S\Lambda S^{-1}$ is in its special and particular form $Q\Lambda Q^T$ for symmetric matrices:</p>
+<p><strong>(Special Theorem) 모든 대칭 행렬은 람다 행렬의 고유값들과 $S=Q$ 인 직교 고유벡터와 같이 factorization $A=Q\Lambda Q^T$을 가지고 있음</strong></p>
+<p>
+$$\text{Symmetric diagonalixation } A=Q\Lambda Q^{-1}=Q\Lambda Q^T \text{ with } Q^{-1} = Q^T$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the "spectral theorem" in mathematics and the "principal axis theorem" in geometry and physics.</p>
+<ol>
+<li>By an example, showing real $\Lambda$'s in A and orthonormal $x$'s in $Q$. </li>
+<li>By a proof of those facts when no eigenvalues are repeated. </li>
+<li>By a proof that allows repeated eigenvalues (at the end of this section). </li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the $\lambda$'s and $x$'s when $A=\begin{bmatrix}{1}&amp;{2}\\{2}&amp;{4}\end{bmatrix}$ and $A-\lambda I = \begin{bmatrix}{1-\lambda}&amp;{2}\\{2}&amp;{4-\lambda}\end{bmatrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution</em></p>
+<ul>
+<li>determinant of $A-\lambda I$인 $\lambda^2-5\lambda$로 고유값 0,5를 찾을 수 있지</li>
+<li>두 고유 벡터는 (2,-1),(1,2)야.(orthogonal but not yet orthonormal.)</li>
+<li>람다가 0일때 고유벡터는 A의 nullspace안에 있어.</li>
+<li>람다가 5일때 고유벡터는 열공간column space 안에 있어.</li>
+<li>why are the nullspace and column space perpendicular? <ul>
+<li>The Fundamental Theorem says that the nullspace is perpendicular to the row space-not the column space.</li>
+</ul>
+</li>
+<li>하지만 우리가 보는 행령은 대칭이잖아!</li>
+<li>그래서 행과 열 공간은 같지.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These eigenvectors have length $\sqrt{5}$. Divide them by $\sqrt{5}$ to get unit vectors.</p>
+<p>Put those into the columns of $S$ (which is $Q$). Then $Q^{-1} AQ$ is $\Lambda$ and $Q^{-1} = Q^T$:</p>
+<p>
+$$Q^{-1}AQ = \frac{1}{\sqrt{5}}\begin{bmatrix}{2}&amp;{-1}\\{1}&amp;{2}\end{bmatrix} \begin{bmatrix} {1}&amp;{2}\\{2}&amp;{4} \end{bmatrix} \frac{1}{\sqrt{5}} \begin{bmatrix} {2}&amp;{1}\\{-1}&amp;{2} \end{bmatrix}=\begin{bmatrix}{0}&amp;{0}\\{0}&amp;{5}\end{bmatrix}=\Lambda$$
+</p>
+<p>Now comes the $n$ by $n$ case. The $\lambda$'s are real when $A = A^T$ and $Ax = \lambda x$ .</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Real Eigenvalues; All the eigen values of a real symmetric matrix are real</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Orthogonal Eigenvectors; Eigenvectors of a real symmetic matrix (when they correspond to different $\lambda|'s)are always perpendeicular.</strong></p>
+<p>
+$$(\lambda_1x)^Ty = (Ax)^Ty=x^TA^Ty = x^TAy=x^T\lambda_2y$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex2)">
+<a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
+</h5>
 </div>
 </div>
 </div>
