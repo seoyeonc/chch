@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      12 min read
     
 </span></p>
 
@@ -162,6 +162,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h3"><a href="#Fibonacci-Numbers">Fibonacci Numbers </a></li>
+<li class="toc-entry toc-h3"><a href="#Matrix-Powers-$A^k$">Matrix Powers $A^k$ </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex-3)">ex 3) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
 </ul><!--
@@ -940,7 +947,7 @@ choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ c
 <p><strong>Powers of A</strong></p>
 <ul>
 <li>A가 Markov matrix이면?<ul>
-<li>$A=S\Lambda S^{-1}$에서 구한 고유벡터들은 S의 열 아넹 있고, $A^2$의 고유벡터이기도 함.</li>
+<li>$A=S\Lambda S^{-1}$에서 구한 고유벡터들은 $S$의 열 안에 있고, $A^2$의 고유벡터이기도 함.</li>
 </ul>
 </li>
 <li>$A^2$은 $S$와 같고, $A^2$ 고유벡터 행렬은 $\Lambda^2$임을 보여보자.<ul>
@@ -959,6 +966,219 @@ choices for A illustrate three possibilities: 0,1, or 2 directions where $A_x$ c
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Q: When does $A^k \rightarrow zero$ matrix? A: All $|\lambda|&lt;1$.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fibonacci-Numbers">
+<a class="anchor" href="#Fibonacci-Numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fibonacci Numbers<a class="anchor-link" href="#Fibonacci-Numbers"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Every new Fibonacci number is the sum of the two previous F's:</strong></p>
+<ul>
+<li>The sequence 0,1,1,2,3,5,8,13,... comes from $F_{k+2}=F_{k+1}+F_{k}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 1</strong>: 일단 matrix equation $u_{k+1}=Au_k$으로 시작!</p>
+<ul>
+<li>Let $u_k=\begin{bmatrix}{F_{k+1}}\\{F_k}\end{bmatrix} $. The rule $\begin{matrix}{F_{k+2}=F_{k+1}+F_k}\\{F_{k+1}=F_{k+1}}\end{matrix}$ is $u_{k+1} = \begin{bmatrix}{1}&amp;{1}\\{1}&amp;{0}\end{bmatrix}u_k$</li>
+</ul>
+<p>Every step multiples by $A= \begin{bmatrix}{1}&amp;{1}\\{1}&amp;{0}\end{bmatrix}$.</p>
+<ul>
+<li>100번하면 $u_{100}=A^{100}u_k$가 된다.</li>
+<li>Subtract $\lambda$ from the diagonal of A:<ul>
+<li>$A-\lambda I =  \begin{bmatrix}{1-\lambda}&amp;{1}\\{1}&amp;{-\lambda}\end{bmatrix}$ leads to $det(A-\lambda I)=\lambda^2 - \lambda - 1$</li>
+<li>$-b\pm sqrt(b^2-4ac)/2a$ 으로 해를 구할 수 있지</li>
+<li>Eigenvalues $\lambda_1=\frac{1+\sqrt{5}}{2} \approx 1.618$ and $\lambda_2=\frac{1-\sqrt{5}}{2} \approx -.618$</li>
+<li>Eigenvalues로 Eigenvectors를 구해보자. $x_1=(\lambda_1,1)$ and $x_2=(\lambda_2,1)$</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 2</strong>: Find the combination of those eigenvectors that gives $u_0=(1,0)$</p>
+<ul>
+<li>$\begin{bmatrix} {1}\\{0} \end{bmatrix} = \frac{1}{\lambda_1-\lambda_2} \bigg( \begin{bmatrix}{\lambda_1}\\{1} \end{bmatrix} - \begin{bmatrix}{\lambda_2}\\{1} \end{bmatrix} \bigg)$  or $u_0=\frac{x_1-x_2}{\lambda_1-\lambda_2}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 3</strong>: multiplies $u_0$ by $A^{100}$ to find $u_{100}$</p>
+<ul>
+<li>100 steps from $u_0$ $u_{100}=\frac{(\lambda_1)^{100}x_1-(\lambda_2)^{100}x_2}{\lambda_1-\lambda_2}$</li>
+<li>우리는 $F_{100}= \text{ second componets of } u_{100}$ 를 원해</li>
+<li>$x_1$과 $x_2$의 second component는 1이야</li>
+<li>${\lambda_1-\lambda_2}$은 $\sqrt{5}$</li>
+<li>결국 $F_{100}=\frac{1}{\sqrt{5}}\bigg[\bigg(\frac{1+\sqrt{5}}{2} \bigg)^{100} - \bigg(\frac{1-\sqrt{5}}{2} \bigg)^{100}\bigg] \approx 3.54\cdot10^{20}$</li>
+<li>The fractions and square roots must disappear, because Fibonacci's rule $F_{k+2} = F_{k+l} + F_k$ stays with integers</li>
+<li>k번째 피보나치 수=$\frac{\lambda_{1}^{k}-\lambda_{2}^{k}}{\lambda_1-\lambda_2}$ = 가장 가까운 상수는 $\frac{1}{\sqrt{5}}\bigg(\frac{1+\sqrt{5}}{2} \bigg)^{k}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The ratio FlOd F100 must be very close to the limiting ratio (I + 0) /2. The Greeks called this number the "golden mean".</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Matrix-Powers-$A^k$">
+<a class="anchor" href="#Matrix-Powers-%24A%5Ek%24" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matrix Powers $A^k$<a class="anchor-link" href="#Matrix-Powers-%24A%5Ek%24"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Power of A: $A^KU_0 = (S\Lambda  S^{-1})\dots(S\Lambda  S^{-1})u_0=S\Lambda^k  S^{-1}u_0$</p>
+<ol>
+<li><strong>Write $u_0$ as a combination $c_1x_1+\dots+c_nx_n$ of the eigenvectors.</strong></li>
+<li><strong>Multuply eaxh eigenvector $x_i$ by $(\lambda_i)^k$</strong></li>
+<li><strong>Add up the pieces $c_i(\lambda_i)^kx_i$ to find the solution $u_k=A^ku_0$</strong></li>
+</ol>
+<ul>
+<li>Solution for $u_{k+1}=Au_k$ $u_k=A^ku_0=c_1(\lambda_1)^kx_1+\dots+c_n(\lambda_n)^kx_n$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the eigenvectors in S lead to the c's in the combination $u_0=c_1x_1+\dots+c_nx_n$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 1</strong></p>
+<ul>
+<li>$u_0= \begin{bmatrix}{}\\ {x_1} &amp; {\dots} &amp; {x_n}\\{} \end{bmatrix}\begin{bmatrix}{c_1}\\{\vdots}\\{c_n} \end{bmatrix}$. This says that $u_0=Sc$</li>
+<li>상관계수는 $c=S^{-1}U_0$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 2</strong></p>
+<ul>
+<li>Multiply by $\Lambda^k$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>step 3</strong></p>
+<ul>
+<li>the final result $u_k=\sum c_i(\lambda_i)^kx_i$is the product of S and $\Lambda^k$ and $S^{-1}u_0$</li>
+<li>$A^ku_0 = S\Lambda^kS^{-1}u_0 = S\Lambda^kc = \begin{bmatrix}{}&amp;{}&amp;{}\\{x_1} &amp; {\dots}&amp;{x_n}\\{}&amp;{}&amp;{}\end{bmatrix} \begin{bmatrix}{(\lambda_1)^k}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{(\lambda_n)^k}\end{bmatrix} \begin{bmatrix}{c_1}\\{\vdots}\\{c_n}\end{bmatrix}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex-3)">
+<a class="anchor" href="#ex-3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex 3)<a class="anchor-link" href="#ex-3)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Gilbert-Strang-강의영상...!.">
+<a class="anchor" href="#Gilbert-Strang-%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81...!." aria-hidden="true"><span class="octicon octicon-link"></span></a>Gilbert Strang 강의영상...!.<a class="anchor-link" href="#Gilbert-Strang-%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81...!."> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/watch?v=ZK3O402wf1c&amp;list=PL49CF3715CB9EF31D&amp;index=1" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
 
 </div>
 </div>
