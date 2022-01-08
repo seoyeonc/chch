@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      6 min read
     
 </span></p>
 
@@ -137,10 +137,24 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#Chapter-6-Eilgenvalues-and-Eigenvectors">Chapter 6 Eilgenvalues and Eigenvectors </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#6.1-Introduction-to-Eigencalues">6.1 Introduction to Eigencalues </a>
+<ul>
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
+<li class="toc-entry toc-h4"><a href="#The-Equation-for-the-Eigenvalues">The Equation for the Eigenvalues </a>
+<ul>
 <li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#Good-News,-Bad-News">Good News, Bad News </a></li>
+<li class="toc-entry toc-h4"><a href="#Imaginary-Eigenvalues">Imaginary Eigenvalues </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex5)">ex5) </a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -158,6 +172,15 @@ window.onload = wrap_img;
 <h2 id="Chapter-6-Eilgenvalues-and-Eigenvectors">
 <a class="anchor" href="#Chapter-6-Eilgenvalues-and-Eigenvectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 6 Eilgenvalues and Eigenvectors<a class="anchor-link" href="#Chapter-6-Eilgenvalues-and-Eigenvectors"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1-Introduction-to-Eigencalues">
+<a class="anchor" href="#6.1-Introduction-to-Eigencalues" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1 Introduction to Eigencalues<a class="anchor-link" href="#6.1-Introduction-to-Eigencalues"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -279,6 +302,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="ex2)">
 <a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
 </h5>
@@ -334,6 +365,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="ex3)">
 <a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
 </h5>
@@ -372,6 +411,23 @@ window.onload = wrap_img;
 <li>The eigenvalues of $R^2$ are $\lambda^2$. In this case $R^2 = I$. Check $(I)^2$ = 1 and $(-1)^2$ = 1. </li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Equation-for-the-Eigenvalues">
+<a class="anchor" href="#The-Equation-for-the-Eigenvalues" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Equation for the Eigenvalues<a class="anchor-link" href="#The-Equation-for-the-Eigenvalues"> </a>
+</h4>
 </div>
 </div>
 </div>
@@ -421,6 +477,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="ex4)">
 <a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
 </h5>
@@ -456,8 +520,184 @@ window.onload = wrap_img;
 <li>$det\begin{bmatrix}{1-\lambda}&amp;{2}\\{2}&amp;{4-\lambda} \end{bmatrix}=(1-\lambda)(4-\lambda)-(2)(2)=\lambda^{2}-5\lambda$</li>
 <li>$\lambda^{2}-5\lambda$를 0으로 놓으면 근은 람다가 0 또는 5</li>
 <li>One solution is $\lambda = 0$ (as expected, since A is singular). Factoring into $\lambda$ times $\lambda - 5$, the other root is $\lambda = 5$.:</li>
-<li>$det(a$</li>
+<li>$det(A-\lambda I)=\lambda^2-5\lambda =0$ yields the eigenvalues $\lambda_1=0$ and $\lambda_2=5$</li>
+<li>고유벡터를 찾아보자</li>
+<li>$(A-0I)x=\begin{bmatrix}{1}&amp;{2}\\{2}&amp;{4} \end{bmatrix}\begin{bmatrix}{y}\\{z} \end{bmatrix}=\begin{bmatrix}{0}\\{0} \end{bmatrix}$ yields the eigenvector $\begin{bmatrix}{y}\\{z} \end{bmatrix}=\begin{bmatrix}{2}\\{-1} \end{bmatrix}$ for $\lambda_1=0$</li>
+<li>$(A-5I)x=\begin{bmatrix}{-4}&amp;{2}\\{2}&amp;{-1} \end{bmatrix}\begin{bmatrix}{y}\\{z} \end{bmatrix}=\begin{bmatrix}{0}\\{0} \end{bmatrix}$ yields the eigenvector $\begin{bmatrix}{y}\\{z} \end{bmatrix}=\begin{bmatrix}{1}\\{2} \end{bmatrix}$ for $\lambda_2=5$.<ul>
+<li>0과 5가 고유값이기 때문에 $A-0I$, $A-5I$는 singular이다.</li>
+<li>고유벡터 (2,-1)과 (1,2)은 영공간nullspace에 있다.: $(A-\lambda I)x=0$ is $Ax=\lambda x$</li>
 </ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>There is nothing exceptional about A = O. Like every other number, zero might be an eigenvalue and it might not. If A is singular, it is. The eigenvectors fill the nullspace: Ax = Ox = O. <strong>If A is invertible, zero is not an eigenvalue. We shift A by a multiple of I to make it singular.</strong>
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>summary: n matrix에 의한 고유값 문제를 해결하기 위해 밟을 step!</p>
+<ol>
+<li>Compute the determinant of $A-\lambda I$.</li>
+<li>Find the roots of this polynomial</li>
+<li>solve $(A-\lambda I)x=0$ to find an eigenvector $x$</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <strong>Warning: </strong>Some 2 by 2 matrices have only one line of eigenvectors. This can only happen when two eigenvalues are equal. <em>Similarly some n by n matrices don’t have n independent eigenvectors. Without n eigenvectors, we don’t have a basis. We can’t write every v as a combination of eigenvectors.</em>
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Good-News,-Bad-News">
+<a class="anchor" href="#Good-News,-Bad-News" aria-hidden="true"><span class="octicon octicon-link"></span></a>Good News, Bad News<a class="anchor-link" href="#Good-News,-Bad-News"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bad news: A 행에 또다른 열을 추가하거나 행을 바꾼다면 고유값들은 항상 변할 것임!</p>
+<ul>
+<li>Elimination does not preserve the A'S. The triangular U has its eigenvalues sitting along the diagonal-they are the pivots. But they are not the eigenvalues of A!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Good news: The product $\lambda_1$ times $\lambda_2$ and the sum $\lambda_1$ + $\lambda_2$ can be found quickly from the matrix.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The product of the n eigenvalues equals the determinant. The sum of the n eigenvalues equals the sum of the n diagonal entries.</strong></p>
+<ul>
+<li>The sum of the entries on the main diagonal is called the trace of A:<ul>
+<li>$\lambda_1+\lambda_2+\dots+\lambda_n=trace=a_{11}+a_{22}+\dots+a_{nn}$</li>
+<li>계산을 잘못했는지 알 수 있음! 잘못되었다면? go back to $det(A-\lambda I)=0$</li>
+</ul>
+</li>
+<li>The determinant test makes the product of the A'S equal to the product of the pivots (assuming no row exchanges). But the sum of the A'S is not the sum of the pivots-as the example showed. The individual A's have almost nothing to do with the pivots. In this new part of linear algebra, the key equation is really nonlinear: A multiplies x.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Imaginary-Eigenvalues">
+<a class="anchor" href="#Imaginary-Eigenvalues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Imaginary Eigenvalues<a class="anchor-link" href="#Imaginary-Eigenvalues"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The eigenvalues might not be real numbers.?!?!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex5)">
+<a class="anchor" href="#ex5)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex5)<a class="anchor-link" href="#ex5)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The $90^o$ rotation $Q=\begin{bmatrix}{0}&amp;{-1}\\{1}&amp;{0} \end{bmatrix}$ has no real eigenvectors. Its eigenvalues are $\lambda=i$ and $\lambda=-i$. Sum of $\lambda$'s= trace=0, Product=determinany=1.</strong></p>
+<ul>
+<li>rotation 후 $Q_x$ 어느 벡터도 x와 같은 방향에 있지 않음 x=0일때 빼고.</li>
+<li>그러면 고유벡터가 될 수 없는데 그래도 우리는 허수imaginary numbers로 보겠다.</li>
+<li>$-I$인 $Q^2$을 봐봐. 만약 Q가 90도 회전하면 $Q^2$은 180도 회전하겠지? 그건 고유값들이 -1과 -1이라는 거고.(확실히 $-IX=-1X$인 건 아니까.) $Q^2$이니까 각 $\lambda ^2$이 될거고. 우리는 $\lambda ^2=-1$을 얻게될거야. 그러면 근은 $i,-i$가 나오겠지. 우리는 허수 i가 고유벡터에 있다는 것을 알 수 있어.<ul>
+<li>$\begin{matrix}  complex \\  eigenvectors \end{matrix}$   $\begin{bmatrix}{0}&amp;{-1}\\{1}&amp;{0} \end{bmatrix}\begin{bmatrix}{1}\\{i} \end{bmatrix}=-i\begin{bmatrix}{1}\\{i} \end{bmatrix}$ and $\begin{bmatrix}{0}&amp;{-1}\\{1}&amp;{0} \end{bmatrix}\begin{bmatrix}{i}\\{1} \end{bmatrix}=i\begin{bmatrix}{i}\\{1} \end{bmatrix}$</li>
+<li>여기서 복소수벡터complex vector $x_1=(1,i),x_2=(i,1)$는 회전한 방향을 유지하지. </li>
+<li>이 예제들은 실제 행렬이 복소수 고유치들과 고유값들을 쉽게 가질 수 있는 모든 중요한 포인트를 만들지.</li>
+<li>특히 고유치 i와 -i는 Q의 two special properties을 말해.</li>
+</ul>
+<ol>
+<li>2.</li>
+</ol>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
