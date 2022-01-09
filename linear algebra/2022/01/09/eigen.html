@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      24 min read
+      26 min read
     
 </span></p>
 
@@ -197,9 +197,20 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
-<li class="toc-entry toc-h4"><a href="#Complex-Eigenvalues-of-Real-Matrices">Complex Eigenvalues of Real Matrices </a></li>
+<li class="toc-entry toc-h4"><a href="#Complex-Eigenvalues-of-Real-Matrices">Complex Eigenvalues of Real Matrices </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h4"><a href="#Eigenvalues-versus-Pivots">Eigenvalues versus Pivots </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#All-Symmetric-Matrices-are-Diagonalizable">All Symmetric Matrices are Diagonalizable </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.5-Positive-Definite-Matrices">6.5 Positive Definite Matrices </a></li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
@@ -2358,6 +2369,262 @@ $$A=\lambda_1P_1+\dots+\lambda_nP_n \text{  } \lambda_i=\text{ eigenvalue, } P_i
 <h4 id="Complex-Eigenvalues-of-Real-Matrices">
 <a class="anchor" href="#Complex-Eigenvalues-of-Real-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Complex Eigenvalues of Real Matrices<a class="anchor-link" href="#Complex-Eigenvalues-of-Real-Matrices"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>For real matrices, complex $\lambda$'s and $x$'s come in "conjugate pairs."</strong>
+
+$$\text{If }Ax=\lambda x \text{ then } A\bar{x}=\bar{\lambda}\bar{x}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex3)">
+<a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$A=\begin{bmatrix}{\cos \theta} &amp;{-\sin \theta}\\{\sin \theta} &amp;{\cos \theta} \end{bmatrix} \text{ has } \lambda_1=\cos \theta + i \sin \theta \text{ and } \lambda_2 \cos \theta -i\sin \theta$$
+</p>
+<p>
+$$\text{This is } \lambda x \text{   } Ax=\begin{bmatrix} {\cos \theta}&amp;{-\sin \theta}\\{\sin \theta}&amp;{\cos \theta}\end{bmatrix}\begin{bmatrix}{1}\\{-i}\end{bmatrix}=(\cos \theta + i \sin \theta) \begin{bmatrix}{1}\\{-i}\end{bmatrix})$$
+</p>
+<p>
+$$\text{This is } \bar{\lambda}\bar{x} \text{   } A\bar{x}=\begin{bmatrix} {\cos \theta}&amp;{-\sin \theta}\\{\sin \theta}&amp;{\cos \theta}\end{bmatrix}\begin{bmatrix}{1}\\{i}\end{bmatrix}=(\cos \theta - i \sin \theta) \begin{bmatrix}{1}\\{i}\end{bmatrix})$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>For this rotation matrix the absolute value is $|\lambda|=1$, because $|cos^2 \theta + \sin^2 \theta = 1$. This fact $|\lambda| = 1$ holds for the eigenvalues of every orthogonal matrix.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Eigenvalues-versus-Pivots">
+<a class="anchor" href="#Eigenvalues-versus-Pivots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Eigenvalues versus Pivots<a class="anchor-link" href="#Eigenvalues-versus-Pivots"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$product of pivots = determinant = product of eigenvalues.$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are assuming a full set of pivots d 1, ... , dn. There are n real eigenvalues AI, ... , An. The d's and A'S are not the same, but they come from the same matrix. This paragraph is about a hidden relation. For symmetric matrices the pivots and the eigenvalues have the same signs:</p>
+<ul>
+<li><strong>The number of positive eigenvalues of $A = A^T$ equals the number of positive pivots. Special case: $A$ has all $\lambda_i &gt; 0$ if and only if all pivots are positive.</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex4)">
+<a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The signs of the pivots match the signs of the eigenvalues, one plus and one minus. This could be false when the matrix is not symmetric.</p>
+<ul>
+<li>대칭 행렬에서 pivot이 둘 중 한 개만 양수라면 고유값도 둘 중 한 개만 양수</li>
+<li>비대칭행렬에서는 pivot이 둘 다 양수여도 고유값은 아닐 수 있으니 주의!</li>
+<li><em>the pivots and eigenvalues have matching signs,</em></li>
+<li><em>But to change sign, a real eigenvalue would have to cross zero.</em></li>
+<li><em>The matrix would at that moment be singular</em></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="All-Symmetric-Matrices-are-Diagonalizable">
+<a class="anchor" href="#All-Symmetric-Matrices-are-Diagonalizable" aria-hidden="true"><span class="octicon octicon-link"></span></a>All Symmetric Matrices are Diagonalizable<a class="anchor-link" href="#All-Symmetric-Matrices-are-Diagonalizable"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>어느 A의 고유값도 반복되지 않을 때, 고유벡터는 독립이 확실하다.</li>
+<li>그러면 A는 대각화될 수 있다.</li>
+<li>하지만 반복된 고유값은 고유벡터의 단점을 가질 수 있음</li>
+<li>이건 비대칭 행렬에대해 일어나곤 함.</li>
+<li>대칭 행렬에서는 절대 안 일어나는 일</li>
+<li><strong>There are always enough eigenvectors to diagonalize $A = A^T$.</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is one idea for a proof. Change A slightly by a diagonal matrix $diag( c , 2c, ... , n c)$. If c is very small, the new symmetric matrix will have no repeated eigenvalues. Then we know it has a full set of orthonormal eigenvectors. As $c \rightarrow 0$ we obtain n orthonormal eigenvectors of the original A-even if some eigenvalues of that A are repeated.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Schur's Theorem</strong></p>
+<ul>
+<li><strong>Every square matrixfactors into $A=QTQ^{-1}$ where $T$ is upper triangular and $\bar{Q}^{T} =Q-^{l.}$ If A has real eigenvalues then $Q$ and $T$ can be chosen real: $Q^T Q = I$</strong></li>
+<li>임의의 복소수 정사각 행렬을 상삼각 행렬로 나타내는 행렬 분해</li>
+<li>?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>REVIEW OF THE KEY IDEAS</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>WORKED EXAMPLES</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Problem Set 6.4</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Challenge Problems</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.5-Positive-Definite-Matrices">
+<a class="anchor" href="#6.5-Positive-Definite-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.5 Positive Definite Matrices<a class="anchor-link" href="#6.5-Positive-Definite-Matrices"> </a>
+</h3>
 </div>
 </div>
 </div>
