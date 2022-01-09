@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      29 min read
+      30 min read
     
 </span></p>
 
@@ -217,6 +217,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h4"><a href="#Positive-Semidefinite-Matrices">Positive Semidefinite Matrices </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -2787,6 +2788,91 @@ $$x^TAx = \begin{bmatrix}{x}&amp;{y}\end{bmatrix}\begin{bmatrix}{a}&amp;{b}\\{b}
 <h5 id="ex1)">
 <a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A,B가 positive definiteness일때,
+
+$$A=\begin{bmatrix}{2}&amp;{-1}&amp;{0}\\{-1}&amp;{2}&amp;{-1}\\{0}&amp;{-1}&amp;{2}\end{bmatrix} and,  B=\begin{bmatrix}{2}&amp;{-1}&amp;{b}\\{-1}&amp;{2}&amp;{-1}\\{b}&amp;{-1}&amp;{2}\end{bmatrix}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A의 pivot은 2, 3/2, 4/3 임! 모두 양수!</li>
+<li>이것의 upper left determinants는 2,3,4이고 모두 양수!</li>
+<li>A 고유값은 $2-\sqrt{2},2,2+\sqrt{2}$로 모두 양수!</li>
+<li>$x^T Ax$도 양수! 
+
+$$x^T Ax=2(x_{1}^{2}-x_1x_2+x_{2}^{2}-x_2x_3+x_{3}^{2}=2(x_1-\frac{1}{2}x_2)^2+\frac{3}{2}(x_2-\frac{2}{3}x_3)^2+\frac{4}{3}(x_3)^2$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<p>I have two candidates to suggest for $R$. Either one will show that $A = R^T$ R is positive definite. $R$ can be a rectangular first difference matrix, 4 by 3, to produce those second differences -1,2, -1 in $A$</p>
+<ul>
+<li>여기서 R의 세 개 열은 모두 독립이고, A는 positive definite이다.</li>
+</ul>
+</li>
+<li>
+<p>Another $R$ comes from $A = LDL^T$ (the symmetric version of $A = LU$). Elimination gives the pivots 2, 3/2, 4/3 in $D$ and the multipliers -1/2, 0, -2/3 in L. Just put $\sqrt(D)$ with $L$. 
+
+$$LDL^T=(L\sqrt{D})(L\sqrt{D})^2=R^TR$$
+</p>
+<ul>
+<li>여기서 R은 Cholesky factor!!</li>
+<li>콜레스키 팩터는 MATLAB에서 $R=chol(A)$로 계산된다.</li>
+<li>정사각 R은 어떻게 A웅 만드는 방법이고, 이 콜레스키 R은 우리가 분해하는 방법이다.In applications, the rectangular R is how we build A and this Cholesky R is how we break it apart. </li>
+</ul>
+</li>
+</ul>
+<p>고유값은 대칭이 $R=Q\sqrt{\Lambda}Q^T$를 선택하게 한다. 또한 $R^TR=Q\Lambda Q^T$도 성공적!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now tum to B, where the (1,3) and (3,1) entries move away from 0 to b.</p>
+<ul>
+<li>b는 너무 크면 안 된다.</li>
+<li>The determinant test은 가장 쉽다.</li>
+<li>1 by 1 determinant 은 2이고, 2 by 2 determinant은 여전히 3이다. 3 by 3 determinant는 0을 포함한다.</li>
+<li>$det B = 4+2b-2b^2 = (1 +b)(4-2b)$must be positive. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Positive-Semidefinite-Matrices">
+<a class="anchor" href="#Positive-Semidefinite-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Positive Semidefinite Matrices<a class="anchor-link" href="#Positive-Semidefinite-Matrices"> </a>
+</h4>
 </div>
 </div>
 </div>
