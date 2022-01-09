@@ -7,7 +7,10 @@ image: images/logo.png
 ### Welcome :)
 
 ##### 금주 면담 질문
-- none
+- RuntimeError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.69 GiB total capacity; 611.13 MiB already allocated; 5.50 MiB free; 618.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+    - 찾아본 해결..! (해도 되는지..) 
+        - GPU 캐시 지우기( torch.cuda.empth_cache() )
+        - 현재 사용 중인 GPU 메모리 반환 : 터미널에서 nvidia-smi 명령어를 통해 GPU별 사용하고 있는 메모리 확인 후 현재 사용 중인 GPU 메모리 반환하기, sudo kill -9 [PID]
 
 
 ![]({{site.baseurl}}/images/study.jpg)
@@ -15,6 +18,7 @@ image: images/logo.png
 ##### to do list :)
 - The Functional Art(Alberto Cairo) 보기..(데시 11주차)
 - 파이썬 공부하고 싶으면(점프 투 파이썬_박응용)(005.133 박응용ㅈ2   중앙도서관/과학기술자료실(2층)/)
+
 
 ##### Website for R study
 - the website for **[R for Data Science](https://r4ds.had.co.nz)**
