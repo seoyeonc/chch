@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      23 min read
+      24 min read
     
 </span></p>
 
@@ -197,6 +197,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
+<li class="toc-entry toc-h4"><a href="#Complex-Eigenvalues-of-Real-Matrices">Complex Eigenvalues of Real Matrices </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -2281,6 +2282,82 @@ $$(\lambda_1x)^Ty = (Ax)^Ty=x^TA^Ty = x^TAy=x^T\lambda_2y$$
 <h5 id="ex2)">
 <a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The eigenvectors of a 2 by 2 symmetric matrix have a special form:</p>
+<p>Not widely known $A=\begin{bmatrix}{a}&amp;{b}\\{b}&amp;{c}\end{bmatrix}$ has $x_1=\begin{bmatrix}{b}\\{\lambda_1-a}\end{bmatrix}$ and $x_2=\begin{bmatrix}{\lambda_2-c}\\{b}\end{bmatrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$x_{1}^{T}x_2=b(\lambda_2-c)+(\lambda_1-a)b=b(\lambda_1+\lambda_2-a-c)=0$$
+</p>
+<ul>
+<li>$\lambda_1+\lambda_2$가 trace a+c와 같기 떄문에 0이다~</li>
+<li>$x_{1}^{T}x_2=0$이 되겠지?</li>
+<li>$x_1=x_2=0$일때, a=c,b=0<ul>
+<li>이 경우 A=I에서 고유값이 반복됨</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>This example shows the main goal of this section-to diagonalize symmetric matrices A by orthogonal eigenvector matrices $S = Q$. Look again at the result:</strong>
+
+$$\text{Symmetry } A=S\Lambda S^{-1} \text{ becomes } A=Q\Lambda Q^T \text{ with } Q^TQ=I$$
+</p>
+<p>이는 모든 2 by 2 행렬이 이렇게 생겼다는 것을 의미
+
+$$A=Q\Lambda Q^T = \begin{bmatrix}{}\\{x_1}&amp;{x_2}\\{}\end{bmatrix} \begin{bmatrix} {\lambda_1}&amp;{}\\{}&amp;{\lambda_2}\end{bmatrix} \begin{bmatrix}{}&amp;{x^{T}_{1}}&amp;{}\\{}&amp;{x_{2}^{T}}&amp;{} \end{bmatrix}$$
+</p>
+<p>
+$$\text{Sum of ranl-one matrics }A=\lambda_1x_1x_{1}^{T}+\lambda_2x_2x_{2}^{T}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$x_ix_{i}^{T}$를 n번 곱하면 projection matrices임.</li>
+<li>Including the A's, the spectral theorem A = QAQT for symmetric matrices says that A is a combination of projection matrices:
+
+$$A=\lambda_1P_1+\dots+\lambda_nP_n \text{  } \lambda_i=\text{ eigenvalue, } P_i=\text{projection onto eigenspace}$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Complex-Eigenvalues-of-Real-Matrices">
+<a class="anchor" href="#Complex-Eigenvalues-of-Real-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Complex Eigenvalues of Real Matrices<a class="anchor-link" href="#Complex-Eigenvalues-of-Real-Matrices"> </a>
+</h4>
 </div>
 </div>
 </div>
