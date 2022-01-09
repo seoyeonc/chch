@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      28 min read
+      29 min read
     
 </span></p>
 
@@ -212,7 +212,11 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h3"><a href="#6.5-Positive-Definite-Matrices">6.5 Positive Definite Matrices </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#Energy-based-Definition">Energy-based Definition </a></li>
+<li class="toc-entry toc-h4"><a href="#Energy-based-Definition">Energy-based Definition </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -2720,6 +2724,69 @@ $$\begin{bmatrix}{1}&amp;{b}\\{b}&amp;{c}\end{bmatrix} \begin{matrix}{\text{The 
 <h4 id="Energy-based-Definition">
 <a class="anchor" href="#Energy-based-Definition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Energy-based Definition<a class="anchor-link" href="#Energy-based-Definition"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The new idea is that <strong>$x^T A x$ is positive for all nonzero vectors x</strong>, not just the eigenvectors. In many applications this number $x^T Ax (or \frac{1}{2}x^TAx)$ is the <strong>energy</strong> in the system. The requirement of positive energy gives another definition of a positive definite matrix. I think this energy-based definition is the fundamental one.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Definition; A is positive definite if $x^TAx&gt;0$ for every nonzero vector x</strong>
+
+$$x^TAx = \begin{bmatrix}{x}&amp;{y}\end{bmatrix}\begin{bmatrix}{a}&amp;{b}\\{b}&amp;{c}\end{bmatrix}\begin{bmatrix}{x}&amp;{y}\end{bmatrix}=ax^2 + 2bxy + cy^2 &gt;0$$
+</p>
+<p>This energy-based definition leads to a basic fact: <strong>If A and B are symmetric positive definite, so is A + B</strong></p>
+<ul>
+<li>Reason: The pivots and eigenvalues are not easy to follow when matrices are added, but the energies just add</li>
+</ul>
+<p><strong>If the columns of R are independent, then $A = R^T R$ is positive definite.</strong></p>
+<ul>
+<li>여기서 $A = R^T R$은 square 이고 symmetric임</li>
+</ul>
+<p>The number $x^T Ax$ is the same as $x^T R^T Rx$. That is exactly $(Rx)^T(Rx)$-another important proof by parenthesis! That vector $Rx$ is not zero when $x \neq 0$ (this is the meaning of independent columns). Then $x^TAx$ is the positive number $||Rx||^2$ and the matrix A is positive definite.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>When a symmetric matrix has one of these five properties, it has them all:</strong></p>
+<ol>
+<li>All n pivots are positive.</li>
+<li>All n upper left determinants are positive<ul>
+<li>1 by 1, w by 2,... , n by n</li>
+</ul>
+</li>
+<li>All n eigenvalues are positive.</li>
+<li>$x^TAx$ is positive except at x = 0 This is the <strong>energy-based</strong> definition.</li>
+<li>A equals $R^TR$ for a matrix R with <strong>independent columns</strong>.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
 </div>
 </div>
 </div>
