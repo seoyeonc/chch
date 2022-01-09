@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      32 min read
+      34 min read
     
 </span></p>
 
@@ -225,7 +225,11 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#6.6-Similar-Matrices">6.6 Similar Matrices </a></li>
+<li class="toc-entry toc-h3"><a href="#6.6-Similar-Matrices">6.6 Similar Matrices </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
@@ -3088,6 +3092,99 @@ $$LDL^T=(L\sqrt{D})(L\sqrt{D})^2=R^TR$$
 <h3 id="6.6-Similar-Matrices">
 <a class="anchor" href="#6.6-Similar-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.6 Similar Matrices<a class="anchor-link" href="#6.6-Similar-Matrices"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The key step in this chapter is to diagonalize a matrix by using its eigenvectors.</strong></p>
+<ul>
+<li>$S$는 고유벡터 행렬</li>
+<li>$S^{-1}AS$는 $\Lambda$(고유값 행렬)</li>
+<li>하지만 대각화는 모든 A에 대해 가능하진 않음</li>
+<li>어떤 행렬은 고유벡터가 너무 작게 가지고 있기도 함</li>
+<li>고유벡터 행렬 S는 위의 상황을 해결하기 위한 best choice이지만 지금 우리는 어느 역행렬 M이든 허용함(?) In this new section, the eigenvector matrix S remains the best choice when we can find it, but now we allow any invertible matrix M</li>
+<li>어떤 M을 선택하든지간에 고유값은 같음!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{DEFINITION; Let M be all y invertible.matrlx. Then }B = M^{- 1} AM \text{ is similar to }A.$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $B = M^{ -1} A M$ then immediately $A = M B M^{ -1}$. That means: If $B$ is similar to $A$ then $A$ is similar to $B$.</p>
+<p>대각화할 수 있는 행렬음 $\Lambda$와 유사함.  In that special case M is S.</p>
+<p>We have $A = S\Lambda ^{S-1}$ and $\Lambda = S^{-1} AS$. <strong>They certainly have the same eigenvalues!</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$M^{-1}AM$은 differential equation에서 변수에 변화를 줄 떄 나타난다.</p>
+<ul>
+<li>$u=Mv$라고 하면,</li>
+<li>$\frac{du}{dt}=Au$ 는 $M\frac{dv}{dt}=AMv$가 되고, 그건 $\frac{dv}{dy}=M^{-1}amV$임</li>
+<li>원래 상관계수 행렬은 A였는데 새로운 상관계수 행렬은 $M^{-1}AM$임</li>
+<li>u가 v로 변하는 것은 유사한 행렬으로 이끄는 것과 같음</li>
+<li>할상 u로 돌아갈 수 있기 때문에,</li>
+<li>유사한 행렬은 같기 growth되거나 decay 해야한다. 더 자세하게 말하자면,A와 B의 고유값은 같다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>(No .change in $\Lambda$'s) Similar matrices A and $M^{-1}$ have the same eigenvalues. If x is an eigenvector of A, $M^{-1}x$ is an eigenvector of $=M^{-1}AM$.</strong></p>
+<ul>
+<li>The proof is quick, since $B = M^{-1} AM$ gives $A = MBM^{- 1}$. Suppose $Ax = \lambda X$:<ul>
+<li>$MBM^{-1}x=\lambda x$ means that $B(M^{-1}x)=\lambda(M^{-1}x)$</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The eigenvalue of $B$ is the same $\lambda$.</p>
+<p>The eigenvector has changed to $M^{-1}x$.</p>
+<p>Two matrices can have the same repeated $\lambda$, and fail to be similar-as we will see</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
 </div>
 </div>
 </div>
