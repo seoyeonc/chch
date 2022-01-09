@@ -89,7 +89,16 @@ window.onload = wrap_img;
 
 <h5 id="금주-면담-질문">금주 면담 질문</h5>
 <ul>
-  <li>none</li>
+  <li>RuntimeError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 23.69 GiB total capacity; 611.13 MiB already allocated; 5.50 MiB free; 618.00 MiB reserved in total by PyTorch) If reserved memory is » allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+    <ul>
+      <li>찾아본 해결..! (해도 되는지..)
+        <ul>
+          <li>GPU 캐시 지우기( torch.cuda.empth_cache() )</li>
+          <li>현재 사용 중인 GPU 메모리 반환 : 터미널에서 nvidia-smi 명령어를 통해 GPU별 사용하고 있는 메모리 확인 후 현재 사용 중인 GPU 메모리 반환하기, sudo kill -9 [PID]</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <p><img src="/chch/images/study.jpg" alt="" /></p>
