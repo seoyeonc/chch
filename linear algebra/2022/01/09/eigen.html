@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      26 min read
+      28 min read
     
 </span></p>
 
@@ -210,7 +210,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#All-Symmetric-Matrices-are-Diagonalizable">All Symmetric Matrices are Diagonalizable </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#6.5-Positive-Definite-Matrices">6.5 Positive Definite Matrices </a></li>
+<li class="toc-entry toc-h3"><a href="#6.5-Positive-Definite-Matrices">6.5 Positive Definite Matrices </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Energy-based-Definition">Energy-based Definition </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
 </ul>
 </li>
@@ -2625,6 +2629,97 @@ $$product of pivots = determinant = product of eigenvalues.$$
 <h3 id="6.5-Positive-Definite-Matrices">
 <a class="anchor" href="#6.5-Positive-Definite-Matrices" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.5 Positive Definite Matrices<a class="anchor-link" href="#6.5-Positive-Definite-Matrices"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>This section concentrates on symmetric matrices that have positive eigenvalues.</em></p>
+<p><em>Symmetric matrices with positive eigenvalues are at the center of all kinds of applications. They are called <strong>positive definite.</strong></em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here are two goals of this section:</p>
+<ul>
+<li>To find quick tests on a symmetric matrix that guarantee positive eigenvalues. </li>
+<li>To explain important applications of positive definiteness.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{Start with 2 by 2 When does } A=\begin{bmatrix}{a}&amp;{b}\\{b}&amp;{c}\end{bmatrix} \text{ have } \lambda_1&gt;0 \text{ and } \lambda_2&gt;0?$$
+</p>
+<p>
+$$\text{The eigenvalues of A are positive if and only if } a&gt;0 \text{ and } ac-b^2&gt;0$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Proof that the 2 by itest is passed when $\lambda_l &gt; 0$ and $|lambda_2 &gt; O$. Their product $\lambda_1 \lambda_2$ is the determinant so $ac - b^2 &gt; O$. Their sum is the trace so $a + c &gt; O$. Then $a$ and $c$ are both positive (if one of them is not positive, $ac - b^2 &gt; 0$ will fail).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\text{The eigenvalues of } A = A^T \text{ are positive if and only if the pivots are positive:  } a&gt;0 \text{ and } \frac{ac-b^2}{a}&gt;0$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$a &gt; 0$은 위 두 test에서 모두 요구하는 조건!!</li>
+<li>그래서 $ac&gt;b^2$도 요구됨!</li>
+</ul>
+<p>
+$$\begin{bmatrix}{1}&amp;{b}\\{b}&amp;{c}\end{bmatrix} \begin{matrix}{\text{The first pivot is a}}\\{\longrightarrow}\\{\text{The multiplier is b/a}}\end{matrix}\begin{bmatrix}{a}&amp;{b}\\{0}&amp;{c-\frac{b}{a}b}\end{bmatrix}\begin{matrix}{\text{The second pivot is}}\\{c-\frac{b^2}{a}=\frac{ac-b^2}{a}}\end{matrix}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Positive eigenvalues mean positive pivots and vice versa. 양수인 고유겂은 양수인 피벗을 의미하고 그 반대도 마찬가지!</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Energy-based-Definition">
+<a class="anchor" href="#Energy-based-Definition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Energy-based Definition<a class="anchor-link" href="#Energy-based-Definition"> </a>
+</h4>
 </div>
 </div>
 </div>
