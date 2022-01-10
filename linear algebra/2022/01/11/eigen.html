@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      35 min read
+      41 min read
     
 </span></p>
 
@@ -229,7 +229,20 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
-<li class="toc-entry toc-h4"><a href="#Examples-of-the-Jordan-Form">Examples of the Jordan Form </a></li>
+<li class="toc-entry toc-h4"><a href="#Examples-of-the-Jordan-Form">Examples of the Jordan Form </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#The-Jordan-Form">The Jordan Form </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#6.7-Singular-Value-Decomposition-(SVD)">6.7 Singular Value Decomposition (SVD) </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
+<li class="toc-entry toc-h4"><a href="#Image-Compression">Image Compression </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -3317,6 +3330,422 @@ $$M=\begin{bmatrix}{a}&amp;{b}\\{c}&amp;{d}\end{bmatrix}\text{ with } ad-bc=1,\t
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex3)">
+<a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This Jordan matrix $J$ has $\lambda = 5,5,5$ on its diagonal. Its only eigenvectors are multiples of $x = (1,0,0)$. Algebraic mUltiplicity is 3, geometric multiplicity is 1: 
+
+$$\text{If }J=\begin{bmatrix}{5}&amp;{1}&amp;{0}\\{0}&amp;{5}&amp;{1}\\{0}&amp;{0}&amp;{5}\end{bmatrix} \text{ then } J-5I=\begin{bmatrix}{0}&amp;{1}&amp;{0}\\{0}&amp;{0}&amp;{1}\\{0}&amp;{0}&amp;{0}\end{bmatrix} \text{ has rank 2}$$
+</p>
+<ul>
+<li>모든 유사한 행렬 $B=M^{-1}JM$ 은 같은 세 고유값 5,5,5를 가지고 있다.</li>
+<li>또한, $B-5I$는 같은 rank 2를 가져야만 한다.</li>
+<li>nullspace는 차원1을 가지고 있다.</li>
+<li>Jordan block인 J와 규사한 모든 B는 유일한 하나의 독립적인 고유벡터 $M^{-1}x$를 가지고 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jordan's theorem에서는 $J^t$가 $J$와 유사하다고 말한다. 유사함을 제공하는 행렬 M은 reverse identity가 된다.
+
+$$J^T=M^{-1}JM\text{ is } \begin{bmatrix}{5}&amp;{0}&amp;{0}\\{1}&amp;{5}&amp;{0}\\{0}&amp;{1}&amp;{5}\end{bmatrix} = \begin{bmatrix}{}&amp;{}&amp;{1}\\{}&amp;{1}&amp;{}\\{1}&amp;{}&amp;{}\end{bmatrix} \begin{bmatrix}{5}&amp;{1}&amp;{0}\\{0}&amp;{5}&amp;{1}\\{0}&amp;{0}&amp;{5}\end{bmatrix} \begin{bmatrix}{}&amp;{}&amp;{1}\\{}&amp;{1}&amp;{}\\{1}&amp;{}&amp;{}\end{bmatrix}$$
+</p>
+<ul>
+<li>모든 빈 entries는 0이다.</li>
+<li>$J^T$의 고유백터는 $M^{-1}(1,0,0)=(0,0,1)$이다.</li>
+<li>J에서 고유벡터 one line $(x_1,0,0)$과 $J^T$에서 another line $(0,0,x_3)$이 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The key fact is that this matrix $J$ is similar to every matrix $A$ with eigenvalues 5,5,5 and one line of eigenvectors.</p>
+<p>There is an $M$ with $^{-1}AM = J$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex4)">
+<a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since $J$ is as close to diagonal as we can get, the equation $\frac{du}{dt} = J u$ cannot be simplified by changing variables. We must solve it as it stands:
+
+$$\frac{du}{dt}=Ju=\begin{bmatrix}{5}&amp;{1}&amp;{0}\\{0}&amp;{5}&amp;{1}\\{0}&amp;{0}&amp;{5}\end{bmatrix}\begin{bmatrix}{x}\\{y}\\{z}\end{bmatrix} \text{ is } \begin{matrix}{dx/dt=5x+y}\\{dy/dt=5y+z}\\{dz/dt=5z}\end{matrix}$$
+</p>
+<ul>
+<li>system은 triangular이다.
+
+$$\text{Last equation }\frac{dz}{dt}=5z \text{yields } z=z(0)e^{5t}$$
+
+
+$$\text{Notice }te^{5t}\text{   }\frac{dy}{dt}=5y+z \text{yields } y=(y(0)+tz(0))e^{5t}$$
+
+
+$$\text{Notice }t^2e^{5t}\text{   }\frac{dx}{dt}=5x+y \text{yields } x=(x(0)+ty(0)+\frac{1}{2}t^2z(0))e^{5t}$$
+</li>
+<li>The two missing eigenvectors are responsible for the teSt and t 2eSt terms in y and x.</li>
+<li>The factors t and t 2 enter because A = 5 is a triple eigenvalue with one eigenvector. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Jordan-Form">
+<a class="anchor" href="#The-Jordan-Form" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Jordan Form<a class="anchor-link" href="#The-Jordan-Form"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>모든 A에 대해 우리는 M을 선택해서 $M^{-1}AM$이 가능한한 대각화에 근접하기를 원한다.</li>
+<li>A가 n개 고유벡터들의 전체 집합일때, M의 열들이 고유벡터가 된다.(When A has a full set of n eigenvectQrs, they go. into. the cQlumns Qf M. )</li>
+<li>그러면 M=S가 된다.</li>
+<li>행렬 $S^{-1}AS$는 대각화되어 있다.</li>
+<li>행렬 $\Lambda$는 A의 조르단 형식이다.(A가 대각화될 수 있다면.)</li>
+<li>일반적으로 고유벡터는 결측이고, 고유값 집합은 얻을 수 없다(In the general case, eigenvectors are missing and A can't be reached. ).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>(Jordan form) If A has s independent elegevectors, it is similar to a matrix $J$ that has s Jordan blocks on its diagonal: Some matrix M plus A into Jordan form:</strong>
+
+$$\text{Jordan form    }M^{-1}AM=\begin{bmatrix}{J_1}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{J_s}\end{bmatrix}=J$$
+</p>
+<ul>
+<li>J에서 각 block은 하나의 고유값 람다, 고유벡터, 그리고 위 대ㅏㄱ에서 1들을 가지고 있다.
+
+$$\text{Jordan block   }J_i=\begin{bmatrix}{\lambda_i}&amp;{1}{}&amp;{}\\{}&amp;{\cdot}&amp;{\cdot}&amp;{}\\{}&amp;{}&amp;{\cdot}&amp;{1}\\{}&amp;{}&amp;{}&amp;{\lambda_i}\end{bmatrix}$$
+</li>
+<li>만일 같은 jordan form J를 가지고 있다면, A는 B와 유사하다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Jordam form J는 결측 고유벡터에 대해 off-diagonal 1을 가지고 있다.</li>
+<li>이는 행렬 유사성에 대한 big theotem이다.</li>
+<li>유사한 행렬의 모든 family에서 J라고 불리는 특정 member를 선택한다,</li>
+<li>그건 대각화와 근사하다.</li>
+<li>J에 대해 du/dt=Ju를 ex4에서 풀 수 있었다.</li>
+<li>family에서 모두 다른 행렬은 form $A=MJM^{-1}$을 가지고 있다.</li>
+<li>M을 통한 연결은 du/dt=Au를 해결한다.</li>
+<li>$MJM^{-1}MJM^{-1}=MJ^2M^{-1}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>REVIEW OF THE KEY IDEAS</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>WORKED EXAMPLES</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Problem Set 6.6</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Challenge ProblemsS</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.7-Singular-Value-Decomposition-(SVD)">
+<a class="anchor" href="#6.7-Singular-Value-Decomposition-(SVD)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.7 Singular Value Decomposition (SVD)<a class="anchor-link" href="#6.7-Singular-Value-Decomposition-(SVD)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A is any m by n matrix, square or rectangular. Its rank is r. We will diagonalize this $A$, but not by $S^{-1} AS$.</p>
+<ul>
+<li>고유벡터 s는 3개지 큰 문제가 있다.<ul>
+<li>항상 직교가 아니며</li>
+<li>항상 충분한 고유벡터를 가지고 있지 않으며,</li>
+<li>$Ax=\lambda x$는 A가 squre이기를 원한다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The $u$'s are eigenvectors of $AA^T$ and the $v$'s are eigenvectors of $A^T A$.</p>
+<ul>
+<li>행렬이 둘 다 대칭이기 때문에 이 고유벡터들은 직교로 선택될 수 있다.</li>
+<li>In equation (13) below, the simple fact that $A$ times $A^T A$ is the same as $AA^T$ will lead to a remarkable property of these u's and v's:
+
+$$\text{"A is diagonalized"   } Av_1=\sigma_1u_1\text{  } Av_2=\sigma_2u_2\text{   }\dots Av_r=\sigma_r u_r$$
+</li>
+<li>The singular vectors $v_1, ... , v_r$ are in the row space of $A$.</li>
+<li>The outputs $u_1 , ... , u_r$ are in the column space of $A$. </li>
+<li>The singular values $\sigma_1\dots \sigma_r$ are all positice numbers</li>
+<li>When the v'S and u's go into the columns of V and U, orthogonality gives $V^T V = I$ and $U^T U = I$.</li>
+<li>The $\sigma$'s go into a diagonal matrix $\sum$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$Ax_i=\lambda_i x_i$가 대각 $AS=A\Lambda$로 이끌기 떄문에, 방정식 $Av_i=\sigma_i u_i$는 $AV=U\sum$에서 column by column이라 말한다.
+
+$$\begin{matrix} { \text{(m by n)(n by r)}} \\{\text{equals}}\\{\text{(m by r)(r by r)}}\end{matrix} A\begin{bmatrix}{}\\{v_1,\dots v_r}\\{}\end{bmatrix}= \begin{bmatrix}{}\\{u_1\dots u_r}\\{}\end{bmatrix} \begin{bmatrix}{\sigma_1}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{\sigma_r}\end{bmatrix}$$
+</p>
+<ul>
+<li>v와 u는 A의 행과 열 공간을 차지하기도 함</li>
+<li>nullspace N(A)와 왼쪽 nullspace$N(A^T)$로부터 더 많은 v를 위해 n-r이 필요하고, u를 위해 m-r이 필요하다.<ul>
+<li>두 공간이 직교가 된다면 자동적으로 v들과 u들은 직교가 된다.</li>
+</ul>
+</li>
+<li>그래서 행렬은 squre가 되고, $AV=U\sum$을 얻게 된다.
+
+$$\begin{matrix} { \text{(m by n)(n by n)}} \\{\text{equals}}\\{\text{(m by m)(m by n)}}\end{matrix} A\begin{bmatrix}{}\\{v_1,\dots v_r \dots v_n}\\{}\end{bmatrix}= \begin{bmatrix}{}\\{u_1\dots u_r \dots u_m}\\{}\end{bmatrix} \begin{bmatrix}{\sigma_1}&amp;{}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}&amp;{}\\{}&amp;{}&amp;{\sigma_r}&amp;{}\\{}&amp;{}&amp;{}&amp;{}\end{bmatrix}$$
+</li>
+<li>새로운 $\sum$은 m by n 행렬</li>
+<li>m-r개의 새로운 0행과 n-r개의 새로운 0 행을 가진 기존의 r * r 행렬이다.</li>
+<li>$V^TV=I$dhk $U^TU=I$는 유지되고,크기는  n과 m이다.</li>
+<li>V는 이제 $V^{-1}=V^T$인 직각 직교 행렬이다. </li>
+<li>$AV=U\sum$은 $A=U\sum V^T$가 될 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Singular Value Decomposition:
+
+$$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This reduced SVD gives the same splitting of A into a sum of r matrices, each of rank one.</p>
+<p>We will see that $\sigma^{2}_{i}$ is an eigenvalue of $A^T A$ and also $AA^T$. When we put the singular values in descending order, $\sigma_1 &gt; \sigma_2 &gt; ... \sigma_r &gt; 0$, the splitting in equation (4) gives the r rank -one pieces of A <strong>in order of importance</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex1)">
+<a class="anchor" href="#ex1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1)<a class="anchor-link" href="#ex1)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When is $U\sum V^T$ (singular values) the same as $\Lambda AS^{-1}$ (eigenvalues)?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>solution</p>
+<ul>
+<li>S=U에서 직교 고유벡터가 필요하다. $\Lambda= \sum$에서 음수가 아닌 고유값들이 필요하다.</li>
+<li>A는 <strong>positive semidefinite (or definite) symmetric matrix</strong> $Q\Lambda Q^T$여야 한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex2)">
+<a class="anchor" href="#ex2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex2)<a class="anchor-link" href="#ex2)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $A = xy^T$ with unit vectors $x$ and $y$, what is the SVD of A?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>solution</p>
+<ul>
+<li>기존 $\sum$있는 식에서 감소한 SVD는 rank=1을 가진 $xy^T$이지.</li>
+<li>이건 $u_1=x$, $v_1=y$, $\sigma_1=1$를 가져.</li>
+<li>전체 SVD에서 $u_1=x$를 u의 직교 basis에서 complete하고, v의 직교 basis에서 $v_1=y$로 coplete해.(For the full SVD, complete $u_l = x$ to an orthonormal basis of u's, and complete $v_1 = y$ to an orthonormal basis of v's. No new O"s. )</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Image-Compression">
+<a class="anchor" href="#Image-Compression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image Compression<a class="anchor-link" href="#Image-Compression"> </a>
+</h4>
 </div>
 </div>
 </div>
