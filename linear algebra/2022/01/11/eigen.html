@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      41 min read
+      44 min read
     
 </span></p>
 
@@ -243,6 +243,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#ex1)">ex1) </a></li>
 <li class="toc-entry toc-h5"><a href="#ex2)">ex2) </a></li>
 <li class="toc-entry toc-h4"><a href="#Image-Compression">Image Compression </a></li>
+<li class="toc-entry toc-h4"><a href="#The-Bases-and-the-SVD">The Bases and the SVD </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#ex3)">ex3) </a></li>
+<li class="toc-entry toc-h5"><a href="#ex4)">ex4) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#Eigshow-(Part-2)">Eigshow (Part 2) </a></li>
+<li class="toc-entry toc-h4"><a href="#Searching-the-Web">Searching the Web </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Gilbert-Strang-강의영상...!.">Gilbert Strang 강의영상...!. </a></li>
@@ -3579,7 +3587,8 @@ $$\text{Jordan block   }J_i=\begin{bmatrix}{\lambda_i}&amp;{1}{}&amp;{}\\{}&amp;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A is any m by n matrix, square or rectangular. Its rank is r. We will diagonalize this $A$, but not by $S^{-1} AS$.</p>
 <ul>
-<li>고유벡터 s는 3개지 큰 문제가 있다.<ul>
+<li>특이값 분해</li>
+<li>고유벡터 s는 3가지 큰 문제가 있다.<ul>
 <li>항상 직교가 아니며</li>
 <li>항상 충분한 고유벡터를 가지고 있지 않으며,</li>
 <li>$Ax=\lambda x$는 A가 squre이기를 원한다.</li>
@@ -3746,6 +3755,329 @@ $$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
 <h4 id="Image-Compression">
 <a class="anchor" href="#Image-Compression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image Compression<a class="anchor-link" href="#Image-Compression"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is compression?</p>
+<ul>
+<li>We want to replace those 217 matrix entries by a smaller number, without losing picture quality</li>
+</ul>
+<p>try an SVD approach: Replace the 256 by 512 pixel matrix by a matrix of rank one: a column times a row. If this is successful, the storage requirement becomes 256 + 512 (add instead of multiply). The compression ratio (256)(512)/(256 + 512) is better than 
+170 to 1. This is more than we hope for. We may actually use five matrices of rank one (so a matrix approximation of rank 5). The compression is still 34 : 1 and the crucial question is the picture quality.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Where does the SVD come in? The best rank one approximation to A is the matrix $\sigma_1 u_1 v_{1}^{T}$. It uses the largest singular value $\sigma_1$. The best rank 5 approximation includes also $\sigma_2 u_2 v_{2}^{T} + ... + \sigma_5 u_5 v_{5}^{T}$, <strong>The SVD puts the pieces of A in descending order.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Bases-and-the-SVD">
+<a class="anchor" href="#The-Bases-and-the-SVD" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Bases and the SVD<a class="anchor-link" href="#The-Bases-and-the-SVD"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Start with a 2 by 2 matrix. Let its rank be r = 2, so A is invertible. </li>
+<li>We want $v_1$ and $v_2$ to be perpendicular unit vectors. </li>
+<li>We also want $Av_1$ and $Av_2$ to be perpendicular.</li>
+<li>Then the unit vectors $U_l = Av_1/||Av_1||$ and $u_2 = Av_2/||Av_2||$  will be orthonormal.
+
+$$\text{Unsysmmetric matrix   }A=\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}$$
+</li>
+</ul>
+<ul>
+<li>No orthogonal matrix $Q$ will make $Q^{-l} AQ$ diagonal.</li>
+<li>We need $U^{-1} AV$.</li>
+<li>The two bases will be different-one basis cannot do it. </li>
+<li>The output is $Av_1 = \sigma_1 u_1$ when the input is $v_1$. </li>
+<li>The "singular values" $\sigma_1$ and $\sigma_2$ are the lengths $||Av_1||$ and $||Av_2||$.
+
+$$\begin{matrix}{AV=U\sum}\\{A=U\sum V^T}\end{matrix}\text{     } A\begin{bmatrix}{v_1} &amp;{v_2}\end{bmatrix}=\begin{bmatrix}{\sigma_1u_1}&amp;{\sigma_2u_2}\end{bmatrix}=\begin{bmatrix}{u_1}&amp;{u_2}\end{bmatrix}\begin{bmatrix}{\sigma_1}&amp;{}\\{}&amp;{\sigma_2}\end{bmatrix}$$
+</li>
+</ul>
+<p>
+$$A^T A=(U\sum V^T)^T (U\sum V^T)=V\sum {}^T\sum {V}^T$$
+</p>
+<ul>
+<li>$U^T U$ disappears because it equals I.</li>
+<li>uT U disappears because it equals I.</li>
+<li>Multiplying those diagonal $\sum{}^T$ and $\sum$ gives $\sigma_{1}^{2}$ and $\sigma_{2}^{2}$. </li>
+<li>That leaves an ordinary diagonalization of the crucial symmetric matrix $A^T A$, whose eigenvalues are $\sigma_{1}^{2}$ and $\sigma_{2}^{2}$: 
+
+$$\begin{matrix}{\text{Eigenvalues }\sigma_{1}^{2}, \sigma_{2}^{2}}\\{\text{Eigenvectors }v_1, v_2}\end{matrix} \text{   }A^T A=V\begin{bmatrix}{\sigma_{1}^{2}}&amp;{0}\\{0}&amp;{\sigma_{2}^{2}}\end{bmatrix}V^T$$
+</li>
+<li>이건 $A=Q\Lambda Q^T$와 같아</li>
+<li>하지만 대칭 행렬은 A itself가 아니지</li>
+<li>이제 대칭 행렬은 $A^T A$야</li>
+<li>그리고 V의 열들은 $A^TA$의 고유벡터이고. Last is $U$...</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex3)">
+<a class="anchor" href="#ex3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex3)<a class="anchor-link" href="#ex3)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the singular value decomposition of that matrix $A=\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solution</p>
+<ul>
+<li>$A^TA$와 그 고유벡터를 계산하자</li>
+<li>그러면 unit vector가 나와
+
+$$A^TA=\begin{bmatrix}{5}&amp;{3}\\{3}&amp;{5}\end{bmatrix}\text{ has unit eigenvectors }v_1=\begin{bmatrix}{1/\sqrt{2}}\\{1/\sqrt{2}}\end{bmatrix} \text{ and } v_2=\begin{bmatrix}{-1/\sqrt{2}}\\{1/\sqrt{2}}\end{bmatrix}$$
+</li>
+<li>$A^TA$의 고유값들은 8하고 2임</li>
+<li>v들은 직교야. 왜냐하면 모든 대칭 행렬의 고유 벡터는 직교이기 떄문이지!</li>
+<li>그리고 $A^TA$는 자동적으로 대칭이 돼
+
+$$Av_1=\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}\begin{bmatrix}{1/\sqrt{2}}\\{1/\sqrt{2}}\end{bmatrix}=\begin{bmatrix}{2\sqrt{2}}\\{0}\end{bmatrix}\text{. The unit vector is } u_1=\begin{bmatrix}{1}\\{0}\end{bmatrix} $$
+</li>
+<li>$Av_1$은 $2\sqrt{2} u_1$과 같지</li>
+<li>처음 특이값singular value는 $\sigma_1 = 2\sqrt{2}$임. 그러면 $\sigma_{1}^{2}=8$이 돼.
+
+$$Av_2=\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}\begin{bmatrix}{-1/\sqrt{2}}\\{1/\sqrt{2}}\end{bmatrix}=\begin{bmatrix}{0}\\{\sqrt{2}}\end{bmatrix}\text{. The unit vector is } u_2=\begin{bmatrix}{0}\\{1}\end{bmatrix} $$
+</li>
+<li>$Av_2$는 $\sqrt{2}u_2$이고 $]sigma_2=\sqrt{2}$임.</li>
+<li>그러면 $\sigma_{2}^{2}$는 $A^T A$의 다른 고유값 2에 agree 하지...
+
+$$A=U\sum V^T \text{ is }\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}=\begin{bmatrix}{1}&amp;{0}\\{0}&amp;{1}\end{bmatrix}\begin{bmatrix}{2\sqrt{2}}&amp;{}\\{}&amp;{\sqrt{2}}\end{bmatrix}\begin{bmatrix}{1/\sqrt{2}}&amp;{1/\sqrt{2}}\\{-1/\sqrt{2}}&amp;{1/\sqrt{2}}\end{bmatrix}$$
+</li>
+<li>이 행렬과 모든 역을 취할 수 있는 2 * 2 행렬은 단위 원을 타원으로 변환한다!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We found the u's from the v's. Could we find the u's directly? Yes, by multiplying $AA^T$ instead of $A^T A$:
+
+$$\text{Diagonal in this example   } A A^T = \begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bmatrix}\begin{bmatrix}{2}&amp;{-1}\\{2}&amp;{1}\end{bmatrix}= \begin{bmatrix}{8}&amp;{0}\\{0}&amp;{2}\end{bmatrix}$$
+</p>
+<ul>
+<li>이 고유벡터 (1,0)과 (0,1)은 $u_1,u_2$를 빨리 찾을 수 있게 하지!</li>
+<li>왜 처음 고유벡터가 (-1,0)이나(0,1) 대신에 (1,0)이 될까?</li>
+<li>우리는 $Av_1$를 따라야 하기 때문이지!</li>
+<li>$AA^T$는 $A^TA$와 같은 고유값 8,2를 가져</li>
+<li>그 특이값은 $\sqrt{8},\sqrt{2}$야</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="ex4)">
+<a class="anchor" href="#ex4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex4)<a class="anchor-link" href="#ex4)"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the SVD of the singular matrix $A = \begin{bmatrix}{2}&amp;{2}\\{1}&amp;{1}\end{bmatrix}$. The rank is r = 1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solution</p>
+<ul>
+<li>행 공간은 오직 한 basis 벡터 $v_1=(1,1)/\sqrt{2}$를 가지고 있지.</li>
+<li>그 열 공간은 오직 한 basis 벡터 $u_1=(2,1)/\sqrt{5}$를 가지고 있고.</li>
+<li>그러면 $Av_1=(4,2)/\sqrt{2}$는 $\sigma_1 u_1$과 같아야 해.</li>
+<li>그러면 $\sigma_1=\sqrt{10}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>행렬 U와 V는 모든 4개의 준공간에서 직교 기반을 포함한다.</p>
+<ul>
+<li>V의 열에서 첫 r 은 A의 행 공간</li>
+<li>V의 열에서 마지막 n-r은 A의 영공간</li>
+<li>U의 열에서 첫 r은 A의 열공간</li>
+<li>U의 열에서 마지막 n-r은 $A^T$의 영공간</li>
+</ul>
+<p>The first columns $v_1, ... ,v_r$ and $u_1, ... ,u_r$ are eigenvectors of $A^T A$ and $AA^T$. We now explain why AVi falls in the direction of $u_i$. The last v's and u's (in the nullspaces) are easier. As long as those are orthonormal, the SVD will be correct.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Eigshow-(Part-2)">
+<a class="anchor" href="#Eigshow-(Part-2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Eigshow (Part 2)<a class="anchor-link" href="#Eigshow-(Part-2)"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Section 6.1 described the MATLAB demo called eigshow.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Searching-the-Web">
+<a class="anchor" href="#Searching-the-Web" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching the Web<a class="anchor-link" href="#Searching-the-Web"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Search engines are link-based more than content-based.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>REVIEW OF THE KEY IDEAS</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>WORKED EXAMPLES</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Problem Set 6.7</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Challenge Problems</strong></p>
+
 </div>
 </div>
 </div>
