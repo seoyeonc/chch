@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      57 min read
+      58 min read
     
 </span></p>
 
@@ -1266,6 +1266,15 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="B.-The-Non-Normalized-Graph-Laplacian">
+<a class="anchor" href="#B.-The-Non-Normalized-Graph-Laplacian" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. The Non-Normalized Graph Laplacian<a class="anchor-link" href="#B.-The-Non-Normalized-Graph-Laplacian"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The non-normalized graph Laplacian, also called the combinatorial graph Laplacian, is defined as $Ł := D −W$, where the degree matrix $D$ is a diagonal matrix whose $i^{th}$ diagonal element $d_i$ is equal to the sum of the weights of all the edges incident to vertex $i$. The graph Laplacian is a difference operator, as, for any signal $f ∈ R^N$ , it satisfies
 
 $$(Łf)(i)=\sum_{j \in N_i}W_{i,j}[f(i)-f(j)],$$
@@ -1278,16 +1287,23 @@ where the neighborhood $N_i$ is the set of vertices connected to vertex $i$ by a
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="B.-The-Non-Normalized-Graph-Laplacian">
-<a class="anchor" href="#B.-The-Non-Normalized-Graph-Laplacian" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. The Non-Normalized Graph Laplacian<a class="anchor-link" href="#B.-The-Non-Normalized-Graph-Laplacian"> </a>
-</h5>
+<p>Because the graph Laplacian $Ł$ is a real symmetric matrix, it has a complete set of orthonormal eigenvectors, which we denote by {$u_l$}$_{l=0,1,...,N−1}$.$^4$ These eigenvectors have associated real, non-negative eigenvalues {$λ_l$}$_{l=0,1,...,N−1}$ satisfying $Łu_l = λ_{l}u_{l}$, for $l = 0, 1, . . . , N − 1$. Zero appears as an eigenvalue with multiplicity equal to the number of connected components of the graph [16], and thus, since we consider connected graphs, we assume the graph Laplacian eigenvalues are ordered as $0 = λ_0 &lt; λ_1 ≤ λ_2... ≤ λ_{N−1} := λ_{max}$. We denote the entire spectrum by $σ(Ł)$ := {$λ_0, λ_1, . . . , λ_{N−1}$}.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Because the graph Laplacian $Ł$ is a real symmetric matrix, it has a complete set of orthonormal eigenvectors, which we denote by {$u_l$}$_{l=0,1,...,N−1}$.$^4$ These eigenvectors have associated real, non-negative eigenvalues {$λ_l$}$_{l=0,1,...,N−1}$ satisfying $Łu_l = λ_{l}u_{l}$, for $l = 0, 1, . . . , N − 1$. Zero appears as an eigenvalue with multiplicity equal to the number of connected components of the graph [16], and thus, since we consider connected graphs, we assume the graph Laplacian eigenvalues are ordered as $0 = λ_0 &lt; λ_1 ≤ λ_2... ≤ λ_{N−1} := λ_{max}$. We denote the entire spectrum by $σ(Ł)$ := {$λ_0, λ_1, . . . , λ_{N−1}$}.</p>
+<p>$^4$ - Note that there is not necessarily a unique set of graph Laplacian eigenvectors, but we assume throughout that a set of eigenvectors is chosen and fixed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
@@ -1346,7 +1362,7 @@ where the neighborhood $N_i$ is the set of vertices connected to vertex $i$ by a
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$^4$ - Note that there is not necessarily a unique set of graph Laplacian eigenvectors, but we assume throughout that a set of eigenvectors is chosen and fixed.</p>
+<hr>
 
 </div>
 </div>
@@ -1386,7 +1402,7 @@ $$f(i)=\sum_{l=0}^{N-1}\hat{f}(\lambda_l)u_l(i) \dotsi (4)$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In classical Fourier analysis, the eigenvalues {$(2πξ)^2$}$_{ξ∈R}$ in (2) carry a specific notion of frequency: for $ξ$ close to zero (low frequencies), the associated complex exponential eigenfunctions are smooth, slowly oscillating functions, whereas for $ξ$ far from zero (high frequencies), the associated complex exponential eigenfunctions oscillate much more rapidly. In the graph setting, the graph Laplacian eigenvalues and eigenvectors provide a similar notion of frequency. For connected graphs, the Laplacian eigenvector $u_0$ associated with the eigenvalue 0 is constant and equal to $\frac{1}{\sqrt{N}}$ at each vertex. The graph Laplacian eigenvectors associated with low frequencies $λ_l$ vary slowly across the graph; i.e., <strong>if two vertices are connected by an edge with a large weight, the values of the eigenvector at those locations are likely to be similar.</strong> The eigenvectors associated with larger eigenvalues oscillate more rapidly and are more likely to have dissimilar values on vertices connected by an edge with high weight. This is demonstrated in both Figure 2, which shows different graph Laplacian eigenvectors for a random sensor network graph, and Figure 3, which shows the number $|Z_{G}(·)|$ of zero crossings of each graph Laplacian eigenvector. The set of zero crossings of a signal f on a graph G is defined as
+<p>In classical Fourier analysis, the eigenvalues {$(2πξ)^2$}$_{ξ∈R}$ in (2) carry a specific notion of frequency: <strong>for $ξ$ close to zero (low frequencies), the associated complex exponential eigenfunctions are smooth, slowly oscillating functions, whereas for $ξ$ far from zero (high frequencies), the associated complex exponential eigenfunctions oscillate much more rapidly.</strong> In the graph setting, the graph Laplacian eigenvalues and eigenvectors provide a similar notion of frequency. For connected graphs, the Laplacian eigenvector $u_0$ associated with the eigenvalue 0 is constant and equal to $\frac{1}{\sqrt{N}}$ at each vertex. The graph Laplacian eigenvectors associated with low frequencies $λ_l$ vary slowly across the graph; i.e., <strong>if two vertices are connected by an edge with a large weight, the values of the eigenvector at those locations are likely to be similar.</strong> The eigenvectors associated with larger eigenvalues oscillate more rapidly and are more likely to have dissimilar values on vertices connected by an edge with high weight. This is demonstrated in both Figure 2, which shows different graph Laplacian eigenvectors for a random sensor network graph, and Figure 3, which shows the number $|Z_{G}(·)|$ of zero crossings of each graph Laplacian eigenvector. The set of zero crossings of a signal f on a graph G is defined as
 
 $$Z_{G}(f) := {e = (i, j) ∈ E : f(i)f(j) &lt; 0} ;$$
 
@@ -1423,6 +1439,37 @@ that is, the set of edges connecting a vertex with a positive signal to a vertex
 <ul>
 <li>The number of zero crossings, $|Z_G(u_l)|$ in (a) and $|Z_G(\tilde{u}_l)|$ in (b), of the non-normalized and normalized graph Laplacian eigenvectors for the random sensor network graph of Figure 2, respectively (the latter of which is defined in Section II-F). In both cases, the Laplacian eigenvectors associated with larger eigenvalues cross zero more often, confirming the interpretation of the graph Laplacian eigenvalues as notions of frequency.</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>푸리에 변환: 임의의 입력 신호를 다양한 주파수를 갖는 주기합수들의 합으로 분해하여 표현</p>
+<ul>
+<li>0에 가까운 엣지(저주파)에 대해 복소수 지수 고유함수는 부드럽고 천천히 진동하는 함수지만 0과 먼 엣지(고주파)에 대해 관련된 복소수 지수 고유함수는 훨씬 빠르게 진동한다.<ul>
+<li>푸리에 스펙트럼을 이미지로 나타내면 검은 바탕에 한 흰점만 존재</li>
+<li>해결하기 위해 log취함</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
