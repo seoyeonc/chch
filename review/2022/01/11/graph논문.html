@@ -255,6 +255,7 @@ window.onload = wrap_img;
 <li>~ of the problem at hand 당면한 문제의~</li>
 <li>inversely 반대로</li>
 </ul>
+<p>graph가 domain이다!</p>
 
 </div>
 </div>
@@ -739,7 +740,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>엣지들의 집합을 ${\cal E}$라고 표현한다. 따라서 이 예제의 경우 ${\cal E}=\{ (1,2), (2,3), (3,4), (4,5), (5,6) \}$이 된다.</p>
+<p>엣지들의 집합을 ${\cal E}$라고 표현한다. 따라서 이 예제의 경우 ${\cal E}=\{ (1,2), (2,3), (3,4), (4,5) \}$이 된다.</p>
 
 </div>
 </div>
@@ -1265,21 +1266,21 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="B.-The-Non-Normalized-Graph-Laplacian">
-<a class="anchor" href="#B.-The-Non-Normalized-Graph-Laplacian" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. The Non-Normalized Graph Laplacian<a class="anchor-link" href="#B.-The-Non-Normalized-Graph-Laplacian"> </a>
-</h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>The non-normalized graph Laplacian, also called the combinatorial graph Laplacian, is defined as $Ł := D −W$, where the degree matrix $D$ is a diagonal matrix whose $i^{th}$ diagonal element $d_i$ is equal to the sum of the weights of all the edges incident to vertex $i$. The graph Laplacian is a difference operator, as, for any signal $f ∈ R^N$ , it satisfies
 
 $$(Łf)(i)=\sum_{j \in N_i}W_{i,j}[f(i)-f(j)],$$
 
 where the neighborhood $N_i$ is the set of vertices connected to vertex $i$ by an edge. More generally, we denote by $N (i, k)$ the set of vertices connected to vertex $i$ by a path of $k$ or fewer edges.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="B.-The-Non-Normalized-Graph-Laplacian">
+<a class="anchor" href="#B.-The-Non-Normalized-Graph-Laplacian" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. The Non-Normalized Graph Laplacian<a class="anchor-link" href="#B.-The-Non-Normalized-Graph-Laplacian"> </a>
+</h5>
 </div>
 </div>
 </div>
@@ -1307,7 +1308,7 @@ where the neighborhood $N_i$ is the set of vertices connected to vertex $i$ by a
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>직교(orthogonal)와 정규직교(orthonormal), 그리고 직교행렬(orthogonal matrix)</p>
 <ul>
-<li>직교행렬(orthogonal matrix): 자신의 전치행렬transpose를 역향렬로 갖는 정방행렬, $AA^T=E$<ul>
+<li>직교행렬(orthogonal matrix): 자신의 전치행렬transpose를 역행렬로 갖는 정방행렬, $AA^T=E$<ul>
 <li>직교행렬(orthogonal matrix)의 열벡터들은 서로 othonormal정규직교한 성질을 가지고 있다.</li>
 <li>즉, 직교 행렬을 구성하는 열벡터(혹은 행벡터)들을 $v_1,v_2,...,v_n$이라 했을때 이들은 모두 단위 벡터unit vector이면서 또한 서로 수직인 성질을 갖는다.</li>
 <li>따라서 직교행렬othogonal matrix는 그 행렬을 구성하는 열벡터(행벡터)들이 서로 수직이면서orthogonal 크기가 1인normal한 행렬로 정의될 수 있다.</li>
