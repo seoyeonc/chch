@@ -3622,7 +3622,7 @@ $$\text{"A is diagonalized"   } Av_1=\sigma_1u_1\text{  } Av_2=\sigma_2u_2\text{
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$Ax_i=\lambda_i x_i$가 대각 $AS=A\Lambda$로 이끌기 떄문에, 방정식 $Av_i=\sigma_i u_i$는 $AV=U\sum$에서 column by column이라 말한다.
+<p>$Ax_i=\lambda_i x_i$가 대각 $AS=A\Lambda$로 이끌기 떄문에, 방정식 $Av_i=\sigma_i u_i$는 $AV=U \Sigma$에서 column by column이라 말한다.
 
 $$\begin{matrix} { \text{(m by n)(n by r)}} \\{\text{equals}}\\{\text{(m by r)(r by r)}}\end{matrix} A\begin{bmatrix}{}\\{v_1,\dots v_r}\\{}\end{bmatrix}= \begin{bmatrix}{}\\{u_1\dots u_r}\\{}\end{bmatrix} \begin{bmatrix}{\sigma_1}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}\\{}&amp;{}&amp;{\sigma_r}\end{bmatrix}$$
 </p>
@@ -3632,15 +3632,15 @@ $$\begin{matrix} { \text{(m by n)(n by r)}} \\{\text{equals}}\\{\text{(m by r)(r
 <li>두 공간이 직교가 된다면 자동적으로 v들과 u들은 직교가 된다.</li>
 </ul>
 </li>
-<li>그래서 행렬은 squre가 되고, $AV=U\sum$을 얻게 된다.
+<li>그래서 행렬은 sqaure가 되고, $AV=U\Sigma$을 얻게 된다.
 
 $$\begin{matrix} { \text{(m by n)(n by n)}} \\{\text{equals}}\\{\text{(m by m)(m by n)}}\end{matrix} A\begin{bmatrix}{}\\{v_1,\dots v_r \dots v_n}\\{}\end{bmatrix}= \begin{bmatrix}{}\\{u_1\dots u_r \dots u_m}\\{}\end{bmatrix} \begin{bmatrix}{\sigma_1}&amp;{}&amp;{}&amp;{}\\{}&amp;{\ddots}&amp;{}&amp;{}\\{}&amp;{}&amp;{\sigma_r}&amp;{}\\{}&amp;{}&amp;{}&amp;{}\end{bmatrix}$$
 </li>
-<li>새로운 $\sum$은 m by n 행렬</li>
+<li>새로운 $\Sigma$은 m by n 행렬</li>
 <li>m-r개의 새로운 0행과 n-r개의 새로운 0 행을 가진 기존의 r * r 행렬이다.</li>
 <li>$V^TV=I$dhk $U^TU=I$는 유지되고,크기는  n과 m이다.</li>
 <li>V는 이제 $V^{-1}=V^T$인 직각 직교 행렬이다. </li>
-<li>$AV=U\sum$은 $A=U\sum V^T$가 될 수 있다.</li>
+<li>$AV=U\Sigma$은 $A=U\Sigma V^T$가 될 수 있다.</li>
 </ul>
 
 </div>
@@ -3651,7 +3651,7 @@ $$\begin{matrix} { \text{(m by n)(n by n)}} \\{\text{equals}}\\{\text{(m by m)(m
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Singular Value Decomposition:
 
-$$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
+$$\text{SVD  } A=U\Sigma V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
 </p>
 
 </div>
@@ -3686,7 +3686,7 @@ $$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When is $U\sum V^T$ (singular values) the same as $\Lambda AS^{-1}$ (eigenvalues)?</p>
+<p>When is $U\Sigma V^T$ (singular values) the same as $\Lambda AS^{-1}$ (eigenvalues)?</p>
 
 </div>
 </div>
@@ -3696,7 +3696,7 @@ $$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>solution</p>
 <ul>
-<li>S=U에서 직교 고유벡터가 필요하다. $\Lambda= \sum$에서 음수가 아닌 고유값들이 필요하다.</li>
+<li>S=U에서 직교 고유벡터가 필요하다. $\Lambda= \Sigma$에서 음수가 아닌 고유값들이 필요하다.</li>
 <li>A는 <strong>positive semidefinite (or definite) symmetric matrix</strong> $Q\Lambda Q^T$여야 한다.</li>
 </ul>
 
@@ -3733,7 +3733,7 @@ $$\text{SVD  } A=U\sum V^T = u_1\sigma_1 v^{T}_{1}+\dots+u_r\sigma_r v^{T}_{r}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>solution</p>
 <ul>
-<li>기존 $\sum$있는 식에서 감소한 SVD는 rank=1을 가진 $xy^T$이지.</li>
+<li>기존 $\Sigma$있는 식에서 감소한 SVD는 rank=1을 가진 $xy^T$이지.</li>
 <li>이건 $u_1=x$, $v_1=y$, $\sigma_1=1$를 가져.</li>
 <li>전체 SVD에서 $u_1=x$를 u의 직교 basis에서 complete하고, v의 직교 basis에서 $v_1=y$로 coplete해.(For the full SVD, complete $u_l = x$ to an orthonormal basis of u's, and complete $v_1 = y$ to an orthonormal basis of v's. No new O"s. )</li>
 </ul>
@@ -3815,16 +3815,16 @@ $$\text{Unsysmmetric matrix   }A=\begin{bmatrix}{2}&amp;{2}\\{-1}&amp;{1}\end{bm
 <li>The output is $Av_1 = \sigma_1 u_1$ when the input is $v_1$. </li>
 <li>The "singular values" $\sigma_1$ and $\sigma_2$ are the lengths $||Av_1||$ and $||Av_2||$.
 
-$$\begin{matrix}{AV=U\sum}\\{A=U\sum V^T}\end{matrix}\text{     } A\begin{bmatrix}{v_1} &amp;{v_2}\end{bmatrix}=\begin{bmatrix}{\sigma_1u_1}&amp;{\sigma_2u_2}\end{bmatrix}=\begin{bmatrix}{u_1}&amp;{u_2}\end{bmatrix}\begin{bmatrix}{\sigma_1}&amp;{}\\{}&amp;{\sigma_2}\end{bmatrix}$$
+$$\begin{matrix}{AV=U\Sigma}\\{A=U\Sigma V^T}\end{matrix}\text{     } A\begin{bmatrix}{v_1} &amp;{v_2}\end{bmatrix}=\begin{bmatrix}{\sigma_1u_1}&amp;{\sigma_2u_2}\end{bmatrix}=\begin{bmatrix}{u_1}&amp;{u_2}\end{bmatrix}\begin{bmatrix}{\sigma_1}&amp;{}\\{}&amp;{\sigma_2}\end{bmatrix}$$
 </li>
 </ul>
 <p>
-$$A^T A=(U\sum V^T)^T (U\sum V^T)=V\sum {}^T\sum {V}^T$$
+$$A^T A=(U\sum V^T)^T (U\sum V^T)=V\Sigma {}^T\Sigma {V}^T$$
 </p>
 <ul>
 <li>$U^T U$ disappears because it equals I.</li>
 <li>uT U disappears because it equals I.</li>
-<li>Multiplying those diagonal $\sum{}^T$ and $\sum$ gives $\sigma_{1}^{2}$ and $\sigma_{2}^{2}$. </li>
+<li>Multiplying those diagonal $\Sigma{}^T$ and $\Sigma$ gives $\sigma_{1}^{2}$ and $\sigma_{2}^{2}$. </li>
 <li>That leaves an ordinary diagonalization of the crucial symmetric matrix $A^T A$, whose eigenvalues are $\sigma_{1}^{2}$ and $\sigma_{2}^{2}$: 
 
 $$\begin{matrix}{\text{Eigenvalues }\sigma_{1}^{2}, \sigma_{2}^{2}}\\{\text{Eigenvectors }v_1, v_2}\end{matrix} \text{   }A^T A=V\begin{bmatrix}{\sigma_{1}^{2}}&amp;{0}\\{0}&amp;{\sigma_{2}^{2}}\end{bmatrix}V^T$$
