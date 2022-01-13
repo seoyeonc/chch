@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="CNN 세부내용" />
 <meta property="og:description" content="CNN 세부내용" />
-<link rel="canonical" href="https://seoyeonc.github.io/chch/cnn/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" />
-<meta property="og:url" content="https://seoyeonc.github.io/chch/cnn/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/cnn/feature%20extraction/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/cnn/feature%20extraction/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" />
 <meta property="og:site_name" content="Seoyeon Choi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-11T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"CNN 세부내용","url":"https://seoyeonc.github.io/chch/cnn/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"듣는 중 빅데이터 분석 (9주차) 11월4일","dateModified":"2022-01-11T00:00:00-06:00","datePublished":"2022-01-11T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/cnn/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+{"description":"CNN 세부내용","url":"https://seoyeonc.github.io/chch/cnn/feature%20extraction/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"듣는 중 빅데이터 분석 (9주차) 11월4일","dateModified":"2022-01-11T00:00:00-06:00","datePublished":"2022-01-11T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/cnn/feature%20extraction/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -104,6 +104,9 @@ window.onload = wrap_img;
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
         <a class="category-tags-link" href="/chch/categories/#CNN">CNN</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#feature extraction">feature extraction</a>
         
       
       </p>
@@ -293,6 +296,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래 reshape 안 취해주면 에러가 뜬다.  1 observation 1 chennal</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -538,12 +549,12 @@ tensor([[[[0., 1., 2.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>Parameter containing:
-tensor([[[[-0.1265, -0.1014],
-          [-0.0099,  0.0583]]],
+tensor([[[[ 0.3047,  0.2079],
+          [-0.0800, -0.0205]]],
 
 
-        [[[-0.3847, -0.3246],
-          [-0.0972, -0.3373]]]], requires_grad=True)</pre>
+        [[[ 0.1961, -0.3685],
+          [-0.0205, -0.4432]]]], requires_grad=True)</pre>
 </div>
 
 </div>
@@ -588,6 +599,14 @@ tensor([[[[-0.1265, -0.1014],
 <ul>
 <li>첫번째 필터는 평균필터, 두번째 필터는 엣지검출필터 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>1/4(=0.25)를 2 $]times$ 2 에서 각각 곱해 더해주니까. 엣지 검출 필터는 뒤에서 앞을 뺴준다는 개념으로 접근해보자 경계선 검출해주는 역할</p>
 
 </div>
 </div>
@@ -1010,7 +1029,7 @@ tensor([[[[-0.1265, -0.1014],
 
 
 
-  </div><a class="u-url" href="/chch/cnn/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" hidden></a>
+  </div><a class="u-url" href="/chch/cnn/feature%20extraction/2022/01/11/bd_9%EC%A3%BC%EC%B0%A8.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
