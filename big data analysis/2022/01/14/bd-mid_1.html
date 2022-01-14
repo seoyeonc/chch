@@ -824,6 +824,113 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">w0</span><span class="o">=</span><span class="mf">3.0</span>
+<span class="n">w1</span><span class="o">=</span><span class="mf">3.0</span>
+<span class="n">u</span><span class="o">=</span><span class="n">w0</span><span class="o">+</span><span class="n">X</span><span class="o">*</span><span class="n">w1</span>
+<span class="n">v</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+<span class="n">y</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bernoulli</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fad8749e0d0&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">lossfn_mse</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">w1</span><span class="p">):</span> 
+    <span class="n">yhat</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="n">w0</span><span class="o">+</span><span class="n">w1</span><span class="o">*</span><span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="n">w0</span><span class="o">+</span><span class="n">w1</span><span class="o">*</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">loss</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="(b)-$(\beta_0,\beta_1)=(3,3)$&#50640;&#49436;-&#49552;&#49892;&#54632;&#49688;&#51032;-&#48120;&#48516;&#44228;&#49688;&#47484;-&#44228;&#49328;&#54616;&#46972;.">(b) $(\beta_0,\beta_1)=(3,3)$&#50640;&#49436; &#49552;&#49892;&#54632;&#49688;&#51032; &#48120;&#48516;&#44228;&#49688;&#47484; &#44228;&#49328;&#54616;&#46972;.<a class="anchor-link" href="#(b)-$(\beta_0,\beta_1)=(3,3)$&#50640;&#49436;-&#49552;&#49892;&#54632;&#49688;&#51032;-&#48120;&#48516;&#44228;&#49688;&#47484;-&#44228;&#49328;&#54616;&#46972;."> </a></h4>
