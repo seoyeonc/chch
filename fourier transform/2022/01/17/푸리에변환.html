@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -329,6 +329,198 @@ $$\text{정현파sinusoidal wave는 파형이 sin 또는 cos 함수인 파동wav
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 영상 신호에서 푸리에 변환</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이미지는 2차원의 신호이기 때문에 2차원에서 정의되는 푸리에 변환 필요</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f(x,y)=\int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}F(u,v)e^{j2\pi (ux+vy)}dudv$$
+
+
+$$F(u,v)=\int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}f(x,y)e^{-2j\pi(ux+vy)}dxdy$$
+
+
+$$F(u,v)\text{는 x축 방향으로 주파수 u, y축 방향으로 v인 주기함수 성분의 계수}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이미지는 연속이 아닌 이산신호.</li>
+<li>한정된 유한 구간에서 정의되는 신호</li>
+<li>이산 데이터에 정의되는 푸리에 변환 필요</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f(x,y)=\sum_{u=0}^{W-1}\sum_{v=0}^{H-1}F(u,v)e^{j2\pi (ux/W+vy/H)}\rightarrow\text{이산 데이터에서 푸리에 역변환}$$
+
+
+$$F(u,v)=\frac{1}{WH}\sum_{x=0}^{W-1}\sum_{y=0}^{H-1}f(x,y)e^{-j2\pi(ux/W+vy/H)}\rightarrow\text{이산 데이터에서 푸리에 변환}$$
+
+
+$$단, x=0,1,...,W-1 \dots u=0,1,...,W-1,\dots v=0,1,...H-1$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>푸리에 역변환에서 $e^{j2\pi (ux/W+vy/H)}$는 x축 방향으로 주파수가 u/W, y축 방향으로 주파수가 v/H인 sinusoidal 주기 함수</li>
+<li>일반적인 푸리에 변환식과 달리 W와 H로 나눔 $\rightarrow$ 데이터가 정의된 구간을 하나의 단위 주리 unit period로 만드는 효과<ul>
+<li>일종의 nomalization factor</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이미지를 신호로 해석하는 문제는 x,y축을 시간축으로 놓고 좌표의 변화에 따라 변하는 이미지 픽셀의 밝기 변화를 신호로 생각</li>
+<li>2D에서 정의되는 정현파의 모습은 모든 방향으로의 단면이 정현파가 되는 물결 형태의 파동 생각</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>이산 푸리에 변환에서 F(u,v)는 주파수 u,v의 성분이 아니라 주파수 u/W, v/H 성분에 대한 계수</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>W$\times$ H 인 이미지에서 이산 푸리에 변환의 F(u,v)는</p>
+<ul>
+<li>x축 주파수가 u/W, y축 주파수가 w/H인 주기함수 성분에 대응</li>
+<li>주기로는 x축 방향 W/u 픽셀, y축 방향 H/v 픽셀인 주기성분을 나타냄<ul>
+<li>주파수 공간에서 특정 F(u,v)값이 높게 나타났다면 원래의 이미지 공가에서는 x축 방향으로의 주기가 W/u 픽셀, y축 방향 주기가 H/v 픽셀인 주기성 성분이 존재</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>참고</em>
+
+$$f(x)=\sum_{u=0}^{W-1}F(u)e^{j2\pi ux/W},ㅌ=0,1,\dots ,W-1\rightarrow\text{1차원 이산 데이터에서 푸리에 역변환}$$
+
+
+$$F(u)=\frac{1}{WH}\sum_{x=0}^{W-1}f(x)e^{-j2\pi ux/W},u=0,1,\dots,W-1\rightarrow\text{이산 데이터에서 푸리에 변환}$$
+
+-1차원에서 이산 푸리에 변환 식은f(x)가 주기함수 일때만 성립</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 푸리에 스펙트럼과 페이즈</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$F(u,v)=R(u,v_+iI(u,v)$$
+</p>
+<ul>
+<li>푸리에 변환으로 구한 F(u,v)는 복소수complex number이고, 실수부real과 허수부Imaginary로 구성</li>
+<li>복소수 F(u,v)의 크기 |F(u,v)|는 푸리에 변환의 스펙트럼spectrum 또는 magnitude 라 부름</li>
+<li>F(u,v)의 각도$\phi$ 를 페이즈phase angle 또는 phase spectrum이라 부름
+
+$$|F(u,v)|=[R^2(u,v)+I^2(u,v)]^{1/2}$$
+
+
+$$\phi(u,v)=\tan^{-1}\big[\frac{I(u,v)}{R(u,v)}\big]$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>푸리에 스펙트럼 Fourier Spectrum</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>해당 주파수 성분이 원 신호에 얼마나 강하게 포함되어 있는지</li>
+<li>푸리에 변환 및 역변환으로 얻은 W$\times$H의  F(u,v), |F(u,v)|를 픽셀값으로 잡으면 푸리에 스펙럼을 원본 이미지와 동일한 크기의 이미지로 시각화</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>문제점</p>
+<ul>
+<li>푸리에 스펙트럼의 저주파 영역은 매우 큰 값을 갖지만 다른 영역은 0에 가까운 값을 갖기 떄문에 푸리에 스펙트럼을 그대로 이미지로 시각화하면 검은 바탕 위에 흰점 하나만 존재하는 형태<ul>
+<li>해결: 스펙트럼을 이미지로 표현할 때는 스펙트럼에 log를 취하는 것이 일반적</li>
+</ul>
+</li>
+<li>원래 스펙트럼 이미지는 모서리로 갈수록 값이 높아지기 때문에 스펙트럼 형태를 파악하기 힘듦<ul>
+<li>해결: 원점이 중심에 오도록 스펙트럼 위치를 이동shift시킨 형태의 이미지를 사용하는 것이 일반적$\rightarrow$ 푸리에 스펙트럼 이미지라 함은 shift된 스펙트럼 이미지를 가리킴<ul>
+<li>푸리에 스펙트럼이 원점 대칭인 주기함수 때문에 가능한 shift!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
