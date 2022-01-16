@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="체인룰, backpropagation" />
+<meta property="og:description" content="체인룰, backpropagation" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-16T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"체인룰, backpropagation","url":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일","dateModified":"2022-01-16T00:00:00-06:00","datePublished":"2022-01-16T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일</h1><p class="page-description">체인룰, backpropagation</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-16T00:00:00-06:00" itemprop="datePublished">
+        Jan 16, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#체인룰">체인룰</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#backpropagation">backpropagation</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-01-16-bd-11주차.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-01-16-bd-11%EC%A3%BC%EC%B0%A8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-01-16-bd-11주차.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#import">import </a></li>
+<li class="toc-entry toc-h3"><a href="#지난시간-복습">지난시간 복습 </a></li>
+<li class="toc-entry toc-h3"><a href="#오늘수업의-목표">오늘수업의 목표 </a></li>
+<li class="toc-entry toc-h3"><a href="#체인룰-(어려운-하나의-미분을-손쉬운-여러개의-미분으로-나누는-기법)">체인룰 (어려운 하나의 미분을 손쉬운 여러개의 미분으로 나누는 기법) </a></li>
+<li class="toc-entry toc-h3"><a href="#예시:-중간고사-문제..">예시: 중간고사 문제.. </a></li>
+<li class="toc-entry toc-h3"><a href="#잠깐-생각해보자..">잠깐 생각해보자.. </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#backprogation-알고리즘-모티브">backprogation 알고리즘 모티브 </a></li>
+<li class="toc-entry toc-h4"><a href="#backpropagation">backpropagation </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#some-comments">some comments </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-01-16-bd-11주차.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="import">
+<a class="anchor" href="#import" aria-hidden="true"><span class="octicon octicon-link"></span></a>import<a class="anchor-link" href="#import"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="지난시간-복습">
+<a class="anchor" href="#%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%8A%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>지난시간 복습<a class="anchor-link" href="#%EC%A7%80%EB%82%9C%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%8A%B5"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀분석에서 손실함수에 대한 미분은 아래와 같은 과정으로 계산할 수 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$loss = ({\bf y}-{\bf X}{\bf W})^\top ({\bf y}-{\bf X}{\bf W})={\bf y}^\top {\bf y} - {\bf y}^\top {\bf X}{\bf W} - {\bf W}^\top {\bf X}^\top {\bf y} + {\bf W}^\top {\bf X}^\top {\bf X} {\bf W}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\frac{\partial }{\partial {\bf W}}loss = -2{\bf X}^\top {\bf y} +2 {\bf X}^\top {\bf X} {\bf W}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="오늘수업의-목표">
+<a class="anchor" href="#%EC%98%A4%EB%8A%98%EC%88%98%EC%97%85%EC%9D%98-%EB%AA%A9%ED%91%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>오늘수업의 목표<a class="anchor-link" href="#%EC%98%A4%EB%8A%98%EC%88%98%EC%97%85%EC%9D%98-%EB%AA%A9%ED%91%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 체인룰을 이해하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="체인룰-(어려운-하나의-미분을-손쉬운-여러개의-미분으로-나누는-기법)">
+<a class="anchor" href="#%EC%B2%B4%EC%9D%B8%EB%A3%B0-(%EC%96%B4%EB%A0%A4%EC%9A%B4-%ED%95%98%EB%82%98%EC%9D%98-%EB%AF%B8%EB%B6%84%EC%9D%84-%EC%86%90%EC%89%AC%EC%9A%B4-%EC%97%AC%EB%9F%AC%EA%B0%9C%EC%9D%98-%EB%AF%B8%EB%B6%84%EC%9C%BC%EB%A1%9C-%EB%82%98%EB%88%84%EB%8A%94-%EA%B8%B0%EB%B2%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>체인룰 (어려운 하나의 미분을 손쉬운 여러개의 미분으로 나누는 기법)<a class="anchor-link" href="#%EC%B2%B4%EC%9D%B8%EB%A3%B0-(%EC%96%B4%EB%A0%A4%EC%9A%B4-%ED%95%98%EB%82%98%EC%9D%98-%EB%AF%B8%EB%B6%84%EC%9D%84-%EC%86%90%EC%89%AC%EC%9A%B4-%EC%97%AC%EB%9F%AC%EA%B0%9C%EC%9D%98-%EB%AF%B8%EB%B6%84%EC%9C%BC%EB%A1%9C-%EB%82%98%EB%88%84%EB%8A%94-%EA%B8%B0%EB%B2%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 손실함수가 사실 아래와 같은 변환을 거쳐서 계산되었다고 볼 수 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>${\bf X} \to {\bf X}{\bf W} \to {\bf y} -{\bf X}{\bf W} \to ({\bf y}-{\bf X}{\bf W})^\top ({\bf y}-{\bf X}{\bf W})$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 과정을 수식으로 정리해보면 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<p>${\bf u}={\bf X}{\bf W}$, $\quad {\bf u}: n \times 1$</p>
+</li>
+<li>
+<p>${\bf v} = {\bf y}- {\bf u},$  $\quad {\bf v}: n \times 1$</p>
+</li>
+<li>
+<p>$loss={\bf v}^\top {\bf v},$ $\quad loss: 1 \times 1 $</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 손실함수에 대한 미분은 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\frac{\partial }{\partial {\bf W}} loss = \frac{\partial }{\partial {\bf W}} {\bf v}^\top {\bf v} $$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(그런데 이걸 어떻게 계산함?)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 계산할 수 있는것들의 모음..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\frac{\partial}{\partial {\bf v}} loss = 2{\bf v} $ $\quad \to$ (n,1) 벡터 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\frac{\partial }{\partial {\bf u}} {\bf v}^\top = -{\bf I}$ $\quad \to $ (n,n) 매트릭스 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\frac{\partial }{\partial \bf W}{\bf u}^\top = {\bf X}^\top $ $\quad \to$ (p,n) 매트릭스 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 혹시.. 아래와 같이 쓸 수 있을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ \left(\frac{\partial }{\partial \bf W}{\bf u}^\top \right) 
+\left(\frac{\partial }{\partial \bf u}{\bf v}^\top \right) 
+\left(\frac{\partial }{\partial \bf v}loss \right) = 
+\frac{\partial {\bf u}^\top}{\partial \bf W}
+\frac{\partial {\bf v}^\top}{\partial \bf u}
+\frac{\partial loss}{\partial \bf v}
+$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>가능할것 같다. 뭐 기호야 정의하기 나름이니까!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 혹시 아래와 같이 쓸 수 있을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+\frac{\partial {\bf u}^\top}{\partial \bf W}
+\frac{\partial {\bf v}^\top}{\partial \bf u}
+\frac{\partial loss}{\partial \bf v} = \frac{\partial loss }{\partial\bf W}=\frac{\partial }{\partial \bf W} loss
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이건 선을 넘는 것임.</li>
+<li>그런데 어떠한 공식에 의해서 가능함. 그 공식 이름이 체인룰이다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결국 정리하면 아래의 꼴이 되었다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\left(\frac{\partial }{\partial \bf W}{\bf u}^\top \right) 
+\left(\frac{\partial }{\partial \bf u}{\bf v}^\top \right) 
+\left(\frac{\partial }{\partial \bf v}loss \right) 
+= 
+\frac{\partial }{\partial \bf W}loss $$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\left({\bf X}^\top  \right) 
+\left(-{\bf I} \right) 
+\left(2{\bf v}\right) 
+= 
+\frac{\partial }{\partial \bf W}loss $$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그런데, ${\bf v}={\bf y}-{\bf u}={\bf y} -{\bf X}{\bf W}$ 이므로</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$-2{\bf X}^\top\left({\bf y}-{\bf X}{\bf W}\right) 
+= 
+\frac{\partial }{\partial \bf W}loss $$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>정리하면</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\bf X}{\bf W}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="예시:-중간고사-문제..">
+<a class="anchor" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C.." aria-hidden="true"><span class="octicon octicon-link"></span></a>예시: 중간고사 문제..<a class="anchor-link" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C.."> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 미분계수를 계산하는 문제였음..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 체인룰을 이용하여 미분계수를 계산하여 보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ones</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">11.0</span><span class="p">,</span><span class="mf">12.0</span><span class="p">,</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">14.0</span><span class="p">,</span><span class="mf">15.0</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">ones</span><span class="p">,</span><span class="n">x</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">17.7</span><span class="p">,</span><span class="mf">18.5</span><span class="p">,</span><span class="mf">21.2</span><span class="p">,</span><span class="mf">23.6</span><span class="p">,</span><span class="mf">24.2</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">])</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">X</span><span class="nd">@W</span> 
+<span class="n">v</span> <span class="o">=</span> <span class="n">y</span><span class="o">-</span><span class="n">u</span> 
+<span class="n">loss</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">v</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor(2212.1799)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\frac{\partial}{\partial\bf W}loss $ 의 계산</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([ 209.6000, 2748.5999])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 참고로 중간고사 답은</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">@</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([ 41.9200, 549.7200])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>입니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확인</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">X</span><span class="nd">@_W</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">X</span><span class="nd">@_W</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_W</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([ 209.6000, 2748.5999])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\frac{\partial}{\partial \bf v} loss= 2{\bf v}$ 임을 확인하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">v</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([-18.3000, -20.5000, -20.8000, -21.4000, -23.8000])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_v</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">18.3000</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.5000</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.8000</span><span class="p">,</span> <span class="o">-</span><span class="mf">21.4000</span><span class="p">,</span> <span class="o">-</span><span class="mf">23.8000</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_loss</span> <span class="o">=</span> <span class="n">_v</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">_v</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_v</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">v</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(tensor([-36.6000, -41.0000, -41.6000, -42.8000, -47.6000]),
+ tensor([-18.3000, -20.5000, -20.8000, -21.4000, -23.8000]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\frac{\partial }{\partial {\bf u}}{\bf v}^\top$ 의 계산</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">36.</span><span class="p">,</span> <span class="mf">39.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">45.</span><span class="p">,</span> <span class="mf">48.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_u</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([36., 39., 42., 45., 48.], requires_grad=True)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_v</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">_u</span> <span class="c1">### 이전의 _v와 또다른 임시 _v </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">_v</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_2147125/3227738085.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">(</span>_v<span class="ansi-blue-fg">.</span>T<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>backward<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/_tensor.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(self, gradient, retain_graph, create_graph, inputs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    305</span>                 create_graph<span class="ansi-blue-fg">=</span>create_graph<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    306</span>                 inputs=inputs)
+<span class="ansi-green-fg">--&gt; 307</span><span class="ansi-red-fg">         </span>torch<span class="ansi-blue-fg">.</span>autograd<span class="ansi-blue-fg">.</span>backward<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> gradient<span class="ansi-blue-fg">,</span> retain_graph<span class="ansi-blue-fg">,</span> create_graph<span class="ansi-blue-fg">,</span> inputs<span class="ansi-blue-fg">=</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    308</span> 
+<span class="ansi-green-intense-fg ansi-bold">    309</span>     <span class="ansi-green-fg">def</span> register_hook<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hook<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    148</span> 
+<span class="ansi-green-intense-fg ansi-bold">    149</span>     grad_tensors_ <span class="ansi-blue-fg">=</span> _tensor_or_tensors_to_tuple<span class="ansi-blue-fg">(</span>grad_tensors<span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>tensors<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 150</span><span class="ansi-red-fg">     </span>grad_tensors_ <span class="ansi-blue-fg">=</span> _make_grads<span class="ansi-blue-fg">(</span>tensors<span class="ansi-blue-fg">,</span> grad_tensors_<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    151</span>     <span class="ansi-green-fg">if</span> retain_graph <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    152</span>         retain_graph <span class="ansi-blue-fg">=</span> create_graph
+
+<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">_make_grads</span><span class="ansi-blue-fg">(outputs, grads)</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span>             <span class="ansi-green-fg">if</span> out<span class="ansi-blue-fg">.</span>requires_grad<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     50</span>                 <span class="ansi-green-fg">if</span> out<span class="ansi-blue-fg">.</span>numel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">!=</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 51</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">raise</span> RuntimeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"grad can be implicitly created only for scalar outputs"</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     52</span>                 new_grads<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>torch<span class="ansi-blue-fg">.</span>ones_like<span class="ansi-blue-fg">(</span>out<span class="ansi-blue-fg">,</span> memory_format<span class="ansi-blue-fg">=</span>torch<span class="ansi-blue-fg">.</span>preserve_format<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     53</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">RuntimeError</span>: grad can be implicitly created only for scalar outputs</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>사실 토치에서는 스칼라아웃풋에 대해서만 미분을 계산할 수 있음 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그런데 $\frac{\partial}{\partial {\bf u}}{\bf v}^\top=\frac{\partial}{\partial {\bf u}}(v_1,v_2,v_3,v_4,v_5)=\big(\frac{\partial}{\partial {\bf u}}v_1,\frac{\partial}{\partial {\bf u}}v_2,\frac{\partial}{\partial {\bf u}}v_3,\frac{\partial}{\partial {\bf u}}v_4,\frac{\partial}{\partial {\bf u}}v_5\big)$ 이므로</p>
+<p>조금 귀찮은 과정을 거친다면 아래와 같은 알고리즘으로 계산할 수 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(0) $\frac{\partial }{\partial {\bf u}} {\bf v}^\top$의 결과를 저장할 매트릭스를 만든다. 적당히 <code>A</code>라고 만들자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) <code>_u</code> 하나를 임시로 만든다. 그리고 $v_1$을 <code>_u</code>로 미분하고 그 결과를 <code>A</code>의 첫번째 칼럼에 기록한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) <code>_u</code>를 또하나 임시로 만들고 $v_2$를 <code>_u</code>로 미분한뒤 그 결과를 <code>A</code>의 두번째 칼럼에 기록한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3) (1)-(2)와 같은 작업을 $v_5$까지 반복한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>(0)을 수행</em></strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>(1)을 수행</em></strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">u</span><span class="p">,</span><span class="n">v</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(tensor([36., 39., 42., 45., 48.]),
+ tensor([-18.3000, -20.5000, -20.8000, -21.4000, -23.8000]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">36.</span><span class="p">,</span> <span class="mf">39.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">45.</span><span class="p">,</span> <span class="mf">48.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">_u</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이때 $v_1=g(f({\bf u}))$와 같이 표현할 수 있다. 여기에서 $f((u_1,\dots,u_5)^\top)=(y_1-u_1,\dots,y_5-u_5)^\top$, 그리고 $g((v_1,\dots,v_n)^\top)=v_1$ 라고 생각한다. 즉 $f$는 벡터 뺄셈을 수행하는 함수이고, $g$는 프로젝션 함수이다. 즉 $f:\mathbb{R}^5 \to \mathbb{R}^5$인 함수이고, $g:\mathbb{R}^5 \to \mathbb{R}$인 함수이다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">v1</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_u</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([-1., -0., -0., -0., -0.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">_u</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[-1.,  0.,  0.,  0.,  0.],
+        [-0.,  0.,  0.,  0.,  0.],
+        [-0.,  0.,  0.,  0.,  0.],
+        [-0.,  0.,  0.,  0.,  0.],
+        [-0.,  0.,  0.,  0.,  0.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>(2)를 수행</em></strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">36.</span><span class="p">,</span> <span class="mf">39.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">45.</span><span class="p">,</span> <span class="mf">48.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">_u</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">v2</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_u</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([-0., -1., -0., -0., -0.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">_u</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+<span class="n">A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[-1., -0.,  0.,  0.,  0.],
+        [-0., -1.,  0.,  0.,  0.],
+        [-0., -0.,  0.,  0.,  0.],
+        [-0., -0.,  0.,  0.,  0.],
+        [-0., -0.,  0.,  0.,  0.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>(3)을 수행</em></strong> // 그냥 (1)~(2)도 새로 수행하자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
+    <span class="n">_u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">36.</span><span class="p">,</span> <span class="mf">39.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">45.</span><span class="p">,</span> <span class="mf">48.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_v</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">_u</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">_v</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">A</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">_u</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[-1., -0., -0., -0., -0.],
+        [-0., -1., -0., -0., -0.],
+        [-0., -0., -1., -0., -0.],
+        [-0., -0., -0., -1., -0.],
+        [-0., -0., -0., -0., -1.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이론적인 결과인 $-{\bf I}$와 일치한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\frac{\partial }{\partial {\bf W}}{\bf u}^\top$의 계산</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\frac{\partial }{\partial {\bf W}}{\bf u}^\top = \frac{\partial }{\partial {\bf W}}(u_1,\dots,u_5)=\big(\frac{\partial }{\partial {\bf W}}u_1,\dots,\frac{\partial }{\partial {\bf W}}u_5 \big) $</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">B</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([3., 3.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_W</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([3., 3.], requires_grad=True)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
+    <span class="n">_W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">_u</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="nd">@_W</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">_u</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">B</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="n">_W</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">B</span> <span class="c1"># X의 트랜스포즈</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[ 1.,  1.,  1.,  1.,  1.],
+        [11., 12., 13., 14., 15.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[ 1., 11.],
+        [ 1., 12.],
+        [ 1., 13.],
+        [ 1., 14.],
+        [ 1., 15.]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이론적인 결과와 일치</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="잠깐-생각해보자..">
+<a class="anchor" href="#%EC%9E%A0%EA%B9%90-%EC%83%9D%EA%B0%81%ED%95%B4%EB%B3%B4%EC%9E%90.." aria-hidden="true"><span class="octicon octicon-link"></span></a>잠깐 생각해보자..<a class="anchor-link" href="#%EC%9E%A0%EA%B9%90-%EC%83%9D%EA%B0%81%ED%95%B4%EB%B3%B4%EC%9E%90.."> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결국 위의 예제에 한정하여 임의의 ${\bf \hat{W}}$에 대한 $\frac{\partial}{\partial {\bf \hat W}}loss$는 아래와 같이 계산할 수 있다.</p>
+<ul>
+<li>(단계1) $2{\bf v}$를 계산하고 </li>
+<li>(단계2) (단계1)의 결과 앞에 $-{\bf I}$를 곱하고 </li>
+<li>(단계3) (단계2)의 결과 앞에 ${\bf X}^\top$를 곱한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> step1에서 ${\bf v}$는 어떻게 알지?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>X $\to$ u=X@W $\to$ v = y-u </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>그런데 이것은 우리가 loss를 구하기 위해서 이미 계산해야 하는것 아니었나? </li>
+<li>step1: yhat, step2: loss, step3: derivate, step4: update </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <strong>(중요)</strong> step2에서 loss만 구해서 저장할 생각 하지말고 중간과정을 다 저장해라. (그중에 v와 같이 필요한것이 있을테니까) 그리고 그걸 적당한 방법을 통하여 이용하여 보자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="backprogation-알고리즘-모티브">
+<a class="anchor" href="#backprogation-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AA%A8%ED%8B%B0%EB%B8%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>backprogation 알고리즘 모티브<a class="anchor-link" href="#backprogation-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AA%A8%ED%8B%B0%EB%B8%8C"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래와 같이 함수의 변환을 아키텍처로 이해하자. (함수의입력=레이어의입력, 함수의출력=레이어의출력)</p>
+<ul>
+<li>${\bf X} \overset{l1}{\to} {\bf X}{\bf W} \overset{l2}{\to} {\bf y} -{\bf X}{\bf W} \overset{l3}{\to} ({\bf y}-{\bf X}{\bf W})^\top ({\bf y}-{\bf X}{\bf W})$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그런데 위의 계산과정을 아래와 같이 요약할 수도 있다. (${\bf X} \to {\bf \hat y} \to loss$가 아니라 ${\bf W} \to loss({\bf W})$로 생각해보세요)</p>
+<ul>
+<li>${\bf W} \overset{l1}{\to} {\bf u} \overset{l2}{\to} {\bf v} \overset{l3}{\to} loss$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 아래와 같은 사실을 관찰할 수 있다.</p>
+<ul>
+<li>(단계1) $2{\bf v}$는 function of ${\bf v}$이고, ${\bf v}$는 l3의 입력 (혹은 l2의 출력) </li>
+<li>(단계2) $-{\bf I}$는 function of ${\bf u}$이고, ${\bf u}$는 l2의 입력 (혹은 l1의 출력) </li>
+<li>(단계3) 마찬가지의 논리로 ${\bf X}^\top$는 function of ${\bf W}$로 해석할 수 있다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 요약: $2{\bf v},-{\bf I}, {\bf X}^\top$와 같은 핵심적인 값들이 사실 각 층의 입/출력 값들의 함수꼴로 표현가능하다. $\to$ 각 층의 입/출력 값들을 모두 기록하면 미분계산을 유리하게 할 수 있다.</p>
+<ul>
+<li>문득의문: 각 층의 입출력값 ${\bf v}, {\bf u}, {\bf W}$로 부터 $2{\bf v}, -{\bf I}, {\bf X}^\top$ 를 만들어내는 방법을 모른다면 헛수고 아닌가? </li>
+<li>의문해결: 어차피 우리가 쓰는 층은 선형+(렐루, 시그모이드, ...) 정도가 전부임. 따라서 변환규칙은 미리 계산할 수 있음.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결국</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) 순전파를 하면서 입출력값을 모두 저장하고</p>
+<p>(2) 그에 대응하는 층별 미분계수값 $2{\bf v}, -{\bf I}, {\bf X}^\top$ 를 구하고</p>
+<p>(3) 층별미분계수값을 다시 곱하면 (그러니까 ${\bf X}^\top (-{\bf I}) 2{\bf v}$ 를 계산) 된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="backpropagation">
+<a class="anchor" href="#backpropagation" aria-hidden="true"><span class="octicon octicon-link"></span></a>backpropagation<a class="anchor-link" href="#backpropagation"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) 순전파를 계산하고 각 층별 입출력 값을 기록</p>
+<ul>
+<li>yhat = net(X) </li>
+<li>loss = loss_fn(yhat,y) </li>
+</ul>
+<p>(2) 역전파를 수행하여 손실함수의 미분값을 계산</p>
+<ul>
+<li>loss.backward()</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 참고로 (1)에서 층별 입출력값은 GPU의 메모리에 기록된다.. 무려 GPU 메모리..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 작동원리를 GPU의 관점에서 요약 (슬기로운 GPU 활용)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>gpu특징: 큰 차원의 매트릭스 곱셈 전문가 (원리? 어마어마한 코어숫자)</em></strong></p>
+<ul>
+<li>아키텍처 설정: 모형의 파라메터값을 GPU 메모리에 올림 // <code>net.to("cuda:0")</code>
+</li>
+<li>순전파 계산: <strong><em>중간 계산결과를 모두 GPU메모리에 저장</em></strong> (순전파 계산을 위해서라면 굳이 GPU에 있을 필요는 없으나 후에 역전파를 계산하기 위한 대비) // <code>net(X)</code> </li>
+<li>오차 및 손실함수 계산: <code>loss = loss_fn(yhat,y)</code>
+</li>
+<li>역전파 계산: <strong><em>순전파단계에서 저장된 계산결과를 활용</em></strong>하여 손실함수의 미분값을 계산 // <code>loss.backward()</code>
+</li>
+<li>다음 순전파 계산: <strong><em>이전값은 삭제하고 새로운 중간계산결과를 GPU메모리에 올림</em></strong> </li>
+<li>반복. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="some-comments">
+<a class="anchor" href="#some-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>some comments<a class="anchor-link" href="#some-comments"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 역전파기법은 체인룰 + $\alpha$ 이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 오차역전파기법이라는 용어를 쓰는 사람도 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이미 훈련한 네트워크에 입력 $X$를 넣어 결과값만 확인하고 싶을 경우 순전파만 사용하면 되고, 이 상황에서는 좋은 GPU가 필요 없다.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
