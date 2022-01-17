@@ -142,7 +142,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#지난시간-복습">지난시간 복습 </a></li>
 <li class="toc-entry toc-h3"><a href="#오늘수업의-목표">오늘수업의 목표 </a></li>
 <li class="toc-entry toc-h3"><a href="#체인룰-(어려운-하나의-미분을-손쉬운-여러개의-미분으로-나누는-기법)">체인룰 (어려운 하나의 미분을 손쉬운 여러개의 미분으로 나누는 기법) </a></li>
-<li class="toc-entry toc-h3"><a href="#예시:-중간고사-문제..">예시: 중간고사 문제.. </a></li>
+<li class="toc-entry toc-h3"><a href="#예시:-중간고사-문제">예시: 중간고사 문제 </a></li>
 <li class="toc-entry toc-h3"><a href="#잠깐-생각해보자..">잠깐 생각해보자.. </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#backprogation-알고리즘-모티브">backprogation 알고리즘 모티브 </a></li>
@@ -336,6 +336,7 @@ $$\frac{\partial }{\partial {\bf W}} loss = \frac{\partial }{\partial {\bf W}} {
 <ul>
 <li>$\frac{\partial}{\partial {\bf v}} loss = 2{\bf v} $ $\quad \to$ (n,1) 벡터 </li>
 </ul>
+<p>$vv^T=v_{1}^2+...+v_{n}^2$</p>
 
 </div>
 </div>
@@ -504,8 +505,16 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="예시:-중간고사-문제..">
-<a class="anchor" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C.." aria-hidden="true"><span class="octicon octicon-link"></span></a>예시: 중간고사 문제..<a class="anchor-link" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C.."> </a>
+<p>대응하는 미분법을 알고 있으면 코드짜기 편하겠다!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="예시:-중간고사-문제">
+<a class="anchor" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>예시: 중간고사 문제<a class="anchor-link" href="#%EC%98%88%EC%8B%9C:-%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-%EB%AC%B8%EC%A0%9C"> </a>
 </h3>
 </div>
 </div>
@@ -513,7 +522,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 미분계수를 계산하는 문제였음..</p>
+<p><code>-</code> 미분계수를 계산하는 문제</p>
 
 </div>
 </div>
@@ -615,6 +624,39 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss</span><span class="o">/</span><span class="mi">5</span> <span class="c1"># mse, 중간고사.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor(442.4360)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -645,7 +687,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([ 209.6000, 2748.5999])</pre>
+<pre>tensor([ 209.6000, 2748.6001])</pre>
 </div>
 
 </div>
