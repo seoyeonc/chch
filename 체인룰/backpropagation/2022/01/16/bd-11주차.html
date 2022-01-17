@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일 | Seoyeon Choi</title>
+<title>빅데이터 분석 (11주차) 11월18일, 11월23일 | Seoyeon Choi</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일" />
+<meta property="og:title" content="빅데이터 분석 (11주차) 11월18일, 11월23일" />
 <meta name="author" content="최서연" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="체인룰, backpropagation" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-01-16T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"체인룰, backpropagation","url":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일","dateModified":"2022-01-16T00:00:00-06:00","datePublished":"2022-01-16T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+{"description":"체인룰, backpropagation","url":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"빅데이터 분석 (11주차) 11월18일, 11월23일","dateModified":"2022-01-16T00:00:00-06:00","datePublished":"2022-01-16T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EC%B2%B4%EC%9D%B8%EB%A3%B0/backpropagation/2022/01/16/bd-11%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">안 들음 빅데이터 분석 (11주차) 11월18일, 11월23일</h1><p class="page-description">체인룰, backpropagation</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-16T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">빅데이터 분석 (11주차) 11월18일, 11월23일</h1><p class="page-description">체인룰, backpropagation</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-16T00:00:00-06:00" itemprop="datePublished">
         Jan 16, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,6 +235,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 체인룰을 이해하자.</p>
+<ul>
+<li>core가 여러개 있는 컴퓨터에서 어떻게 빠르게 계산할까.</li>
+<li>합성함수의 미분방법인 체인룰</li>
+</ul>
 
 </div>
 </div>
@@ -262,6 +266,7 @@ window.onload = wrap_img;
 <ul>
 <li>${\bf X} \to {\bf X}{\bf W} \to {\bf y} -{\bf X}{\bf W} \to ({\bf y}-{\bf X}{\bf W})^\top ({\bf y}-{\bf X}{\bf W})$</li>
 </ul>
+<p>입력 데이터-임의의w-오차-오차제곱</p>
 
 </div>
 </div>
@@ -270,6 +275,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위의 과정을 수식으로 정리해보면 아래와 같다.</p>
+<p>이렇게 가정할거</p>
 
 </div>
 </div>
@@ -338,7 +344,10 @@ $$\frac{\partial }{\partial {\bf W}} loss = \frac{\partial }{\partial {\bf W}} {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>$\frac{\partial }{\partial {\bf u}} {\bf v}^\top = -{\bf I}$ $\quad \to $ (n,n) 매트릭스 </li>
+<li>
+<p>$\frac{\partial }{\partial {\bf u}} {\bf v}^\top = -{\bf I}$ $\quad \to $ (n,n) 매트릭스</p>
+<p>$\frac{\partial }{\partial {\bf u}} {\bf v}^\top =(\frac{\partial }{\partial {\bf u}} y^T-\frac{\partial }{\partial {\bf u}} u^T)=0-\frac{\partial }{\partial {\bf u}} u^T = -I$</p>
+</li>
 </ul>
 
 </div>
@@ -350,6 +359,8 @@ $$\frac{\partial }{\partial {\bf W}} loss = \frac{\partial }{\partial {\bf W}} {
 <ul>
 <li>$\frac{\partial }{\partial \bf W}{\bf u}^\top = {\bf X}^\top $ $\quad \to$ (p,n) 매트릭스 </li>
 </ul>
+<p>u(n <em> 1)=X(n </em> p)W(p * 1)</p>
+<p>$\frac{\partial }{\partial \bf W}$ (p <em> 1) $u^T$(1 </em> n)</p>
 
 </div>
 </div>
