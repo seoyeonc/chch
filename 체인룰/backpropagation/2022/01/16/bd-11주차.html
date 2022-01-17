@@ -828,7 +828,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([ 209.6000, 2748.5999])</pre>
+<pre>tensor([ 209.6000, 2748.6001])</pre>
 </div>
 
 </div>
@@ -968,11 +968,52 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>2배가 되어야 겠지? 확인.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\frac{\partial }{\partial {\bf u}}{\bf v}^\top$ 의 계산</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">u</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([36., 39., 42., 45., 48.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1047,24 +1088,24 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2147125/3227738085.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-22-dfdd06dff626&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">(</span>_v<span class="ansi-blue-fg">.</span>T<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>backward<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/_tensor.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(self, gradient, retain_graph, create_graph, inputs)</span>
+<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/torch/_tensor.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(self, gradient, retain_graph, create_graph, inputs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    305</span>                 create_graph<span class="ansi-blue-fg">=</span>create_graph<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    306</span>                 inputs=inputs)
 <span class="ansi-green-fg">--&gt; 307</span><span class="ansi-red-fg">         </span>torch<span class="ansi-blue-fg">.</span>autograd<span class="ansi-blue-fg">.</span>backward<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> gradient<span class="ansi-blue-fg">,</span> retain_graph<span class="ansi-blue-fg">,</span> create_graph<span class="ansi-blue-fg">,</span> inputs<span class="ansi-blue-fg">=</span>inputs<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    308</span> 
 <span class="ansi-green-intense-fg ansi-bold">    309</span>     <span class="ansi-green-fg">def</span> register_hook<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> hook<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
+<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">backward</span><span class="ansi-blue-fg">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    148</span> 
 <span class="ansi-green-intense-fg ansi-bold">    149</span>     grad_tensors_ <span class="ansi-blue-fg">=</span> _tensor_or_tensors_to_tuple<span class="ansi-blue-fg">(</span>grad_tensors<span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>tensors<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 150</span><span class="ansi-red-fg">     </span>grad_tensors_ <span class="ansi-blue-fg">=</span> _make_grads<span class="ansi-blue-fg">(</span>tensors<span class="ansi-blue-fg">,</span> grad_tensors_<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    151</span>     <span class="ansi-green-fg">if</span> retain_graph <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    152</span>         retain_graph <span class="ansi-blue-fg">=</span> create_graph
 
-<span class="ansi-green-fg">~/anaconda3/envs/py38r40/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">_make_grads</span><span class="ansi-blue-fg">(outputs, grads)</span>
+<span class="ansi-green-fg">~/anaconda3/envs/csy/lib/python3.8/site-packages/torch/autograd/__init__.py</span> in <span class="ansi-cyan-fg">_make_grads</span><span class="ansi-blue-fg">(outputs, grads)</span>
 <span class="ansi-green-intense-fg ansi-bold">     49</span>             <span class="ansi-green-fg">if</span> out<span class="ansi-blue-fg">.</span>requires_grad<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">     50</span>                 <span class="ansi-green-fg">if</span> out<span class="ansi-blue-fg">.</span>numel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">!=</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">---&gt; 51</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">raise</span> RuntimeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"grad can be implicitly created only for scalar outputs"</span><span class="ansi-blue-fg">)</span>
