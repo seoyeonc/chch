@@ -1868,7 +1868,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> step1에서 ${\bf v}$는 어떻게 알지?</p>
+<p><code>-</code> 단계1에서 ${\bf v}$는 어떻게 알지?</p>
 
 </div>
 </div>
@@ -1918,6 +1918,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <ul>
 <li>${\bf X} \overset{l1}{\to} {\bf X}{\bf W} \overset{l2}{\to} {\bf y} -{\bf X}{\bf W} \overset{l3}{\to} ({\bf y}-{\bf X}{\bf W})^\top ({\bf y}-{\bf X}{\bf W})$</li>
 </ul>
+<p>순전파</p>
 
 </div>
 </div>
@@ -1925,7 +1926,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 그런데 위의 계산과정을 아래와 같이 요약할 수도 있다. (${\bf X} \to {\bf \hat y} \to loss$가 아니라 ${\bf W} \to loss({\bf W})$로 생각해보세요)</p>
+<p><code>-</code> 그런데 위의 계산과정을 아래와 같이 요약할 수도 있다. (${\bf X} \to {\bf \hat y} \to loss$가 아니라 ${\bf W} \to loss({\bf W})$로 생각해보세요) &lt;loss가 y의 함수가 아니라 W의 함수라 생각해봐&gt;</p>
 <ul>
 <li>${\bf W} \overset{l1}{\to} {\bf u} \overset{l2}{\to} {\bf v} \overset{l3}{\to} loss$</li>
 </ul>
@@ -1952,7 +1953,7 @@ $$\frac{\partial }{\partial \bf W}loss = -2{\bf X}^\top{\bf y}+2{\bf X}^\top {\b
 <p><code>-</code> 요약: $2{\bf v},-{\bf I}, {\bf X}^\top$와 같은 핵심적인 값들이 사실 각 층의 입/출력 값들의 함수꼴로 표현가능하다. $\to$ 각 층의 입/출력 값들을 모두 기록하면 미분계산을 유리하게 할 수 있다.</p>
 <ul>
 <li>문득의문: 각 층의 입출력값 ${\bf v}, {\bf u}, {\bf W}$로 부터 $2{\bf v}, -{\bf I}, {\bf X}^\top$ 를 만들어내는 방법을 모른다면 헛수고 아닌가? </li>
-<li>의문해결: 어차피 우리가 쓰는 층은 선형+(렐루, 시그모이드, ...) 정도가 전부임. 따라서 변환규칙은 미리 계산할 수 있음.</li>
+<li>의문해결: 어차피 우리가 쓰는 층은 선형+비선형(렐루, 시그모이드, ...) 정도가 전부임. 따라서 변환규칙은 미리 계산할 수 있음.</li>
 </ul>
 
 </div>
