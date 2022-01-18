@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -1326,6 +1326,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
+<ul>
+<li>손실함수 모양이 convex인 경우에만</li>
+</ul>
 
 </div>
 </div>
@@ -1340,6 +1343,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
+<ul>
+<li>손실함수 모양이 convex인 경우에만</li>
+</ul>
 
 </div>
 </div>
@@ -1355,7 +1361,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
 <ul>
-<li>틀림..</li>
+<li>넓은 신경망에 대한 이론, 모든 함수 표현 가능, 특정 함수는 아님</li>
 </ul>
 
 </div>
@@ -1372,7 +1378,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>O</p>
 <ul>
-<li>틀림..</li>
+<li>$\beta_0$, $\beta_1 $ 2개</li>
 </ul>
 
 </div>
@@ -1389,7 +1395,8 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
 <ul>
-<li>틀림..</li>
+<li>x,y가 일반화되어있을떄는 비선형 활성화 함수(sigmoid, relu 등 MLP) 적합력은 올라가지만 overfitting issue가 생긴다.</li>
+<li>파라메터 수, 즉 모형의 표현력이 증가하면 적합력이 올라감</li>
 </ul>
 
 </div>
@@ -1405,6 +1412,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>x</p>
+<ul>
+<li>전체에서 미니배치로 나눠서 미니배치를 순서대로 학습하는 방법</li>
+</ul>
 
 </div>
 </div>
@@ -1418,10 +1428,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>X</p>
-<ul>
-<li>틀림..</li>
-</ul>
+<p>O</p>
 
 </div>
 </div>
@@ -1436,13 +1443,16 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>O</p>
+<ul>
+<li>sigmoid가 적절한</li>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>(9)</code> 로지스틱 모형에서 MLELoss를 사용하면 옵티마이저를 Adam으로 선택하고 BCELoss를 사용하면 확률적 경사하강법을 사용한다.</p>
+<p><code>(9)</code> 로지스틱 모형에서 MSELoss를 사용하면 옵티마이저를 Adam으로 선택하고 BCELoss를 사용하면 확률적 경사하강법을 사용한다.</p>
 
 </div>
 </div>
@@ -1451,7 +1461,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
 <ul>
-<li>틀림..</li>
+<li>Adam은 확률적 경사하강법을 개량시킨 것이기 떄문에 Adam을 쓰면 수렴이 잘 되고 optimizer 선택해야하는 rule은 없음</li>
 </ul>
 
 </div>
@@ -1466,9 +1476,11 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>X</p>
+<p>O</p>
 <ul>
-<li>틀림..</li>
+<li>우리가 주로 쓰는 gpu, memory가 중요</li>
+<li>observation만 바꿔서 학습하는 방법 뭐지, 미니배치를 활용한 확률적 경사하강법</li>
+<li>컴퓨터 자원을 효율적으로 활용할 수 있기 위해 나온 건 아니고 도와준다.</li>
 </ul>
 
 </div>
@@ -1512,6 +1524,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
+<ul>
+<li>선형 변환</li>
+</ul>
 
 </div>
 </div>
@@ -1539,7 +1554,11 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>O</p>
+<p>X</p>
+<ul>
+<li>디자인 매트릭스 n * p 중 n에 일부를 버리진 않음.</li>
+<li>오히려 이 문항은 미니배치와 적절&gt;</li>
+</ul>
 
 </div>
 </div>
@@ -1554,6 +1573,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
+<ul>
+<li>경사하강법은 optimizer에 사용, dropout은 아키텍쳐 단계.</li>
+</ul>
 
 </div>
 </div>
@@ -1582,6 +1604,9 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
+<ul>
+<li>overfitting의 위험</li>
+</ul>
 
 </div>
 </div>
@@ -1628,7 +1653,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>X</p>
 <ul>
-<li>틀림..</li>
+<li>array 형태로 저장할 수 있는 자료에 특화되어 있음, 2d형태에 사용 가능</li>
 </ul>
 
 </div>
@@ -1657,7 +1682,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>X</p>
+<p>O</p>
 
 </div>
 </div>
@@ -1689,10 +1714,7 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>X</p>
-<ul>
-<li>틀림..</li>
-</ul>
+<p>O</p>
 
 </div>
 </div>
