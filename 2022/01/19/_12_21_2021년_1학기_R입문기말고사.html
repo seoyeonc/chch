@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>2021년 1학기 R입문 기말고사 (ver 1.00) | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="2021년 1학기 R입문 기말고사 (ver 1.00)" />
+<meta name="author" content="최규빈" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/2022/01/19/_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/2022/01/19/_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-19T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/2022/01/19/_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.html","@type":"BlogPosting","headline":"2021년 1학기 R입문 기말고사 (ver 1.00)","dateModified":"2022-01-19T00:00:00-06:00","datePublished":"2022-01-19T00:00:00-06:00","author":{"@type":"Person","name":"최규빈"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/2022/01/19/_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 R입문 기말고사 (ver 1.00)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-19T00:00:00-06:00" itemprop="datePublished">
+        Jan 19, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최규빈</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2021_12_21_2021년_1학기_R입문기말고사.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2021_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2021_12_21_2021년_1학기_R입문기말고사.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021_12_21_2021년_1학기_R입문기말고사.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>의미가 모호한 문제는 질문할것</strong></p>
+<p><strong>필요한 패키지는 스스로 로드하여 사용할 것</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-&#54924;&#44480;&#48516;&#49437;-(35&#51216;)"><code>1</code>. &#54924;&#44480;&#48516;&#49437; (35&#51216;)<a class="anchor-link" href="#1.-&#54924;&#44480;&#48516;&#49437;-(35&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래와 같은 수식을 고려하자.</p>
+<p>
+$$y_i= 1.5+ 5\sin(t_i)+ 3 \cos(4 t_i)+\epsilon_i, \quad i=1,2,\dots, 1000$$
+</p>
+<p>여기에서 $t_i=\frac{2\pi i}{1000}$ 이다. 그리고 $\epsilon_i \sim i.i.d~ N(0,1)$, 즉 서로 독립인 표준정규분포에서 추출된 샘플이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(1)-rnorm()&#51012;-&#51060;&#50857;&#54616;&#50668;-$\{\epsilon_i-\}_{i=1}^{1000}$-&#51012;-&#47564;&#46308;&#44256;-&#51060;&#47484;-&#48289;&#53552;&#47196;-&#47564;&#46308;&#50612;&#46972;.-&#51593;-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#48289;&#53552;&#47484;-&#49373;&#49457;&#54616;&#46972;."><code>(1)</code> <code>rnorm()</code>&#51012; &#51060;&#50857;&#54616;&#50668; $\{\epsilon_i \}_{i=1}^{1000}$ &#51012; &#47564;&#46308;&#44256; &#51060;&#47484; &#48289;&#53552;&#47196; &#47564;&#46308;&#50612;&#46972;. &#51593; &#50500;&#47000;&#50752; &#44057;&#51008; &#48289;&#53552;&#47484; &#49373;&#49457;&#54616;&#46972;.<a class="anchor-link" href="#(1)-rnorm()&#51012;-&#51060;&#50857;&#54616;&#50668;-$\{\epsilon_i-\}_{i=1}^{1000}$-&#51012;-&#47564;&#46308;&#44256;-&#51060;&#47484;-&#48289;&#53552;&#47196;-&#47564;&#46308;&#50612;&#46972;.-&#51593;-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#48289;&#53552;&#47484;-&#49373;&#49457;&#54616;&#46972;."> </a></h4><ul>
+<li>$\boldsymbol{\epsilon}=(\epsilon_1,\dots,\epsilon_{1000})$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(2)-$\big\{\sin(t_i)-\big\}_{i=1}^{1000}$&#50752;-$\big\{\cos(4t_i)-\big\}_{i=1}^{1000}$&#47484;-&#44033;&#44033;-&#49373;&#49457;&#54616;&#44256;-&#51060;&#47484;-${\bf-x}_1$&#50752;-${\bf-x}_2$&#50640;-&#51200;&#51109;&#54616;&#46972;.-&#51593;-&#50500;&#47000;&#50752;-&#44057;&#51008;-2&#44060;&#51032;-&#48289;&#53552;&#47484;-&#49373;&#49457;&#54616;&#46972;."><code>(2)</code> $\big\{\sin(t_i) \big\}_{i=1}^{1000}$&#50752; $\big\{\cos(4t_i) \big\}_{i=1}^{1000}$&#47484; &#44033;&#44033; &#49373;&#49457;&#54616;&#44256; &#51060;&#47484; ${\bf x}_1$&#50752; ${\bf x}_2$&#50640; &#51200;&#51109;&#54616;&#46972;. &#51593; &#50500;&#47000;&#50752; &#44057;&#51008; 2&#44060;&#51032; &#48289;&#53552;&#47484; &#49373;&#49457;&#54616;&#46972;.<a class="anchor-link" href="#(2)-$\big\{\sin(t_i)-\big\}_{i=1}^{1000}$&#50752;-$\big\{\cos(4t_i)-\big\}_{i=1}^{1000}$&#47484;-&#44033;&#44033;-&#49373;&#49457;&#54616;&#44256;-&#51060;&#47484;-${\bf-x}_1$&#50752;-${\bf-x}_2$&#50640;-&#51200;&#51109;&#54616;&#46972;.-&#51593;-&#50500;&#47000;&#50752;-&#44057;&#51008;-2&#44060;&#51032;-&#48289;&#53552;&#47484;-&#49373;&#49457;&#54616;&#46972;."> </a></h4><ul>
+<li>${\bf x}_1=\big(\sin(\frac{2\pi}{1000}),\sin(\frac{4\pi}{1000}),\dots,\sin(2\pi)\big)$</li>
+<li>${\bf x}_2=\big(\cos(\frac{8\pi}{1000}),\cos(\frac{16\pi}{1000}),\dots,\cos(8\pi)\big)$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(3)-(1),(2)&#47196;-&#48512;&#53552;-$y_i$&#47484;-&#44228;&#49328;&#54616;&#44256;,-$(t_i,y_i)$&#47484;-scatter-plot&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49353;&#51008;-'gray60'&#51012;-&#49324;&#50857;&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;."><code>(3)</code> (1),(2)&#47196; &#48512;&#53552; $y_i$&#47484; &#44228;&#49328;&#54616;&#44256;, $(t_i,y_i)$&#47484; scatter plot&#51004;&#47196; &#49884;&#44033;&#54868; &#54616;&#46972;. &#49353;&#51008; 'gray60'&#51012; &#49324;&#50857;&#54616;&#46972;. &#49884;&#44033;&#54868; &#50696;&#49884;&#45716; &#50500;&#47000;&#50752; &#44057;&#45796;.<a class="anchor-link" href="#(3)-(1),(2)&#47196;-&#48512;&#53552;-$y_i$&#47484;-&#44228;&#49328;&#54616;&#44256;,-$(t_i,y_i)$&#47484;-scatter-plot&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49353;&#51008;-'gray60'&#51012;-&#49324;&#50857;&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://github.com/guebin/2021IR/blob/master/_notebooks/final_fig1.png?raw=true" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(4)-&#46160;-&#48289;&#53552;-${\bf-x}_1$,-${\bf-x}_2$&#50752;-cbind()&#47484;-&#51060;&#50857;&#54616;&#50668;-&#50500;&#47000;&#50752;-&#44057;&#51008;-$1000-\times-3$-&#47588;&#53944;&#47533;&#49828;-${\bf-X}$&#47484;-&#47564;&#46308;&#50612;&#46972;."><code>(4)</code> &#46160; &#48289;&#53552; ${\bf x}_1$, ${\bf x}_2$&#50752; <code>cbind()</code>&#47484; &#51060;&#50857;&#54616;&#50668; &#50500;&#47000;&#50752; &#44057;&#51008; $1000 \times 3$ &#47588;&#53944;&#47533;&#49828; ${\bf X}$&#47484; &#47564;&#46308;&#50612;&#46972;.<a class="anchor-link" href="#(4)-&#46160;-&#48289;&#53552;-${\bf-x}_1$,-${\bf-x}_2$&#50752;-cbind()&#47484;-&#51060;&#50857;&#54616;&#50668;-&#50500;&#47000;&#50752;-&#44057;&#51008;-$1000-\times-3$-&#47588;&#53944;&#47533;&#49828;-${\bf-X}$&#47484;-&#47564;&#46308;&#50612;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$${\bf X}=\begin{bmatrix}
+1 &amp; \sin(\frac{2\pi}{1000}) &amp; \cos(\frac{8\pi}{1000})\\ 
+1 &amp; \sin(\frac{4\pi}{1000}) &amp; \cos(\frac{16\pi}{1000})\\ 
+\dots &amp; \dots  &amp; \dots \\ 
+1 &amp; \sin(2\pi) &amp; \cos(8\pi)\\ 
+\end{bmatrix} $$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(5)-$3-\times-1$-&#47588;&#53944;&#47533;&#49828;-$\boldsymbol{\beta}=\begin{bmatrix}-1.5-\\-5-\\-3-\end{bmatrix}$&#47484;-&#47564;&#46308;&#44256;-&#47588;&#53944;&#47533;&#49828;-&#44273;&#51012;-&#51060;&#50857;&#54616;&#50668;-${\bf-X}-{\boldsymbol-\beta}$&#47484;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-&#48289;&#53552;&#54868;&#54616;&#44256;-(3)&#51032;-$y$&#52629;&#50640;-&#48521;&#51008;&#49440;&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;.-(&#54596;&#50836;&#54616;&#45796;&#47732;-&#51201;&#51208;&#54616;&#44172;-&#49440;&#51032;-&#44405;&#44592;&#47484;-&#51312;&#51221;&#54624;-&#44163;)"><code>(5)</code> $3 \times 1$ &#47588;&#53944;&#47533;&#49828; $\boldsymbol{\beta}=\begin{bmatrix} 1.5 \\ 5 \\ 3 \end{bmatrix}$&#47484; &#47564;&#46308;&#44256; &#47588;&#53944;&#47533;&#49828; &#44273;&#51012; &#51060;&#50857;&#54616;&#50668; ${\bf X} {\boldsymbol \beta}$&#47484; &#44228;&#49328;&#54616;&#46972;. &#44228;&#49328;&#44208;&#44284;&#47484; &#48289;&#53552;&#54868;&#54616;&#44256; (3)&#51032; $y$&#52629;&#50640; &#48521;&#51008;&#49440;&#51004;&#47196; &#49884;&#44033;&#54868; &#54616;&#46972;. &#49884;&#44033;&#54868; &#50696;&#49884;&#45716; &#50500;&#47000;&#50752; &#44057;&#45796;. (&#54596;&#50836;&#54616;&#45796;&#47732; &#51201;&#51208;&#54616;&#44172; &#49440;&#51032; &#44405;&#44592;&#47484; &#51312;&#51221;&#54624; &#44163;)<a class="anchor-link" href="#(5)-$3-\times-1$-&#47588;&#53944;&#47533;&#49828;-$\boldsymbol{\beta}=\begin{bmatrix}-1.5-\\-5-\\-3-\end{bmatrix}$&#47484;-&#47564;&#46308;&#44256;-&#47588;&#53944;&#47533;&#49828;-&#44273;&#51012;-&#51060;&#50857;&#54616;&#50668;-${\bf-X}-{\boldsymbol-\beta}$&#47484;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-&#48289;&#53552;&#54868;&#54616;&#44256;-(3)&#51032;-$y$&#52629;&#50640;-&#48521;&#51008;&#49440;&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;.-(&#54596;&#50836;&#54616;&#45796;&#47732;-&#51201;&#51208;&#54616;&#44172;-&#49440;&#51032;-&#44405;&#44592;&#47484;-&#51312;&#51221;&#54624;-&#44163;)"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://github.com/guebin/2021IR/blob/master/_notebooks/final_fig2.png?raw=true" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(6)-&#50500;&#47000;&#51032;-&#49688;&#49885;&#51012;-&#51060;&#50857;&#54616;&#50668;-$\boldsymbol{\hat\beta}$&#47484;-&#44228;&#49328;&#54616;&#44256;-&#44228;&#49328;&#44208;&#44284;&#47484;-$\boldsymbol{\beta}$&#50752;-&#48708;&#44368;&#54616;&#46972;."><code>(6)</code> &#50500;&#47000;&#51032; &#49688;&#49885;&#51012; &#51060;&#50857;&#54616;&#50668; $\boldsymbol{\hat\beta}$&#47484; &#44228;&#49328;&#54616;&#44256; &#44228;&#49328;&#44208;&#44284;&#47484; $\boldsymbol{\beta}$&#50752; &#48708;&#44368;&#54616;&#46972;.<a class="anchor-link" href="#(6)-&#50500;&#47000;&#51032;-&#49688;&#49885;&#51012;-&#51060;&#50857;&#54616;&#50668;-$\boldsymbol{\hat\beta}$&#47484;-&#44228;&#49328;&#54616;&#44256;-&#44228;&#49328;&#44208;&#44284;&#47484;-$\boldsymbol{\beta}$&#50752;-&#48708;&#44368;&#54616;&#46972;."> </a></h4>$$ \boldsymbol{\hat\beta} = ({\bf X}^\top {\bf X})^{-1}{\bf X}^\top {\bf y}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>여기에서 ${\bf X}$와 ${\bf y}$는 각각 아래와 같다.</p>
+<ul>
+<li>${\bf X}=\begin{bmatrix}
+1 &amp; \sin(\frac{2\pi}{1000}) &amp; \cos(\frac{8\pi}{1000})\\ 
+1 &amp; \sin(\frac{8\pi}{1000}) &amp; \cos(\frac{16\pi}{1000})\\ 
+\dots &amp; \dots  &amp; \dots \\ 
+1 &amp; \sin(2\pi) &amp; \cos(8\pi)\\ 
+\end{bmatrix}$,  $\quad {\bf y}=\begin{bmatrix} y_1\\ y_2\\ \dots \\ y_{1000}\\ \end{bmatrix}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>또한 ${\bf X}^\top$는 ${\bf X}$의 전치행렬(transpose) 그리고 $({\bf X}^\top {\bf X})^{-1}$은 ${\bf X}^\top {\bf X}$의 역행렬을 의미한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(7)-${\bf-X}\boldsymbol{\hat\beta}$&#47484;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-&#48289;&#53552;&#54868;-&#54616;&#44256;-(5)&#51032;-&#49884;&#44033;&#54868;-&#44208;&#44284;&#50640;-&#54392;&#47480;&#51216;&#49440;&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;.-(&#54596;&#50836;&#54616;&#45796;&#47732;-&#51201;&#51208;&#54616;&#44172;-&#49440;&#51032;-&#44405;&#44592;&#47484;-&#51312;&#51221;&#54624;-&#44163;)"><code>(7)</code> ${\bf X}\boldsymbol{\hat\beta}$&#47484; &#44228;&#49328;&#54616;&#46972;. &#44228;&#49328;&#44208;&#44284;&#47484; &#48289;&#53552;&#54868; &#54616;&#44256; (5)&#51032; &#49884;&#44033;&#54868; &#44208;&#44284;&#50640; &#54392;&#47480;&#51216;&#49440;&#51004;&#47196; &#49884;&#44033;&#54868; &#54616;&#46972;. &#49884;&#44033;&#54868; &#50696;&#49884;&#45716; &#50500;&#47000;&#50752; &#44057;&#45796;. (&#54596;&#50836;&#54616;&#45796;&#47732; &#51201;&#51208;&#54616;&#44172; &#49440;&#51032; &#44405;&#44592;&#47484; &#51312;&#51221;&#54624; &#44163;)<a class="anchor-link" href="#(7)-${\bf-X}\boldsymbol{\hat\beta}$&#47484;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-&#48289;&#53552;&#54868;-&#54616;&#44256;-(5)&#51032;-&#49884;&#44033;&#54868;-&#44208;&#44284;&#50640;-&#54392;&#47480;&#51216;&#49440;&#51004;&#47196;-&#49884;&#44033;&#54868;-&#54616;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;.-(&#54596;&#50836;&#54616;&#45796;&#47732;-&#51201;&#51208;&#54616;&#44172;-&#49440;&#51032;-&#44405;&#44592;&#47484;-&#51312;&#51221;&#54624;-&#44163;)"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://github.com/guebin/2021IR/blob/master/_notebooks/final_fig3.png?raw=true" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-&#47788;&#53580;&#52852;&#47484;&#47196;-&#51201;&#48516;-(10&#51216;)"><code>2</code>. &#47788;&#53580;&#52852;&#47484;&#47196; &#51201;&#48516; (10&#51216;)<a class="anchor-link" href="#2.-&#47788;&#53580;&#52852;&#47484;&#47196;-&#51201;&#48516;-(10&#51216;)"> </a></h2><h4 id="(1)-$\int_{-1.96}^{1.96}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx$&#51032;-&#44050;&#51012;-runif()&#47484;-&#51060;&#50857;&#54620;-&#47788;&#53580;&#52852;&#47484;&#47196;-&#51201;&#48516;&#51004;&#47196;-&#44228;&#49328;&#54616;&#46972;."><code>(1)</code> $\int_{-1.96}^{1.96}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx$&#51032; &#44050;&#51012; <code>runif()</code>&#47484; &#51060;&#50857;&#54620; &#47788;&#53580;&#52852;&#47484;&#47196; &#51201;&#48516;&#51004;&#47196; &#44228;&#49328;&#54616;&#46972;.<a class="anchor-link" href="#(1)-$\int_{-1.96}^{1.96}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx$&#51032;-&#44050;&#51012;-runif()&#47484;-&#51060;&#50857;&#54620;-&#47788;&#53580;&#52852;&#47484;&#47196;-&#51201;&#48516;&#51004;&#47196;-&#44228;&#49328;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(2)-rnorm()&#51012;-&#51060;&#50857;&#54616;&#50668;-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#54869;&#47456;&#48320;&#49688;&#47484;-&#49373;&#49457;&#54616;&#44256;-&#49373;&#49457;&#46108;-&#54869;&#47456;&#48320;&#49688;&#46308;-&#51473;-&#44396;&#44036;-$(-1.96-,-1.96)$&#49324;&#51060;&#50640;-&#51080;&#45716;-&#54869;&#47456;&#48320;&#49688;&#47484;-count&#54616;&#46972;."><code>(2)</code> <code>rnorm()</code>&#51012; &#51060;&#50857;&#54616;&#50668; &#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436; 1000&#44060;&#51032; &#54869;&#47456;&#48320;&#49688;&#47484; &#49373;&#49457;&#54616;&#44256; &#49373;&#49457;&#46108; &#54869;&#47456;&#48320;&#49688;&#46308; &#51473; &#44396;&#44036; $(-1.96 , 1.96)$&#49324;&#51060;&#50640; &#51080;&#45716; &#54869;&#47456;&#48320;&#49688;&#47484; count&#54616;&#46972;.<a class="anchor-link" href="#(2)-rnorm()&#51012;-&#51060;&#50857;&#54616;&#50668;-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#54869;&#47456;&#48320;&#49688;&#47484;-&#49373;&#49457;&#54616;&#44256;-&#49373;&#49457;&#46108;-&#54869;&#47456;&#48320;&#49688;&#46308;-&#51473;-&#44396;&#44036;-$(-1.96-,-1.96)$&#49324;&#51060;&#50640;-&#51080;&#45716;-&#54869;&#47456;&#48320;&#49688;&#47484;-count&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-&#51669;&#44160;&#45796;&#47532;-(10&#51216;)"><code>3</code>. &#51669;&#44160;&#45796;&#47532; (10&#51216;)<a class="anchor-link" href="#3.-&#51669;&#44160;&#45796;&#47532;-(10&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>10명의 참가자가 (유리,강화유리)의 쌍으로 이루어진 징검다리를 건너는 게임을 시작한다. (유리,강화유리)의 쌍은 총 20개 있다. 따라서 유리는 총 40장이 있다. 참가자는 강화유리로 된 징검다리를 밟으면 살아남지만 유리로 된 징검다리를 밟으면 죽는다. 10명의 참가자의 특징은 아래와 같다.</p>
+<ul>
+<li>1번~8번 참가자, 10번 참가자: 50퍼센트의 확률로 강화유리를 고를 수 있다. </li>
+<li>9번 참가자: 95퍼센트의 확률로 강화유리를 고를 수 있다. </li>
+</ul>
+<p>다리를 건너는 순서는 아래와 같이 번호의 오름차순으로 건너는 방법과 번호의 내림차순으로 건너는 2가지 방법이 있다고 하자.</p>
+<ul>
+<li>Type A: 10번 참가자부터 다리를 건너고 그 뒤로 9번, 8번, ... 1번 순으로 다리를 건넌다. </li>
+<li>Type B: 1번 참가자부터 다리를 건너고 그 뒤로 2번, 3번, ... 10번 순으로 다리를 건넌다. </li>
+</ul>
+<p>8번 참가자는 Type A 와 Type B 중 어떠한 경우에 살아남을 확률이 높은가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-COVID19-(15&#51216;)"><code>4</code>. COVID19 (15&#51216;)<a class="anchor-link" href="#4.-COVID19-(15&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래는 한국의 코로나확진자 발생수를 tibble로 불러오는 코드와 그 결과이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/guebin/2021IR/master/_notebooks/covid19.csv&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-bold">Rows: </span><span class="ansi-blue-fg">12294</span> <span class="ansi-bold">Columns: </span><span class="ansi-blue-fg">5</span>
+
+<span class="ansi-cyan-fg">──</span> <span class="ansi-bold">Column specification</span> <span class="ansi-cyan-fg">────────────────────────────────────────────────────────</span>
+<span class="ansi-bold">Delimiter:</span> &#34;,&#34;
+<span class="ansi-red-fg">chr</span> (1): prov
+<span class="ansi-green-fg">dbl</span> (4): year, month, day, cases
+
+
+<span class="ansi-cyan-fg">ℹ</span> Use <span class="ansi-black-fg ansi-white-bg">`spec()`</span> to retrieve the full column specification for this data.
+<span class="ansi-cyan-fg">ℹ</span> Specify the column types or set <span class="ansi-black-fg ansi-white-bg">`show_col_types = FALSE`</span> to quiet this message.
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A tibble: 6 × 5</caption>
+<thead>
+	<tr><th scope="col">year</th><th scope="col">month</th><th scope="col">day</th><th scope="col">prov</th><th scope="col">cases</th></tr>
+	<tr><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>2020</td><td>1</td><td>20</td><td>서울</td><td>0</td></tr>
+	<tr><td>2020</td><td>1</td><td>20</td><td>부산</td><td>0</td></tr>
+	<tr><td>2020</td><td>1</td><td>20</td><td>대구</td><td>0</td></tr>
+	<tr><td>2020</td><td>1</td><td>20</td><td>인천</td><td>1</td></tr>
+	<tr><td>2020</td><td>1</td><td>20</td><td>광주</td><td>0</td></tr>
+	<tr><td>2020</td><td>1</td><td>20</td><td>대전</td><td>0</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(1)-2020&#45380;&#51032;-&#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#44284;-2021&#45380;&#51032;-&#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#51012;-&#44396;&#54616;&#46972;."><code>(1)</code> 2020&#45380;&#51032; &#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#44284; 2021&#45380;&#51032; &#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#51012; &#44396;&#54616;&#46972;.<a class="anchor-link" href="#(1)-2020&#45380;&#51032;-&#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#44284;-2021&#45380;&#51032;-&#54869;&#51652;&#51088;(cases)&#52509;&#54633;&#51012;-&#44396;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(2)-2020&#45380;-2&#50900;1&#51068;-~-2020&#45380;-2&#50900;15&#51068;&#44620;&#51648;&#51032;-&#44592;&#44036;&#46041;&#50504;-&#54869;&#51652;&#51088;&#51032;-&#54633;&#51012;-&#51648;&#50669;&#48324;&#47196;-&#45208;&#45572;&#50612;-&#44396;&#54616;&#46972;-(&#50500;&#47000;&#50696;&#49884;-&#52280;&#44256;).-&#44032;&#51109;-&#47566;&#51008;-&#54869;&#51652;&#51088;&#44032;-&#48156;&#44204;&#46108;-&#51648;&#50669;&#51008;-&#50612;&#46356;&#51064;&#44032;?"><code>(2)</code> 2020&#45380; 2&#50900;1&#51068; ~ 2020&#45380; 2&#50900;15&#51068;&#44620;&#51648;&#51032; &#44592;&#44036;&#46041;&#50504; &#54869;&#51652;&#51088;&#51032; &#54633;&#51012; &#51648;&#50669;&#48324;&#47196; &#45208;&#45572;&#50612; &#44396;&#54616;&#46972; (&#50500;&#47000;&#50696;&#49884; &#52280;&#44256;). &#44032;&#51109; &#47566;&#51008; &#54869;&#51652;&#51088;&#44032; &#48156;&#44204;&#46108; &#51648;&#50669;&#51008; &#50612;&#46356;&#51064;&#44032;?<a class="anchor-link" href="#(2)-2020&#45380;-2&#50900;1&#51068;-~-2020&#45380;-2&#50900;15&#51068;&#44620;&#51648;&#51032;-&#44592;&#44036;&#46041;&#50504;-&#54869;&#51652;&#51088;&#51032;-&#54633;&#51012;-&#51648;&#50669;&#48324;&#47196;-&#45208;&#45572;&#50612;-&#44396;&#54616;&#46972;-(&#50500;&#47000;&#50696;&#49884;-&#52280;&#44256;).-&#44032;&#51109;-&#47566;&#51008;-&#54869;&#51652;&#51088;&#44032;-&#48156;&#44204;&#46108;-&#51648;&#50669;&#51008;-&#50612;&#46356;&#51064;&#44032;?"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>즉 아래를 각각 계산하고 2020년 2월1일 ~ 2020년 2월15일 기간동안 발생한 확진자의 합이 가장 큰 지역을 찾으면 된다.</p>
+<ul>
+<li>2020년2월1일 ~ 2020년2월15일 기간 서울에서 발생한 확진자의 합 = 2020년2월1일 서울에서 발생한 확진자수 + ... + 2020년2월15일 서울에서 발생한 확진자수</li>
+<li>...</li>
+<li>2020년2월1일 ~ 2020년2월15일 기간 제주에서 발생한 확진자의 합 = 2020년2월1일 제주에서 발생한 확진자수 + ... + 2020년2월15일 제주에서 발생한 확진자수</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(3)-2020&#45380;-2&#50900;16&#51068;-~-2020&#45380;-2&#50900;29&#51068;&#44620;&#51648;&#51032;-&#44592;&#44036;&#46041;&#50504;-&#54869;&#51652;&#51088;&#51032;-&#52509;&#54633;&#51012;-&#51648;&#50669;&#48324;&#47196;-&#45208;&#45572;&#50612;-&#44396;&#54616;&#46972;-(&#50500;&#47000;&#50696;&#49884;-&#52280;&#44256;).-&#44032;&#51109;-&#47566;&#51008;-&#54869;&#51652;&#51088;&#44032;-&#48156;&#44204;&#46108;-&#51648;&#50669;&#51008;-&#50612;&#46356;&#51064;&#44032;?"><code>(3)</code> 2020&#45380; 2&#50900;16&#51068; ~ 2020&#45380; 2&#50900;29&#51068;&#44620;&#51648;&#51032; &#44592;&#44036;&#46041;&#50504; &#54869;&#51652;&#51088;&#51032; &#52509;&#54633;&#51012; &#51648;&#50669;&#48324;&#47196; &#45208;&#45572;&#50612; &#44396;&#54616;&#46972; (&#50500;&#47000;&#50696;&#49884; &#52280;&#44256;). &#44032;&#51109; &#47566;&#51008; &#54869;&#51652;&#51088;&#44032; &#48156;&#44204;&#46108; &#51648;&#50669;&#51008; &#50612;&#46356;&#51064;&#44032;?<a class="anchor-link" href="#(3)-2020&#45380;-2&#50900;16&#51068;-~-2020&#45380;-2&#50900;29&#51068;&#44620;&#51648;&#51032;-&#44592;&#44036;&#46041;&#50504;-&#54869;&#51652;&#51088;&#51032;-&#52509;&#54633;&#51012;-&#51648;&#50669;&#48324;&#47196;-&#45208;&#45572;&#50612;-&#44396;&#54616;&#46972;-(&#50500;&#47000;&#50696;&#49884;-&#52280;&#44256;).-&#44032;&#51109;-&#47566;&#51008;-&#54869;&#51652;&#51088;&#44032;-&#48156;&#44204;&#46108;-&#51648;&#50669;&#51008;-&#50612;&#46356;&#51064;&#44032;?"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>즉 아래를 각각 계산하고 2020년 2월16일 ~ 2020년 2월29일 기간동안 발생한 확진자의 합이 가장 큰 지역을 찾으면 된다.</p>
+<ul>
+<li>2020년2월16일 ~ 2020년2월29일 기간 서울에서 발생한 확진자의 합 = 2020년2월16일 서울에서 발생한 확진자수 + ... + 2020년2월29일 서울에서 발생한 확진자수</li>
+<li>...</li>
+<li>2020년2월16일 ~ 2020년2월29일 기간 제주에서 발생한 확진자의 합 = 2020년2월16일 제주에서 발생한 확진자수 + ... + 2020년2월29일 제주에서 발생한 확진자수</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="5.-&#45796;&#51020;&#51012;-&#51096;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(10&#51216;)"><code>5</code>. &#45796;&#51020;&#51012; &#51096; &#51069;&#44256; &#47932;&#51020;&#50640; &#45813;&#54616;&#46972;. (10&#51216;)<a class="anchor-link" href="#5.-&#45796;&#51020;&#51012;-&#51096;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(10&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(1)-cumprod-&#54632;&#49688;&#47484;-&#51060;&#50857;&#54616;&#50668;-$7!=7\times-6-\times-5-\times-\dots-\times-1$&#51012;-&#44228;&#49328;&#54616;&#46972;."><code>(1)</code> cumprod &#54632;&#49688;&#47484; &#51060;&#50857;&#54616;&#50668; $7!=7\times 6 \times 5 \times \dots \times 1$&#51012; &#44228;&#49328;&#54616;&#46972;.<a class="anchor-link" href="#(1)-cumprod-&#54632;&#49688;&#47484;-&#51060;&#50857;&#54616;&#50668;-$7!=7\times-6-\times-5-\times-\dots-\times-1$&#51012;-&#44228;&#49328;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(2)-$\sum_{n=0}^{\infty}\frac{n}{n!}$&#51032;-&#44050;&#51012;-&#44540;&#49324;&#51201;&#51004;&#47196;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-exp(1)&#44284;-&#48708;&#44368;&#54616;&#46972;."><code>(2)</code> $\sum_{n=0}^{\infty}\frac{n}{n!}$&#51032; &#44050;&#51012; &#44540;&#49324;&#51201;&#51004;&#47196; &#44228;&#49328;&#54616;&#46972;. &#44228;&#49328;&#44208;&#44284;&#47484; exp(1)&#44284; &#48708;&#44368;&#54616;&#46972;.<a class="anchor-link" href="#(2)-$\sum_{n=0}^{\infty}\frac{n}{n!}$&#51032;-&#44050;&#51012;-&#44540;&#49324;&#51201;&#51004;&#47196;-&#44228;&#49328;&#54616;&#46972;.-&#44228;&#49328;&#44208;&#44284;&#47484;-exp(1)&#44284;-&#48708;&#44368;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(3)-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#48156;&#49373;&#49884;&#53416;-&#46244;-0&#48372;&#45796;-&#53360;-&#49688;&#47484;-&#49464;&#50612;&#48372;&#46972;."><code>(3)</code> &#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436; 1000&#44060;&#51032; &#45212;&#49688;&#47484; &#49373;&#49457;&#48156;&#49373;&#49884;&#53416; &#46244; 0&#48372;&#45796; &#53360; &#49688;&#47484; &#49464;&#50612;&#48372;&#46972;.<a class="anchor-link" href="#(3)-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#48156;&#49373;&#49884;&#53416;-&#46244;-0&#48372;&#45796;-&#53360;-&#49688;&#47484;-&#49464;&#50612;&#48372;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(4)-$p=0.2$&#51064;-&#48288;&#47476;&#45572;&#51060;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#47564;&#46308;&#47732;-1&#51060;-&#47751;&#44060;&#51221;&#46020;-&#54252;&#54632;&#46104;&#45716;&#44032;?-&#49884;&#48044;&#47112;&#51060;&#49496;&#51012;-&#53685;&#54616;&#50668;-&#44160;&#51613;&#54616;&#46972;."><code>(4)</code> $p=0.2$&#51064; &#48288;&#47476;&#45572;&#51060;&#48516;&#54252;&#50640;&#49436; 1000&#44060;&#51032; &#45212;&#49688;&#47484; &#47564;&#46308;&#47732; 1&#51060; &#47751;&#44060;&#51221;&#46020; &#54252;&#54632;&#46104;&#45716;&#44032;? &#49884;&#48044;&#47112;&#51060;&#49496;&#51012; &#53685;&#54616;&#50668; &#44160;&#51613;&#54616;&#46972;.<a class="anchor-link" href="#(4)-$p=0.2$&#51064;-&#48288;&#47476;&#45572;&#51060;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#47564;&#46308;&#47732;-1&#51060;-&#47751;&#44060;&#51221;&#46020;-&#54252;&#54632;&#46104;&#45716;&#44032;?-&#49884;&#48044;&#47112;&#51060;&#49496;&#51012;-&#53685;&#54616;&#50668;-&#44160;&#51613;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(5)-&#50500;&#47000;&#45716;-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;,-&#51593;-&#54217;&#44512;&#51060;-0&#51060;&#44256;-&#54364;&#51456;&#54200;&#52264;&#44032;-1&#51064;-&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#54616;&#50668;-$x$&#46972;&#45716;-&#48320;&#49688;&#50640;-&#51200;&#51109;&#54620;&#46244;-$x$&#51032;-&#55176;&#49828;&#53664;&#44536;&#47016;&#51012;-&#44536;&#47536;-&#50696;&#49884;&#51060;&#45796;.-&#50500;&#47000;&#51032;-&#50696;&#49884;&#47484;-&#51060;&#50857;&#54616;&#50668;-&#54217;&#44512;&#51060;-1&#51060;&#44256;-&#54364;&#51456;&#54200;&#52264;&#44032;-1&#51064;-&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-5000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#54620;&#46244;-$y$&#50640;-&#51200;&#51109;&#54616;&#44256;-$y$&#51032;-&#55176;&#49828;&#53664;&#44536;&#47016;&#51012;-&#44536;&#47140;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;."><code>(5)</code> &#50500;&#47000;&#45716; &#54364;&#51456;&#51221;&#44508;&#48516;&#54252;, &#51593; &#54217;&#44512;&#51060; 0&#51060;&#44256; &#54364;&#51456;&#54200;&#52264;&#44032; 1&#51064; &#51221;&#44508;&#48516;&#54252;&#50640;&#49436; 1000&#44060;&#51032; &#45212;&#49688;&#47484; &#49373;&#49457;&#54616;&#50668; $x$&#46972;&#45716; &#48320;&#49688;&#50640; &#51200;&#51109;&#54620;&#46244; $x$&#51032; &#55176;&#49828;&#53664;&#44536;&#47016;&#51012; &#44536;&#47536; &#50696;&#49884;&#51060;&#45796;. &#50500;&#47000;&#51032; &#50696;&#49884;&#47484; &#51060;&#50857;&#54616;&#50668; &#54217;&#44512;&#51060; 1&#51060;&#44256; &#54364;&#51456;&#54200;&#52264;&#44032; 1&#51064; &#51221;&#44508;&#48516;&#54252;&#50640;&#49436; 5000&#44060;&#51032; &#45212;&#49688;&#47484; &#49373;&#49457;&#54620;&#46244; $y$&#50640; &#51200;&#51109;&#54616;&#44256; $y$&#51032; &#55176;&#49828;&#53664;&#44536;&#47016;&#51012; &#44536;&#47140;&#46972;. &#49884;&#44033;&#54868; &#50696;&#49884;&#45716; &#50500;&#47000;&#50752; &#44057;&#45796;.<a class="anchor-link" href="#(5)-&#50500;&#47000;&#45716;-&#54364;&#51456;&#51221;&#44508;&#48516;&#54252;,-&#51593;-&#54217;&#44512;&#51060;-0&#51060;&#44256;-&#54364;&#51456;&#54200;&#52264;&#44032;-1&#51064;-&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-1000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#54616;&#50668;-$x$&#46972;&#45716;-&#48320;&#49688;&#50640;-&#51200;&#51109;&#54620;&#46244;-$x$&#51032;-&#55176;&#49828;&#53664;&#44536;&#47016;&#51012;-&#44536;&#47536;-&#50696;&#49884;&#51060;&#45796;.-&#50500;&#47000;&#51032;-&#50696;&#49884;&#47484;-&#51060;&#50857;&#54616;&#50668;-&#54217;&#44512;&#51060;-1&#51060;&#44256;-&#54364;&#51456;&#54200;&#52264;&#44032;-1&#51064;-&#51221;&#44508;&#48516;&#54252;&#50640;&#49436;-5000&#44060;&#51032;-&#45212;&#49688;&#47484;-&#49373;&#49457;&#54620;&#46244;-$y$&#50640;-&#51200;&#51109;&#54616;&#44256;-$y$&#51032;-&#55176;&#49828;&#53664;&#44536;&#47016;&#51012;-&#44536;&#47140;&#46972;.-&#49884;&#44033;&#54868;-&#50696;&#49884;&#45716;-&#50500;&#47000;&#50752;-&#44057;&#45796;."> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAOECAMAAADOkA8JAAAC+lBMVEUAAAABAQECAgIDAwME
+BAQFBQUGBgYHBwcICAgJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMUFBQVFRUW
+FhYXFxcYGBgZGRkaGhobGxscHBwdHR0eHh4fHx8gICAhISEiIiIjIyMkJCQlJSUmJiYnJyco
+KCgpKSkqKiorKyssLCwtLS0uLi4vLy8wMDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6
+Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NERERFRUVGRkZHR0dISEhJSUlKSkpLS0tM
+TExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1f
+X19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBx
+cXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKD
+g4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSV
+lZWWlpaXl5eYmJiZmZmbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eo
+qKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6
+urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vM
+zMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e
+3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w
+8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7////hYHHUAAAA
+CXBIWXMAABcRAAAXEQHKJvM/AAAgAElEQVR4nO3de5xVZb348e8w3GRGEBguIih3EFQkMbXx
+klaipahFcdJUMk0y8/Tz1jn2S4lfXrFfnk6/1BQvnaNIR7Oyi2iWqWh6OEesE4mVWalE5QVE
+EJj1ev32s/fsYfbMPONeq/WdZz/f+bz/cK+1Z63nWa+918fZV0YSAEFJ6AMAejsiBAIjQiAw
+IgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNC
+IDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQC
+I0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAi
+rC2jRGRV6IPo2nffM7R+8IzNoQ/DICKsLbUb4TIp2hj6OAwiwlDcGb2ivPKhwsopbsEf4R8u
+vfTRHjq0Lo0tHNmAg2e9EfIYjCLCULqO0O8ykWu0j6kbf3DH+/OAB2AYEYaSNsKJYSP8ReEI
+GwPObxkRhpIywoclbITPFOYfHnB+y4gwlLd5Tthy94IpjfW7veN/rXVrp0irYoct935s8q79
+Rx3xxZfL+3/r6KYBE878dXJyYZPvFdbrRHZNnn//oNJYD562d2PfYYde81pp4+IPd1w/u2H0
+Bx4rrN556LBBB97S8fAq51hSnr/thZn/6i9S95Pi4j8Urm7enu+t06sQYSjdR7jh0PJZX39F
+0iHC37+zvDbwX4t7tywsrQ5++H2F/z5YuGZQoZAte5fG2jy/vPlevypu3lBY3F7apd+DyQWl
+ny2uPLoOc3SOMLm2sDLFvWFxX2FhyPOaN5V1RBhK9xEeXbhsOOioGW6r25Lki80jCwvjm5vv
+SJIXx7grx+0z0F0sdTt9uRjrjDGy5z6FhZ8WrhleuLxOSmN9onDR970nuJGnvOU2byos3dDa
+1D4/bl3ou679wXWc49bm2W6b5ubmtvcJW1zwFybJxnGFyzt64hYziwhDcaf38ee3mtohwnXu
+EZ57N+DxXUUmuh+c1vac0PW51xNJ8rr7ZVb/6yR5c7fCwuwXkuSOvm7Qn7UOM3HgOV+58DfJ
+831Kvx1f2atwubw8R9Oxv1w3rxjang++eHWnX4Wd5ujiOeGLhZjrn0o+XfjBaeq3lmlEGIp0
+1D7CH5R+yxTcfvXtD7jnW20R/txt+7hb2jGrsHR2ktxduKgrPtK8uH2EfR8rDvDLJUuWXOUW
+zi9c95nyHKMKhb/mHpcWf3EeX7ic1+7YOs/R1Qsz3y5cNeunhcYnva5yC/UaRBhKtxE+Wbho
+vO737TZvi/CSwsL+pevcw9DCr8mLChdzilc81z7Cj3aY0P2+O7k8x8VuwT2gnOkWvlZYOLjd
+pp3n6PLV0U8WrtulUPsTf+dN0dsRYSjdRrh9UvGqcR/5WvmpWluExxQWzixdV3w+tzE5qfDf
+M0rXDG0X4c3lmb7/kQm7tM6xoDzHXW7hjMLCx9zCd3dGl3Q9R5cRvjG9OOjl+d0ovRMRhuJO
+X/8LM/81qtzm7HuLW7RFOKew8M+lvda4nz+fHFX470Wla6a2i/DHpau2fbRd6G0Ruo2ScwoL
+/+QWVroHlu2OrfMcXb9PuMr9cL8d+dwgvRcRhtJ9hMkrl0wul+Peo+gywv92P30hObL88DJJ
+JreLsPUjqP+nsNjv/G//+KGz20dY/KGL8BK30E2ErXN0HeGF7oc8Gv17EWEobxNhwe++ed6c
++sJ6H/cmXFuExxYWPlHa4H43xubkhJ3XDOkc4R6FxSVuYXH1EXaeo8sIf9Kn+D+JKZtyuDl6
+MyIM5e0jdH53YOEK93GWtgj/987nb1+S4gsr/1i4eGfxirXSKcK/uKuKv6s+XH2EnefoKsJX
+9xQZeNrOp4/IiAhD6TbCx5dd0vos78bCFV9LShF+3l3hXjgtfZ1h6+TSc7p/d78ti59uO79z
+hC+Wr/rjoMLCSUlSTYSd5+gqQvcxnsu3us/l3JvnDdP7EGEo3Ubo3ri7wa1vfG9rQ+7X3czi
+hz/nFpYm/neS/PnEwsKu65PkdZfX7N8mLcvqO0e4zf3wvMJvxHf1KTx4nJEk1UTYeY4uIrzT
+7bQt+VmdyIiXE2RHhKF0G+FT/QqX44465iD3ubHDWgo/+LrbvnFy4ZHfn3Z3i5P3dh+P6XO3
+2+kL7oo+k5pk6oTOzwndx6vlsBMGyz+5T54dtqiqCDvP0SnCPwwtfmAmSdwLPu9XupF6ByIM
+pfvnhP+xq5S95y/uB68Xsyh+QOz5OeUfNd1X3Put40urI5/q4tXRF8aUfnjyW+51Utmrqgg7
+z9Exwpb3SOuHel4d0/qIGRkRYSjdR5isv+I9ewysH7zPwh+1bvLcB3fvP+qwb7rFlrv/YcKg
+AWOO/Zfyy5I7bjho14bpF/wx2bP1uVz713deOmd8v5HvWZ4kW84bUz/uvOoi7DRHxwjdlygm
+lT7N7T42N2htPrdKr0SEluxwj2J/G/ookBIRxm/H2gdvv+pVt+Q+Y9bUEvp4kBIRxm+H+67h
+GVsLT+T2KyycE/pwkBYRGvAvxVdl3jfHvZQ6hncLokOEFny+T/m1zJm/DH0sSI0ITfif8+fs
+Vt8w4UP/tjX0kSA9IgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAw
+IgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNC
+IDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQC
+I0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0IgMCIEAiNCIDAi
+BAIjQiAwIgQCI0IgMCIEAiNCIDAiBAIjQiAwIgQCI0Lbbv5wOp8LfcC9ERHadnD/sWk0Skvo
+I+6FiNC2g/d7Jo1TiTAAIrSNCCNAhLYRYQSI0DYijAAR2kaEESBC24gwAkRoGxFGgAhtI8II
+EKFtRBgBIrSNCCNAhLYRYQSI0DYijAAR2kaEESBC24gwAkRoGxFGgAhtI8IIEKFtRBgBIrSN
+CCNAhLYRYQSI0DYijAAR2kaEESBC24gwAkRoGxFGgAhtI8IIEKFtRBgBIrSNCCNAhLYRYQSI
+0DYijAAR2kaEESBC24gwAkRoGxFGgAhtI8IIEKFtRBgBIrSNCCNAhLYRYQSIMDLTJJU6Iqx9
+RBiXFpkyP42+RFj7iDAuLXJqqqoGEWHtI8K4EKFBRBgXIjSICONChAYRYVyI0CAijAsRGkSE
+cSFCg4gwLkRoEBHGhQgNIsK4EKFBRBgXIjSICONChAYRYVyI0CAijAsRGkSEcSFCg4gwLkRo
+EBHGhQgNIsK4EKFBRBgXIjSICONChAYRYVyI0CAijAsRGkSEcVGOcJ5cnMqSLaFvEAuIMC7K
+Ec5I908Li6wKfYNYQIRxUY5wb3nk0RSWyKOhbxALiDAu6hGuSbP5UiLMAxHGhQgNIsK4EKFB
+RBgXIjSICONChAYRYVyI0CAijAsRGkSEcSFCg4gwLkRoEBHGhQgNIsK4EKFBRBgXIjSICONC
+hAYRYVyI0CAijAsRGkSEcSFCg4gwLkRoEBHGhQgNIsK4EKFBRBgXIjSICONChAYRYVyI0CAi
+jAsRGkSEcSFCg4gwLkRoEBHGhQgNIsK4EKFBRBgXIjSICONChAYRYVyI0CAijAsRGkSEcSFC
+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
+AABJRU5ErkJggg==" width="450" height="450" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(6)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#48289;&#53552;-x&#50640;&#49436;-&#51677;&#49688;&#48264;&#51704;-&#50896;&#49548;-(&#51593;-x[2],x[4],$\dots$,x[2000])&#51032;-&#54633;&#51012;-&#44396;&#54616;&#45716;-&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;"><code>(6)</code> &#50500;&#47000;&#50752; &#44057;&#51008; &#48289;&#53552; x&#50640;&#49436; &#51677;&#49688;&#48264;&#51704; &#50896;&#49548; (&#51593; x[2],x[4],$\dots$,x[2000])&#51032; &#54633;&#51012; &#44396;&#54616;&#45716; &#53076;&#46300;&#47484; &#51089;&#49457;&#54616;&#46972;<a class="anchor-link" href="#(6)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#48289;&#53552;-x&#50640;&#49436;-&#51677;&#49688;&#48264;&#51704;-&#50896;&#49548;-(&#51593;-x[2],x[4],$\dots$,x[2000])&#51032;-&#54633;&#51012;-&#44396;&#54616;&#45716;-&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="m">-1000</span><span class="o">:</span><span class="m">1000</span><span class="o">/</span><span class="m">1000</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(7)-2021&#45380;-A&#50472;&#51032;-&#50672;&#48393;&#51008;-5000&#51060;&#45796;.-&#47588;&#45380;-&#50672;&#48393;&#51008;-3%&#50473;-&#50724;&#47480;&#45796;&#44256;-&#54616;&#51088;.-2030&#45380;-A&#50472;&#51032;-&#50672;&#48393;&#51008;-&#50620;&#47560;&#51064;&#44032;?"><code>(7)</code> 2021&#45380; A&#50472;&#51032; &#50672;&#48393;&#51008; 5000&#51060;&#45796;. &#47588;&#45380; &#50672;&#48393;&#51008; 3%&#50473; &#50724;&#47480;&#45796;&#44256; &#54616;&#51088;. 2030&#45380; A&#50472;&#51032; &#50672;&#48393;&#51008; &#50620;&#47560;&#51064;&#44032;?<a class="anchor-link" href="#(7)-2021&#45380;-A&#50472;&#51032;-&#50672;&#48393;&#51008;-5000&#51060;&#45796;.-&#47588;&#45380;-&#50672;&#48393;&#51008;-3%&#50473;-&#50724;&#47480;&#45796;&#44256;-&#54616;&#51088;.-2030&#45380;-A&#50472;&#51032;-&#50672;&#48393;&#51008;-&#50620;&#47560;&#51064;&#44032;?"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(8)-&#51076;&#51032;&#51032;-&#51077;&#47141;-$x$&#50640;-&#45824;&#54616;&#50668;-&#50500;&#47000;&#47484;-&#47564;&#51313;&#54616;&#45716;-&#54632;&#49688;&#47484;-&#49440;&#50616;&#54616;&#46972;."><code>(8)</code> &#51076;&#51032;&#51032; &#51077;&#47141; $x$&#50640; &#45824;&#54616;&#50668; &#50500;&#47000;&#47484; &#47564;&#51313;&#54616;&#45716; &#54632;&#49688;&#47484; &#49440;&#50616;&#54616;&#46972;.<a class="anchor-link" href="#(8)-&#51076;&#51032;&#51032;-&#51077;&#47141;-$x$&#50640;-&#45824;&#54616;&#50668;-&#50500;&#47000;&#47484;-&#47564;&#51313;&#54616;&#45716;-&#54632;&#49688;&#47484;-&#49440;&#50616;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$x &gt;0$: $\log (x)$를 계산하여 출력 </li>
+<li>$x =0$: print("음의 무한대")</li>
+<li>$x &lt;0$: print("x는 양수이어야 합니다.")</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(9)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#45936;&#51060;&#53552;&#54532;&#47112;&#51076;&#51060;-&#51080;&#45796;&#44256;-&#54616;&#51088;."><code>(9)</code> &#50500;&#47000;&#50752; &#44057;&#51008; &#45936;&#51060;&#53552;&#54532;&#47112;&#51076;&#51060; &#51080;&#45796;&#44256; &#54616;&#51088;.<a class="anchor-link" href="#(9)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#45936;&#51060;&#53552;&#54532;&#47112;&#51076;&#51060;-&#51080;&#45796;&#44256;-&#54616;&#51088;."> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="nf">tibble</span><span class="p">(</span><span class="n">X1</span><span class="o">=</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">100</span><span class="p">),</span><span class="n">X2</span><span class="o">=</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">100</span><span class="p">))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A tibble: 6 × 2</caption>
+<thead>
+	<tr><th scope="col">X1</th><th scope="col">X2</th></tr>
+	<tr><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>-0.92831089</td><td> 2.5959065</td></tr>
+	<tr><td>-0.07387717</td><td>-1.0698486</td></tr>
+	<tr><td>-1.60085998</td><td>-0.0705430</td></tr>
+	<tr><td>-0.29223020</td><td> 0.6043498</td></tr>
+	<tr><td> 0.62995753</td><td> 0.4082469</td></tr>
+	<tr><td>-0.26448626</td><td> 0.3490946</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위의 데이터프레임 df에서 <code>mutate</code>를 이용하여 <code>Z=X1^2+X2^2</code>을 계산하여 새로운 열 Z를 만들어라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(10)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#47588;&#53944;&#47533;&#49828;&#50640;&#49436;-apply&#54632;&#49688;&#47484;-&#51060;&#50857;&#54616;&#50668;-&#44033;-&#54665;&#51032;-&#54633;&#44284;-&#44033;-&#50676;&#51032;-&#54633;&#51012;-&#44396;&#54616;&#46972;"><code>(10)</code> &#50500;&#47000;&#50752; &#44057;&#51008; &#47588;&#53944;&#47533;&#49828;&#50640;&#49436; <code>apply</code>&#54632;&#49688;&#47484; &#51060;&#50857;&#54616;&#50668; &#44033; &#54665;&#51032; &#54633;&#44284; &#44033; &#50676;&#51032; &#54633;&#51012; &#44396;&#54616;&#46972;<a class="anchor-link" href="#(10)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#47588;&#53944;&#47533;&#49828;&#50640;&#49436;-apply&#54632;&#49688;&#47484;-&#51060;&#50857;&#54616;&#50668;-&#44033;-&#54665;&#51032;-&#54633;&#44284;-&#44033;-&#50676;&#51032;-&#54633;&#51012;-&#44396;&#54616;&#46972;"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">1221</span><span class="p">)</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="nf">rbinom</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">5</span><span class="p">,</span><span class="n">prob</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ [1,]    2    3    3    2    2    3    1    3    3     3
+ [2,]    1    3    3    4    2    2    4    2    2     1
+ [3,]    2    2    2    2    4    4    2    3    3     3
+ [4,]    3    2    4    5    2    5    1    4    2     2
+ [5,]    2    2    2    2    1    4    2    2    3     4
+ [6,]    5    1    3    1    1    3    4    2    4     3
+ [7,]    4    3    4    3    2    3    2    3    0     1
+ [8,]    4    4    2    3    2    3    3    0    4     2
+ [9,]    5    5    4    3    2    4    4    4    1     4
+[10,]    2    4    4    3    1    3    3    2    1     2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>즉 아래를 구하라</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 행의 합</p>
+<ul>
+<li>1행의 합 = 2+3+3+ ... +3+3+3 </li>
+<li>...</li>
+<li>10행의 합 = 2+4+4+ ... +2+1+2</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 열의 합</p>
+<ul>
+<li>1열의 합 = 2+1+2+ ... +4+5+2</li>
+<li>...</li>
+<li>10열의 합 = 3+1+3+ ... +2+4+2</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="6.-&#45796;&#51020;&#51012;-&#51096;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(20&#51216;)"><code>6</code>. &#45796;&#51020;&#51012; &#51096; &#51069;&#44256; &#47932;&#51020;&#50640; &#45813;&#54616;&#46972;. (20&#51216;)<a class="anchor-link" href="#6.-&#45796;&#51020;&#51012;-&#51096;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(20&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(1)-&#51088;&#47308;-$x_1,x_2,\dots,-x_{50}$&#50640;-&#45824;&#54616;&#50668;-&#45796;&#51020;-&#44284;&#51221;&#51012;-&#49692;&#49436;&#45824;&#47196;-&#49884;&#54665;&#54616;&#50688;&#45796;."><code>(1)</code> &#51088;&#47308; $x_1,x_2,\dots, x_{50}$&#50640; &#45824;&#54616;&#50668; &#45796;&#51020; &#44284;&#51221;&#51012; &#49692;&#49436;&#45824;&#47196; &#49884;&#54665;&#54616;&#50688;&#45796;.<a class="anchor-link" href="#(1)-&#51088;&#47308;-$x_1,x_2,\dots,-x_{50}$&#50640;-&#45824;&#54616;&#50668;-&#45796;&#51020;-&#44284;&#51221;&#51012;-&#49692;&#49436;&#45824;&#47196;-&#49884;&#54665;&#54616;&#50688;&#45796;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(가) 처음 두 수 $x_1$과 $x_2$의 평균을 구한다.</p>
+<p>(나) $x_3$을 추가하여 $x_1, x_2, x_3$의 평균을 구한다.</p>
+<p>(다) $x_4$을 추가하여 $x_1, x_2, x_3, x_4$의 평균을 구한다.</p>
+<p>...</p>
+<p>$x_{50}$을 추가하여 $x_1, x_2, x_3 ,\dots , x_{50}$의 평균을 구한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위의 과정을 시행할 결과, $x_1$과 $x_2$의 평균이 5이고, 자료 하나가 추가될때 마다 평균이 1씩 증가하였다. 이때 $x_{50}$의 값은?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(2)-&#48373;&#46020;&#51032;-&#46972;&#52964;"><code>(2)</code> &#48373;&#46020;&#51032; &#46972;&#52964;<a class="anchor-link" href="#(2)-&#48373;&#46020;&#51032;-&#46972;&#52964;"> </a></h4><p>복도에 100개의 라커가 있다. 복도를 어떤 남자가 <strong>짝수번호</strong>의 라커를 모두 연다. 그리고 나서 3의 배수의 라커를 전부 닫는다. 그 다음에는 번호가 4의 배수인 라커를 순서대로 찾아다니며 열려 있으면 닫고, 닫혀 있으면 연다. 그 다음에는 번호가 5의 배수인 라커를 순서대로 찾아다니며 열려있으면 닫고, 닫혀있으면 연다. 이후에 6의 배수, 7의 배수 .. 인 라커를 순서대로 찾아다니며 행동을 반복한다. 이런식으로 복도를 <strong>50번</strong> 지나가면 열린 라커의 문은 몇개가 되겠는가? (주의: 중간고사문제와 약간다릅니다, 다른부분은 볼드체 표시했습니다)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(3)-&#47788;&#53580;&#52852;&#47484;&#47196;-&#49884;&#48044;&#47112;&#51060;&#49496;&#51012;-&#51060;&#50857;&#54616;&#50668;-&#50896;&#51452;&#50984;-$\pi$&#47484;-&#52628;&#47200;&#54616;&#45716;-&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;."><code>(3)</code> &#47788;&#53580;&#52852;&#47484;&#47196; &#49884;&#48044;&#47112;&#51060;&#49496;&#51012; &#51060;&#50857;&#54616;&#50668; &#50896;&#51452;&#50984; $\pi$&#47484; &#52628;&#47200;&#54616;&#45716; &#53076;&#46300;&#47484; &#51089;&#49457;&#54616;&#46972;.<a class="anchor-link" href="#(3)-&#47788;&#53580;&#52852;&#47484;&#47196;-&#49884;&#48044;&#47112;&#51060;&#49496;&#51012;-&#51060;&#50857;&#54616;&#50668;-&#50896;&#51452;&#50984;-$\pi$&#47484;-&#52628;&#47200;&#54616;&#45716;-&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(4)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#50672;&#47549;&#51068;&#52264;&#48169;&#51221;&#49885;&#51012;-&#54392;&#45716;-R&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;."><code>(4)</code> &#50500;&#47000;&#50752; &#44057;&#51008; &#50672;&#47549;&#51068;&#52264;&#48169;&#51221;&#49885;&#51012; &#54392;&#45716; R&#53076;&#46300;&#47484; &#51089;&#49457;&#54616;&#46972;.<a class="anchor-link" href="#(4)-&#50500;&#47000;&#50752;-&#44057;&#51008;-&#50672;&#47549;&#51068;&#52264;&#48169;&#51221;&#49885;&#51012;-&#54392;&#45716;-R&#53076;&#46300;&#47484;-&#51089;&#49457;&#54616;&#46972;."> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{cases}
+w+2x+3y+4z=1 \\
+2w+2x+y=9 \\
+x-y=4 \\
+3w+x-y+3y=7
+\end{cases}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(5)-&#50864;&#49328;&#51032;-&#54924;&#51204;"><code>(5)</code> &#50864;&#49328;&#51032; &#54924;&#51204;<a class="anchor-link" href="#(5)-&#50864;&#49328;&#51032;-&#54924;&#51204;"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>다음은 인터넷에서 어떠한 자료를 다운받아 매트릭스로 저장하는 코드이다.</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://raw.githubusercontent.com/guebin/2021IR/master/_notebooks/round2.csv&quot;</span><span class="p">)</span>
+<span class="n">X</span><span class="o">=</span><span class="nf">as.matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+<p>매트릭스는 <code>X</code>이라는 변수에 저장되어 있다. 저장된 모양은 아래와 같다. 
+$${\bf X}= 
+\begin{bmatrix}
+x_1 &amp; y_1 \\ 
+x_2 &amp; y_2 \\ 
+\dots &amp; \dots \\ 
+x_{5513} &amp; y_{5513}
+\end{bmatrix}
+$$
+아래를 계산하여 $\tilde{\bf X}$를 만들고 
+$$
+\tilde{\bf X}={\bf X} \begin{bmatrix}
+\cos(\frac{\pi}{4}) &amp; -\sin (\frac{\pi}{4}) \\
+\sin(\frac{\pi}{4}) &amp; \cos (\frac{\pi}{4})
+\end{bmatrix} 
+$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\tilde{\bf X}$의 첫번째열을 $x$축으로, 두번째열을 $y$축으로 하여 시각화 하라. 시각화 예시는 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://github.com/guebin/2021IR/blob/master/_notebooks/final_fig5.png?raw=true" alt="" /></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="seoyeonc/chch"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/chch/2022/01/19/_12_21_2021%EB%85%84_1%ED%95%99%EA%B8%B0_R%EC%9E%85%EB%AC%B8%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
