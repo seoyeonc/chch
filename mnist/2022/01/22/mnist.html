@@ -2588,7 +2588,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -2621,7 +2621,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor(125., grad_fn=&lt;SumBackward0&gt;)</pre>
+<pre>tensor(1091., grad_fn=&lt;SumBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2671,7 +2671,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([ 6.,  8., 20.])</pre>
+<pre>tensor([ 27.,  48., 300.])</pre>
 </div>
 
 </div>
@@ -2694,6 +2694,13 @@ window.onload = wrap_img;
 <ul>
 <li>The learning rate is often a number between 0.001 and 0.1, although it could be anything. </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once you've picked a learning rate, you can adjust your parameters using this simple function:</p>
 
 </div>
 </div>
