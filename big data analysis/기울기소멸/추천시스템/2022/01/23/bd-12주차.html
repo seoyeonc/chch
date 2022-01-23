@@ -136,6 +136,13 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">https://en.wikipedia.org/wiki/Vanishing_gradient_problem</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#51221;&#51032;">&#51221;&#51032;<a class="anchor-link" href="#&#51221;&#51032;"> </a></h3>
 </div>
 </div>
@@ -407,7 +414,7 @@ window.onload = wrap_img;
 <ul>
 <li>여러층을 쪼개서 학습하자 $\to$ 어떻게? 사전학습, 층별학습 </li>
 <li>기울기소실문제를 해결하여 딥러닝을 유행시킨 태초의(?) 방법임. </li>
-<li>결국 입력자료(위에서는 데이터)를 바꾼뒤에 학습하는 형태 </li>
+<li>결국 <em>입력자료</em>(위에서는 데이터)를 바꾼뒤에 학습하는 형태 </li>
 </ul>
 
 </div>
@@ -430,10 +437,17 @@ window.onload = wrap_img;
 <p><code>-</code> Residual networks</p>
 <ul>
 <li>훌륭한 접근법중 하나임 </li>
-<li>아키텍처를 변경하는 방법이지만, 사실상 손실함수를 부드럽게 만드는 기법으로 이해해도 된다. </li>
+<li>아키텍처를 변경하는 방법이지만, 사실상 <em>손실함수</em>를 부드럽게 만드는 기법으로 이해해도 된다. </li>
 <li>솟컷이라는 아키텍처를 추가하여 이리저리 실험해보니까 손실함수가 부드러워졌다.  &lt;--- 이런게 아니고 </li>
-<li>손실함수를 부드럽게 하기 위해서는 층별의차이(residual)를 학습하는게 유리할 것 같다. 그런데 이것을 위한 효과를 주기 위해서는 단지 아키텍처에 숏만만 추가하면 되겠다. &lt;--- 이런 모티브였을 것이다. </li>
+<li>손실함수를 부드럽게 하기 위해서는 층별의 차이(residual)를 학습하는게 유리할 것 같다. 그런데 이것을 위한 효과를 주기 위해서는 단지 아키텍처에 숏만만 추가하면 되겠다. &lt;--- 이런 모티브였을 것이다. </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: Image of residual net loss function</p>
 
 </div>
 </div>
@@ -444,6 +458,14 @@ window.onload = wrap_img;
 <ul>
 <li>렐루의 개발</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: Image of ReLU vs Sigmoid vanishing</p>
+<p>4주차 ReLU 문제 보기</p>
 
 </div>
 </div>
@@ -466,6 +488,13 @@ window.onload = wrap_img;
 <ul>
 <li>베이지안 최적화기법: (<a href="https://arxiv.org/pdf/1807.02811.pdf">https://arxiv.org/pdf/1807.02811.pdf</a>) $\to$ GPU를 어떻게 쓰지? $\to$ 느리다 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>기울기 없이 최솟값 구하기, 방법이 개발되어 있지 않기도 하고,..</p>
 
 </div>
 </div>
