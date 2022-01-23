@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -1019,6 +1019,48 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>item(커피1 ~ 커피10, 홍차1 ~ 홍차10)이 20개, user가 100명</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;user == @i and item == @j&#39;</span><span class="p">)[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4.149208812750556</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1037,6 +1079,16 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>안 먹었으면 none 그대로 넣고, 먹었으면 기존 df에서 가져와서 rate 넣어주자</p>
+<ul>
+<li>i</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1801,7 +1853,7 @@ Name: user1, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 아이템4와 아이템11의 특징은 예를들면 아래와 같이 표현할 수 있다.</p>
+<p><code>-</code> 아이템4(커피4)와 아이템11(홍차1)의 특징은 예를들면 아래와 같이 표현할 수 있다.</p>
 
 </div>
 </div>
@@ -1899,7 +1951,7 @@ Name: user1, dtype: object</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 유저의 선호도와 item의 feature가 비슷할수록 값이 높게 나온다. 실제로 user1이 커피4와 홍차1에 매긴 평점은 (4.078139,1.142659) 인데 (0.5743, 0.2648) 가 실제평점과 비슷하게 나오도록 하면 좋겠다.</p>
+<p><code>-</code> <em>유저의 선호도와 item의 feature가 비슷할수록 값이 높게</em> 나온다. 실제로 user1이 커피4와 홍차1에 매긴 평점은 (4.078139,1.142659) 인데 (0.5743, 0.2648) 가 실제평점과 비슷하게 나오도록 하면 좋겠다.</p>
 
 </div>
 </div>
@@ -1998,7 +2050,7 @@ Name: user1, dtype: object</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 신기한것은 이 파라메터들이 있다면 None에 대한 추론도 가능하다는 것이다. 예를들어서 user2는 홍차1을 먹지 않았지만 item11_ftr(홍차1)의 <code>계수값</code>이 다른유저를 통해 학습되었다면 user2가 홍차1을 먹고 내릴 평점이 예측가능하다.</p>
+<p><code>-</code> 신기한것은 이 파라메터들이 있다면 None에 대한 추론도 가능하다는 것이다. 예를들어서 user2는 홍차1을 먹지 않았지만 item11_ftr(홍차1)의 <code>coefficient(계수값)</code>이 다른유저를 통해 학습되었다면 user2가 홍차1을 먹고 내릴 평점이 예측가능하다.</p>
 
 </div>
 </div>
@@ -2140,7 +2192,7 @@ Name: user2, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>${\bf U}{\bf V}^\top \approx $ <code>df2</code> 가 만족하도록 하면 된다. (None은 무시)</p>
+<p>${\bf U}{\bf V}^\top \approx $ <code>df2</code> 가 만족하도록 하면 된다. (None은 무시) $\rightarrow$ 100$\times$20 matrix</p>
 
 </div>
 </div>
@@ -2148,6 +2200,18 @@ Name: user2, dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="fastai&#47484;-&#54617;&#49845;:-df-$\to$-dls">fastai&#47484; &#54617;&#49845;: df $\to$ dls<a class="anchor-link" href="#fastai&#47484;-&#54617;&#49845;:-df-$\to$-dls"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>user의 인덱스</li>
+<li>item 인덱스</li>
+<li>rating
+-item 이름</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -2215,39 +2279,39 @@ Name: user2, dtype: object</pre>
   </thead>
   <tbody>
     <tr>
-      <th>814</th>
-      <td>82</td>
-      <td>8</td>
-      <td>0.927823</td>
-      <td>커피8</td>
-    </tr>
-    <tr>
-      <th>328</th>
+      <th>327</th>
       <td>33</td>
-      <td>7</td>
-      <td>4.175642</td>
-      <td>커피7</td>
+      <td>17</td>
+      <td>0.963251</td>
+      <td>홍차7</td>
     </tr>
     <tr>
-      <th>68</th>
-      <td>7</td>
+      <th>896</th>
+      <td>90</td>
       <td>12</td>
-      <td>0.995359</td>
+      <td>4.391382</td>
       <td>홍차2</td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>21</td>
-      <td>3</td>
-      <td>3.797043</td>
-      <td>커피3</td>
+      <th>667</th>
+      <td>67</td>
+      <td>16</td>
+      <td>4.016279</td>
+      <td>홍차6</td>
     </tr>
     <tr>
-      <th>509</th>
-      <td>51</td>
-      <td>6</td>
-      <td>0.961621</td>
-      <td>커피6</td>
+      <th>358</th>
+      <td>36</td>
+      <td>7</td>
+      <td>4.341957</td>
+      <td>커피7</td>
+    </tr>
+    <tr>
+      <th>599</th>
+      <td>60</td>
+      <td>13</td>
+      <td>3.856908</td>
+      <td>홍차3</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2257,39 +2321,39 @@ Name: user2, dtype: object</pre>
       <td>...</td>
     </tr>
     <tr>
-      <th>886</th>
-      <td>89</td>
-      <td>5</td>
-      <td>1.064357</td>
-      <td>커피5</td>
-    </tr>
-    <tr>
-      <th>142</th>
-      <td>15</td>
-      <td>1</td>
-      <td>4.245275</td>
-      <td>커피1</td>
-    </tr>
-    <tr>
-      <th>512</th>
-      <td>52</td>
+      <th>77</th>
       <td>8</td>
-      <td>0.995410</td>
-      <td>커피8</td>
+      <td>10</td>
+      <td>4.392112</td>
+      <td>커피10</td>
     </tr>
     <tr>
-      <th>731</th>
-      <td>74</td>
-      <td>18</td>
-      <td>4.053283</td>
-      <td>홍차8</td>
+      <th>127</th>
+      <td>13</td>
+      <td>12</td>
+      <td>0.601409</td>
+      <td>홍차2</td>
     </tr>
     <tr>
-      <th>318</th>
-      <td>32</td>
-      <td>9</td>
-      <td>3.850437</td>
-      <td>커피9</td>
+      <th>910</th>
+      <td>92</td>
+      <td>6</td>
+      <td>1.118395</td>
+      <td>커피6</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>86</td>
+      <td>4</td>
+      <td>0.917732</td>
+      <td>커피4</td>
+    </tr>
+    <tr>
+      <th>608</th>
+      <td>61</td>
+      <td>11</td>
+      <td>3.909074</td>
+      <td>홍차1</td>
     </tr>
   </tbody>
 </table>
@@ -2345,182 +2409,182 @@ Name: user2, dtype: object</pre>
   <tbody>
     <tr>
       <td>0</td>
-      <td>2.332310</td>
-      <td>2.324714</td>
+      <td>2.331800</td>
+      <td>2.332946</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2.301398</td>
-      <td>2.314132</td>
+      <td>2.300353</td>
+      <td>2.327208</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2.255456</td>
-      <td>2.235110</td>
+      <td>2.260273</td>
+      <td>2.284232</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2.180693</td>
-      <td>2.062851</td>
+      <td>2.202531</td>
+      <td>2.197926</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2.068622</td>
-      <td>1.799302</td>
+      <td>2.123347</td>
+      <td>2.063728</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>1.918429</td>
-      <td>1.467824</td>
+      <td>2.020970</td>
+      <td>1.876104</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>1.734515</td>
-      <td>1.099332</td>
+      <td>1.893997</td>
+      <td>1.643050</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>1.529240</td>
-      <td>0.753254</td>
+      <td>1.745477</td>
+      <td>1.373834</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>1.318664</td>
-      <td>0.473745</td>
+      <td>1.579301</td>
+      <td>1.088966</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>1.118887</td>
-      <td>0.281612</td>
+      <td>1.403262</td>
+      <td>0.812427</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>0.941217</td>
-      <td>0.170759</td>
+      <td>1.226403</td>
+      <td>0.570626</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>0.790015</td>
-      <td>0.113465</td>
+      <td>1.057899</td>
+      <td>0.386377</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>0.664468</td>
-      <td>0.087310</td>
+      <td>0.904757</td>
+      <td>0.261071</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>0.561132</td>
-      <td>0.076604</td>
+      <td>0.770549</td>
+      <td>0.183208</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>0.476078</td>
-      <td>0.072097</td>
+      <td>0.655766</td>
+      <td>0.138373</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>0.405709</td>
-      <td>0.069820</td>
+      <td>0.558695</td>
+      <td>0.114488</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>0.347135</td>
-      <td>0.068991</td>
+      <td>0.477071</td>
+      <td>0.101892</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>0.298197</td>
-      <td>0.068708</td>
+      <td>0.408472</td>
+      <td>0.095397</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>0.257201</td>
-      <td>0.068535</td>
+      <td>0.350721</td>
+      <td>0.091764</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>0.222736</td>
-      <td>0.068374</td>
+      <td>0.302058</td>
+      <td>0.089963</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>0.193690</td>
-      <td>0.067657</td>
+      <td>0.260959</td>
+      <td>0.087893</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>21</td>
-      <td>0.169164</td>
-      <td>0.066795</td>
+      <td>0.226200</td>
+      <td>0.085657</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>22</td>
-      <td>0.148427</td>
-      <td>0.065751</td>
+      <td>0.196771</td>
+      <td>0.083802</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>23</td>
-      <td>0.130861</td>
-      <td>0.064602</td>
+      <td>0.171794</td>
+      <td>0.082128</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>24</td>
-      <td>0.115963</td>
-      <td>0.064182</td>
+      <td>0.150561</td>
+      <td>0.080108</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>25</td>
-      <td>0.103277</td>
-      <td>0.063416</td>
+      <td>0.132525</td>
+      <td>0.078216</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>0.092521</td>
-      <td>0.062831</td>
+      <td>0.117140</td>
+      <td>0.076819</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>27</td>
-      <td>0.083378</td>
-      <td>0.062791</td>
+      <td>0.104016</td>
+      <td>0.075675</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>28</td>
-      <td>0.075562</td>
-      <td>0.062564</td>
+      <td>0.092806</td>
+      <td>0.074477</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>29</td>
-      <td>0.068923</td>
-      <td>0.061822</td>
+      <td>0.083250</td>
+      <td>0.073452</td>
       <td>00:00</td>
     </tr>
   </tbody>
@@ -2578,66 +2642,66 @@ Name: user2, dtype: object</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>64.0</td>
-      <td>4.0</td>
-      <td>1.193997</td>
-      <td>1.018805</td>
+      <td>46.0</td>
+      <td>13.0</td>
+      <td>0.996056</td>
+      <td>0.995639</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>65.0</td>
-      <td>14.0</td>
-      <td>3.956821</td>
-      <td>3.988665</td>
+      <td>19.0</td>
+      <td>3.0</td>
+      <td>4.181732</td>
+      <td>3.858179</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>59.0</td>
-      <td>2.0</td>
-      <td>1.161738</td>
-      <td>0.927356</td>
+      <td>36.0</td>
+      <td>9.0</td>
+      <td>4.057546</td>
+      <td>4.010473</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>36.0</td>
-      <td>6.0</td>
-      <td>4.028756</td>
-      <td>4.073104</td>
+      <td>91.0</td>
+      <td>15.0</td>
+      <td>4.094357</td>
+      <td>4.271381</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>78.0</td>
-      <td>10.0</td>
-      <td>0.968873</td>
-      <td>0.834417</td>
+      <td>83.0</td>
+      <td>1.0</td>
+      <td>0.925993</td>
+      <td>0.853108</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.0</td>
-      <td>17.0</td>
-      <td>0.906524</td>
-      <td>0.973807</td>
+      <td>94.0</td>
+      <td>5.0</td>
+      <td>0.922070</td>
+      <td>1.378054</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>96.0</td>
-      <td>6.0</td>
-      <td>1.285778</td>
-      <td>0.798828</td>
+      <td>7.0</td>
+      <td>9.0</td>
+      <td>3.981694</td>
+      <td>3.827851</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>91.0</td>
-      <td>10.0</td>
-      <td>1.453194</td>
-      <td>1.013060</td>
+      <td>79.0</td>
+      <td>12.0</td>
+      <td>3.750808</td>
+      <td>4.117280</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>25.0</td>
-      <td>10.0</td>
-      <td>4.342545</td>
-      <td>4.081783</td>
+      <td>50.0</td>
+      <td>9.0</td>
+      <td>4.017231</td>
+      <td>4.051401</td>
     </tr>
   </tbody>
 </table>
@@ -2703,11 +2767,11 @@ Name: user2, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[94,  3],
-        [46, 12],
-        [61, 19],
-        [47, 11],
-        [87, 20]])</pre>
+<pre>tensor([[93,  4],
+        [13, 14],
+        [72, 16],
+        [83,  4],
+        [99,  9]])</pre>
 </div>
 
 </div>
@@ -2740,11 +2804,11 @@ Name: user2, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[1.1616],
-        [0.6749],
-        [4.1603],
-        [0.6241],
-        [4.3710]])</pre>
+<pre>tensor([[1.3570],
+        [1.0816],
+        [3.7841],
+        [0.9617],
+        [0.6654]])</pre>
 </div>
 
 </div>
@@ -2755,6 +2819,56 @@ Name: user2, dtype: object</pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>93번째 user는 홍차를 좋아하는 사람이었고, 13번은 커피를 좋아하는 user였다.</li>
+<li>그러니 1(4는 커피4)은 낮게 나오고 2(14는 홍차3)도 낮게 나올 것이다라는 예측.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([93,  4])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[이 하나지만 [[이렇게 두 개로 차원을 맞춰주자</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2810,7 +2924,7 @@ Name: user2, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([1.2002], device=&#39;cuda:0&#39;, grad_fn=&lt;AddBackward0&gt;)</pre>
+<pre>tensor([1.3168], device=&#39;cuda:0&#39;, grad_fn=&lt;AddBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2860,9 +2974,9 @@ Name: user2, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([1.0416, 1.0414, 1.0742, 1.1004, 1.0125, 1.0141, 1.1448, 1.0488, 1.1155,
-        1.0428, 3.9658, 4.0532, 4.0562, 3.9919, 4.0497, 4.0288, 3.9983, 4.0984,
-        3.9943, 4.0803], device=&#39;cuda:0&#39;, grad_fn=&lt;AddBackward0&gt;)</pre>
+<pre>tensor([0.9640, 1.0734, 0.9781, 1.0932, 1.0213, 1.0500, 1.0856, 1.0284, 1.0870,
+        1.0680, 3.9622, 4.1116, 4.0082, 3.9710, 4.0666, 4.0106, 3.9812, 4.0612,
+        4.0237, 3.9965], device=&#39;cuda:0&#39;, grad_fn=&lt;AddBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2889,6 +3003,68 @@ Name: user2, dtype: object</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>숙제는 유저2번에 대한 선호도 조사</p>
+<ul>
+<li>아마 커피를 좋아핳 것이다</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x2</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([3.9742, 3.8795, 3.8931, 4.0259, 3.9215, 3.8973, 3.9502, 3.9448, 3.8838,
+        3.8957, 0.9073, 0.8718, 1.0020, 0.9880, 0.7960, 0.9337, 1.0272, 0.8376,
+        1.0132, 1.0098], device=&#39;cuda:0&#39;, grad_fn=&lt;AddBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상대로 커피를 매우 좋아함.</p>
 
 </div>
 </div>
