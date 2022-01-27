@@ -3360,7 +3360,9 @@ learn<span class="ansi-blue-fg">.</span>fine_tune<span class="ansi-blue-fg">(</s
 <li>they have spare margin to allow further augmentation transforms on their inner regions without creating empty zones. </li>
 </ul>
 <ol>
-<li>If you are not familiar with regular expressions, find a regular expression tutorial, and some problem sets, and complete them. Have a look on the book's website for suggestions.</li>
+<li>If you are not familiar with regular expressions, find a regular expression tutorial, and some problem sets, and complete them. Have a look on the book's website for suggestions.<div class="highlight"><pre><span></span><span class="n">using_attr</span><span class="p">(</span><span class="n">RegexLabeller</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(.+)_\d+.jpg$'</span><span class="p">),</span> <span class="s1">'name'</span><span class="p">),</span>
+</pre></div>
+</li>
 <li>What are the two ways in which data is most commonly provided, for most deep learning datasets?</li>
 </ol>
 <ul>
@@ -3370,7 +3372,18 @@ learn<span class="ansi-blue-fg">.</span>fine_tune<span class="ansi-blue-fg">(</s
 <ol>
 <li>Look up the documentation for <code>L</code> and try using a few of the new methods that it adds.</li>
 <li>Look up the documentation for the Python pathlib module and try using a few methods of the Path class.</li>
+</ol>
+<ul>
+<li><a href="https://docs.python.org/3/library/pathlib.html">https://docs.python.org/3/library/pathlib.html</a></li>
+</ul>
+<ol>
 <li>Give two examples of ways that image transformations can degrade the quality of the data.</li>
+</ol>
+<ul>
+<li>Resize images to relatively "large" dimensions—that is, dimensions significantly larger than the target training dimensions.</li>
+<li>Compose all of the common augmentation operations (including a resize to the final target size) into one, and perform the combined operation on the GPU only once at the end of processing, rather than performing the operations individually and interpolating multiple times.</li>
+</ul>
+<ol>
 <li>What method does fastai provide to view the data in a DataLoaders?</li>
 <li>What method does fastai provide to help you debug a DataBlock?</li>
 <li>Should you hold off on training a model until you have thoroughly cleaned your data?</li>
