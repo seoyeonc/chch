@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -710,9 +710,26 @@ $$X' = {x ∈ X s.t. H(F(x)) &gt; ψ}$$
 <p>To our knowledge, instance selection has not yet been formally analyzed in the generative setting.</p>
 </li>
 <li>
-<p>We have only considered the setting where curation is performed up-front, prior to training.</p>
+<p><strong>We have only considered the setting where curation is performed up-front, prior to training.</strong></p>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Training models with instance selection results in improvements to image quality, as well as significant reduction in training time and model capacity requirements. On 128x128 ImageNet, instance selection reduces training time by 4x compared to the baseline, and achieves better image quality than a model trained with twice the model capacity. On 256x256 ImageNet, a model trained with instance selection produces higher fidelity images than a model with twice the capacity, while also using approximately one order of magnitude less multiply-accumulate operations (MACS) throughout the duration of training.</p>
+<p>인스턴스 선택을하여 모델을 훈련시키면이미지 품질이 향상되고 훈련 시간과 모델 용량 요구사항(GPU )도 감소함</p>
 
 </div>
 </div>
