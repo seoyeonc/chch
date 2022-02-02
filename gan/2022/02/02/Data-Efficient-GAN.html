@@ -180,13 +180,13 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>The performance of generative adversarial networks (GANs) heavily deteriorates given a limited amount of training data. <ul>
-<li>제한된 양의 학습 데이터가 주어지면 성능 니빠짐</li>
+<li>제한된 양의 학습 데이터가 주어지면 성능 나빠짐</li>
 <li>discriminator가 정확한 training set 기억하는 주된 이유</li>
 </ul>
 </li>
 <li>To combat it, we propose Differentiable Augmentation (DiffAugment), a simple method that improves the data efficiency of GANs by imposing various types of differentiable augmentations on both real and fake samples. <ul>
 <li>실제/가짜 sample에 differentiable augmentations의 다양한 type 부과해서 GAN의 data 효율성을 증진하는 DiffAugment(Differentiable Augmentation) 제시</li>
-<li>일반화된 sample에서 differentiable augmentation 차별화된 증강수용하면 training이 효율적으로 안정화하고 더 나은 convergence를 이끔</li>
+<li>일반화된 sample에서 differentiable augmentation 차별화된 확대 수용하면 training이 효율적으로 안정화하고 더 나은 convergence를 이끔</li>
 <li>only 20% training data, we can match the top performance on CIFAR-10 and CIFAR-100</li>
 <li>our method can generate high-fidelity images using only 100 images without pre-training, while being on par with existing transfer learning algorithms. </li>
 </ul>
@@ -209,9 +209,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>GANs(Generative Adversarial Networks)는 generator G와 discriminator D로 target dataset의 분포를 모델링하는 것이 목적</p>
-<p>genorator G는 typically 가우시안 분포에서 나온 입력 latent 젝터 z에서 출력 G(z)에 mapping한다.</p>
+<p>genorator G는 typically 가우시안 분포에서 나온 입력 latent 벡터 z에서 출력 G(z)에 mapping한다.</p>
 <p>discriminator D는 실제 관측치 x에서 generated sample G(z)를 구별해내는 것을 배움</p>
-<p>The standard GANs training algorithm alternately optimizes the discriminator’s loss LD and the generator’s loss LG given loss functions fD and fG:
+<p>The standard GANs training algorithm alternately optimizes the discriminator’s loss $L_D$ and the generator’s loss $L_G$ given loss functions $f_D$ and $f_G$:
 
 $$L_D = E_{x~p_{data}(x)}|f_D (-D(x))| + E_{x~p(x)}|f_D (D(G(z)))|, \dots(1)$$
 
@@ -252,7 +252,7 @@ $$L_G = E_{x~p(x)} |f_G (-D(G(z)))|, \dots(2)$$
 </ul>
 <p>An overfitted discriminator penalizes any generated samples other than the exact training data points, provides uninformative gradients due to poor generalization, and usually leads to training instability.</p>
 <ul>
-<li>과적합 discriminator는 정확한 training data point 외의 generated sample에 penalize하고, poor generation 따문에 정보 없는 gradient를 제공하지 않으며 training 불안전성을 이끈다.</li>
+<li>과적합 discriminator는 정확한 training data point 외의 generated sample에 penalize하고, poor generation 따문에 정보 없는 gradient를 제공하지 않으며 training 불안정성을 이끈다.</li>
 </ul>
 
 </div>
@@ -264,7 +264,7 @@ $$L_G = E_{x~p(x)} |f_G (-D(G(z)))|, \dots(2)$$
 <p><strong>Challenge: Discriminator Overfitting</strong></p>
 <ul>
 <li>CIFAR-10 사용하여 BigGAN 성능 분석</li>
-<li>figure 1 미루어보아 데이터가 100% 주어져도 genarator과 discriminator 사이의 격처 계속 증가<ul>
+<li>figure 1 미루어보아 데이터가 100% 주어져도 genarator과 discriminator 사이의 격차 계속 증가<ul>
 <li>discriminator가 단순하게 training image를 기억하고 있다는 뜻</li>
 </ul>
 </li>
@@ -598,7 +598,7 @@ $$L_g = E_{z~p(z)}[f_G(-D(T(G(z))))], \dots (8)$$
 </ul>
 </li>
 </ul>
-<p>논문에서 제안하는 것은 image data가 제대로 수집되지 않았을 때 외부 데이터셋이나 모델을 사용하지 않고 결쟁력있는 결과를 제공할 수 있을 뿐만 아니라 기존 전송 학습 방법과 직교한 다는 것을 보여준다.</p>
+<p>논문에서 제안하는 것은 image data가 제대로 수집되지 않았을 때 외부 데이터셋이나 모델을 사용하지 않고 결쟁력있는 결과를 제공할 수 있을 뿐만 아니라 기존 전송 학습 방법과 직교한다는 것을 보여준다.</p>
 <ul>
 <li>Below, we show that our method not only produces competitive results without using external datasets or models but also is orthogonal to the existing transfer learning methods. </li>
 </ul>
@@ -672,7 +672,7 @@ $$L_g = E_{z~p(z)}[f_G(-D(T(G(z))))], \dots (8)$$
 <p>Figure 8: Analysis of smaller models or stronger regularization on CIFAR-10 with 10% training data.</p>
 <ul>
 <li>(a) Smaller models reduce overfitting for the BigGAN baseline, while our method dominates its performance at all model capacities. 작은 모델은 BigGAN 기준선에 대한 과적합을 줄이지만 모든 model capacities에서 성능이 지배적이다.</li>
-<li>(b) Over a wide sweep of the R1 regularization γ for the baseline StyleGAN2, its best FID (26.87) is still much worse than ours (14.50). 기준선 StyleGAN2에 대해 R1ㅇ 정규화의 wide sweep에 걸쳐, best FID는 논문에서 제시한 것보다 여전히 별로다.</li>
+<li>(b) Over a wide sweep of the R1 regularization γ for the baseline StyleGAN2, its best FID (26.87) is still much worse than ours (14.50). 기준선 StyleGAN2에 대해 R1 정규화의 wide sweep에 걸쳐, best FID는 논문에서 제시한 것보다 여전히 별로다.</li>
 </ul>
 
 </div>
