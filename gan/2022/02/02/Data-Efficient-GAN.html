@@ -266,6 +266,46 @@ $$L_G = E_{x~p(x)} |f_G (-D(G(z)))|, \dots(2)$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data augmentation is a commonly-used strategy to reduce overfitting in many recognition tasks.</p>
+<ul>
+<li>it has an irreplaceable role and can also be applied in conjunction with other regularization techniques: e.g., weight decay.</li>
+</ul>
+<p>the discriminator suffers from a similar overfitting problem as the binary classifier.</p>
+<ul>
+<li>data augmentation is seldom used in the GAN literature compared to the explicit regularizations on the discriminator</li>
+<li>In fact, a recent work [50] observes that directly applying data augmentation to GANs does not improve the baseline. </li>
+</ul>
+<p>ask the questions:</p>
+<ul>
+<li>what prevents us from simply applying data augmentation to GANs? </li>
+<li>Why is augmenting GANs not as effective as augmenting classifiers?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Augment reals only</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The most straightforward way of augmenting GANs would be directly applying augmentation T to the real observations x, which we call “Augment reals only”:
+
+$$L_D = E_{x~p_{data}(x)}|f_D (-D(T(x))))| + E_{x~p(x)}|f_D(D(G((z))))|, \dots (3)$$
+</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
