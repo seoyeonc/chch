@@ -138,6 +138,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://jonathan-hui.medium.com/gan-wasserstein-gan-wgan-gp-6a1a2aa1b490">https://jonathan-hui.medium.com/gan-wasserstein-gan-wgan-gp-6a1a2aa1b490</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Different-Distances">
 <a class="anchor" href="#Different-Distances" aria-hidden="true"><span class="octicon octicon-link"></span></a>Different Distances<a class="anchor-link" href="#Different-Distances"> </a>
 </h2>
@@ -151,16 +159,17 @@ window.onload = wrap_img;
 <li>Let $X$ be a compact metric set (such as the space of images $[0, 1]^d$) </li>
 <li>and let $Σ$ denote the set of all the Borel subsets of $X$ . </li>
 <li>Let $Prob(X )$ denote the space of probability measures defined on $X$ .</li>
-<li>We can now define elementary distances and divergences between two distributions $P_r, P_g ∈ Prob(X )$:</li>
+<li>We can now define elementary distances and divergences between two distributions $P_r, P_g ∈ Prob(X )$<ul>
+<li>The Total Variation (TV) distance, The Kullback-Leibler (KL) divergence, The Jensen-Shannon (JS) divergence, The Earth-Mover (EM) distance or Wasserstein-1이 사용될 것.</li>
+<li>p값들은 절대적으로 연속!</li>
+<li>그러므로 카이제곱에서 정의되는 같은 측정치 뮤가 나옴.</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The Total Variation (TV) distance, The Kullback-Leibler (KL) divergence이 사용될 것.</p>
+</li>
+<li>The following example illustrates how apparently simple sequences of probability distributions converge under the EM distance but do not converge under the other distances and divergences defined above<ul>
+<li>제시된 4개의 거리 및 발산에서는 수렴되지 않</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
