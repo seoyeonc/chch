@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -166,10 +166,103 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>The following example illustrates how apparently simple sequences of probability distributions converge under the EM distance but do not converge under the other distances and divergences defined above<ul>
-<li>제시된 4개의 거리 및 발산에서는 수렴되지 않</li>
+<li>다음 예시에서 보기에 단순한 확률 분포 시퀀스가 EM 거리에서는 수렴하지만 제시된 4개의 거리 및 발산에서는 수렴하지 않음을 보임.</li>
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Example 1 (Learning parallel lines)</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Let $Z ∼ U[0, 1]$ the uniform distribution on the unit interval.</li>
+<li>Let $P_0$ be the distribution of $(0, Z) ∈ R^2$ (a 0 on the x-axis and the random variable Z on the y-axis), uniform on a straight vertical line passing through the origin.</li>
+<li>Now let $g_θ(z) = (θ, z)$ with $θ$ a single real parameter. </li>
+<li>It is easy to see that in this case,</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>When $θ_t → 0$, the sequence ($P_{θ_t})_{t∈N}$ converges to $P_0$ under the EM distance, but does not converge at all under either the JS, KL, reverse KL, or TV divergences.</li>
+<li>Figure 1 illustrates this for the case of the EM and JS distances</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Example 1 gives us a case where we can learn a probability distribution over a low dimensional manifold by doing gradient descent on the EM distance. </li>
+<li>This cannot be done with the other distances and divergences because the resulting loss function is not even continuous.<ul>
+<li>결과 손실 함수가 연속적이지 않기 때문에 다른 거리와 발산으로 할 수 없음.</li>
+</ul>
+</li>
+<li>Although this simple example features distributions with disjoint supports, the same conclusion holds when the supports have a non empty intersection contained in a set of measure zero.<ul>
+<li>disjoint suppoert를 가진 분포를 특장으로 하는 이 단순한 예시는 supports가 0 집합에 포함된 비어 있지 않은 interaction을 가진 때에도 동일한 결과가 유지된다.</li>
+</ul>
+</li>
+<li>This happens to be the case when two low dimensional manifolds intersect in general position.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://xiucheng.org/assets/images/wgan-example.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since the Wasserstein distance is much weaker than the JS distance , we can now ask whether $W(P_r, P_θ)$ is a continuous loss function on $θ$ under mild assumptions. This, and more, is true, as we now state and prove.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Theorem 1.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Let $P_r$ be a fixed distribution over $X$ .</li>
+<li>Let $Z$ be a random variable(e.g Gaussian) over another space $Z$. </li>
+<li>Let $g : Z × R^d → X$ be a function, that will be denoted $g_θ(z)$ with $z$ the first coordinate and $θ$ the second.</li>
+<li>Let $P_θ$ denote the distribution of $g_θ(Z)$. Then,</li>
+</ul>
+<ol>
+<li>If $g$ is continuous in $θ$, so is $W(P_r, P_θ)$.</li>
+<li>If $g$ is locally Lipschitz and satisfies regularity assumption 1, then $W(P_r, P_θ)$ is continuous everywhere, and differentiable almost everywhere.</li>
+<li>Statements 1-2 are false for the Jensen-Shannon divergence $JS(P_r, P_θ)$ and all the KLs.</li>
+</ol>
 
 </div>
 </div>
