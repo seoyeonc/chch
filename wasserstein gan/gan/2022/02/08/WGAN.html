@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -617,6 +617,69 @@ window.onload = wrap_img;
 <h3 id="Meaningful-loss-metric">
 <a class="anchor" href="#Meaningful-loss-metric" aria-hidden="true"><span class="octicon octicon-link"></span></a>Meaningful loss metric<a class="anchor-link" href="#Meaningful-loss-metric"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because the WGAN algorithm attempts to train the critic f (lines 2–8 in Algorithm 1) relatively well before each generator update (line 10 in Algorithm 1), the loss function at this point is an estimate of the EM distance, up to constant factors related to the way we constrain the Lipschitz constant of f.</p>
+<ul>
+<li>WGAN 알고리즘은 각 generator 업데이트가 상대적으로 잘 되기 전에 critic f를 학습하려고 시도하기 때문에, 그 지점에서 손실함수는 f의 립시츠 constant를 제약하는 방법과관련된 constant 요인에 따른 EM 거리의 추정치가 된다.</li>
+</ul>
+<p>Our first experiment illustrates how this estimate correlates well with the quality of the generated samples.</p>
+<p>Besides the convolutional DCGAN architecture, we also ran experiments where we replace the generator or both the generator and the critic by 4-layer ReLU-MLP with 512 hidden units.</p>
+<p>Figure 3 plots the evolution of the WGAN estimate (3) of the EM distance during WGAN training for all three architectures. The plots clearly show that these curves correlate well with the visual quality of the generated samples.</p>
+<ul>
+<li>plot에서는 생성된 샘플의 시각적 quality와 curve가 좋은 상관관계에 있다는 것을 명확히 보여준다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcfa3kB%2Fbtqu13NvCe7%2FyMOv6wUAJ7KLx2b8jN2HM0%2Fimg.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Figure 4:</p>
+<ul>
+<li>JS estimates for an MLP generator (upper left) and a DCGAN generator (upper right) trained with the standard GAN procedure. </li>
+<li>Both had a DCGAN discriminator.</li>
+<li>Both curves have increasing error.</li>
+<li>Samples get better for the DCGAN but the JS estimate increases or stays constant, pointing towards no significant correlation between sample quality and loss.</li>
+<li>Bottom: MLP with both generator and discriminator. The curve goes up and down regardless of sample quality.</li>
+<li>All training curves were passed through the same median filter as in Figure 3.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To our knowledge, this is the first time in GAN literature that such a property is shown, where the loss of the GAN shows properties of convergence.</p>
+<p>This property is extremely useful when doing research in adversarial networks as one does not need to stare at the generated samples to figure out failure modes and to gain information on which models are doing better over others.</p>
+<ul>
+<li>이 속성은 실패한 mode를 알아내고, 어떤 모델이 다른 것보다 좋은지의 정보를 얻기 위해 생성된 샘플들을 볼 필요가 없기 때문에 적대적 네트워크를 연구할 때 정말 유용하다.</li>
+</ul>
+<p>However, we do not claim that this is a new method to quantitatively evaluate generative models yet. The constant scaling factor that depends on the critic’s architecture means it’s hard to compare models with different critics. Even more, in practice the fact that the critic doesn’t have infinite capacity makes it hard to know just how close to the EM distance our estimate really is. This being said, we have succesfully used the loss metric to validate our experiments repeatedly and without failure, and we see this as a huge improvement in training GANs which previously had no such facility.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>This quantity clearly correlates poorly the sample quality. Note also that the JS estimate usually stays constant or goes up instead of going down.</strong></p>
+<p>In fact it often remains very close to log 2 ≈ 0.69 which is the highest value taken by the JS distance.</p>
+
 </div>
 </div>
 </div>
