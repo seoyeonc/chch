@@ -714,7 +714,39 @@ window.onload = wrap_img;
 <p>When the critic is trained to completion, it simply provides a loss to the generator that we can train as any other neural network.</p>
 <p><strong>This tells us that we no longer need to balance generator and discriminator’s capacity properly.</strong></p>
 <p>The better the critic, the higher quality the gradients we use to train the generator.</p>
-<p>We observe that WGANs are much more robust than GANs when one varies the architectural choices for the generator. We illustrate this by running experiments on three generator architectures: (1) a convolutional DCGAN generator, (2) a convolutional DCGAN generator without batch normalization and with a constant number of filters, and (3) a 4-layer ReLU-MLP with 512 hidden units. The last two are known to perform very poorly with GANs. We keep the convolutional DCGAN architecture for the WGAN critic or the GAN discriminator.</p>
+<p>We observe that WGANs are much more robust than GANs when one varies the architectural choices for the generator. We illustrate this by running experiments on three generator architectures:</p>
+<ul>
+<li>(1) a convolutional DCGAN generator, </li>
+<li>(2) a convolutional DCGAN generator without batch normalization and with a constant number of filters, and </li>
+<li>(3) a 4-layer ReLU-MLP with 512 hidden units. </li>
+</ul>
+<p>The last two are known to perform very poorly with GANs. We keep the convolutional DCGAN architecture for the WGAN critic or the GAN discriminator.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Figures 5, 6, and 7 show samples generated for these three architectures using both the WGAN and GAN algorithms.</p>
+<p>We refer the reader to Appendix F for full sheets of generated samples. Samples were not cherry-picked.</p>
+<p><strong>In no experiment did we see evidence of mode collapse for the WGAN algorithm.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fu0gFw%2Fbtqu1DaqDg2%2FdnKiu9aqEDHrL6KWkzVYY0%2Fimg.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdieO6m%2Fbtqu2HXvq4A%2FSKHAQU1vWRSgaC4m2LtFKk%2Fimg.png" alt=""></p>
 
 </div>
 </div>
