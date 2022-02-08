@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -123,6 +123,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Experimental-Procedure">Experimental Procedure </a></li>
 <li class="toc-entry toc-h3"><a href="#Meaningful-loss-metric">Meaningful loss metric </a></li>
+<li class="toc-entry toc-h3"><a href="#Improved-stability">Improved stability </a></li>
 </ul>
 </li>
 </ul><!--
@@ -679,6 +680,41 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>This quantity clearly correlates poorly the sample quality. Note also that the JS estimate usually stays constant or goes up instead of going down.</strong></p>
 <p>In fact it often remains very close to log 2 ≈ 0.69 which is the highest value taken by the JS distance.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, as a negative result, we report that WGAN training becomes unstable at times when one uses a momentum based optimizer such as Adam [8] (with β1 &gt; 0) on the critic, or when one uses high learning rates.</p>
+<p>Since the loss for the critic is nonstationary, momentum based methods seemed to perform worse.</p>
+<p><strong>We identified momentum as a potential cause because, as the loss blew up and samples got worse, the cosine between the Adam step and the gradient usually turned negative. The only places where this cosine was negative was in these situations of instability.</strong></p>
+<ul>
+<li>Adam 안 쓴 이유</li>
+</ul>
+<p>We therefore switched to RMSProp [21] which is known to perform well even on very nonstationary problems [13].</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Improved-stability">
+<a class="anchor" href="#Improved-stability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improved stability<a class="anchor-link" href="#Improved-stability"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the benefits of WGAN is that it allows us to train the critic till optimality.</p>
+<p>When the critic is trained to completion, it simply provides a loss to the generator that we can train as any other neural network.</p>
+<p><strong>This tells us that we no longer need to balance generator and discriminator’s capacity properly.</strong></p>
+<p>The better the critic, the higher quality the gradients we use to train the generator.</p>
+<p>We observe that WGANs are much more robust than GANs when one varies the architectural choices for the generator. We illustrate this by running experiments on three generator architectures: (1) a convolutional DCGAN generator, (2) a convolutional DCGAN generator without batch normalization and with a constant number of filters, and (3) a 4-layer ReLU-MLP with 512 hidden units. The last two are known to perform very poorly with GANs. We keep the convolutional DCGAN architecture for the WGAN critic or the GAN discriminator.</p>
 
 </div>
 </div>
