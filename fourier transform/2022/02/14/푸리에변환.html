@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -1441,7 +1441,81 @@ $$m=2595 log_10 \big( 1+ \frac{f}{700} \big)$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>푸리에 해석</p>
+<p>푸리에 변환; 단순한 파형들의 합성이 어떤 주파수나 세기로 성립되어 있는지를 수학적으로 구하는 방법</p>
+<ul>
+<li>파형을 이용해 스펙트럼을 구하는 방법</li>
+<li>푸리에 역변환; 스펙트럼으로 파형구하기..</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>직교; 원주 위에서 위치관계가 90도(직각)만큼 차이가 나는 상태</p>
+<ul>
+<li>$\sin mx$와 $\cos mx$ 는 직교하고 있다</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>푸리에 급수</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$F(x) = \frac{1}{2}a_0 + \sum^{\infty}_{n=1} (a_n \cos nx + b_n \sin nx)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>푸리에 계수</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$a_n = \frac{1}{\pi} \int^{2\pi}_{0} F(x) \cos nx dx$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$b_n = \frac{1}{\pi} \int^{2\pi}_{0} F(x) \sin nx dx$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$a_0 = \frac{1}{2\pi} \int^{2\pi}_{0} F(x) dx$$
+</p>
+<ul>
+<li>(cos 0x = 1) 곱해져서 안 보여~</li>
+</ul>
 
 </div>
 </div>
