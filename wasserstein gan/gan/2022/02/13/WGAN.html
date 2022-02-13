@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      18 min read
     
 </span></p>
 
@@ -144,6 +144,12 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Model-capacity">Model capacity </a></li>
+<li class="toc-entry toc-h3"><a href="#Wasserstein-GAN-with-gradient-penalty-(WGAN-GP)">Wasserstein GAN with gradient penalty (WGAN-GP) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Gradient-penalty">Gradient penalty </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Algorithm">Algorithm </a></li>
 </ul>
 </li>
 </ul><!--
@@ -183,6 +189,37 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>jonathan hui: <a href="https://jonathan-hui.medium.com/gan-wasserstein-gan-wgan-gp-6a1a2aa1b490">https://jonathan-hui.medium.com/gan-wasserstein-gan-wgan-gp-6a1a2aa1b490</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>정리</p>
+<ul>
+<li>KL 발산과 JS 발산은 기울기 손실 때문에 제대로 학습하지 못하는 경우가 있다!</li>
+<li>그래서 GAN 이 제안되었는데, 모델을 불안정하게 만드는 큰 기울기 변수를 가진 새로운 함수에서는 GAN 자체도 불안했다</li>
+<li>1-립시츠함수()를 사용, 가중치 클리핑을 제한한 와서스테인 거리로 WGAN 제시</li>
+<li>하지만 가중치 클리핑(c)을 제한하는 것은 discriminator의 가중치를 하이퍼 파라미터c가 건드는(제약하는) 일이 되어버림</li>
+<li>WGAN-GP를 제안하게 EHOA!<ul>
+<li>GAN을 WGAN-GP로 바꾸는 조건!!<ul>
+<li>critic loss 함수에 기울기 패널티 항을 포함한다.</li>
+<li>critic의 가중치를 클리핑하지 않는다.</li>
+<li>critic에 배치 정규화 층을 사용하지 않는다.(배치정규화는 상관관계를 만든다.)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -865,12 +902,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>KL발산과 js발산</p>
+<p>KL발산과 JS발산</p>
 <ul>
 <li>P와 Q가 같을때 발산은 0이 된다. </li>
 <li>q의 평균이 증가함으로써, 발산이 증가한다.</li>
 <li>즉. 생성자는 기울기 손실로부터 아무것도 배우지 못하게 된다.<ul>
-<li>생성된 이미지가 가진 분포 q가 싱제인 p와 멀리 떨어져 있으면 아무것도 배우지 못한다.</li>
+<li>생성된 이미지가 가진 분포 q가 실제 p와 멀리 떨어져 있으면 아무것도 배우지 못한다.</li>
 </ul>
 </li>
 </ul>
@@ -961,12 +998,20 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>여기서 sup은 최소값들중에 상한값, f는 1-립시츠함수!(조건:$|f(x_1)-f(x_2)| \le |x_1 - x_2|$)</p>
 <ul>
-<li>그리니까 와서스테인 거리를 계싼하기 위해서 1-립시츠함수를 찾으면 되겠지?</li>
-<li>이걸 학습하기 위한 deep network를 구축할 수 있는데, 실제로 시그모이드 함수가 없는 discriminator D와 네트워크가 매우 유사하고ㅏ 확률보다는 스칼라 점수를 출력함.<ul>
+<li>그리니까 와서스테인 거리를 계산하기 위해서 1-립시츠함수를 찾으면 되겠지?</li>
+<li>이걸 학습하기 위한 deep network를 구축할 수 있는데, 실제로 시그모이드 함수가 없는 discriminator D와 네트워크가 매우 유사하고 확률보다는 스칼라 점수를(EM 거라의 결과) 출력함.<ul>
 <li>이를 state(input)이 얼마나 좋은지 측정하는 가치 함수라 부를 예정~</li>
 </ul>
 </li>
-<li>discriminator의 새로운 역할을 반영하기 위해 critic으로 이름도 변경~</li>
+<li>discriminator의 새로운 역할을 반영하기 위해 critic으로 이름도 변경~<ul>
+<li>discriminator는 가짜/진짜를 판별하기 위해 sigmoid를 사용하고 output은 가짜/진짜에 대한 예측 확률 값이다.</li>
+<li>반면 critic은 EM(Earth Mover) distance로부터 얻은 scalar값을 이용한다.<ul>
+<li>EM distance는 확률 붙포 사이의 거리를 측정하는 척도 중 하나인데, 그동안 일반적으로 사용된 척도는 KL 발산이다.</li>
+<li>KL 발산은 매우 엄격하게 거리를 측정하는 방법이라서 연속되지 않는 경우가 있으며 학습시키기도 어렵다.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -1007,7 +1052,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>설계한 것을 보면 CRITIC이 시그모이드 함수를 출력하지 않았다는 것만 빼고 거의 동일하다!</p>
+<p>설계한 것을 보면 critic이 시그모이드 함수를 출력하지 않았다는 것만 빼고 거의 동일하다!</p>
 
 </div>
 </div>
@@ -1172,7 +1217,7 @@ $$||f(x_1)-f(x_2)| \le K|x_1 - x_2$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>WGAN의 difficulty는 립시츠 제약을 강제로 적용하는 건데 clipping은 단순한데 약간 문제있어~</p>
 <ul>
-<li>그 모델은 여전히 품질 낮은 이미지를 만들 수 있고 hyperparameter c가 올바르게 조정되지 않을때 수렴되지 않읗 수 있지!</li>
+<li>그 모델은 여전히 품질 낮은 이미지를 만들 수 있고 hyperparameter c가 올바르게 조정되지 않을때 수렴되지 않을 수 있지!</li>
 </ul>
 <p>model perfomenmce는 htperparameter에 매우 민감해!!</p>
 
@@ -1199,7 +1244,106 @@ $$||f(x_1)-f(x_2)| \le K|x_1 - x_2$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>첫번째 줄은 WGAN</p>
+<ul>
+<li>capacity 가 감소되었을때 복접한 경계를 만들지 못함</li>
+</ul>
+<p>두번쨰 줄은 WGAN-GP</p>
+<ul>
+<li>capacity가 감소되었을때 복잡한 경계를 만듦!</li>
+<li>가중 클리핑weightclipping 은 모델 f의 capacity를 줄이고 복잡한 함수들을 모델화하기 위한 가능성을 제약함!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="https://miro.medium.com/max/1400/1*eP-QrSB2gfnB42p0ytNy2w.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Wasserstein-GAN-with-gradient-penalty-(WGAN-GP)">
+<a class="anchor" href="#Wasserstein-GAN-with-gradient-penalty-(WGAN-GP)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wasserstein GAN with gradient penalty (WGAN-GP)<a class="anchor-link" href="#Wasserstein-GAN-with-gradient-penalty-(WGAN-GP)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>WGAN-GP는 weight clipping 대신 기울기 패널티를 사용해서 립시츠 제약을 적용함
+
+$$||f(x_1)-f(x_2)| \le K|x_1 - x_2|$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>WGAN을 WGAN-GP로 바꾸는 조건!!</p>
+<ol>
+<li>critic loss 함수에 기울기 패널티 항을 포함한다.</li>
+<li>critic의 가중치를 클리핑하지 않는다.</li>
+<li>critic에 배치 정규화 층을 사용하지 않는다.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\star$ 배치 정규화</p>
+<ul>
+<li>배치 정규화는 같은 <strong>배치 안의 이미지 사이에 상관관계를 만들기 때문에</strong> 기울기 패널티 손실의 효과가 떨어진다. 실험을 해보면 critic에서 배치 정규화를 사용하지 않더라도 WGAN-GP이 여전히 훌률한 결과를 만든다는 것을 알 수 있다</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Gradient-penalty">
+<a class="anchor" href="#Gradient-penalty" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradient penalty<a class="anchor-link" href="#Gradient-penalty"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>입력 이미지에 대한 예측의 기울기 norm과 1 사이의 차이를 제곱한 것</li>
+<li>이 모델은 자연스럽게 기울기 패널티 항을 최소화하는 가중치를 찾으려고 하고 이는 립시츠 제약을 따르도록 만듦</li>
+<li>학습 과정의 모든 곳에서 기울기를 계산하는 것은 힘들다. 개신 WGAN-GP는 일부 지점만 기울기를 계산한다.</li>
+<li>한쪽으로 치우치지 않기 위해 진짜 이미지와 가짜 이미지 쌍을 연결한 직선을 따라 무작위로 포인트를 선택해 보간interpolation 이미지들을 사용한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Algorithm">
+<a class="anchor" href="#Algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algorithm<a class="anchor-link" href="#Algorithm"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://miro.medium.com/max/1400/1*yYvwVzRnlVmRFCh7-JOASw.png" alt=""></p>
 
 </div>
 </div>
