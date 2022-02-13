@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -208,7 +208,10 @@ window.onload = wrap_img;
 <ul>
 <li>KL 발산과 JS 발산은 기울기 손실 때문에 제대로 학습하지 못하는 경우가 있다!</li>
 <li>그래서 GAN 이 제안되었는데, 모델을 불안정하게 만드는 큰 기울기 변수를 가진 새로운 함수에서는 GAN 자체도 불안했다</li>
-<li>1-립시츠함수()를 사용, 가중치 클리핑을 제한한 와서스테인 거리로 WGAN 제시</li>
+<li>1-립시츠함수()를 사용, 가중치 클리핑을 제한한 와서스테인 거리로 WGAN 제시<ul>
+<li>discriminator 식을 EM 거리(와서스테인거리)를 이용하여 변형함으로써 기울기가 잘 흘러가도록 해서 GAN이 실제 최적화 지점에 도달하는 것을 도왔고, GAN 학습 안정화 및 모드 붕괴 문제도 헤결할 수 있었음</li>
+</ul>
+</li>
 <li>하지만 가중치 클리핑(c)을 제한하는 것은 discriminator의 가중치를 하이퍼 파라미터c가 건드는(제약하는) 일이 되어버림</li>
 <li>WGAN-GP를 제안하게 EHOA!<ul>
 <li>GAN을 WGAN-GP로 바꾸는 조건!!<ul>
@@ -284,6 +287,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>$\star$ mode 쉽게 말하면 분포 내에서 최빈값</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>$X$: compact metric set</p>
 <ul>
 <li>Metric은 Distance라고도 불리며, 5가지 성분 만족하는 거리함수 d가 존재하는 걸 말함<ul>
@@ -319,6 +330,25 @@ window.onload = wrap_img;
 <li>Let $P_0$ be the distribution of $(0, Z) ∈ R^2$ (a 0 on the x-axis and the random variable Z on the y-axis), uniform on a straight vertical line passing through the origin.</li>
 <li>Now let $g_θ(z) = (θ, z)$ with $θ$ a single real parameter. </li>
 <li>It is easy to see that in this case,</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb9zZja%2Fbtqu13zUEKO%2FGdnlWnoWSmkk9G0CSZgqx0%2Fimg.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위에서 볼 수 있듯이 와서스테인 거리의 경우에만 세타에 상관없이 일정한 수식을 가지고 있지??</p>
+<ul>
+<li>그래서 다른 거리나 발산 공식들에 비해 학습이 수월할거야!</li>
 </ul>
 
 </div>
@@ -447,7 +477,10 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>If $g$ is locally Lipschitz and satisfies regularity assumption 1, then $W(P_r, P_θ)$ is continuous everywhere, and differentiable almost everywhere.<ul>
-<li>g가 립시츠 조건 만족한다면  EM 거리도 연속!</li>
+<li>g가 립시츠 조건 만족한다면  EM 거리도 연속!<ul>
+<li>립시츠 거리: 두 점 사이의 거리를 일정 비 이상으로 증가시키지 않는 함수!</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Statements 1-2 are false for the Jensen-Shannon divergence $JS(P_r, P_θ)$ and all the KLs.</li>
@@ -558,6 +591,14 @@ window.onload = wrap_img;
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\star$ 립시츠 조건을 만족하기 위해서 아래 계속 clipping 할 예정~</p>
 
 </div>
 </div>
@@ -757,8 +798,21 @@ window.onload = wrap_img;
 <p><strong>We identified momentum as a potential cause because, as the loss blew up and samples got worse, the cosine between the Adam step and the gradient usually turned negative. The only places where this cosine was negative was in these situations of instability.</strong></p>
 <ul>
 <li>Adam 안 쓴 이유</li>
+<li>실험 결과 critic을 학슿할때 Adam과 같은 momentum base optimizer를 사용하면 학습이 불안정함!!<ul>
+<li>loss값이 튀고 샘플이 좋지 않은 경우(일반적으로 학습 초반) Adam이 가고자 하는 방향, 즉 이전에 기억했던 방향(Adam step)과 기울기 방향 간의 cosine 값이 음수가 된다는 것이다.</li>
+<li>일반적으로 nonstationary 문제(극한값이 존재하지 않음)에 대해서는 momentum 계열보다 RMSProp 이 성능이 더 좋다고 한다.(여기서 정의한 문제도 nonstationary problem)</li>
+</ul>
+</li>
 </ul>
 <p>We therefore switched to RMSProp [21] which is known to perform well even on very nonstationary problems [13].</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\star$ <strong>discriminator 의 경우 일반적인 분류 신경망과 같이 이미지가 진짜인지 가짜인지 시그모이드 확률값으로 판별해낸다. 하지만 critic의 경우 와서스테인GAN 식 자체를 사용하기 때문에 scalar값이 출력된다. 이는 이미지가 진짜인지 가짜인지에 대한 점수를 의미하는 것이므로 시그모이드와 달리 saturation 현상은 없고 좋은 기울기만 만들어내게 된다.</strong></p>
 
 </div>
 </div>
@@ -1220,6 +1274,17 @@ $$||f(x_1)-f(x_2)| \le K|x_1 - x_2$$
 <li>그 모델은 여전히 품질 낮은 이미지를 만들 수 있고 hyperparameter c가 올바르게 조정되지 않을때 수렴되지 않을 수 있지!</li>
 </ul>
 <p>model perfomenmce는 htperparameter에 매우 민감해!!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>문제1. clipping parameter c가 크면 limit(-c,c)에 도달하는 시간이 오래걸리기 때문에 최적화 지점까지 학습하는데 시간이 오래걸리고, c가 작으면 기울기 소실 문제가 발생해버린다!</li>
+<li>문제2. regularizer로 작용해서 함수 f의 capacity도 줄인다!</li>
+</ul>
 
 </div>
 </div>
