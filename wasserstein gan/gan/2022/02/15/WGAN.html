@@ -425,7 +425,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>두 점 사이의 거리는 $d(X,Y) = (|\theta - 0|^2 + |Z_1(w) - Z_2(w)|)^{1/2} \geq |\theta|$로 계산<ul>
-<li>$d(X,Y)$의 기대값은 어떤 결함확률분포 $\gamma$ 를 사용하든 항상 $|\theta|$보다 크거나 같음.</li>
+<li>$d(X,Y)$의 기대값은 어떤 결합확률분포 $\gamma$ 를 사용하든 항상 $|\theta|$보다 크거나 같음.</li>
 <li>$\mathbb{e}^{\gamma}[d(X,Y)] \geq \mathbb{E}^{\gamma} [|\theta|] = |\theta|$<ul>
 <li>$Z_1 = Z_2$인 분포를 따를떄 $d(X,Y) = (|\theta - 0|^2 + |Z_1(w) - Z_2(w)|)^{1/2}  = |\theta|$ 가능!</li>
 <li>따라서 $W(\mathbb{P_0}, \mathbb{P_{\theta}}) = |\theta|$</li>
@@ -617,15 +617,18 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Again, Theorem 2 points to the fact that $W(P_r, P_θ)$ might have nicer properties when optimized than $JS(P_r, P_θ)$. </li>
-<li>However, the infimum in (1) is highly intractable. <ul>
-<li>inf A = max{lower bound of A}, 즉 infmnum 은 the greatest lower bound로서, 하한값lower bound 중 가장 큰 값maximum임!</li>
+<li>However, the infimum in (1) is highly intractable. </li>
+<li>On the other hand, the Kantorovich-Rubinstein duality [22] tells us that (2)</li>
 </ul>
-</li>
-<li>On the other hand, the Kantorovich-Rubinstein duality [22] tells us that (2)<ul>
-<li>supA = min{upper bound of A}, 즉 Supermum은 the least upper bound 로서, 상한값upper bound 에서 가장 작은 값minimum임!</li>
-</ul>
-</li>
-</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\star$ <strong>inf A = max{lower bound of A}, 즉 infmnum 은 the greatest lower bound로서, 하한값lower bound 중 가장 큰 값maximum임!</strong></p>
+<p>$\star$ <strong>supA = min{upper bound of A}, 즉 Supermum은 the least upper bound 로서, 상한값upper bound 에서 가장 작은 값minimum임!</strong></p>
 
 </div>
 </div>
