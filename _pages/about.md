@@ -6,7 +6,6 @@ permalink: /about/
 
 This website's owner is **[chch](https://github.com/seoyeonc/chch)** [^1].
 
-(_pages/about에서 수정)
 ### 학력 
 - 학사끝
 - 석사중
