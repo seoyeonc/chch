@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      8 min read
     
 </span></p>
 
@@ -225,7 +225,7 @@ $$y_i=f(x_i)+\epsilon_i,$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>비숍스페이스, 가장 최대의 공간...</li>
+<li>비숍스페이스? 가장 최대의 공간...</li>
 <li>웨이블릿wavelet<ul>
 <li>0을 중심으로 증가와 감소를 반복하는 진폭을 수반한 파동 같은 진동</li>
 </ul>
@@ -467,6 +467,24 @@ $$y_i= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} +\epsilon_i$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>I의 역할은?</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -474,7 +492,7 @@ $$y_i= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} +\epsilon_i$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">I</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">I</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">y</span>
 </pre></div>
 
     </div>
@@ -489,108 +507,12 @@ $$y_i= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} +\epsilon_i$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>matrix([[ 1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02,  1.00000000e-02,  1.00000000e-02,
-          1.00000000e-02],
-        [-1.53488333e-18,  1.25581039e-03,  2.50666467e-03,
-          3.74762629e-03,  4.97379774e-03,  6.18033989e-03,
-          7.36249105e-03,  8.51558583e-03,  9.63507348e-03,
-          1.07165359e-02,  1.17557050e-02,  1.27484798e-02,
-          1.36909421e-02,  1.45793725e-02,  1.54102649e-02,
-          1.61803399e-02,  1.68865585e-02,  1.75261336e-02,
-          1.80965410e-02,  1.85955297e-02,  1.90211303e-02,
-          1.93716632e-02,  1.96457450e-02,  1.98422940e-02,
-          1.99605346e-02,  2.00000000e-02,  1.99605346e-02,
-          1.98422940e-02,  1.96457450e-02,  1.93716632e-02,
-          1.90211303e-02,  1.85955297e-02,  1.80965410e-02,
-          1.75261336e-02,  1.68865585e-02,  1.61803399e-02,
-          1.54102649e-02,  1.45793725e-02,  1.36909421e-02,
-          1.27484798e-02,  1.17557050e-02,  1.07165359e-02,
-          9.63507348e-03,  8.51558583e-03,  7.36249105e-03,
-          6.18033989e-03,  4.97379774e-03,  3.74762629e-03,
-          2.50666467e-03,  1.25581039e-03,  9.14410267e-19,
-         -1.25581039e-03, -2.50666467e-03, -3.74762629e-03,
-         -4.97379774e-03, -6.18033989e-03, -7.36249105e-03,
-         -8.51558583e-03, -9.63507348e-03, -1.07165359e-02,
-         -1.17557050e-02, -1.27484798e-02, -1.36909421e-02,
-         -1.45793725e-02, -1.54102649e-02, -1.61803399e-02,
-         -1.68865585e-02, -1.75261336e-02, -1.80965410e-02,
-         -1.85955297e-02, -1.90211303e-02, -1.93716632e-02,
-         -1.96457450e-02, -1.98422940e-02, -1.99605346e-02,
-         -2.00000000e-02, -1.99605346e-02, -1.98422940e-02,
-         -1.96457450e-02, -1.93716632e-02, -1.90211303e-02,
-         -1.85955297e-02, -1.80965410e-02, -1.75261336e-02,
-         -1.68865585e-02, -1.61803399e-02, -1.54102649e-02,
-         -1.45793725e-02, -1.36909421e-02, -1.27484798e-02,
-         -1.17557050e-02, -1.07165359e-02, -9.63507348e-03,
-         -8.51558583e-03, -7.36249105e-03, -6.18033989e-03,
-         -4.97379774e-03, -3.74762629e-03, -2.50666467e-03,
-         -1.25581039e-03],
-        [ 1.49880108e-18,  6.18033989e-03,  1.17557050e-02,
-          1.61803399e-02,  1.90211303e-02,  2.00000000e-02,
-          1.90211303e-02,  1.61803399e-02,  1.17557050e-02,
-          6.18033989e-03,  4.14976213e-18, -6.18033989e-03,
-         -1.17557050e-02, -1.61803399e-02, -1.90211303e-02,
-         -2.00000000e-02, -1.90211303e-02, -1.61803399e-02,
-         -1.17557050e-02, -6.18033989e-03, -3.07348133e-18,
-          6.18033989e-03,  1.17557050e-02,  1.61803399e-02,
-          1.90211303e-02,  2.00000000e-02,  1.90211303e-02,
-          1.61803399e-02,  1.17557050e-02,  6.18033989e-03,
-          9.17298666e-18, -6.18033989e-03, -1.17557050e-02,
-         -1.61803399e-02, -1.90211303e-02, -2.00000000e-02,
-         -1.90211303e-02, -1.61803399e-02, -1.17557050e-02,
-         -6.18033989e-03, -8.09670587e-18,  6.18033989e-03,
-          1.17557050e-02,  1.61803399e-02,  1.90211303e-02,
-          2.00000000e-02,  1.90211303e-02,  1.61803399e-02,
-          1.17557050e-02,  6.18033989e-03,  1.37452691e-17,
-         -6.18033989e-03, -1.17557050e-02, -1.61803399e-02,
-         -1.90211303e-02, -2.00000000e-02, -1.90211303e-02,
-         -1.61803399e-02, -1.17557050e-02, -6.18033989e-03,
-         -1.33986280e-17,  6.18033989e-03,  1.17557050e-02,
-          1.61803399e-02,  1.90211303e-02,  2.00000000e-02,
-          1.90211303e-02,  1.61803399e-02,  1.17557050e-02,
-          6.18033989e-03, -5.27367221e-17, -6.18033989e-03,
-         -1.17557050e-02, -1.61803399e-02, -1.90211303e-02,
-         -2.00000000e-02, -1.90211303e-02, -1.61803399e-02,
-         -1.17557050e-02, -6.18033989e-03, -1.84218525e-17,
-          6.18033989e-03,  1.17557050e-02,  1.61803399e-02,
-          1.90211303e-02,  2.00000000e-02,  1.90211303e-02,
-          1.61803399e-02,  1.17557050e-02,  6.18033989e-03,
-          2.33407760e-17, -6.18033989e-03, -1.17557050e-02,
-         -1.61803399e-02, -1.90211303e-02, -2.00000000e-02,
-         -1.90211303e-02, -1.61803399e-02, -1.17557050e-02,
-         -6.18033989e-03]])</pre>
+<pre>(matrix([[29747.62811224],
+         [ 3794.55088597],
+         [ 4942.35791997]]),
+ matrix([[2.97476281],
+         [1.51782035],
+         [1.97694317]]))</pre>
 </div>
 
 </div>
@@ -601,6 +523,84 @@ $$y_i= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} +\epsilon_i$$
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>matrix([[ 1.00000000e+02,  7.67441666e-15, -7.49400542e-15],
+        [ 7.67441666e-15,  5.00000000e+01, -8.57742875e-16],
+        [-7.49400542e-15, -8.57742875e-16,  5.00000000e+01]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">I</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>matrix([[ 1.00000000e-02, -1.53488333e-18,  1.49880108e-18],
+        [-1.53488333e-18,  2.00000000e-02,  3.43097150e-19],
+        [ 1.49880108e-18,  3.43097150e-19,  2.00000000e-02]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -726,7 +726,7 @@ Coefficients:
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>그러니까 $x_{i1}=\sin(2\pi t_i)$ 이고 $x_{i2}=\sin(10\pi t_i)$ 인지 모른다면? (구체적을 2와 10과 같은 숫자를 모른다면? = 주파수를 모른다면?)</p>
+<p>그러니까 $x_{i1}=\sin(2\pi t_i)$ 이고 $x_{i2}=\sin(10\pi t_i)$ 인지 모른다면? (구체적으로 2와 10과 같은 숫자를 모른다면? = 주파수를 모른다면?)</p>
 
 </div>
 </div>
@@ -1012,13 +1012,13 @@ Coefficients:
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>이는 타임도메인이 실수인 경우에 한정된다.<ul>
-<li>함수(시간영역, time domain)에 정현파가 곱해지면 스펙트럼이 두 개로 갈라져 좌우대칭을 이루기 때문</li>
+<li>함수(시간영역, time domain)에 정현파sin가 곱해지면 스펙트럼이 두 개로 갈라져 좌우대칭을 이루기 때문</li>
 <li>sin과 cos인 위상차이만 있을 뿐.</li>
 </ul>
 </li>
 <li>타임도메인에 복소수가 곱해질 경우 대칭되지 않음<ul>
 <li>타임 도메인에 복소 신호가 더해지면 스펙트럼은 좌우대칭이 아니다</li>
-<li>오히려 이동shift 하는 현상이 일어난다.</li>
+<li>오히려 축 위에서 이동shift 하는 현상이 일어난다.</li>
 </ul>
 </li>
 </ul>
