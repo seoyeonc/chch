@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -156,6 +156,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 </pre></div>
 
     </div>
@@ -388,7 +389,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Year&gt;="2010"'</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)))</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Year&gt;="2016"'</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span>
 <span class="n">_df</span>
 </pre></div>
 
@@ -430,38 +431,38 @@ window.onload = wrap_img;
   <tbody>
     <tr>
       <th>0</th>
-      <td>12.4240</td>
-      <td>141.9490</td>
-      <td>6.1</td>
-      <td>2010</td>
+      <td>-50.5575</td>
+      <td>139.4489</td>
+      <td>6.3</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-5.2970</td>
-      <td>145.8590</td>
+      <td>-28.6278</td>
+      <td>-177.2810</td>
       <td>5.8</td>
-      <td>2010</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-8.8020</td>
-      <td>-77.7180</td>
-      <td>5.7</td>
-      <td>2010</td>
+      <td>44.8069</td>
+      <td>129.9406</td>
+      <td>5.8</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-8.7260</td>
-      <td>157.4870</td>
-      <td>6.6</td>
-      <td>2010</td>
+      <td>24.8036</td>
+      <td>93.6505</td>
+      <td>6.7</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-8.7830</td>
-      <td>157.3540</td>
-      <td>7.1</td>
-      <td>2010</td>
+      <td>30.6132</td>
+      <td>132.7337</td>
+      <td>5.8</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>...</th>
@@ -471,35 +472,35 @@ window.onload = wrap_img;
       <td>...</td>
     </tr>
     <tr>
-      <th>3569</th>
+      <th>464</th>
       <td>38.3917</td>
       <td>-118.8941</td>
       <td>5.6</td>
       <td>2016</td>
     </tr>
     <tr>
-      <th>3570</th>
+      <th>465</th>
       <td>38.3777</td>
       <td>-118.8957</td>
       <td>5.5</td>
       <td>2016</td>
     </tr>
     <tr>
-      <th>3571</th>
+      <th>466</th>
       <td>36.9179</td>
       <td>140.4262</td>
       <td>5.9</td>
       <td>2016</td>
     </tr>
     <tr>
-      <th>3572</th>
+      <th>467</th>
       <td>-9.0283</td>
       <td>118.6639</td>
       <td>6.3</td>
       <td>2016</td>
     </tr>
     <tr>
-      <th>3573</th>
+      <th>468</th>
       <td>37.3973</td>
       <td>141.4103</td>
       <td>5.5</td>
@@ -507,7 +508,7 @@ window.onload = wrap_img;
     </tr>
   </tbody>
 </table>
-<p>3574 rows × 4 columns</p>
+<p>469 rows × 4 columns</p>
 </div>
 </div>
 
@@ -541,7 +542,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3.910000000000025</pre>
+<pre>316.7299</pre>
 </div>
 
 </div>
@@ -569,8 +570,8 @@ $$dist(i,i+1)$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -587,7 +588,7 @@ $$dist(i,i+1)$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -602,7 +603,7 @@ $$dist(i,i+1)$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3.910000000000025</pre>
+<pre>0.0</pre>
 </div>
 
 </div>
@@ -620,7 +621,7 @@ $$dist(i,i+1)$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -635,7 +636,7 @@ $$dist(i,i+1)$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>223.577</pre>
+<pre>316.7299</pre>
 </div>
 
 </div>
@@ -663,8 +664,8 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">kappa</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="n">dist</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="k">if</span> <span class="n">dist</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">kappa</span> <span class="k">else</span> <span class="mi">0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">theta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">kappa</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="n">dist</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="k">if</span> <span class="n">dist</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">kappa</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
 
     </div>
@@ -681,7 +682,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -696,7 +697,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.00047888503490364315</pre>
+<pre>1.0</pre>
 </div>
 
 </div>
@@ -714,7 +715,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -747,7 +748,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">_df</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -762,7 +763,406 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.14156447669413225</pre>
+<pre>469</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="n">weight</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">_df</span><span class="p">))</span> <span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">_df</span><span class="p">))</span> <span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[1.00000000e+000, 0.00000000e+000, 2.33454594e-020, ...,
+        0.00000000e+000, 6.20296528e-001, 1.54478732e-094],
+       [0.00000000e+000, 1.00000000e+000, 0.00000000e+000, ...,
+        0.00000000e+000, 0.00000000e+000, 0.00000000e+000],
+       [2.33454594e-020, 0.00000000e+000, 1.00000000e+000, ...,
+        0.00000000e+000, 1.33394211e-024, 2.43610672e-028],
+       ...,
+       [0.00000000e+000, 0.00000000e+000, 0.00000000e+000, ...,
+        1.00000000e+000, 0.00000000e+000, 0.00000000e+000],
+       [6.20296528e-001, 0.00000000e+000, 1.33394211e-024, ...,
+        0.00000000e+000, 1.00000000e+000, 1.44399551e-103],
+       [1.54478732e-094, 0.00000000e+000, 2.43610672e-028, ...,
+        0.00000000e+000, 1.44399551e-103, 1.00000000e+000]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[11.79067226,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  0.        ],
+       [ 0.        , 18.50126278,  0.        , ...,  0.        ,
+         0.        ,  0.        ],
+       [ 0.        ,  0.        , 14.56741028, ...,  0.        ,
+         0.        ,  0.        ],
+       ...,
+       [ 0.        ,  0.        ,  0.        , ...,  3.00017066,
+         0.        ,  0.        ],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+        16.56090066,  0.        ],
+       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
+         0.        ,  2.76421023]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">D</span> <span class="o">-</span> <span class="n">W</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 1.07906723e+001,  0.00000000e+000, -2.33454594e-020, ...,
+         0.00000000e+000, -6.20296528e-001, -1.54478732e-094],
+       [ 0.00000000e+000,  1.75012628e+001,  0.00000000e+000, ...,
+         0.00000000e+000,  0.00000000e+000,  0.00000000e+000],
+       [-2.33454594e-020,  0.00000000e+000,  1.35674103e+001, ...,
+         0.00000000e+000, -1.33394211e-024, -2.43610672e-028],
+       ...,
+       [ 0.00000000e+000,  0.00000000e+000,  0.00000000e+000, ...,
+         2.00017066e+000,  0.00000000e+000,  0.00000000e+000],
+       [-6.20296528e-001,  0.00000000e+000, -1.33394211e-024, ...,
+         0.00000000e+000,  1.55609007e+001, -1.44399551e-103],
+       [-1.54478732e-094,  0.00000000e+000, -2.43610672e-028, ...,
+         0.00000000e+000, -1.44399551e-103,  1.76421023e+000]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">λ</span><span class="p">,</span> <span class="n">Ψ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Λ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">λ</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(469,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">Ψ</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ψ</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(468, 468)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">Ψ</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ψ</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_109438/3954485767.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span>_df<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">@</span> np<span class="ansi-blue-fg">.</span>outer<span class="ansi-blue-fg">(</span>Ψ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> Ψ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 468 is different from 469)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">k</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">Ψ</span><span class="p">[:,</span><span class="n">k</span><span class="p">],</span> <span class="n">Ψ</span><span class="p">[:,</span><span class="n">k</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>            
+<span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_109438/1694423173.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">for</span> j <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span>ax<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span>_df<span class="ansi-blue-fg">.</span>iloc<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">@</span> np<span class="ansi-blue-fg">.</span>outer<span class="ansi-blue-fg">(</span>Ψ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span>k<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> Ψ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span>k<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         ax<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>set_ylim<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>         ax<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>set_title<span class="ansi-blue-fg">(</span>k<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 468 is different from 469)</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
 </div>
 
 </div>
