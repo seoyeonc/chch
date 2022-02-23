@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      6 min read
     
 </span></p>
 
@@ -244,6 +244,124 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>ref: <a href="https://hbr.org/2021/04/why-ai-that-teaches-itself-to-achieve-a-goal-is-the-next-big-thing">https://hbr.org/2021/04/why-ai-that-teaches-itself-to-achieve-a-goal-is-the-next-big-thing</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Summary</strong>: What’s the difference between the creative power of game-playing AIs and the predictive AIs most companies seem to use? How they learn. The AIs that thrive at games like Go, creating never before seen strategies, use an approach called reinforcement learning — a mature machine learning technology that’s good at optimizing tasks in which an agent takes a series of actions over time, where each action is informed by the outcome of the previous ones, and where you can’t find a “right” answer the way you can with a prediction. It’s a powerful technology, but most companies don’t know how or when to apply it. The authors argue that reinforcement learning algorithms are good at automating and optimizing in situations dynamic situations with nuances that would be too hard to describe with formulas and rules.</p>
+<ul>
+<li>강화학습은 예측 가능한 AI와는 또 다른 개념으로, 성숙한 기계 학습 기술이다.</li>
+<li>강화학습 알고리즘은 예상치 못한 상황(공식내기 어려운 상황)이나 특정 뉘앙스를 가진 동적 상황에서 자동화하고 최적화하기에 좋다</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>알파고 이야기에서</p>
+<ul>
+<li>Indeed, beyond just feeding the algorithm past examples of Go champions playing games, Deepmind developers trained AlphaGo by having it play many millions of matches against itself.</li>
+<li>During these matches, the system had the chance to explore new moves and strategies, and then evaluate if they improved performance.<ul>
+<li>수만 경기를 알파고 스스로 치르게 할 동안 증진된 수행 평가하고 전략과 새로운 움직임 탐색할 기회를 가지게 됨.</li>
+</ul>
+</li>
+<li>Through all this trial and error, it discovered a way to play the game that surprised even the best players in the world.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이어서</p>
+<ul>
+<li>Put simply, it works by trying different approaches and latching onto — reinforcing — the ones that seem to work better than the others.<ul>
+<li>강화학습은 더 나은 접근법을 더 시도한다</li>
+</ul>
+</li>
+<li>With enough trials, you can reinforce your way to beating your current best approach and discover a new best way to accomplish your task.<ul>
+<li>충분한 시도로 현재 최적의 접근을 능가하는 법을 강화할 수 있고, 새로운 최고의 수행 방법을 발견할 수 있음</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>고려할 문제</p>
+<ul>
+<li>Consider the many real-world problems that require deciding how to act over time, where there is something to maximize (or minimize), and where you’re never explicitly given the correct solution. <ul>
+<li>시간이 지남에 따라 행동하는 것을 결정하는 문제에서 정확한 해결법이 되지 않을 수 있다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>중요 point!</p>
+<ul>
+<li>Significantly, because of how they learn, they don’t need mountains of historical data — they’ll experiment and create their own data along the way.<ul>
+<li>강화학습은 상황만 주어지면 학습해서 과거 데이터가 필요 없다!?</li>
+<li>강화학습은 행동을 생성</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://hbr.org/resources/images/article_assets/2021/04/TABLE_ReinforcementLearning-1200x1371.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How to Spot an Opportunity for Reinforcement Learning</p>
+<ul>
+<li>Make a list. <ul>
+<li>Create an inventory of business processes that involve a sequence of steps and clearly state what you want to maximize or minimize. Focus on processes with dense, frequent actions and opportunities for feedback and avoid processes with infrequent actions and where it’s difficult to observe which worked best to collect feedback. Getting the objective right will likely require iteration.</li>
+<li>일련의 단계를 포함하는 비지니스 프로세스의 목록을 써서 최대/최소화 하려는 항목을 명확하게 명시한다</li>
+</ul>
+</li>
+<li>Consider other options. <ul>
+<li>Don’t start with reinforcement learning if you can tackle a problem with other machine learning or optimization techniques. Reinforcement learning is helpful when you lack sufficient historical data to train an algorithm. You need to explore options (and create data along the way).</li>
+<li>강화힉습은 과거 데이터가 없을 떄 유용하니까 다른 최적화 기술이나 머신러닝으로 문제를 해결할 수 있으면 강화학습 시작하지 말기.</li>
+</ul>
+</li>
+<li>Be careful what you wish for. <ul>
+<li>If you do want to move ahead, domain experts should closely collaborate with technical teams to help design the inputs, actions, and rewards. For inputs, seek the smallest set of information you could use to make a good decision. For actions, ask how much flexibility you want to give the system; start simple and later expand the range of actions. For rewards, think carefully about the outcomes — and be careful to avoid falling into the traps of considering one variable in isolation or opting for short-term gains with long-term pains.</li>
+<li>보상에 대한 결과를 신중하게 보고 장기적인 실득을 가진 단기적인 이득만 고려하지 말고, 하나의 변수만을 고려하지도 말 것</li>
+</ul>
+</li>
+<li>Ask whether it’s worth it. <ul>
+<li>Will the possible gains justify the costs for development? Many companies need to make digital transformation investments to have the systems and dense, data-generating business processes in place to really make reinforcement learning systems useful. To answer whether the investment will pay off, technical teams should take stock of computational resources to ensure you have the compute power required to support trials and allow the system to explore and identify the optimal sequence. (They may want to create a simulation environment to test the algorithm before releasing it live.) On the software front, if you’re planning to use a learning system for customer engagement, you need to have a system that can support A/B testing. This is critical to the learning process, as the algorithm needs to explore different options before it can latch onto which one works best. Finally, if your technology stack can only release features universally, you need likely to upgrade before you start optimizing.</li>
+<li>이 강화학습이 정말 실익을 가져올지 계산도 필요함, 비용도 많이 들고 컴퓨터 리소스도 중요!</li>
+</ul>
+</li>
+<li>Prepare to Be Patient. <ul>
+<li>And last but not least, as with many learning algorithms, you have to be open to errors early on while the system learns. It won’t find the optimal path from day one, but it will get there in time — and potentially find surprising, creative solutions beyond human imagination when it does.</li>
+<li>강화학습은 시행착오를 많이 겪을 것이기 때문에 오류나도 인내심을 가지고 기다리자</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
