@@ -139,7 +139,7 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h5"><a href="#1.-데이터-정의">1. 데이터 정의 </a></li>
-<li class="toc-entry toc-h5"><a href="#2.-$f(x)-=-y-+-\epsilon$-정의">2. $f(x) = y + \epsilon$ 정의 </a></li>
+<li class="toc-entry toc-h5"><a href="#2.-$f(x)-=-y$-정의">2. $f(x) = y$ 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#3.-$(x_i,y_i)$와-$(x_j,y_j)$-사이의-유클리드-거리-정의">3. $(x_i,y_i)$와 $(x_j,y_j)$ 사이의 유클리드 거리 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#4.-거리를-이용한-$W_{i,j}$-행렬-정의">4. 거리를 이용한 $W_{i,j}$ 행렬 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#5.-$W_{i,j}$-행렬을-이용한-차수-행렬-정의">5. $W_{i,j}$ 행렬을 이용한 차수 행렬 정의 </a></li>
@@ -324,8 +324,8 @@ memory usage: 341.7+ KB
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="2.-$f(x)-=-y-+-\epsilon$-정의">
-<a class="anchor" href="#2.-%24f(x)-=-y-+-%5Cepsilon%24-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. $f(x) = y + \epsilon$ 정의<a class="anchor-link" href="#2.-%24f(x)-=-y-+-%5Cepsilon%24-%EC%A0%95%EC%9D%98"> </a>
+<h5 id="2.-$f(x)-=-y$-정의">
+<a class="anchor" href="#2.-%24f(x)-=-y%24-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. $f(x) = y$ 정의<a class="anchor-link" href="#2.-%24f(x)-=-y%24-%EC%A0%95%EC%9D%98"> </a>
 </h5>
 <ul>
 <li>$y$ = Magnitude,  지진 규모로 정의</li>
@@ -958,7 +958,6 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 </h5>
 <ul>
 <li>${\bf L} = {\boldsymbol\Psi} {\boldsymbol\Lambda} {\boldsymbol\Psi}^\top$</li>
-<li>$\Psi^\top \Psi = I$</li>
 </ul>
 
 </div>
@@ -1009,12 +1008,8 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <li>$k = 1, 2, 3, 8000$</li>
 </ul>
 </li>
-<li>$p = (sum(comp1^2),sum(comp2^2),…,sum(comp8000^2))$</li>
-<li>$p = p/sum(p)$<ul>
-<li>0.2 0.1  ...</li>
-</ul>
-</li>
-<li>—&gt; 5개의 최상의 컴포넌트만 골랐더니 70%</li>
+<li>$p = \sum_{1}^{n} comp1^2,\sum_{1}^{n} comp2^2,…,\sum_{1}^{n} comp(n)^2$</li>
+<li>$p = \frac{p}{\sum(p)}$</li>
 </ul>
 
 </div>
