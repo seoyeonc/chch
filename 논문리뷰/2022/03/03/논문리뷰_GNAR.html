@@ -1138,43 +1138,6 @@ Coefficients:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Loading required package: spam
-
-Spam version 2.8-0 (2022-01-05) is loaded.
-Type 'help( Spam)' or 'demo( spam)' for a short introduction 
-and overview of this package.
-Help for individual functions is also obtained by adding the
-suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
-
-
-Attaching package: ‘spam’
-
-
-The following objects are masked from ‘package:base’:
-
-    backsolve, forwardsolve
-
-
-Loading required package: viridis
-
-Loading required package: viridisLite
-
-
-Try help(fields) to get started.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -1589,23 +1552,6 @@ GNAR BIC: -62.86003</pre>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-Error in library("forecast"): there is no package called ‘forecast’
-Traceback:
-
-1. library("forecast")</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -1633,19 +1579,271 @@ Traceback:
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-Error in forecast(auto.arima(x[!is.na(x)], d = 0, D = 0, max.p = 2, max.q = 0, : could not find function "forecast"
-Traceback:
 
-1. apply(gdpVTSn2[1:51, ], 2, function(x) {
- .     forecast(auto.arima(x[!is.na(x)], d = 0, D = 0, max.p = 2, 
- .         max.q = 0, max.P = 0, max.Q = 0, stationary = TRUE, seasonal = FALSE, 
- .         ic = "bic", allowmean = FALSE, allowdrift = FALSE, trace = FALSE), 
- .         h = 1)$mean
- . })
-2. FUN(newX[, i], ...)</pre>
+<div class="output_html rendered_html output_subarea ">
+8.0654909737677
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">"vars"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gdpVTSn2.0</span> <span class="o">&lt;-</span> <span class="n">gdpVTSn2</span>
+<span class="n">gdpVTSn2.0</span><span class="p">[</span><span class="nf">is.na</span><span class="p">(</span><span class="n">gdpVTSn2.0</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">varforecast</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="nf">restrict</span><span class="p">(</span><span class="nf">VAR</span><span class="p">(</span><span class="n">gdpVTSn2.0</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">51</span><span class="p">,],</span> <span class="n">p</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+                                    <span class="n">type</span> <span class="o">=</span> <span class="s">"none"</span><span class="p">)),</span> <span class="n">n.ahead</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">getfcst</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">return</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])}</span>
+<span class="n">varforecastpt</span> <span class="o">&lt;-</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">varforecast</span><span class="o">$</span><span class="n">fcst</span><span class="p">,</span> <span class="n">getfcst</span><span class="p">))</span>
+<span class="nf">sum</span><span class="p">((</span><span class="n">varforecastpt</span> <span class="o">-</span> <span class="n">gdpVTSn2.0</span><span class="p">[</span><span class="m">52</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+26.1980531891226
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gdpVTSn3</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">gdpVTS</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="n">x</span> <span class="o">/</span> <span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">],</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)})</span>
+<span class="n">gdpPred</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="nf">GNARfit</span><span class="p">(</span><span class="n">gdpVTSn2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">,],</span> <span class="n">net</span> <span class="o">=</span> <span class="n">net921</span><span class="p">,</span> <span class="n">alphaOrder</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
+                           <span class="n">betaOrder</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)),</span> <span class="n">n.ahead</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sum</span><span class="p">((</span><span class="n">gdpPred</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">51</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">((</span><span class="n">gdpPred</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">52</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+11.7874028395355
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+8.06757709669611
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">arforecast</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">,],</span> <span class="m">2</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+  <span class="nf">forecast</span><span class="p">(</span><span class="nf">auto.arima</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span> <span class="n">d</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">max.p</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">max.q</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span>
+                      <span class="n">max.P</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">max.Q</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">stationary</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">seasonal</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">ic</span> <span class="o">=</span> <span class="s">"bic"</span><span class="p">,</span>
+                      <span class="n">allowmean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">allowdrift</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">trace</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">),</span> <span class="n">h</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span><span class="o">$</span><span class="n">mean</span>
+<span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sum</span><span class="p">((</span><span class="n">arforecast</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">51</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">((</span><span class="n">arforecast</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">52</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+18.5607429666294
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+11.3172225617894
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">gdpVTSn3.0</span> <span class="o">&lt;-</span> <span class="n">gdpVTSn3</span>
+<span class="n">gdpVTSn3.0</span><span class="p">[</span><span class="nf">is.na</span><span class="p">(</span><span class="n">gdpVTSn3.0</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">varforecast</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="nf">restrict</span><span class="p">(</span><span class="nf">VAR</span><span class="p">(</span><span class="n">gdpVTSn3.0</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">,],</span><span class="n">p</span><span class="o">=</span><span class="m">1</span><span class="p">,</span>
+                                   <span class="n">type</span> <span class="o">=</span> <span class="s">"none"</span><span class="p">)),</span> <span class="n">n.ahead</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">getfcst</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">return</span><span class="p">(</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="p">])}</span>
+<span class="n">varforecastpt</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">unlist</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">varforecast</span><span class="o">$</span><span class="n">fcst</span><span class="p">,</span> <span class="n">getfcst</span><span class="p">)),</span>
+                        <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">35</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">sum</span><span class="p">((</span><span class="n">varforecastpt</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">51</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">((</span><span class="n">varforecastpt</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span> <span class="o">-</span> <span class="n">gdpVTSn3</span><span class="p">[</span><span class="m">52</span><span class="p">,])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+114.987551411626
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+120.4466928206
+</div>
+
 </div>
 
 </div>
