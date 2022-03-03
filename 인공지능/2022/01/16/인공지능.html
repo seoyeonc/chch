@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>야사와 만화로 배우는 인공지능 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="야사와 만화로 배우는 인공지능" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="인공지능" />
+<meta property="og:description" content="인공지능" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2022/01/16/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2022/01/16/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-16T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"인공지능","url":"https://seoyeonc.github.io/chch/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2022/01/16/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.html","@type":"BlogPosting","headline":"야사와 만화로 배우는 인공지능","dateModified":"2022-01-16T00:00:00-06:00","datePublished":"2022-01-16T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2022/01/16/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">야사와 만화로 배우는 인공지능</h1><p class="page-description">인공지능</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-16T00:00:00-06:00" itemprop="datePublished">
+        Jan 16, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#인공지능">인공지능</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-01-16-인공지능.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-01-16-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-01-16-인공지능.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1권">1권 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#인공지능-탄생">인공지능 탄생 </a></li>
+<li class="toc-entry toc-h4"><a href="#인공지능의-재시작">인공지능의 재시작 </a></li>
+<li class="toc-entry toc-h4"><a href="#인공지능의-봄">인공지능의 봄 </a></li>
+<li class="toc-entry toc-h4"><a href="#딥러닝-세상">딥러닝 세상 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2권">2권 </a></li>
+<li class="toc-entry toc-h2"><a href="#3권">3권 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-01-16-인공지능.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: <a href="https://brunch.co.kr/magazine/yamanin">https://brunch.co.kr/magazine/yamanin</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1권">
+<a class="anchor" href="#1%EA%B6%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>1권<a class="anchor-link" href="#1%EA%B6%8C"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="인공지능-탄생">
+<a class="anchor" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%ED%83%84%EC%83%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>인공지능 탄생<a class="anchor-link" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%ED%83%84%EC%83%9D"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>인공지능을 정의한 마빈 민스키Marvin Minsky(MIT) vs 신경망 '퍼셉트론' 프랭크 로젠블랫Frank Rosenblatt(코넬연구소)</p>
+<ul>
+<li>퍼셉트론: 학습시켜 추론</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>쿠니히코 후쿠시마Kunihiko Fukushima의 네오코그니트론Neoognitron(1980): CNN 모델의 근간,</p>
+<ul>
+<li>s-cell(simple)+c-cell(complex)의 여러층으로 만듦(계층형 네트워크 구조), 추출+모으기의 반복의 결과!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>존 홉필드John Hopfield의 홉필드Hopfield 네트워크 $\to$ 제프리 힌튼Geoffrey Hinton의 볼츠만 머신Restricted Boltzmann Machine(RBM)(1984)</p>
+<ul>
+<li>제프리 힌튼의 백프로퍼게이션 Back-propagation</li>
+<li>1989년 얀 레쿤 &amp; 요수야 벤지오의 CNN = (네오코그니트론Neoognitron( + 볼츠만 머신Restricted Boltzmann Machine + 백프로퍼게이션Back-propagation)</li>
+<li>얀 레쿤은 LeNet5 개발(손 글씨 우편 번호 자동 인식)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="인공지능의-재시작">
+<a class="anchor" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EC%9E%AC%EC%8B%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>인공지능의 재시작<a class="anchor-link" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EC%9E%AC%EC%8B%9C%EC%9E%91"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>알고리즘(코호넨 맵, 코호넨 네트워크)</p>
+<ol>
+<li>연결가중치 초기화</li>
+<li>입력벡터 지시</li>
+<li>벡터와 모든 뉴런 간 거리 계산</li>
+<li>최소거리 출력 뉴런 선택</li>
+<li>승자 뉴런과 이웃 뉴런들 연결 가중치 조겅</li>
+<li>지정된 학습 횟수 반복<ul>
+<li>벡터 간 거리는 유클리디만 거리법, 연결 가중치 조정은 SOM에서 제시한 연결 가중치 조정식 사용</li>
+<li>코호넨Kohonen의 중요한 기여 SOM(Self-organizing map): 자기 조직회지도</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>코호넨 네크워크 활용: 화상 처리, 문자 인식, 연상 기억, 음성 변환, 데이터 마이닝, 패턴 인식, 최적화 문제, NP-Hard(TSP, Traveling Salesperson Problem) 등</p>
+<ul>
+<li>NP-Hard: 문제거 계산 불가능할 정도로 지나치게 복잡할 경우로 실제 최적해가 아니더라도 최적해에 가까운 답을 찾는다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="인공지능의-봄">
+<a class="anchor" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EB%B4%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>인공지능의 봄<a class="anchor-link" href="#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EB%B4%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ADALINE 모델</p>
+<ul>
+<li>input $\to$ weights가중치 $\to$ Net Inputs Function순입력함수 $\to$ Activationfunction실제값과 예측값의 차이 계산 최소가 되게! $\to$ Quanatiger -1 또는 1로 표시 $\to$ output<ul>
+<li>얀 레쿤이 발견한 논문 $\to$ 데이빗 럼멜하트David E. Rumelhart(캘리포니아 대학)과 제프리 힌튼Geoffrey Hinton에 의해 백프로퍼게이션Back-propagation이 다시 정리되어 신경망 부활</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ADALINE 모델에서 실제값-예측값 계산시 최소화하기 위해 비용함수J(w)가 사용된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$w_j = w_j + \Delta w_j = w_j - \eta \Delta J(w) = w_j - \eta \sum_{i}(y_i-\hat{y_i}x_{ji})$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="딥러닝-세상">
+<a class="anchor" href="#%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%84%B8%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>딥러닝 세상<a class="anchor-link" href="#%EB%94%A5%EB%9F%AC%EB%8B%9D-%EC%84%B8%EC%83%81"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>홉필드John J. Hopfield의 첫 논문 - 신경 회로망과 응집력이 있는 물리적 시스템(이론 물리, 신경생물학, 컴퓨터 과학)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>허버트 사이먼Herbert A. Simon의 인공지능 연구 목적 2가지</p>
+<ul>
+<li>인간 능력 증진(활용측면)</li>
+<li>어떻게 사고하는지 이해(원리 추론)</li>
+<li>오류역전파 학습 알고리즘 형식화를 통해 인간인지에 대한 접근 시도를 보여주기도 함</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>뉴욕대 조경현 교수</p>
+<ul>
+<li>GRU(Gated Recurrent Unit) 모델(LSTM 모델 개선)<ul>
+<li>forget-gate와 input-fate를 update date로 통합하고 cell state와 hidden state를 하나로 통합한 것</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>딥러닝(여러 층으로 구성된 신경망을 학습시키는 방법)</p>
+<ul>
+<li>제프리 힌튼Geoffrey Everest Hinton + 요슈아 벤지오Yoshua Bengio + 얀 레쿤Yann LeCun</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>자비에 글로럿Xavier Glorot - ReLU 비선형성을 사용하여 딥러닝</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>요슈아 벤지오 Yoshua Bengio - MILA(the Montreal Institute for Learning Algorithms) 세워서 삼성전자와 협력!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>제프리 힌튼</p>
+<ul>
+<li>A fast learning algorithm for deep belif nsts 깊은 신경망 네트워크를 잘 학습시키기 위해 초기화가 중요</li>
+<li>볼츠만 머신 응용한 RBM으로 두개층 쌓아가는 초기화 방법 제안</li>
+<li>신경망 깊으면 학습이 되지 않는 vanishing gradient 문제 해결 가능성 시사</li>
+<li>RBM: Backward, Foreward 반복하여 weight 조정</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>딥러닝 신경망: 학습에 있어서 사람처럼 좋은 데이터로 잘 학습시키는 것이 중요하지만 신경망의 초기값을 어떻게 주느냐가 학습에 매우 큰 영향을 줌
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2010년 몬트리온 대학 요슈아 벤치오 연구실의 자비에 글로럿이 초기화하려는 신경망 구간에서 input 노트와 output 노트 수에 비례하여 정규분포로 초기화하면 훨씬 쉽고 빠르게 초기화 가능 보여줌</p>
+<p>
+$$N(\phi, \sqrt{\frac{2}{(입력수+출력수)}})$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>케이밍 허Kaming He: ReLU 함수에 효과적 초기화 방식 제안</p>
+<p>
+$$N(\phi,\sqrt{\frac{2}{입력수}})$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>알렉스와 일리야</p>
+<ul>
+<li>제한된 시간에 성능을 내기 위해 자신들의 모델에 GPU 기능 추가</li>
+<li>but, overfitting 문제</li>
+<li>니티시 스리바스타바Nitish Srivastava: 모든 노드를 계산하지 않고 랜덤하게 일부 노드 계산 값을 버리고 계산하자 $\to$ 드랍아웃 dropout</li>
+<li>활성화 함수인 ReLU로 바꿔보니 훨씬 향상</li>
+<li>ILSVRC 대회 오류율 26% $\to$ 15% 로 떨어뜨려 우승</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2권">
+<a class="anchor" href="#2%EA%B6%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>2권<a class="anchor-link" href="#2%EA%B6%8C"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>존 매카시John McCarthy</p>
+<ul>
+<li>인공지능AI 용어를 처음 사용(1955)한 존 매카시John McCarthy, MIT에서 LISP(AI 현언어) 개발(1958)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>마빈 민스키Marvin Minsky</p>
+<ul>
+<li>석사 과정때 SNARC(시행착오를 통해 학습할 수 있는 신경망 기계) 만듦</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>페이페이 리Fei-Fei Li</p>
+<ul>
+<li>IMGENET 대회 만듦 $\rightarrow$ 여기서 제프리 힌튼의 슈퍼비전 팀이 딥러닝 기술로 압도적 우승</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>제프 딘Jeff Dean</p>
+<ul>
+<li>마빈 프로젝트에 참여(인간 뇌구조를 본 딴 신경망 연구) $\rightarrow$ google brain으로 프로젝트 명 변경</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>딥러닝의 Hello world! <strong>MNIST</strong>데이터 셋(Modified National Institute of Standards and Technology Database)</p>
+<ul>
+<li>손으로 쓴 숫자로 이루어진 대형 데이터베이스</li>
+<li>NIST에서 1986년 손글씨 우편번호를 읽어 빠르게 분류할 수 있는 방법 고안</li>
+<li>얀 레쿤의 CNN으로 분류 선공</li>
+<li>고등학생들의 글씨인 NIST SD-1(Special Database)과 인구조사국 직원들의 글씨인 NIST SD-3로부터 데이터<ul>
+<li>정규화, 표준화 보정 통해 MNIST 데이터 셋 생성</li>
+</ul>
+</li>
+<li>데이터가 핵심인 딥러닝에 큰 기여</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>신경망학회인 인공신경망학회 NIPS(Neural Information Processing Systems)</p>
+<ul>
+<li><a href="https://nips.cc/">https://nips.cc/</a></li>
+</ul>
+<p>국제 머신러닝학회 ICML(International Conference on Marchine Learning)</p>
+<ul>
+<li><a href="https://icml.cc/">https://icml.cc/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>회귀분석</p>
+<ul>
+<li>평균으로의 회귀 성질이 있기 때문, 예측 가능 $\rightarrow$ 프란시스 골턴Francis Galton이 고안<ul>
+<li>여기 적용된 최소제곱법(가우스): 점과 점 사이를 지나는 선을 구할 때 각 점과 그 선 사이의 거리가 최소가 되는 선을 구하는 방법</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>머신러닝에서 지도학습의  분류classification</p>
+<ul>
+<li>레이블이 있는 데이터로부터 모델을 만들어 새로운 데이터의 레이블을 예측하는 것</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>비지도학습: 레이블이 없는 데이터 내부의 패턴과 구조를 발견하는 것</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>군집화: 비슷한 속성끼리 묶어주는 알고리즘</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>K-means 알고리즘</p>
+<ul>
+<li>주어진 데이터에서 찾아내고자 하는 k개 군집 결정</li>
+<li>초기군집 결정 k개의 다른 포인트를 임의결정</li>
+<li>각 데이터별로 k개의 초기군집까지 거리를 계산, 가장 가까운 거리에 있는 군집에 해당 데이터를 할당</li>
+<li>할당이 끝나면 각 군집의 중앙위치를 구해(평균일수도, 중앙값일수도있음) 각 데이터 사이의 거리를 기반으로 다시 데이터를 군집에 할당</li>
+<li>더 이상 할당된 군집의 중앙위치가 변하지 않을때까지 반복</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>비모수적: 모집단에 대한 정보없이 접근하는 방식</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>K-NN 알고리즘(K근접 이웃)</p>
+<ul>
+<li>분류와 회귀를 사용한 비모수적 패턴 인식 방법 </li>
+<li>에블린 픽스Evelyn Fix, 조셉 하지스 Joseph Lawson Hodges Jr.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>나이브 베이지언</p>
+<ul>
+<li>스팸메일이나 문서분류에 많이 쓰임 $\rightarrow$ 베이즈 정리로부터 유도(경험적 확률론)</li>
+<li>각각의 조건이 독립적이라고 가정하고 긴딘하게 계산하는 방식</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SVM알고리즘</p>
+<ul>
+<li>선형 SVM: 서로 다른 그룹을 구별할 수 있는 직선을 찾는데 이때 오분류의 정도를 조정하여 가장 크게 떼어놓을 수 있는 직선을 찾음</li>
+<li>비선형 SVM: $f(x)=x^2$(커널이라 칭함)을 적용하여 직선에 있는 값들을 2차평면으로 변환하면 판단할 수 있는 선을 찾을 수 있음</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>얼헌트Earl B. Hunt의 CLS Cconcept learning system</p>
+<ul>
+<li>모두 A의 요소이면 Positive</li>
+<li>모두 A의 요소가 아니면 Negative</li>
+<li>그렇지 않으면 부분집합을 만들어 다시 처음부터 수행</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>로스퀀란Ross Quinlan의 의사결정 트리 알고리즘</p>
+<ul>
+<li>concept learning에 경험적 접근,</li>
+<li>머신러닝 분야에서 널리 쓰이는 이유<ul>
+<li>이해가 쉽고</li>
+<li>빠르게 배울 수 있고</li>
+<li>매우 정확(미세조정없이도)하기 떄문</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>랜덤포레스트(CART classification and regression trees알고리즘에서 발전)</p>
+<ul>
+<li>sample data 조정하여 정확성 높인 boosting 알고리즘 등장</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SDL기업: RDBMS구현을 어셈블리어로 성공 $\rightarrow$ 오라클 $\rightarrow$ Rollback segment 기술(독보적!)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>하둡Hadoop - 더그 커틴Doug Cutting</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R - 로스 이하카Ross Ihaka, 로버트 젠틀맨Robert Gentleman</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>해들리 위컴Hadley Wickham</p>
+<ul>
+<li>Practical tools for exploring data and models(<a href="http://had.co.nz/thesis/practical-tools-hadley-wickham.pdf">http://had.co.nz/thesis/practical-tools-hadley-wickham.pdf</a>)<ul>
+<li>데이터 전처리 위한 reshape</li>
+<li>시각화 위한 ggplot</li>
+</ul>
+</li>
+<li>데이터분석용패키지 tidyverse</li>
+<li>ggplot2는 리랜드 윌킨슨의 The grammar of graphics 시각화철학을 R로 구현</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the website for “R for Data Science”</p>
+<ul>
+<li>
+<a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>
+the on-line version of work-in-progress 3rd edition of “ggplot2: elegant graphics for data analysis” published by Springer.</li>
+<li>
+<a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a>
+the website for 2nd edition of “Advanced R”,</li>
+<li>
+<a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>
+R packages by Hadley Wickham and Jenny Bryan. </li>
+<li><a href="https://r-pkgs.org/">https://r-pkgs.org/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3권">
+<a class="anchor" href="#3%EA%B6%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>3권<a class="anchor-link" href="#3%EA%B6%8C"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>알파고 만든 데미스하사비스Demis Hassabis</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>알고리즘 대회 이미지- ILSVRC 이미지넷 대회, 2등한 VGG!</p>
+<ul>
+<li>VGG 팀 지도교수 앤드류 지세르만Andrew Zisserman "Multiple View Geometry" with Richard Hartley</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이안 굿 펠로우Ian Goodfellow - GAN(Generative Adversarial Network)</p>
+<ul>
+<li>두 개의 신경망을 서로 경쟁시키면서 이미지를 만들어냄</li>
+<li>가짜 이미지를 만드는 생성자와 이미지의 진위를 판별하려는 식별자가 서로 경쟁을 반복하면 가짜 이미지의 정밀도가 높아지도록 만드는 것</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>조경현교수(제프리 힌튼의 2018 주목한 인물 50에 듦)</p>
+<ul>
+<li>딥러닝을 이용한 자연어 처리 분야 최고연구자</li>
+<li>GRU(Gated Recurrent Unit)제시, LSTM의 발전된 버전(RNN 개선한 모댈)</li>
+<li>신경기계번역NMT에 사용되는 핵심기술<ul>
+<li>단어 하나하나 따로 번역하지 않고 문장의 전체 맥락을 파악한 후 번역하는 기술로 자연스럽게 번역할 수 있다는 장점</li>
+<li>기존의 통계적 기계 번역 SMT에서 NMT로 전환하게 되는 계기</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>딥러닝 강의 CS231n(<a href="http://cs231n.stanford.edu/">http://cs231n.stanford.edu/</a>)</p>
+<ul>
+<li>딥러닝 CNN을 황용한 영상 이미지 인식 수업</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>설명 가능한 인공지능 Explainable Artificial Intelligence (XAI)</p>
+<ul>
+<li>인공지능을 설명할 수 있게 만들어 많은 모델에 적용할 수 있게끔.</li>
+<li>논의가 한창..</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>뉴럴 스타일 트랜스퍼(Neural Style Transfer, NST)(<a href="https://deepart.io/">https://deepart.io/</a>)</p>
+<ul>
+<li><a href="https://www.tensorflow.org/tutorials/generative/style_transfer">https://www.tensorflow.org/tutorials/generative/style_transfer</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CIFAR(Canadian Institute For Advanced Research); 캐나다에 있는 인공지능 연구하는 정부 기관</p>
+<ul>
+<li><a href="https://cifar.ca/">https://cifar.ca/</a></li>
+<li>단기적인 성과에 대한 조건 없이 인공지능 연구를 전폭적으로 지원하고</li>
+<li>매 해 지원하는 350명의 연구원 중 절반은 국적에 상관없이 선정</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>AIhub(<a href="https://aihub.or.kr/">https://aihub.or.kr/</a>)</p>
+<ul>
+<li>인공지능 학습용 데이터를 법국가적으로 모으는 곳</li>
+<li>시초는 UCI Machine Learning Repository(<a href="https://archive.ics.uci.edu/ml/index.php">https://archive.ics.uci.edu/ml/index.php</a>)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>자주 사용되는 AI 데이터 셋</p>
+<ul>
+<li>와인 품질 데이터 셋(<a href="https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009">https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009</a>)</li>
+<li>보스턴 집값 데이터 셋Boston housing price data set(<a href="https://www.kaggle.com/vikrishnan/boston-house-prices">https://www.kaggle.com/vikrishnan/boston-house-prices</a>)</li>
+<li>피마 인디언 당뇨병 데이터 셋(<a href="https://www.kaggle.com/uciml/pima-indians-diabetes-database">https://www.kaggle.com/uciml/pima-indians-diabetes-database</a>)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>넷플릭스 추천 알고리즘</p>
+<ul>
+<li>넷플릭스 Price-&gt;본 딴 Kaggle</li>
+<li>씨네매치</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>앤디 제시Andy Jassy</p>
+<ul>
+<li>AWS, 전세계 클라우드 시장 1위</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Stackoverflow(<a href="https://stackoverflow.com/">https://stackoverflow.com/</a>)</p>
+<ul>
+<li>개발자들의 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>캐글(<a href="https://www.kaggle.com/">https://www.kaggle.com/</a>)</p>
+<ul>
+<li>빅데이터 분석대회 플랫폼</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/2022/01/16/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

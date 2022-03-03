@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>데이터 과학자의 사고법 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="데이터 과학자의 사고법" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="김용대" />
+<meta property="og:description" content="김용대" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98%20%EC%82%AC%EA%B3%A0%EB%B2%95/2021/12/31/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98-%EC%82%AC%EA%B3%A0%EB%B2%95.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98%20%EC%82%AC%EA%B3%A0%EB%B2%95/2021/12/31/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98-%EC%82%AC%EA%B3%A0%EB%B2%95.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-31T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"김용대","url":"https://seoyeonc.github.io/chch/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98%20%EC%82%AC%EA%B3%A0%EB%B2%95/2021/12/31/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98-%EC%82%AC%EA%B3%A0%EB%B2%95.html","@type":"BlogPosting","headline":"데이터 과학자의 사고법","dateModified":"2021-12-31T00:00:00-06:00","datePublished":"2021-12-31T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98%20%EC%82%AC%EA%B3%A0%EB%B2%95/2021/12/31/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98-%EC%82%AC%EA%B3%A0%EB%B2%95.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">데이터 과학자의 사고법</h1><p class="page-description">김용대</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-12-31T00:00:00-06:00" itemprop="datePublished">
+        Dec 31, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#데이터 과학자의 사고법">데이터 과학자의 사고법</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2021-12-31-데이터과학자의 사고법.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2021-12-31-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98+%EC%82%AC%EA%B3%A0%EB%B2%95.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2021-12-31-데이터과학자의 사고법.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1부-데이터-리터러시">1부 데이터 리터러시 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1장-역사-속의-데이터">1장 역사 속의 데이터 </a></li>
+<li class="toc-entry toc-h4"><a href="#2장-불확실한-세상을-위한-언어">2장 불확실한 세상을 위한 언어 </a></li>
+<li class="toc-entry toc-h4"><a href="#3장-확률,-그-오묘함에-대하여">3장 확률, 그 오묘함에 대하여 </a></li>
+<li class="toc-entry toc-h4"><a href="#4장-종-모양의-데이터">4장 종 모양의 데이터 </a></li>
+<li class="toc-entry toc-h4"><a href="#5장-요약-본능과-본능의-이해">5장 요약 본능과 본능의 이해 </a></li>
+<li class="toc-entry toc-h4"><a href="#6장-합리적으로-판단하기">6장 합리적으로 판단하기 </a></li>
+<li class="toc-entry toc-h4"><a href="#7장-관계의-이해">7장 관계의 이해 </a></li>
+<li class="toc-entry toc-h4"><a href="#8장-2년차-징크스는-왜-생길까?">8장 2년차 징크스는 왜 생길까? </a></li>
+<li class="toc-entry toc-h4"><a href="#9장-왜-내-차선만-막히나요?">9장 왜 내 차선만 막히나요? </a></li>
+<li class="toc-entry toc-h4"><a href="#10장-걱정은-팔자가-아니고-과학입니다.">10장 걱정은 팔자가 아니고 과학입니다. </a></li>
+<li class="toc-entry toc-h4"><a href="#11장-술-취한-사람-이해하기">11장 술 취한 사람 이해하기 </a></li>
+<li class="toc-entry toc-h4"><a href="#12장-미래-예측하기">12장 미래 예측하기 </a></li>
+<li class="toc-entry toc-h4"><a href="#13장-너의-마음을-보여줘">13장 너의 마음을 보여줘 </a></li>
+<li class="toc-entry toc-h4"><a href="#14장-로또에-당첨되는-법">14장 로또에 당첨되는 법 </a></li>
+<li class="toc-entry toc-h4"><a href="#15장-목표-없는-정보의-허무함">15장 목표 없는 정보의 허무함 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#2부-데이터의-활약상">2부 데이터의 활약상 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1장-데이터의-발자취">1장 데이터의 발자취 </a></li>
+<li class="toc-entry toc-h4"><a href="#2장-네번째-과학">2장 네번째 과학 </a></li>
+<li class="toc-entry toc-h4"><a href="#3장-건강한-사회를-위하여">3장 건강한 사회를 위하여 </a></li>
+<li class="toc-entry toc-h4"><a href="#4장-백신을-위한-과학">4장 백신을 위한 과학 </a></li>
+<li class="toc-entry toc-h4"><a href="#5장-공동체를-위하여">5장 공동체를 위하여 </a></li>
+<li class="toc-entry toc-h4"><a href="#6장-민주주의와-선거">6장 민주주의와 선거 </a></li>
+<li class="toc-entry toc-h4"><a href="#7장-금융과-신용">7장 금융과 신용 </a></li>
+<li class="toc-entry toc-h4"><a href="#8장-광고-속-데이터과학">8장 광고 속 데이터과학 </a></li>
+<li class="toc-entry toc-h4"><a href="#9장-제조업을-위한-데이터과학">9장 제조업을 위한 데이터과학 </a></li>
+<li class="toc-entry toc-h4"><a href="#10장-프라이버시-보호">10장 프라이버시 보호 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#3부-인공지능">3부 인공지능 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1장-인공지능의-역사">1장 인공지능의 역사 </a></li>
+<li class="toc-entry toc-h4"><a href="#2장-알파고의-탄생">2장 알파고의 탄생 </a></li>
+<li class="toc-entry toc-h4"><a href="#3장-인공지능의-활약과-부작용">3장 인공지능의 활약과 부작용 </a></li>
+<li class="toc-entry toc-h4"><a href="#4장-인공지능을-인간답게">4장 인공지능을 인간답게 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-12-31-데이터과학자의 사고법.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1부-데이터-리터러시">
+<a class="anchor" href="#1%EB%B6%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A6%AC%ED%84%B0%EB%9F%AC%EC%8B%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>1부 데이터 리터러시<a class="anchor-link" href="#1%EB%B6%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A6%AC%ED%84%B0%EB%9F%AC%EC%8B%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1장-역사-속의-데이터">
+<a class="anchor" href="#1%EC%9E%A5-%EC%97%AD%EC%82%AC-%EC%86%8D%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 역사 속의 데이터<a class="anchor-link" href="#1%EC%9E%A5-%EC%97%AD%EC%82%AC-%EC%86%8D%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2008년 금융위기 3가지 원인</p>
+<ul>
+<li>저소득층 시장의 신용을 높게 평가한 점<ul>
+<li>거절자 추론(reject inference): 모집단을 대표하지 못하는 표본</li>
+</ul>
+</li>
+<li>평가 기법을 잘 아는 금융회사<ul>
+<li>인위적 평가 조정 가능, 잘못된 지점(부도의 평가 등)에 집중</li>
+</ul>
+</li>
+<li>금융 상품의 공정 평가가 어려운 신용평가 기관</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2장-불확실한-세상을-위한-언어">
+<a class="anchor" href="#2%EC%9E%A5-%EB%B6%88%ED%99%95%EC%8B%A4%ED%95%9C-%EC%84%B8%EC%83%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%96%B8%EC%96%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>2장 불확실한 세상을 위한 언어<a class="anchor-link" href="#2%EC%9E%A5-%EB%B6%88%ED%99%95%EC%8B%A4%ED%95%9C-%EC%84%B8%EC%83%81%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%96%B8%EC%96%B4"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 과학의 목적: 데이터로부터 불확실한 사건의 확률을 구하는 것</p>
+<ul>
+<li>확률은 불확실성을 표현하는 언어이자 나아가 데이터 과학의 언어!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>몬티홀 문제:</p>
+<ul>
+<li>
+<p>Suppose you’re on a game show, and you’re given the choice of three doors. Behind one door is a car, behind the others, goats. You pick a door, say #1, and the host, who knows what’s behind the doors, opens another door, say #3, which has a goat. He says to you, "Do you want to pick door #2?" Is it to your advantage to switch your choice of doors?</p>
+</li>
+<li>
+<p>당신이 한 게임 쇼에 참여하여 세 문들 중 하나를 고를 기회를 가졌다고 생각해봐라. 한 문 뒤에는 자동차가 있으며, 다른 두 문 뒤에는 염소가 있다. 당신은 1번 문을 고르고, 문 뒤에 무엇이 있는지 아는 사회자는 염소가 있는 3번 문을 연다. 그는 당신에게 "2번 문을 고르고 싶습니까?"라고 묻는다. 당신의 선택을 바꾸는 것은 이득이 되는가?</p>
+</li>
+</ul>
+<p>ref: <a href="https://namu.wiki/w/%EB%AA%AC%ED%8B%B0%20%ED%99%80%20%EB%AC%B8%EC%A0%9C">https://namu.wiki/w/%EB%AA%AC%ED%8B%B0%20%ED%99%80%20%EB%AC%B8%EC%A0%9C</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3장-확률,-그-오묘함에-대하여">
+<a class="anchor" href="#3%EC%9E%A5-%ED%99%95%EB%A5%A0,-%EA%B7%B8-%EC%98%A4%EB%AC%98%ED%95%A8%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>3장 확률, 그 오묘함에 대하여<a class="anchor-link" href="#3%EC%9E%A5-%ED%99%95%EB%A5%A0,-%EA%B7%B8-%EC%98%A4%EB%AC%98%ED%95%A8%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A: 우리가 궁극적으로 알고자 하는 것</p>
+<p>B: 데이터로부터 얻는 정보</p>
+<p>P(A|B)와 A의 차이로 B가 미치는 영향을 조사</p>
+<p>조건부 확률은 정확히 계산이 맞아 떨어지진 않는 실제 상황~</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4장-종-모양의-데이터">
+<a class="anchor" href="#4%EC%9E%A5-%EC%A2%85-%EB%AA%A8%EC%96%91%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4장 종 모양의 데이터<a class="anchor-link" href="#4%EC%9E%A5-%EC%A2%85-%EB%AA%A8%EC%96%91%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 = 정보 + 잡음</p>
+<p>D = I + N $\to$ 정규분포</p>
+<p>잡음이 많은 데이터를 분석할 분석 방법의 필요성! 그것을 찾는 것이 과제!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5장-요약-본능과-본능의-이해">
+<a class="anchor" href="#5%EC%9E%A5-%EC%9A%94%EC%95%BD-%EB%B3%B8%EB%8A%A5%EA%B3%BC-%EB%B3%B8%EB%8A%A5%EC%9D%98-%EC%9D%B4%ED%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>5장 요약 본능과 본능의 이해<a class="anchor-link" href="#5%EC%9E%A5-%EC%9A%94%EC%95%BD-%EB%B3%B8%EB%8A%A5%EA%B3%BC-%EB%B3%B8%EB%8A%A5%EC%9D%98-%EC%9D%B4%ED%95%B4"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>평균과 변동 - 원인 파악을 통한 효과 제거 및 변동 감소 - 변동 파악의 중요성</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="6장-합리적으로-판단하기">
+<a class="anchor" href="#6%EC%9E%A5-%ED%95%A9%EB%A6%AC%EC%A0%81%EC%9C%BC%EB%A1%9C-%ED%8C%90%EB%8B%A8%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6장 합리적으로 판단하기<a class="anchor-link" href="#6%EC%9E%A5-%ED%95%A9%EB%A6%AC%EC%A0%81%EC%9C%BC%EB%A1%9C-%ED%8C%90%EB%8B%A8%ED%95%98%EA%B8%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>통계적 가설 검정의 오류를 줄이기 위한 합리적 판단의 중요성, 사회적 지식의 필요성.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="7장-관계의-이해">
+<a class="anchor" href="#7%EC%9E%A5-%EA%B4%80%EA%B3%84%EC%9D%98-%EC%9D%B4%ED%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>7장 관계의 이해<a class="anchor-link" href="#7%EC%9E%A5-%EA%B4%80%EA%B3%84%EC%9D%98-%EC%9D%B4%ED%95%B4"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>상관관계는 인과관계로 이어지지 않는다.</p>
+<p>데이터 과학만으로 모든 인과관계를 밝혀내기는 쉽지 않다.</p>
+<p>전문적인 지식을 이용한 판단의 중요성!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="8장-2년차-징크스는-왜-생길까?">
+<a class="anchor" href="#8%EC%9E%A5-2%EB%85%84%EC%B0%A8-%EC%A7%95%ED%81%AC%EC%8A%A4%EB%8A%94-%EC%99%9C-%EC%83%9D%EA%B8%B8%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>8장 2년차 징크스는 왜 생길까?<a class="anchor-link" href="#8%EC%9E%A5-2%EB%85%84%EC%B0%A8-%EC%A7%95%ED%81%AC%EC%8A%A4%EB%8A%94-%EC%99%9C-%EC%83%9D%EA%B8%B8%EA%B9%8C?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>평균으로의 회귀</p>
+<ul>
+<li>
+<p>평균으로의 회귀(영어: regression toward the mean)는 예언된 변인에서 극단적인 값을 가져야 될 사람이 덜 극단적인 예언된 특성을 지니는 경향성을 말한다. 평균을 향한 회귀, 평균회귀, 회귀효과라고도 한다.</p>
+</li>
+<li>
+<p>일반적으로 두 변수간 상관이 아주 크지 않을 경우, 한 변수에서 극단치를 보인 사례가 다른 변수에서는 덜 극단적인, 즉 평균에 가까운 값을 보이는 통계적 성질이 있다. 회귀분석이 어원이 된 것이지만, 회귀분석은 통계분석방법이고 평균회귀는 통계적 법칙을 이르는 것으로 의미는 같지 않다.</p>
+</li>
+<li>
+<p>ref: <a href="https://ko.m.wikipedia.org/wiki/%ED%8F%89%EA%B7%A0%EC%9C%BC%EB%A1%9C%EC%9D%98_%ED%9A%8C%EA%B7%80">https://ko.m.wikipedia.org/wiki/%ED%8F%89%EA%B7%A0%EC%9C%BC%EB%A1%9C%EC%9D%98_%ED%9A%8C%EA%B7%80</a></p>
+</li>
+<li>
+<p>경험에 의존한 판단은 피해야 하며 이는 경험이 필요없다는 뜻이 아니라 경험 해석이 어렵기 때문이다.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="9장-왜-내-차선만-막히나요?">
+<a class="anchor" href="#9%EC%9E%A5-%EC%99%9C-%EB%82%B4-%EC%B0%A8%EC%84%A0%EB%A7%8C-%EB%A7%89%ED%9E%88%EB%82%98%EC%9A%94?" aria-hidden="true"><span class="octicon octicon-link"></span></a>9장 왜 내 차선만 막히나요?<a class="anchor-link" href="#9%EC%9E%A5-%EC%99%9C-%EB%82%B4-%EC%B0%A8%EC%84%A0%EB%A7%8C-%EB%A7%89%ED%9E%88%EB%82%98%EC%9A%94?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 편향으로 인한 왜곡된 결과!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10장-걱정은-팔자가-아니고-과학입니다.">
+<a class="anchor" href="#10%EC%9E%A5-%EA%B1%B1%EC%A0%95%EC%9D%80-%ED%8C%94%EC%9E%90%EA%B0%80-%EC%95%84%EB%8B%88%EA%B3%A0-%EA%B3%BC%ED%95%99%EC%9E%85%EB%8B%88%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>10장 걱정은 팔자가 아니고 과학입니다.<a class="anchor-link" href="#10%EC%9E%A5-%EA%B1%B1%EC%A0%95%EC%9D%80-%ED%8C%94%EC%9E%90%EA%B0%80-%EC%95%84%EB%8B%88%EA%B3%A0-%EA%B3%BC%ED%95%99%EC%9E%85%EB%8B%88%EB%8B%A4."> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>극단치 이론: 최대값과 최소값에 관심을 둔 이론</p>
+<ul>
+<li>최대값, 최소값은 데이터에 관계없이 특정한 히스토그램(극단값 분포)을 가진다.</li>
+<li>평균은 중심극한정리를 통해 정규분포를 따름</li>
+<li>최대값, 최소값은 극단값 분포를 따름</li>
+<li>극단값은 존재하는 데이터이기 때문에 절대! 불필요하진 않을 듯!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="11장-술-취한-사람-이해하기">
+<a class="anchor" href="#11%EC%9E%A5-%EC%88%A0-%EC%B7%A8%ED%95%9C-%EC%82%AC%EB%9E%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>11장 술 취한 사람 이해하기<a class="anchor-link" href="#11%EC%9E%A5-%EC%88%A0-%EC%B7%A8%ED%95%9C-%EC%82%AC%EB%9E%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>임의보행</p>
+<ul>
+<li>잡음에 대한 이해는 데이터 과학의 핵심</li>
+</ul>
+<p>클라이브 그레인저(Clive Granger): 임의보행으로 경제 데이터 분석 방법 연구</p>
+<ul>
+<li>Granger was awarded the Nobel Memorial Prize in Economic Sciences in 2003 in recognition of the contributions that he and his co-winner, Robert F. Engle, had made to the analysis of time series data. This work fundamentally changed the way in which economists analyse financial and macroeconomic data.</li>
+<li><a href="https://en.m.wikipedia.org/wiki/Clive_Granger">https://en.m.wikipedia.org/wiki/Clive_Granger</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="12장-미래-예측하기">
+<a class="anchor" href="#12%EC%9E%A5-%EB%AF%B8%EB%9E%98-%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>12장 미래 예측하기<a class="anchor-link" href="#12%EC%9E%A5-%EB%AF%B8%EB%9E%98-%EC%98%88%EC%B8%A1%ED%95%98%EA%B8%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>미래 예측- 통계학의 회귀분석이나 기계학습에서의 지도학습은 예측을 위한 방법론</p>
+<p>인공지능과 공존하기 위해 인간에게 필요한 것은 무엇일까?</p>
+<ul>
+<li>반복적인 일을 잘하고 감정이 없는 인공지능,</li>
+<li>창의적인 생각으로 접근 가능한 감정있는 인간,</li>
+<li>장단점을 적절히 조화하여 공존하는 방법을 모색하는 것이 필요하겠다!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="13장-너의-마음을-보여줘">
+<a class="anchor" href="#13%EC%9E%A5-%EB%84%88%EC%9D%98-%EB%A7%88%EC%9D%8C%EC%9D%84-%EB%B3%B4%EC%97%AC%EC%A4%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>13장 너의 마음을 보여줘<a class="anchor-link" href="#13%EC%9E%A5-%EB%84%88%EC%9D%98-%EB%A7%88%EC%9D%8C%EC%9D%84-%EB%B3%B4%EC%97%AC%EC%A4%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>표본조사</p>
+<ul>
+<li>대표성의 중요도</li>
+<li>공정한 데이터 선정을 위한 무작위 추출</li>
+</ul>
+<ul>
+<li>사회가 선진화될수록 양질의 통계를 요구하는 분야는 늘어남!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="14장-로또에-당첨되는-법">
+<a class="anchor" href="#14%EC%9E%A5-%EB%A1%9C%EB%98%90%EC%97%90-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8A%94-%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>14장 로또에 당첨되는 법<a class="anchor-link" href="#14%EC%9E%A5-%EB%A1%9C%EB%98%90%EC%97%90-%EB%8B%B9%EC%B2%A8%EB%90%98%EB%8A%94-%EB%B2%95"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>다중 비교의 오류: 데이터를 분석하며 원하는 결과가 나올 때까지 계속하다 발생하는 오류</p>
+<ul>
+<li>데이터는 유한하기 때문에</li>
+<li>확인 분석을 통해 오류를 피하자</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="15장-목표-없는-정보의-허무함">
+<a class="anchor" href="#15%EC%9E%A5-%EB%AA%A9%ED%91%9C-%EC%97%86%EB%8A%94-%EC%A0%95%EB%B3%B4%EC%9D%98-%ED%97%88%EB%AC%B4%ED%95%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>15장 목표 없는 정보의 허무함<a class="anchor-link" href="#15%EC%9E%A5-%EB%AA%A9%ED%91%9C-%EC%97%86%EB%8A%94-%EC%A0%95%EB%B3%B4%EC%9D%98-%ED%97%88%EB%AC%B4%ED%95%A8"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>빅데이터와 세분화의 함정</p>
+<ul>
+<li>빅데이터는 '목표없이 모이는 자료'</li>
+<li>또한, 빅데이터는 성공한 연구 결과만 기록될 수 있다.</li>
+</ul>
+<ul>
+<li>데이터 자체를 그저 믿기보다 합라적인 사고와 정확한 판단, 사회적 지식이 요구된다!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>벤포드 법칙</strong></p>
+<p>벤포드의 법칙(Benford's law)은 실세계에서 존재하는 많은 수치 데이터의 10진법 값에서 수의 첫째 자리의 확률 분포를 관찰한 결과, 첫째 자리 숫자가 작을 확률이 크다는 법칙이다. 벤포드의 법칙을 따르는 데이터 집합에 등장하는 수들의 첫째 자리가 1일 확률은 약 30%인 데 반해, 9가 첫째 자리로 등장할 확률은 5% 정도밖에 되지 않는다. 만약 1부터 9까지의 숫자가 수의 맨 앞자리에 등장할 확률이 균등분포를 따른다면, 각 숫자는 약 11.1%의 확률로 맨 앞자리에 등장하여야 할 것이다. 벤포드의 법칙은 또한 수의 둘째 이후 자리의 확률 분포나 숫자 조합에 대한 확률 분포도 예측할 수 있다.</p>
+<p>
+$$P(d)=log_{10}(1+\frac{1}{d})$$
+</p>
+<ul>
+<li><a href="https://ko.m.wikipedia.org/wiki/%EB%B2%A4%ED%8F%AC%EB%93%9C%EC%9D%98_%EB%B2%95%EC%B9%99">https://ko.m.wikipedia.org/wiki/%EB%B2%A4%ED%8F%AC%EB%93%9C%EC%9D%98_%EB%B2%95%EC%B9%99</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2부-데이터의-활약상">
+<a class="anchor" href="#2%EB%B6%80-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%ED%99%9C%EC%95%BD%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>2부 데이터의 활약상<a class="anchor-link" href="#2%EB%B6%80-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%ED%99%9C%EC%95%BD%EC%83%81"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1장-데이터의-발자취">
+<a class="anchor" href="#1%EC%9E%A5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B0%9C%EC%9E%90%EC%B7%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 데이터의 발자취<a class="anchor-link" href="#1%EC%9E%A5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B0%9C%EC%9E%90%EC%B7%A8"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터의 발자취</p>
+<ul>
+<li>흥미로운 statistic의 어원<ul>
+<li>국가 state + -ista 장인 = statista (이탈리아어)</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>빅데이터가 세계를 열은 건 사실이지만.. 현재 개인정보 침해 들으로 뭇매 맞고 있는 것 또한 사실!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2장-네번째-과학">
+<a class="anchor" href="#2%EC%9E%A5-%EB%84%A4%EB%B2%88%EC%A7%B8-%EA%B3%BC%ED%95%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>2장 네번째 과학<a class="anchor-link" href="#2%EC%9E%A5-%EB%84%A4%EB%B2%88%EC%A7%B8-%EA%B3%BC%ED%95%99"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>꿈 촬영에서 중력파 검출까지_ 과학에서 데이터의 역할을 알 수 있었던 장</p>
+<ul>
+<li>과학의 발전 단계<ul>
+<li>1단계 실험과학: 실험을 통하여 새로운 과학적 사실을 파악</li>
+<li>2단계 이론과학: 과학적 사실에 대한 이론을 개발하는 방법</li>
+<li>3단계 계산과학: 과학의 복잡계 현상을 복잡한 계산 모형을 통하여 설명하고자 하는 방법</li>
+<li>4단계 데이터 과학: 데이터를 통해 새로운 과학적 사실을 발견</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/watch?v=yVkxkuSLwUs" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>꿈을 과학적으로 해석하려는 최초의 접근법</p>
+<ul>
+<li>위 영상은 프로이트 관련 기획강연</li>
+<li>지르문트 프로이트_ 꿈의 해석 1900년 출간(하지만 번역본은 많지~)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>꿈을 연구하는 다양한 접근법의 한계 $\to$ 꿈에 관한 객관적 정보를 찾기 어려움</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2011년 이코노미스트에서 버클리대학교 연구진이 빅데이터를 이용하여 개발한 방법론</p>
+<ul>
+<li>원리: 영상 정보와 시각 반응 정보의 관계를 모형화하고, 이 모형을 통해 대뇌피질에서 얻은 반응만 이용해 시각 정보를 재구성하고자 함!</li>
+<li>fMRI: MRI의 동영상 버전~</li>
+<li>여러 사람에게 다양한 영상을 몇 시간 동안 보여주면서 대뇌에서 일어나는 변화를 fMRI로 수집</li>
+<li><strong>fMRI 데이터를 입력으로, 영상을 출력으로 하는 예측 모형을 만듦!!</strong></li>
+</ul>
+<ul>
+<li>참고!!<ul>
+<li><a href="https://news.berkeley.edu/2011/09/22/brain-movies/">https://news.berkeley.edu/2011/09/22/brain-movies/</a></li>
+<li><a href="https://news.berkeley.edu/2011/01/05/functionalmri/">https://news.berkeley.edu/2011/01/05/functionalmri/</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/watch?v=6FsH7RK1S2E" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/nsjDnYxJ0bo" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>버클리 대학교 연구진이 개발한 꿈을 찍는 이 기술은 현재 꿈을 주입하는 단계로 발전하는 중!</p>
+<ul>
+<li>빅데이터가 연 또 다른 새로운 세계</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>중력파 관측소 LIGO(<a href="https://www.ligo.caltech.edu/">https://www.ligo.caltech.edu/</a>) = 중력파 + 우리 주의의 모든 행동(잡음)이 잡힘</p>
+<ul>
+<li>잡음 제거를 위해 클라우드 소싱이 등장(클라우드 소싱crowd+sourcing: 기계학습이나 인공지능에 필요한 데이터를 일반인의 참여를 모으는 법)</li>
+<li>그래비티 스파이gravity spy 프로젝트(<a href="https://www.zooniverse.org/projects/zooniverse/gravity-spy)_%ED%98%84%EC%9E%AC%EC%A7%84%ED%96%89%EC%A4%91">https://www.zooniverse.org/projects/zooniverse/gravity-spy)_현재진행중</a><ul>
+<li>LIGO에서 다양한 잡음 관찰 $\to$ 실험 또는 클라우드 소싱 이용한 잡음 파장 알아내기 $\to$ 기존에 알려진 잡음인지, 새로운 잡음인지 알아내기 $\to$ 중력파 관측</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3장-건강한-사회를-위하여">
+<a class="anchor" href="#3%EC%9E%A5-%EA%B1%B4%EA%B0%95%ED%95%9C-%EC%82%AC%ED%9A%8C%EB%A5%BC-%EC%9C%84%ED%95%98%EC%97%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>3장 건강한 사회를 위하여<a class="anchor-link" href="#3%EC%9E%A5-%EA%B1%B4%EA%B0%95%ED%95%9C-%EC%82%AC%ED%9A%8C%EB%A5%BC-%EC%9C%84%ED%95%98%EC%97%AC"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>건강을 위해 필요</p>
+<ul>
+<li>의학의 3가지 분야 $\to$ 진단/치료/예방</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>개인 맞춤 의료를 위해선 데이터가 중요 $\to$ 생명을 지키는 데이터라 할 수 있지,</li>
+<li>DNA 정보가 우리의 건강과 어떤 관계가 있을까 $\to$ 데이터과학의 핵심적 역할 발휘!<ul>
+<li>DNA 데이터를 분석하면 개인 건강의 차이와 DNA가 어떻게 연관되어 있는지 알 수 있다.</li>
+<li>DNA는 우리 몸의 설계도 같은 역할!</li>
+<li>데이터에서 잡음을 없애고 필요한 정보를 통해 질병을 파악해내고, 예방하기!!</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4장-백신을-위한-과학">
+<a class="anchor" href="#4%EC%9E%A5-%EB%B0%B1%EC%8B%A0%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B3%BC%ED%95%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>4장 백신을 위한 과학<a class="anchor-link" href="#4%EC%9E%A5-%EB%B0%B1%EC%8B%A0%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B3%BC%ED%95%99"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>임상시험</p>
+<ul>
+<li>1상(10명~50명) $\to$ 안전성- 안전하게 투약할 용량을 알아냄</li>
+<li>2상(100명~200명) $\to$ 유효성 - 질병 걸린 자가 대상</li>
+<li>3상(수백~ 수천 명) $\to$ 효과와 안전성 - 3~5년이 걸림!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>중도절단(즉, 시험 중간에 탈락한 시험자들) 분석은 생존분석이 이용된다. $\to$ 3상 임상실험을 위해 꼭 필요</p>
+<ul>
+<li>에드워드 캐플런Edward Kaplan과 폴 마이어Paul Meier의 생존분석Aurvivial Curve (<a href="https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator">https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator</a>)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5장-공동체를-위하여">
+<a class="anchor" href="#5%EC%9E%A5-%EA%B3%B5%EB%8F%99%EC%B2%B4%EB%A5%BC-%EC%9C%84%ED%95%98%EC%97%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>5장 공동체를 위하여<a class="anchor-link" href="#5%EC%9E%A5-%EA%B3%B5%EB%8F%99%EC%B2%B4%EB%A5%BC-%EC%9C%84%ED%95%98%EC%97%AC"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>공동체를 위한 신뢰받는 통계! $\to$ 국가 통계 선진화는 선진국으로 가는 길~</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>BPP(Billion Prices Project): 인터넷 쇼핑몰 가격을 이용해 물가지수 알기, 신뢰도가 높다.</p>
+<ul>
+<li><a href="http://www.thebillionpricesproject.com/">http://www.thebillionpricesproject.com/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="6장-민주주의와-선거">
+<a class="anchor" href="#6%EC%9E%A5-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98%EC%99%80-%EC%84%A0%EA%B1%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6장 민주주의와 선거<a class="anchor-link" href="#6%EC%9E%A5-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98%EC%99%80-%EC%84%A0%EA%B1%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>선거를 위한 데이터 과학 $\to$ 여론조사의 한계를 뛰어넘는 데이터</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>2012년 본격적 빅데이터 기법을 선거에 적용한 오바마 캠프의 개인 맞춤형 정책 홍보</p>
+<ul>
+<li>데이터베이스 유전자 등록데이터베이스</li>
+<li>민간업체 데이터베이스(액시엄Acxiom, 인포USA_infoUSA 등)</li>
+<li>자원봉사자 입력 정보</li>
+<li>How Obama’s Team Used Big Data to Rally Voters(<a href="https://www.technologyreview.com/2012/12/19/114510/how-obamas-team-used-big-data-to-rally-voters/">https://www.technologyreview.com/2012/12/19/114510/how-obamas-team-used-big-data-to-rally-voters/</a>)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="7장-금융과-신용">
+<a class="anchor" href="#7%EC%9E%A5-%EA%B8%88%EC%9C%B5%EA%B3%BC-%EC%8B%A0%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>7장 금융과 신용<a class="anchor-link" href="#7%EC%9E%A5-%EA%B8%88%EC%9C%B5%EA%B3%BC-%EC%8B%A0%EC%9A%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>금융시장 발전을 위한 금융시장 안정화 신성장 등이 금융 사업의 생존 문제가 됌</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>대출자의 신용평가 $\to$ 은행의 핵심!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>은행 건전성: 은행이 대출해준 개인이나 기업의 신용상태</p>
+<ul>
+<li>신용 좋은 개인, 기업에게만 대출한다면 은행 건전성이 높아지겠지?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>미국 회사 렌도Lenddo의 sns를 이용한 신용평가(<a href="https://deliverypdf.ssrn.com/delivery.php?ID=020102027024074107120117065086016014122017071012062030101002076122113066067007115029056029020062102033001067100031083119121114015072091036076109088006001028064064067085066040013001065075003109113099116065101103113121079002101089064113065095022066003072&amp;EXT=pdf&amp;INDEX=TRUE">https://deliverypdf.ssrn.com/delivery.php?ID=020102027024074107120117065086016014122017071012062030101002076122113066067007115029056029020062102033001067100031083119121114015072091036076109088006001028064064067085066040013001065075003109113099116065101103113121079002101089064113065095022066003072&amp;EXT=pdf&amp;INDEX=TRUE</a>)</p>
+<ul>
+<li>SNS 상에서 구축한 평판 정보를 활용해 개인신용평가를 하고 이를 기반으로 소액대출을 제공하는 업체,</li>
+<li>주요 고객은 대출 상환 능력은 있지만 거래 이력이 없어 전통적인 금융회사에서 대출이 쉽지 않은 신흥국 중산층</li>
+<li>2011년 3월 서비스를 시작해 필리핀, 콜롬비아, 멕시코 등에서 사업 영위</li>
+<li>신용평가를 위해 SNS 계정 수, 해당 계정의 사용 기간, 친구 수, 일반 커뮤니티, 트러스티드 네트워크 등 이용</li>
+<li>이머징 국가의 금융 소비자들에게 한달 월급 정도의 소액대출을 실행해줌으로써 치역적 특성과 결합한 소셜 미디어의 확장성을 보여주는 사례로 평가받고 있음</li>
+<li>대출 서비스가 지원되는 필리핀과 콜롬비아에서는 금융소비자 1인당 400~800 달러 상당의 대출이 이뤄지고 있으며, 주된 대출 목적은 교육비이고, 대출 상환율은 95%에 달하는 것으로 파악됌.</li>
+<li><a href="https://www.mk.co.kr/news/economy/view/2020/06/573304/">https://www.mk.co.kr/news/economy/view/2020/06/573304/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 기반의 위험 분석</p>
+<ul>
+<li>제이피 모건의 부동산 시장 가격 분석</li>
+<li>산탐의 보험 사기 탐지 시스템</li>
+<li>프로그레시브- 운전한만큼 지불pay as you drive</li>
+<li>어슈어런트 솔루션스- 콜센터에 전화한 고객에 적합한 상담원 실시간 배정<ul>
+<li>음성인식으로 텍스트 구현, 텍스트 마이닝을 통한 정밀추론</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="8장-광고-속-데이터과학">
+<a class="anchor" href="#8%EC%9E%A5-%EA%B4%91%EA%B3%A0-%EC%86%8D-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>8장 광고 속 데이터과학<a class="anchor-link" href="#8%EC%9E%A5-%EA%B4%91%EA%B3%A0-%EC%86%8D-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>베스트 셀러도 데이터가 결정하는 시대</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>추천 시스템recommendation system: 고객 맞춤형 추천을 위하여 아마존에서 사용하는 데이터 분석 알고리즘</p>
+<ul>
+<li>내용 기반 추천: 상품 내용 사이의 관계를 파악하여 과거에 구매한 상품과 비슷한 내용의 상품을 고객에게 추천해주는 방법</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="9장-제조업을-위한-데이터과학">
+<a class="anchor" href="#9%EC%9E%A5-%EC%A0%9C%EC%A1%B0%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>9장 제조업을 위한 데이터과학<a class="anchor-link" href="#9%EC%9E%A5-%EC%A0%9C%EC%A1%B0%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>커피믹스에서 데이터</p>
+<ul>
+<li>배합 비율을 어떻게 할 것인가?</li>
+<li>크림은? 원두는? 설탕은?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>김장에서의 데이터</p>
+<ul>
+<li>모든 재료의 최적 조합은 무엇일까?</li>
+<li>실험계획법을 통해 알아보기</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>불량의 원인을 찾자!</p>
+<ul>
+<li>기계가 고장 날 확률 등으을 계산</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>저번 특강 내용 _ LG CNS 분석 1팀 정환식 책임님</strong></p>
+<ul>
+<li>과정: 설계 $\to$ 분석 $\to$ 예측 $\to$ 설명 $\to$ 방안 도출</li>
+<li>스마트 팩토리(품질 환경, 설비유지): 어떻게 자동화하고 지능화할 것인가.</li>
+<li>SCM Supply Chain Management 생산량 관리 계획의 효율성</li>
+<li>유통</li>
+<li>AI</li>
+<li>Technology sencing: 자동으로 기술찾고 동향을 찾는!</li>
+<li>통합품질분석</li>
+<li>설비예지 보넞 : 어느 주기로 설비를 관리할지? 등)</li>
+<li>에너지 관리 최적화</li>
+<li>Techsencing : 텍스트를 마이닝! $\to$ 과정이 중요하겠다!</li>
+<li>통합 품장 $\to$ 제품의 완성도(정상/불량 예측, 방지도 중요!)</li>
+<li>설비 loss: 한 시점에 발생하는 event 있다면 가동~ 문제까지의 시점을 이용해 찾기</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10장-프라이버시-보호">
+<a class="anchor" href="#10%EC%9E%A5-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-%EB%B3%B4%ED%98%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>10장 프라이버시 보호<a class="anchor-link" href="#10%EC%9E%A5-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%8B%9C-%EB%B3%B4%ED%98%B8"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>다양한 익명화(원베이터 변형) 종류</p>
+<ul>
+<li>동형 암호Homorphic Encryption: 데이터의 평균, 분산 등을 암호화한 상태에서 구해 프라이버시 안전하게 보호, but 너무 많은 계산량</li>
+<li>연합학습Federated Learning: 각각의 서버가 중앙서버에 결과 송출, but 그 결과 이외에 분석은 불가</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>백신 예방률 =  $(1-\frac{P_{백신}}{p_{no 백신}})\times 100%$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3부-인공지능">
+<a class="anchor" href="#3%EB%B6%80-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>3부 인공지능<a class="anchor-link" href="#3%EB%B6%80-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1장-인공지능의-역사">
+<a class="anchor" href="#1%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EC%97%AD%EC%82%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 인공지능의 역사<a class="anchor-link" href="#1%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%EC%97%AD%EC%82%AC"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>개척기(1952~1956) : 1956년 개최한 다트머스학회, 존 메커시가 처음 제안한 인공지능 개념</li>
+<li>황금기(1956~1974)</li>
+<li>암흑기(1974~1980): 모라백의 역설<ul>
+<li>Moravec’s paradox is a phenomenon surrounding the abilities of AI-powered tools. It observes that tasks humans find complex are easy to teach AI. Compared, that is, to simple, sensorimotor skills that come instinctively to humans.</li>
+<li>In the 1980s, Hans Moravec, Rodney Brooks, Marvin Minsky and others articulated and discussed this AI paradox. As Moravec put it:</li>
+<li>“It is comparatively easy to make computers exhibit adult level performance […] and difficult or impossible to give them the skills of a one-year-old.”</li>
+</ul>
+</li>
+<li>개화기(1980년대): 존홉필드. 데이빗 루멜하트(역전파 알고리즘)</li>
+<li>2000년대~현재 인공지능: 이미지 경젠대회(ILSVRC)에서 제프리 힌턴이 오류를 26% $\to$ 15%로 줄임(빅데이터 수업때!)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>딥러닝 - 데이터 과학의 깊은 이해가 필요하겠다!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2장-알파고의-탄생">
+<a class="anchor" href="#2%EC%9E%A5-%EC%95%8C%ED%8C%8C%EA%B3%A0%EC%9D%98-%ED%83%84%EC%83%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>2장 알파고의 탄생<a class="anchor-link" href="#2%EC%9E%A5-%EC%95%8C%ED%8C%8C%EA%B3%A0%EC%9D%98-%ED%83%84%EC%83%9D"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이세돌 vs 알파고</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>성공할 수를 턴때마다 생각함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3장-인공지능의-활약과-부작용">
+<a class="anchor" href="#3%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%ED%99%9C%EC%95%BD%EA%B3%BC-%EB%B6%80%EC%9E%91%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>3장 인공지능의 활약과 부작용<a class="anchor-link" href="#3%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98-%ED%99%9C%EC%95%BD%EA%B3%BC-%EB%B6%80%EC%9E%91%EC%9A%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이미지 $\to$ 세그먼테이션(객체 나누기) $\to$ 객체 인식</li>
+<li>딥페이크</li>
+<li>통계적 기계 번역 SMT(Statistical machine translation): 확률로 기계 번역?!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>인간도 모르는 인간에 대한 새로운 통찰을 알려주는 시대</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4장-인공지능을-인간답게">
+<a class="anchor" href="#4%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%84-%EC%9D%B8%EA%B0%84%EB%8B%B5%EA%B2%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>4장 인공지능을 인간답게<a class="anchor-link" href="#4%EC%9E%A5-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%84-%EC%9D%B8%EA%B0%84%EB%8B%B5%EA%B2%8C"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>인공지능 윤리문제</p>
+<ul>
+<li>마이크로 소프트 테이tay<ul>
+<li><a href="https://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist">https://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist</a></li>
+</ul>
+</li>
+<li>편견이 없을까? 부당한 편향이 있을 수 있지, 인공지능도 인간에 의한 학습인데 편향이 없을까.(my opinion)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>인공지능 설명하는 방법</p>
+<ul>
+<li>인공지능 개발: 이미 학습된 인공지능 설명</li>
+<li>인공지능 만들기: 인공지능을 학습하는 처음 단계부터 설명</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>보통 예측력이 좋은 인공지능은 설명을 잘 못하는 반면, 설명을 잘하는 인공지능은 예측력이 떨어져 예측력과 설명력을 동시에 확보할 수 있는 대안이 필요하겠다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98%20%EC%82%AC%EA%B3%A0%EB%B2%95/2021/12/31/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%EC%9E%90%EC%9D%98-%EC%82%AC%EA%B3%A0%EB%B2%95.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
