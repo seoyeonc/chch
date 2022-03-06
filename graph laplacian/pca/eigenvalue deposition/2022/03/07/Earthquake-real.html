@@ -1738,11 +1738,9 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>주로 일본</p>
 <ul>
-<li>(38, 142) 이쪽이 일본 동쪽 바다 부근</li>
-<li>(-25.3727, 154.2281)는 오스트레일리아 동쪽</li>
-<li>(44.5180 102.3910 )는 몽골</li>
+<li>남태평양 (37.1557 144.6611, 37.3370 144.2370, 38.5060 141.9000, -7.7270 159.4750, 37.9300 143.8020, 37.9140 143.7640, 37.1057 144.6715, 37.9380 143.5990)</li>
+<li>솔로몬해 (-9.3290 159.1673) 남서태평양 부근</li>
 </ul>
 
 </div>
@@ -1755,7 +1753,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp2"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp2"</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1802,144 +1800,130 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
   </thead>
   <tbody>
     <tr>
-      <th>6035</th>
-      <td>03/27/2011</td>
-      <td>38.4150</td>
-      <td>142.0110</td>
-      <td>6.2</td>
-      <td>2011</td>
-      <td>5.877395</td>
-      <td>-0.997263</td>
-      <td>1.717747e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000440</td>
-      <td>0.000049</td>
-    </tr>
-    <tr>
-      <th>2488</th>
-      <td>12/29/2004</td>
-      <td>38.4550</td>
-      <td>142.0180</td>
-      <td>5.7</td>
-      <td>2004</td>
-      <td>5.877395</td>
-      <td>-0.317614</td>
-      <td>1.717831e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000441</td>
-      <td>0.000049</td>
-    </tr>
-    <tr>
-      <th>8066</th>
-      <td>07/29/2015</td>
-      <td>-25.3727</td>
-      <td>154.2281</td>
-      <td>5.5</td>
-      <td>2015</td>
-      <td>5.877395</td>
-      <td>-0.298247</td>
-      <td>1.873095e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000543</td>
-      <td>0.000016</td>
-    </tr>
-    <tr>
-      <th>3175</th>
-      <td>04/30/2006</td>
-      <td>44.5180</td>
-      <td>102.3910</td>
-      <td>5.7</td>
-      <td>2006</td>
-      <td>5.877395</td>
-      <td>-0.226452</td>
-      <td>-3.598251e-07</td>
-      <td>0.000036</td>
-      <td>-0.000916</td>
-      <td>-0.000052</td>
-    </tr>
-    <tr>
-      <th>6032</th>
-      <td>03/25/2011</td>
-      <td>38.7720</td>
-      <td>141.8800</td>
-      <td>6.2</td>
-      <td>2011</td>
-      <td>5.877395</td>
-      <td>-0.186803</td>
-      <td>1.716144e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000435</td>
-      <td>0.000049</td>
-    </tr>
-    <tr>
-      <th>4135</th>
-      <td>12/25/2007</td>
-      <td>38.5030</td>
-      <td>142.0260</td>
-      <td>6.1</td>
-      <td>2007</td>
-      <td>5.877395</td>
-      <td>-0.174882</td>
-      <td>1.717932e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000442</td>
-      <td>0.000049</td>
-    </tr>
-    <tr>
-      <th>5824</th>
-      <td>03/09/2011</td>
-      <td>38.3150</td>
-      <td>142.4340</td>
-      <td>6.0</td>
-      <td>2011</td>
-      <td>5.877395</td>
-      <td>-0.132229</td>
-      <td>1.720423e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000439</td>
-      <td>0.000052</td>
-    </tr>
-    <tr>
-      <th>964</th>
-      <td>12/02/2001</td>
-      <td>39.4020</td>
-      <td>141.0890</td>
-      <td>6.5</td>
-      <td>2001</td>
-      <td>5.877395</td>
-      <td>-0.123589</td>
-      <td>1.691063e-05</td>
-      <td>-0.000039</td>
-      <td>-0.000493</td>
-      <td>0.000043</td>
-    </tr>
-    <tr>
-      <th>5984</th>
-      <td>03/13/2011</td>
-      <td>38.8490</td>
-      <td>141.8580</td>
+      <th>5202</th>
+      <td>01/17/2010</td>
+      <td>37.9380</td>
+      <td>143.5990</td>
       <td>5.6</td>
-      <td>2011</td>
+      <td>2010</td>
       <td>5.877395</td>
-      <td>-0.110539</td>
-      <td>1.716217e-05</td>
+      <td>0.080330</td>
+      <td>0.000017</td>
       <td>-0.000039</td>
-      <td>-0.000437</td>
-      <td>0.000049</td>
+      <td>-0.000390</td>
+      <td>0.000062</td>
     </tr>
     <tr>
-      <th>6228</th>
-      <td>07/23/2011</td>
-      <td>38.8980</td>
-      <td>141.8150</td>
+      <th>7269</th>
+      <td>10/25/2013</td>
+      <td>37.1057</td>
+      <td>144.6715</td>
+      <td>5.5</td>
+      <td>2013</td>
+      <td>5.877395</td>
+      <td>0.081572</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>-0.000364</td>
+      <td>0.000068</td>
+    </tr>
+    <tr>
+      <th>6863</th>
+      <td>12/07/2012</td>
+      <td>37.9140</td>
+      <td>143.7640</td>
+      <td>6.2</td>
+      <td>2012</td>
+      <td>5.877395</td>
+      <td>0.091564</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>-0.000392</td>
+      <td>0.000063</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>03/11/2011</td>
+      <td>37.9300</td>
+      <td>143.8020</td>
       <td>6.3</td>
       <td>2011</td>
       <td>5.877395</td>
-      <td>-0.090641</td>
-      <td>1.716191e-05</td>
+      <td>0.107747</td>
+      <td>0.000017</td>
       <td>-0.000039</td>
-      <td>-0.000438</td>
-      <td>0.000048</td>
+      <td>-0.000392</td>
+      <td>0.000063</td>
+    </tr>
+    <tr>
+      <th>8589</th>
+      <td>09/14/2016</td>
+      <td>-9.3290</td>
+      <td>159.1673</td>
+      <td>6.0</td>
+      <td>2016</td>
+      <td>5.877395</td>
+      <td>0.119531</td>
+      <td>0.000019</td>
+      <td>-0.000038</td>
+      <td>-0.000063</td>
+      <td>0.000086</td>
+    </tr>
+    <tr>
+      <th>2540</th>
+      <td>01/22/2005</td>
+      <td>-7.7270</td>
+      <td>159.4750</td>
+      <td>6.4</td>
+      <td>2005</td>
+      <td>5.877395</td>
+      <td>0.120563</td>
+      <td>0.000019</td>
+      <td>-0.000038</td>
+      <td>-0.000025</td>
+      <td>0.000091</td>
+    </tr>
+    <tr>
+      <th>3018</th>
+      <td>12/16/2005</td>
+      <td>38.5060</td>
+      <td>141.9000</td>
+      <td>6.0</td>
+      <td>2005</td>
+      <td>5.877395</td>
+      <td>0.123177</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>-0.000428</td>
+      <td>0.000049</td>
+    </tr>
+    <tr>
+      <th>5863</th>
+      <td>03/11/2011</td>
+      <td>37.3370</td>
+      <td>144.2370</td>
+      <td>6.1</td>
+      <td>2011</td>
+      <td>5.877395</td>
+      <td>0.143002</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>-0.000384</td>
+      <td>0.000065</td>
+    </tr>
+    <tr>
+      <th>7267</th>
+      <td>10/25/2013</td>
+      <td>37.1557</td>
+      <td>144.6611</td>
+      <td>7.1</td>
+      <td>2013</td>
+      <td>5.877395</td>
+      <td>0.685526</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>-0.000378</td>
+      <td>0.000068</td>
     </tr>
   </tbody>
 </table>
@@ -2017,10 +2001,14 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>모두 브라질</p>
 <ul>
-<li>(-16,-73) 이 부근이 브라질 서쪽 바다</li>
-<li>나머지는 브라질 내륙 위치</li>
+<li>남대서양 (14.6682 -58.9272)</li>
+<li>브라질 (-7.6060 -71.7220, -8.2950 -71.7380)</li>
+<li>카리브 해 (10.9048 -62.3150, 11.1240 -62.5590) 브라질 위</li>
+<li>볼리비아 (-19.2592 -63.9189)</li>
+<li>콜롬비아 (4.3300 -73.7640)</li>
+<li>콜롬비아 위쪽 부근 (7.0420 -77.8290)</li>
+<li>베네수엘라 (10.4540 -63.4750)</li>
 </ul>
 
 </div>
@@ -2033,7 +2021,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp3"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp3"</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2080,144 +2068,130 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
   </thead>
   <tbody>
     <tr>
-      <th>8324</th>
-      <td>02/16/2016</td>
-      <td>-16.4442</td>
-      <td>-73.6045</td>
-      <td>5.7</td>
-      <td>2016</td>
-      <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.549126</td>
-      <td>-0.001475</td>
-      <td>-5.381920e-07</td>
-      <td>4.126167e-08</td>
-    </tr>
-    <tr>
-      <th>776</th>
-      <td>06/23/2001</td>
-      <td>-16.6450</td>
-      <td>-73.6060</td>
-      <td>5.7</td>
-      <td>2001</td>
-      <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.242379</td>
-      <td>-0.001473</td>
-      <td>-5.381364e-07</td>
-      <td>4.071660e-08</td>
-    </tr>
-    <tr>
-      <th>7839</th>
-      <td>01/17/2015</td>
-      <td>-22.2370</td>
-      <td>-63.1461</td>
+      <th>5200</th>
+      <td>01/15/2010</td>
+      <td>10.4540</td>
+      <td>-63.4750</td>
       <td>5.6</td>
-      <td>2015</td>
+      <td>2010</td>
+      <td>5.877395</td>
+      <td>-0.000006</td>
+      <td>0.068093</td>
+      <td>-0.004054</td>
+      <td>-9.902094e-07</td>
+      <td>9.178107e-06</td>
+    </tr>
+    <tr>
+      <th>431</th>
+      <td>11/08/2000</td>
+      <td>7.0420</td>
+      <td>-77.8290</td>
+      <td>6.5</td>
+      <td>2000</td>
+      <td>5.877395</td>
+      <td>-0.000003</td>
+      <td>0.086172</td>
+      <td>-0.001590</td>
+      <td>-4.565092e-07</td>
+      <td>-1.454736e-06</td>
+    </tr>
+    <tr>
+      <th>4346</th>
+      <td>05/24/2008</td>
+      <td>4.3300</td>
+      <td>-73.7640</td>
+      <td>5.9</td>
+      <td>2008</td>
+      <td>5.877395</td>
+      <td>-0.000004</td>
+      <td>0.091330</td>
+      <td>-0.001757</td>
+      <td>-5.569279e-07</td>
+      <td>2.799644e-07</td>
+    </tr>
+    <tr>
+      <th>7370</th>
+      <td>01/27/2014</td>
+      <td>-19.2592</td>
+      <td>-63.9189</td>
+      <td>5.6</td>
+      <td>2014</td>
       <td>5.877395</td>
       <td>-0.000005</td>
-      <td>-0.237357</td>
-      <td>-0.002536</td>
-      <td>-9.448728e-07</td>
-      <td>9.386861e-06</td>
+      <td>0.126530</td>
+      <td>-0.003673</td>
+      <td>-8.966770e-07</td>
+      <td>8.048556e-06</td>
     </tr>
     <tr>
-      <th>778</th>
-      <td>06/23/2001</td>
-      <td>-16.7670</td>
-      <td>-73.6320</td>
-      <td>5.9</td>
-      <td>2001</td>
+      <th>371</th>
+      <td>10/04/2000</td>
+      <td>11.1240</td>
+      <td>-62.5590</td>
+      <td>6.2</td>
+      <td>2000</td>
+      <td>5.877395</td>
+      <td>-0.000006</td>
+      <td>0.130404</td>
+      <td>-0.003128</td>
+      <td>-1.046387e-06</td>
+      <td>1.054049e-05</td>
+    </tr>
+    <tr>
+      <th>1342</th>
+      <td>10/12/2002</td>
+      <td>-8.2950</td>
+      <td>-71.7380</td>
+      <td>6.9</td>
+      <td>2002</td>
       <td>5.877395</td>
       <td>-0.000004</td>
-      <td>-0.185720</td>
-      <td>-0.001471</td>
-      <td>-5.380502e-07</td>
-      <td>4.030739e-08</td>
+      <td>0.166766</td>
+      <td>-0.001707</td>
+      <td>-5.638365e-07</td>
+      <td>3.726622e-07</td>
     </tr>
     <tr>
-      <th>8588</th>
-      <td>09/14/2016</td>
-      <td>7.3736</td>
-      <td>-76.1686</td>
+      <th>7251</th>
+      <td>10/12/2013</td>
+      <td>10.9048</td>
+      <td>-62.3150</td>
       <td>6.0</td>
-      <td>2016</td>
+      <td>2013</td>
       <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.099392</td>
-      <td>-0.001731</td>
-      <td>-5.196470e-07</td>
-      <td>-3.126660e-07</td>
+      <td>-0.000006</td>
+      <td>0.210905</td>
+      <td>-0.002979</td>
+      <td>-1.051451e-06</td>
+      <td>1.068778e-05</td>
     </tr>
     <tr>
-      <th>1570</th>
-      <td>04/27/2003</td>
-      <td>-8.1950</td>
-      <td>-71.5920</td>
-      <td>6.0</td>
+      <th>1639</th>
+      <td>06/20/2003</td>
+      <td>-7.6060</td>
+      <td>-71.7220</td>
+      <td>7.1</td>
       <td>2003</td>
       <td>5.877395</td>
       <td>-0.000004</td>
-      <td>-0.092542</td>
-      <td>-0.001809</td>
-      <td>-5.692031e-07</td>
-      <td>4.913274e-07</td>
+      <td>0.266692</td>
+      <td>-0.001724</td>
+      <td>-5.638442e-07</td>
+      <td>3.748997e-07</td>
     </tr>
     <tr>
-      <th>972</th>
-      <td>12/08/2001</td>
-      <td>-15.1140</td>
-      <td>-72.7420</td>
-      <td>5.6</td>
-      <td>2001</td>
-      <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.091188</td>
-      <td>-0.001592</td>
-      <td>-5.439254e-07</td>
-      <td>1.062414e-07</td>
-    </tr>
-    <tr>
-      <th>2832</th>
-      <td>07/26/2005</td>
-      <td>-15.3450</td>
-      <td>-72.9620</td>
-      <td>5.9</td>
-      <td>2005</td>
-      <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.090645</td>
-      <td>-0.001585</td>
-      <td>-5.434231e-07</td>
-      <td>1.048249e-07</td>
-    </tr>
-    <tr>
-      <th>5427</th>
-      <td>05/24/2010</td>
-      <td>-8.0870</td>
-      <td>-71.5580</td>
+      <th>7393</th>
+      <td>02/18/2014</td>
+      <td>14.6682</td>
+      <td>-58.9272</td>
       <td>6.5</td>
-      <td>2010</td>
+      <td>2014</td>
       <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.089208</td>
-      <td>-0.001812</td>
-      <td>-5.692697e-07</td>
-      <td>4.918034e-07</td>
-    </tr>
-    <tr>
-      <th>3384</th>
-      <td>09/30/2006</td>
-      <td>-15.5880</td>
-      <td>-73.1600</td>
-      <td>6.0</td>
-      <td>2006</td>
-      <td>5.877395</td>
-      <td>-0.000004</td>
-      <td>-0.086759</td>
-      <td>-0.001578</td>
-      <td>-5.429594e-07</td>
-      <td>1.034486e-07</td>
+      <td>-0.000006</td>
+      <td>0.948964</td>
+      <td>-0.003036</td>
+      <td>-1.228123e-06</td>
+      <td>1.586936e-05</td>
     </tr>
   </tbody>
 </table>
@@ -2295,12 +2269,11 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>주로 북태평양/대서양 부근</p>
 <ul>
-<li>브라질 (-36.3656     -73.7481    )</li>
-<li>대서양 (0.0541   -17.3427    )</li>
-<li>북태평양 (58.3062     -136.9601   )</li>
-<li>카롱가 말라위 (-9.9480  33.8780     )</li>
+<li>카롱가 말라위 (-10.126 33.870, -10.108 33.818)</li>
+<li>남태평양 (56.594 -156.430, -36.129 -73.257, 58.235 -151.221, -36.217 -73.257)</li>
+<li>칠레 (-36.074 -70.570)</li>
+<li>미국 알레스카 코디악 섬 (57.369 -154.206, 57.401 -154.269)</li>
 </ul>
 
 </div>
@@ -2313,7 +2286,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp4"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp4"</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2360,144 +2333,130 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
   </thead>
   <tbody>
     <tr>
-      <th>8015</th>
-      <td>06/20/2015</td>
-      <td>-36.3656</td>
-      <td>-73.7481</td>
+      <th>245</th>
+      <td>07/11/2000</td>
+      <td>57.401</td>
+      <td>-154.269</td>
       <td>5.5</td>
-      <td>2015</td>
-      <td>5.877395</td>
-      <td>-3.241209e-06</td>
-      <td>-0.000484</td>
-      <td>-0.574375</td>
-      <td>-4.519450e-07</td>
-      <td>1.722692e-07</td>
-    </tr>
-    <tr>
-      <th>8014</th>
-      <td>06/20/2015</td>
-      <td>-36.3601</td>
-      <td>-73.8120</td>
-      <td>6.4</td>
-      <td>2015</td>
-      <td>5.877395</td>
-      <td>-3.240437e-06</td>
-      <td>-0.000484</td>
-      <td>-0.500290</td>
-      <td>-4.518311e-07</td>
-      <td>1.720809e-07</td>
-    </tr>
-    <tr>
-      <th>7618</th>
-      <td>06/30/2014</td>
-      <td>0.0541</td>
-      <td>-17.3427</td>
-      <td>5.6</td>
-      <td>2014</td>
-      <td>5.877395</td>
-      <td>8.590196e-05</td>
-      <td>0.000107</td>
-      <td>-0.217877</td>
-      <td>1.449933e-05</td>
-      <td>2.694339e-05</td>
-    </tr>
-    <tr>
-      <th>7651</th>
-      <td>07/25/2014</td>
-      <td>58.3062</td>
-      <td>-136.9601</td>
-      <td>6.1</td>
-      <td>2014</td>
-      <td>5.877395</td>
-      <td>9.530193e-07</td>
-      <td>-0.005104</td>
-      <td>-0.206912</td>
-      <td>1.287319e-07</td>
-      <td>5.916812e-08</td>
-    </tr>
-    <tr>
-      <th>5133</th>
-      <td>12/08/2009</td>
-      <td>-9.9480</td>
-      <td>33.8780</td>
-      <td>5.9</td>
-      <td>2009</td>
-      <td>5.877395</td>
-      <td>6.084304e-05</td>
-      <td>0.002980</td>
-      <td>-0.152532</td>
-      <td>2.227766e-05</td>
-      <td>-7.876641e-04</td>
-    </tr>
-    <tr>
-      <th>6520</th>
-      <td>03/10/2012</td>
-      <td>55.1460</td>
-      <td>-157.5670</td>
-      <td>5.5</td>
-      <td>2012</td>
-      <td>5.877395</td>
-      <td>7.983805e-07</td>
-      <td>-0.001868</td>
-      <td>-0.138265</td>
-      <td>1.010246e-07</td>
-      <td>2.786007e-07</td>
-    </tr>
-    <tr>
-      <th>4478</th>
-      <td>08/28/2008</td>
-      <td>-0.2520</td>
-      <td>-17.3580</td>
-      <td>6.3</td>
-      <td>2008</td>
-      <td>5.877395</td>
-      <td>8.588515e-05</td>
-      <td>0.000112</td>
-      <td>-0.117988</td>
-      <td>1.449645e-05</td>
-      <td>2.694025e-05</td>
-    </tr>
-    <tr>
-      <th>568</th>
-      <td>01/10/2001</td>
-      <td>57.0780</td>
-      <td>-153.2110</td>
-      <td>7.0</td>
-      <td>2001</td>
-      <td>5.877395</td>
-      <td>8.766528e-07</td>
-      <td>0.003680</td>
-      <td>-0.083573</td>
-      <td>1.152876e-07</td>
-      <td>1.669135e-07</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>01/06/2000</td>
-      <td>58.0400</td>
-      <td>-136.8700</td>
-      <td>6.1</td>
       <td>2000</td>
       <td>5.877395</td>
-      <td>9.661090e-07</td>
-      <td>-0.005689</td>
-      <td>-0.072457</td>
-      <td>1.305488e-07</td>
-      <td>5.836869e-08</td>
+      <td>8.287029e-07</td>
+      <td>0.002763</td>
+      <td>0.063033</td>
+      <td>1.075998e-07</td>
+      <td>2.027612e-07</td>
     </tr>
     <tr>
-      <th>7902</th>
-      <td>03/18/2015</td>
-      <td>-36.1167</td>
-      <td>-73.5219</td>
-      <td>6.2</td>
+      <th>5345</th>
+      <td>03/16/2010</td>
+      <td>-36.217</td>
+      <td>-73.257</td>
+      <td>6.7</td>
+      <td>2010</td>
+      <td>5.877395</td>
+      <td>-3.243943e-06</td>
+      <td>-0.000569</td>
+      <td>0.063623</td>
+      <td>-4.518802e-07</td>
+      <td>1.700581e-07</td>
+    </tr>
+    <tr>
+      <th>1957</th>
+      <td>01/20/2004</td>
+      <td>58.235</td>
+      <td>-151.221</td>
+      <td>5.5</td>
+      <td>2004</td>
+      <td>5.877395</td>
+      <td>8.796409e-07</td>
+      <td>0.002008</td>
+      <td>0.067790</td>
+      <td>1.172173e-07</td>
+      <td>1.138469e-07</td>
+    </tr>
+    <tr>
+      <th>5152</th>
+      <td>12/19/2009</td>
+      <td>-10.108</td>
+      <td>33.818</td>
+      <td>6.0</td>
+      <td>2009</td>
+      <td>5.877395</td>
+      <td>6.098090e-05</td>
+      <td>0.002925</td>
+      <td>0.081454</td>
+      <td>2.222834e-05</td>
+      <td>-7.870314e-04</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>07/11/2000</td>
+      <td>57.369</td>
+      <td>-154.206</td>
+      <td>6.6</td>
+      <td>2000</td>
+      <td>5.877395</td>
+      <td>8.322470e-07</td>
+      <td>0.003037</td>
+      <td>0.086612</td>
+      <td>1.081114e-07</td>
+      <td>2.014678e-07</td>
+    </tr>
+    <tr>
+      <th>6646</th>
+      <td>06/07/2012</td>
+      <td>-36.074</td>
+      <td>-70.570</td>
+      <td>6.0</td>
+      <td>2012</td>
+      <td>5.877395</td>
+      <td>-3.280917e-06</td>
+      <td>-0.000873</td>
+      <td>0.098309</td>
+      <td>-4.720510e-07</td>
+      <td>5.258293e-07</td>
+    </tr>
+    <tr>
+      <th>5286</th>
+      <td>02/27/2010</td>
+      <td>-36.129</td>
+      <td>-73.257</td>
+      <td>5.5</td>
+      <td>2010</td>
+      <td>5.877395</td>
+      <td>-3.245256e-06</td>
+      <td>-0.000531</td>
+      <td>0.141829</td>
+      <td>-4.520672e-07</td>
+      <td>1.703117e-07</td>
+    </tr>
+    <tr>
+      <th>7993</th>
+      <td>05/29/2015</td>
+      <td>56.594</td>
+      <td>-156.430</td>
+      <td>6.7</td>
       <td>2015</td>
       <td>5.877395</td>
-      <td>-3.243661e-06</td>
-      <td>-0.000473</td>
-      <td>-0.067856</td>
-      <td>-4.513434e-07</td>
-      <td>1.649491e-07</td>
+      <td>8.117625e-07</td>
+      <td>0.001272</td>
+      <td>0.215134</td>
+      <td>1.043589e-07</td>
+      <td>2.337824e-07</td>
+    </tr>
+    <tr>
+      <th>5132</th>
+      <td>12/06/2009</td>
+      <td>-10.126</td>
+      <td>33.870</td>
+      <td>5.8</td>
+      <td>2009</td>
+      <td>5.877395</td>
+      <td>6.088868e-05</td>
+      <td>0.002950</td>
+      <td>0.296198</td>
+      <td>2.224737e-05</td>
+      <td>-7.809752e-04</td>
     </tr>
   </tbody>
 </table>
@@ -2575,9 +2534,10 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>대부분 일본 동쪽 바다</p>
 <ul>
-<li>오스트레일리아 동쪽 바다 (   -11.2100    161.9284    )</li>
+<li>남태평양 (41.7150 144.0490, 42.3430 143.7640, 41.8070 144.2310, 41.8630 144.2090, 42.1590 144.0040)</li>
+<li>코랄해 (-11.2397 161.8756, -11.1090 161.9150)</li>
+<li>일본 (42.3950 142.9580, 42.4190 142.9130)</li>
 </ul>
 
 </div>
@@ -2590,7 +2550,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp5"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp5"</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2637,144 +2597,130 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
   </thead>
   <tbody>
     <tr>
-      <th>1795</th>
-      <td>09/29/2003</td>
-      <td>41.4000</td>
-      <td>144.1510</td>
-      <td>5.6</td>
-      <td>2003</td>
-      <td>5.877395</td>
-      <td>-0.002986</td>
-      <td>0.000017</td>
-      <td>-0.000039</td>
-      <td>-0.973495</td>
-      <td>0.000058</td>
-    </tr>
-    <tr>
-      <th>2378</th>
-      <td>11/26/2004</td>
-      <td>42.3770</td>
-      <td>142.8990</td>
-      <td>5.7</td>
-      <td>2004</td>
-      <td>5.877395</td>
-      <td>-0.003074</td>
-      <td>0.000017</td>
-      <td>-0.000039</td>
-      <td>-0.374297</td>
-      <td>0.000051</td>
-    </tr>
-    <tr>
-      <th>7491</th>
-      <td>04/13/2014</td>
-      <td>-11.2100</td>
-      <td>161.9284</td>
-      <td>5.6</td>
-      <td>2014</td>
-      <td>5.877395</td>
-      <td>-0.003882</td>
-      <td>0.000020</td>
-      <td>-0.000037</td>
-      <td>-0.374149</td>
-      <td>0.000083</td>
-    </tr>
-    <tr>
-      <th>4742</th>
-      <td>02/28/2009</td>
-      <td>42.6100</td>
-      <td>142.1040</td>
-      <td>5.5</td>
-      <td>2009</td>
-      <td>5.877395</td>
-      <td>-0.003158</td>
-      <td>0.000017</td>
-      <td>-0.000039</td>
-      <td>-0.094012</td>
-      <td>0.000046</td>
-    </tr>
-    <tr>
-      <th>5623</th>
-      <td>10/14/2010</td>
-      <td>42.3110</td>
-      <td>142.8710</td>
-      <td>5.6</td>
-      <td>2010</td>
-      <td>5.877395</td>
-      <td>-0.003097</td>
-      <td>0.000017</td>
-      <td>-0.000039</td>
-      <td>-0.091256</td>
-      <td>0.000051</td>
-    </tr>
-    <tr>
-      <th>3739</th>
-      <td>04/18/2007</td>
-      <td>42.6580</td>
-      <td>141.8610</td>
+      <th>3655</th>
+      <td>03/18/2007</td>
+      <td>42.1590</td>
+      <td>144.0040</td>
       <td>5.5</td>
       <td>2007</td>
       <td>5.877395</td>
-      <td>-0.003225</td>
-      <td>0.000017</td>
-      <td>-0.000040</td>
-      <td>-0.043002</td>
-      <td>0.000044</td>
-    </tr>
-    <tr>
-      <th>4502</th>
-      <td>09/11/2008</td>
-      <td>41.8920</td>
-      <td>143.7540</td>
-      <td>6.8</td>
-      <td>2008</td>
-      <td>5.877395</td>
-      <td>-0.003073</td>
+      <td>-0.002861</td>
       <td>0.000017</td>
       <td>-0.000039</td>
-      <td>-0.029354</td>
-      <td>0.000057</td>
+      <td>0.015418</td>
+      <td>0.000058</td>
     </tr>
     <tr>
-      <th>1780</th>
+      <th>2046</th>
+      <td>03/26/2004</td>
+      <td>41.8630</td>
+      <td>144.2090</td>
+      <td>5.8</td>
+      <td>2004</td>
+      <td>5.877395</td>
+      <td>-0.002826</td>
+      <td>0.000018</td>
+      <td>-0.000039</td>
+      <td>0.015873</td>
+      <td>0.000059</td>
+    </tr>
+    <tr>
+      <th>1782</th>
       <td>09/25/2003</td>
-      <td>41.8360</td>
-      <td>143.6870</td>
-      <td>5.6</td>
+      <td>41.8070</td>
+      <td>144.2310</td>
+      <td>5.5</td>
       <td>2003</td>
       <td>5.877395</td>
-      <td>-0.003097</td>
+      <td>-0.002838</td>
+      <td>0.000018</td>
+      <td>-0.000039</td>
+      <td>0.017358</td>
+      <td>0.000059</td>
+    </tr>
+    <tr>
+      <th>1779</th>
+      <td>09/25/2003</td>
+      <td>42.3430</td>
+      <td>143.7640</td>
+      <td>5.5</td>
+      <td>2003</td>
+      <td>5.877395</td>
+      <td>-0.002912</td>
       <td>0.000017</td>
       <td>-0.000039</td>
-      <td>-0.023765</td>
+      <td>0.018660</td>
       <td>0.000056</td>
     </tr>
     <tr>
-      <th>7486</th>
-      <td>04/13/2014</td>
-      <td>-11.2753</td>
-      <td>161.9895</td>
-      <td>5.6</td>
-      <td>2014</td>
+      <th>2349</th>
+      <td>11/11/2004</td>
+      <td>-11.1090</td>
+      <td>161.9150</td>
+      <td>5.5</td>
+      <td>2004</td>
       <td>5.877395</td>
-      <td>-0.003847</td>
+      <td>-0.003910</td>
       <td>0.000020</td>
       <td>-0.000037</td>
-      <td>-0.020829</td>
+      <td>0.031188</td>
       <td>0.000083</td>
     </tr>
     <tr>
-      <th>7487</th>
-      <td>04/13/2014</td>
-      <td>-11.2941</td>
-      <td>161.9782</td>
-      <td>5.7</td>
+      <th>6734</th>
+      <td>08/25/2012</td>
+      <td>42.4190</td>
+      <td>142.9130</td>
+      <td>5.9</td>
+      <td>2012</td>
+      <td>5.877395</td>
+      <td>-0.003042</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>0.067206</td>
+      <td>0.000051</td>
+    </tr>
+    <tr>
+      <th>2149</th>
+      <td>06/10/2004</td>
+      <td>42.3950</td>
+      <td>142.9580</td>
+      <td>5.8</td>
+      <td>2004</td>
+      <td>5.877395</td>
+      <td>-0.003045</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>0.074431</td>
+      <td>0.000051</td>
+    </tr>
+    <tr>
+      <th>7493</th>
+      <td>04/14/2014</td>
+      <td>-11.2397</td>
+      <td>161.8756</td>
+      <td>5.8</td>
       <td>2014</td>
       <td>5.877395</td>
-      <td>-0.003846</td>
+      <td>-0.003892</td>
       <td>0.000020</td>
       <td>-0.000037</td>
-      <td>-0.020514</td>
+      <td>0.089764</td>
       <td>0.000083</td>
+    </tr>
+    <tr>
+      <th>2361</th>
+      <td>11/14/2004</td>
+      <td>41.7150</td>
+      <td>144.0490</td>
+      <td>5.5</td>
+      <td>2004</td>
+      <td>5.877395</td>
+      <td>-0.002968</td>
+      <td>0.000017</td>
+      <td>-0.000039</td>
+      <td>0.191433</td>
+      <td>0.000058</td>
     </tr>
   </tbody>
 </table>
@@ -2852,7 +2798,13 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>인도양 근처</p>
+<ul>
+<li>인도네시아 (2.7070 96.0450, 2.6750 96.0620, -8.1935 117.8136, -4.0610 121.6940)</li>
+<li>인도양 (3.5330 95.6580, -11.3750 115.0420)</li>
+<li>말라카 (5.2834 96.1678) 알레스카, 미국</li>
+<li>필리핀 (7.5930 124.0220)</li>
+<li>셀레베스 해 (3.7330 124.6840) 인도네시아 필리핀 사이</li>
+</ul>
 
 </div>
 </div>
@@ -2864,7 +2816,7 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp6"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"comp6"</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2911,144 +2863,130 @@ $$W_{i,j}=\begin{cases}{exp(-\frac{[dist(i,j)]^2}{2\theta^2})} &amp; \quad \text
   </thead>
   <tbody>
     <tr>
-      <th>4411</th>
-      <td>07/14/2008</td>
-      <td>2.177</td>
-      <td>96.518</td>
-      <td>5.6</td>
-      <td>2008</td>
-      <td>5.877395</td>
-      <td>0.000385</td>
-      <td>3.677789e-06</td>
-      <td>0.000043</td>
-      <td>-0.000049</td>
-      <td>-0.989296</td>
-    </tr>
-    <tr>
-      <th>1678</th>
-      <td>07/21/2003</td>
-      <td>-0.450</td>
-      <td>123.646</td>
-      <td>5.5</td>
-      <td>2003</td>
-      <td>5.877395</td>
-      <td>0.000270</td>
-      <td>-3.858463e-06</td>
-      <td>0.000009</td>
-      <td>-0.000063</td>
-      <td>-0.333422</td>
-    </tr>
-    <tr>
-      <th>1387</th>
-      <td>11/13/2002</td>
-      <td>3.006</td>
-      <td>96.087</td>
-      <td>5.6</td>
-      <td>2002</td>
-      <td>5.877395</td>
-      <td>0.000392</td>
-      <td>3.515505e-06</td>
-      <td>0.000043</td>
-      <td>-0.000047</td>
-      <td>-0.215159</td>
-    </tr>
-    <tr>
-      <th>2664</th>
-      <td>03/28/2005</td>
-      <td>2.087</td>
-      <td>96.503</td>
-      <td>5.5</td>
-      <td>2005</td>
-      <td>5.877395</td>
-      <td>0.000384</td>
-      <td>3.679240e-06</td>
-      <td>0.000043</td>
-      <td>-0.000049</td>
-      <td>-0.168814</td>
-    </tr>
-    <tr>
-      <th>5066</th>
-      <td>10/15/2009</td>
-      <td>-3.615</td>
-      <td>123.160</td>
-      <td>5.7</td>
-      <td>2009</td>
-      <td>5.877395</td>
-      <td>0.000246</td>
-      <td>-6.827705e-07</td>
-      <td>0.000013</td>
-      <td>-0.000070</td>
-      <td>-0.145924</td>
-    </tr>
-    <tr>
-      <th>328</th>
-      <td>09/01/2000</td>
-      <td>1.438</td>
-      <td>96.591</td>
-      <td>6.0</td>
-      <td>2000</td>
-      <td>5.877395</td>
-      <td>0.000379</td>
-      <td>3.699453e-06</td>
-      <td>0.000043</td>
-      <td>-0.000050</td>
-      <td>-0.140899</td>
-    </tr>
-    <tr>
-      <th>3326</th>
-      <td>08/11/2006</td>
-      <td>2.403</td>
-      <td>96.348</td>
-      <td>6.2</td>
+      <th>3509</th>
+      <td>12/12/2006</td>
+      <td>3.7330</td>
+      <td>124.6840</td>
+      <td>6.3</td>
       <td>2006</td>
       <td>5.877395</td>
-      <td>0.000387</td>
-      <td>3.726959e-06</td>
-      <td>0.000043</td>
-      <td>-0.000048</td>
-      <td>-0.137260</td>
+      <td>0.000300</td>
+      <td>-9.462553e-06</td>
+      <td>-0.000041</td>
+      <td>-0.000053</td>
+      <td>0.173008</td>
     </tr>
     <tr>
-      <th>1369</th>
-      <td>11/02/2002</td>
-      <td>2.824</td>
-      <td>96.085</td>
-      <td>7.4</td>
+      <th>6206</th>
+      <td>07/11/2011</td>
+      <td>-4.0610</td>
+      <td>121.6940</td>
+      <td>5.5</td>
+      <td>2011</td>
+      <td>5.877395</td>
+      <td>0.000246</td>
+      <td>6.047089e-07</td>
+      <td>0.000014</td>
+      <td>-0.000071</td>
+      <td>0.213636</td>
+    </tr>
+    <tr>
+      <th>1190</th>
+      <td>06/14/2002</td>
+      <td>7.5930</td>
+      <td>124.0220</td>
+      <td>5.6</td>
       <td>2002</td>
       <td>5.877395</td>
-      <td>0.000391</td>
-      <td>3.520024e-06</td>
+      <td>0.000333</td>
+      <td>-8.566473e-06</td>
+      <td>-0.000043</td>
+      <td>-0.000043</td>
+      <td>0.224372</td>
+    </tr>
+    <tr>
+      <th>8529</th>
+      <td>07/31/2016</td>
+      <td>-8.1935</td>
+      <td>117.8136</td>
+      <td>5.6</td>
+      <td>2016</td>
+      <td>5.877395</td>
+      <td>0.000241</td>
+      <td>-6.365248e-06</td>
+      <td>0.000019</td>
+      <td>-0.000076</td>
+      <td>0.279446</td>
+    </tr>
+    <tr>
+      <th>8698</th>
+      <td>12/06/2016</td>
+      <td>5.2834</td>
+      <td>96.1678</td>
+      <td>6.5</td>
+      <td>2016</td>
+      <td>5.877395</td>
+      <td>0.000409</td>
+      <td>3.648001e-06</td>
+      <td>0.000043</td>
+      <td>-0.000041</td>
+      <td>0.287317</td>
+    </tr>
+    <tr>
+      <th>5151</th>
+      <td>12/19/2009</td>
+      <td>2.6750</td>
+      <td>96.0620</td>
+      <td>5.5</td>
+      <td>2009</td>
+      <td>5.877395</td>
+      <td>0.000389</td>
+      <td>3.583999e-06</td>
       <td>0.000043</td>
       <td>-0.000047</td>
-      <td>-0.114934</td>
+      <td>0.298019</td>
     </tr>
     <tr>
-      <th>7110</th>
-      <td>06/02/2013</td>
-      <td>7.282</td>
-      <td>124.928</td>
-      <td>5.5</td>
-      <td>2013</td>
+      <th>887</th>
+      <td>09/20/2001</td>
+      <td>-11.3750</td>
+      <td>115.0420</td>
+      <td>5.6</td>
+      <td>2001</td>
       <td>5.877395</td>
-      <td>0.000329</td>
-      <td>-1.019388e-05</td>
-      <td>-0.000042</td>
-      <td>-0.000044</td>
-      <td>-0.106880</td>
+      <td>0.000236</td>
+      <td>-1.214039e-05</td>
+      <td>0.000023</td>
+      <td>-0.000081</td>
+      <td>0.338343</td>
     </tr>
     <tr>
-      <th>4497</th>
-      <td>09/10/2008</td>
-      <td>2.506</td>
-      <td>96.323</td>
-      <td>5.5</td>
-      <td>2008</td>
+      <th>1033</th>
+      <td>01/24/2002</td>
+      <td>3.5330</td>
+      <td>95.6580</td>
+      <td>5.7</td>
+      <td>2002</td>
       <td>5.877395</td>
-      <td>0.000388</td>
-      <td>3.723204e-06</td>
+      <td>0.000397</td>
+      <td>3.140678e-06</td>
       <td>0.000043</td>
-      <td>-0.000048</td>
-      <td>-0.105043</td>
+      <td>-0.000045</td>
+      <td>0.432146</td>
+    </tr>
+    <tr>
+      <th>6698</th>
+      <td>07/25/2012</td>
+      <td>2.7070</td>
+      <td>96.0450</td>
+      <td>6.4</td>
+      <td>2012</td>
+      <td>5.877395</td>
+      <td>0.000390</td>
+      <td>3.582331e-06</td>
+      <td>0.000043</td>
+      <td>-0.000047</td>
+      <td>1.123773</td>
     </tr>
   </tbody>
 </table>
