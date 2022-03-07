@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -1396,9 +1396,21 @@ y_{10}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>$\frac{\partial}{\partial x}(x^\top y) = y, x$</li>
-</ol>
+<p>[1] $\frac{\partial}{\partial x}(x^\top y) = y$, when $x = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix}, y = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix}$</p>
+<p>$pf. x^\top y = \begin{bmatrix} x_1 &amp; \dots x_n \end{bmatrix} \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = x_1 y_1 + x_2 y_2 + \dots  + x_n y_n$</p>
+<p>$\frac{\partial}{\partial x} = \begin{bmatrix} \frac{\partial}{\partial x_1} \\ \vdots \\ \frac{\partial}{\partial x_n} \end{bmatrix}$ 이므로</p>
+<p>$\big( \frac{\partial}{\partial x} \big) x^\top y = \begin{bmatrix} \frac{\partial}{\partial x_1} \\ \vdots \\ \frac{\partial}{\partial x_n} \end{bmatrix} (x_1 y_1 + x_2 y_2 + \dots + x_n y_n)$</p>
+<p>$ = \begin{bmatrix} \frac{\partial}{\partial x_1}(x_1y_1 + \dots + x_n y_n) \\ \vdots \\ \frac{\partial}{\partial x_n}(x_1y_1 + \dots + x_n y_n) \end{bmatrix}$</p>
+<p>$ = \begin{bmatrix} \frac{partial}{\partial x_1} x_1 y_1 + \frac{\partial}{\partial x_1}x_2 y_2 + \dots + \frac{\partial}{\partial x_1}x_n y_n \\ \vdots \\ \frac{partial}{\partial x_n} x_1 y_1 + \frac{\partial}{\partial x_n}x_2 y_2 + \dots + \frac{\partial}{\partial x_n}x_n y_n  \end{bmatrix}$</p>
+<p>$ = \begin{bmatrix} y_1 + 0 + \dots + 0 \\ \vdots \\ 0+0+ \dots + y_n \end{bmatrix} = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = \bf{y}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\frac{\partial}{\partial x}(x^\top y) = y$ 임을 보이는 다른 풀이</p>
 
 </div>
 </div>
