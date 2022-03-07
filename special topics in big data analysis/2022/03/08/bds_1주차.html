@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      8 min read
     
 </span></p>
 
@@ -877,8 +877,8 @@ array([[20.1     , 55.418365],
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$\begin{cases}
-\frac{\partial}{\partial \beta_0}\sum_{i=1}^{10} (y_i -\beta_0 -\beta_1 x_i)^2=0 \\ 
-\frac{\partial}{\partial \beta_1}\sum_{i=1}^{10} (y_i -\beta_0 -\beta_1 x_i)^2=0
+\frac{\partial}{\partial \beta_0}\sum_{i=1}^{10} (y_i -\beta_0 -\beta_1 x_i)^2=0 \dots (1)\\ 
+\frac{\partial}{\partial \beta_1}\sum_{i=1}^{10} (y_i -\beta_0 -\beta_1 x_i)^2=0 \dots (2)
 \end{cases}$</p>
 
 </div>
@@ -899,6 +899,46 @@ array([[20.1     , 55.418365],
 \sum_{i=1}^{10} -2(y_i -\beta_0 -\beta_1 x_i)=0 \\ 
 \sum_{i=1}^{10} -2x_i(y_i -\beta_0 -\beta_1 x_i)=0
 \end{cases}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>정규방정식</strong></p>
+<p>(1)</p>
+<p>$\leftrightarrow \sum_{i=1}^{n} (y_i - \beta_0 - \beta_i x_i) = 0 \leftrightarrow \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$</p>
+<p>$\leftrightarrow \beta_0 = \frac{1}{n} \sum y_i - \beta_1 \frac{1}{n}\sum x_i \leftrightarrow \beta_0 = \bar{y} - \beta_1 \bar{x}$</p>
+<p>(2)</p>
+<p>$\leftrightarrow \sum^{n}_{i=1} x_i (y_i - \beta_0 - \beta_1 x_i) = 0 \leftrightarrow \sum x_i uy_i - \beta_0 n \bar(x) - \beta_1 \sum x_{i}^{2} = 0$</p>
+<p>$\sum x_i y_i - \bar{y} - \beta_1 \bar{x}) n \bar{x} - \beta_1 \sum x_{i}^{2} = 0$</p>
+<p>$\leftrightarrow \beta_1 (n(\bar{x})^2 - \sum x_{i}^{2}) + 2 x_i y_i - \bar{y} n \bar{x} = 0$</p>
+<p>$\beta_1 = \frac{\sum x_i y_i - n \bar{x} \bar{y}}{\sum x_{i}^{2} - n (\bar{x})^2)} = \frac{\beta_1분자}{\beta_1 분모}$</p>
+<p>(예비학습)</p>
+<p>$S_{xy} = \sum^{n}_{i=1} (x_i - \bar{x} ) (y_i - \bar{y} ) = \sum^{n}_{i=1} (x_i - \bar{x}) y_i$</p>
+<p>pf. $\sum^{x}_{i=1}(x_i - \bar{x}) \bar{y} = 0$ 을 보이면 된다.</p>
+<p>$LHS(Left-Hand Side) = \sum^{n}_{i=1} x_i \bar{y} - n \bar{x} \bar{y} = \bar{y} \sum^{n}_{i=1} x_i - n \bar{x}\bar{y} = 0$</p>
+<p>($\beta_1$의 분자 = $S_{xy}$임을 보이자)</p>
+<p>$S_{xy} = \sum^{n}_{i=1}(x_i - \bar{x})y_i = \sum^{n}_{i=1} x_i y_i - \bar{x} \sum^{n}_{i=1} y_i = \sum x_i y_i - \bar{x} n \bar{y} = \beta_1$의 분자</p>
+<p>($\beta_1$의 분모 = $S_{xx}$임을 보이자)</p>
+<p>$S_{xx} = \sum^{n}_{i=1}(x_i - \bar{x})^2 = \sum(x_{i}^{2} - 2x_i \bar{x} + (\bar{x})^2) = 2x_{i}^{2} - 2 n \bar{x} \bar{x} + n (\bar{x})^2 = \sum x_{i}^{2} - n(\bar{x})^2 = \beta_1$의 분모</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
