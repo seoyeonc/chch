@@ -930,7 +930,7 @@ array([[20.1     , 55.418365],
 <p>($\beta_1$의 분자 = $S_{xy}$임을 보이자)</p>
 <p>$S_{xy} = \sum^{n}_{i=1}(x_i - \bar{x})y_i = \sum^{n}_{i=1} x_i y_i - \bar{x} \sum^{n}_{i=1} y_i = \sum x_i y_i - \bar{x} n \bar{y} = \beta_1$의 분자</p>
 <p>($\beta_1$의 분모 = $S_{xx}$임을 보이자)</p>
-<p>$S_{xx} = \sum^{n}_{i=1}(x_i - \bar{x})^2 = \sum(x_{i}^{2} - 2x_i \bar{x} + (\bar{x})^2) = 2x_{i}^{2} - 2 n \bar{x} \bar{x} + n (\bar{x})^2 = \sum x_{i}^{2} - n(\bar{x})^2 = \beta_1$의 분모</p>
+<p>$S_{xx} = \sum^{n}_{i=1}(x_i - \bar{x})^2 = \sum ( x_{i}^{2} - 2 x_i \bar{x} + (\bar{x})^2) = 2x_{i}^{2} - 2 n \bar{x} \bar{x} + n (\bar{x})^2 = \sum x_{i}^{2} - n(\bar{x})^2 = \beta_1$의 분모</p>
 
 </div>
 </div>
@@ -1369,6 +1369,44 @@ y_{10}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 공식도 매트릭스로 표현하면: $\boldsymbol{\hat\beta}= ({\bf X}^\top {\bf X})^{-1}{\bf X}^\top {\bf y} $ &lt;-- 외우세요</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>벡터미분 / 매트릭스 미분</strong></p>
+<p>(1) 정의 1: 벡터로 미분</p>
+<p>$\frac{\partial}{\partial y} = \begin{bmatrix} {\frac{\partial}{\partial y_1} \\ \vdots \\ \frac{\partial}{\partial y_n}} \end{bmatrix}, y = \begin{bmatrix} {y_1 \\ \vdots \\ y_n} \end{bmatrix}$</p>
+<p>(2) 정의 2: 매트릭스로 미분</p>
+<p>$\frac{\partial}{\partial \bf{X} } := \begin{bmatrix} \frac{\partial}{\partial x_{11} } &amp; \dots &amp; \frac{\partial}{\partial x_{1p} } \\ \vdots &amp;  &amp; \vdots \\ \frac{\partial}{\partial x_{n1} }  &amp; \dots &amp; \frac{\partial}{\partial x_{np} } \end{bmatrix}, \bf{X} = \begin{bmatrix} x_{11} &amp; \dots &amp; x_{1p} \\ \vdots &amp; &amp; \vdots \\ x_{n1} &amp; \dots &amp; x_{np}  \end{bmatrix}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>$\frac{\partial}{\partial x}(x^\top y) = y, x$</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 
 </div>
 </div>
