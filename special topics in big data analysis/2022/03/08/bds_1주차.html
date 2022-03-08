@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      12 min read
     
 </span></p>
 
@@ -1401,7 +1401,7 @@ y_{10}
 <p>$\frac{\partial}{\partial x} = \begin{bmatrix} \frac{\partial}{\partial x_1} \\ \vdots \\ \frac{\partial}{\partial x_n} \end{bmatrix}$ 이므로</p>
 <p>$\big( \frac{\partial}{\partial x} \big) x^\top y = \begin{bmatrix} \frac{\partial}{\partial x_1} \\ \vdots \\ \frac{\partial}{\partial x_n} \end{bmatrix} (x_1 y_1 + x_2 y_2 + \dots + x_n y_n)$</p>
 <p>$ = \begin{bmatrix} \frac{\partial}{\partial x_1}(x_1y_1 + \dots + x_n y_n) \\ \vdots \\ \frac{\partial}{\partial x_n}(x_1y_1 + \dots + x_n y_n) \end{bmatrix}$</p>
-<p>$ = \begin{bmatrix} \frac{partial}{\partial x_1} x_1 y_1 + \frac{\partial}{\partial x_1}x_2 y_2 + \dots + \frac{\partial}{\partial x_1}x_n y_n \\ \vdots \\ \frac{partial}{\partial x_n} x_1 y_1 + \frac{\partial}{\partial x_n}x_2 y_2 + \dots + \frac{\partial}{\partial x_n}x_n y_n  \end{bmatrix}$</p>
+<p>$ = \begin{bmatrix} \frac{\partial}{\partial x_1} x_1 y_1 + \frac{\partial}{\partial x_1}x_2 y_2 + \dots + \frac{\partial}{\partial x_1}x_n y_n \\ \vdots \\ \frac{\partial}{\partial x_n} x_1 y_1 + \frac{\partial}{\partial x_n}x_2 y_2 + \dots + \frac{\partial}{\partial x_n}x_n y_n  \end{bmatrix}$</p>
 <p>$ = \begin{bmatrix} y_1 + 0 + \dots + 0 \\ \vdots \\ 0+0+ \dots + y_n \end{bmatrix} = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = \bf{y}$</p>
 
 </div>
@@ -1411,6 +1411,56 @@ y_{10}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$\frac{\partial}{\partial x}(x^\top y) = y$ 임을 보이는 다른 풀이</p>
+<p>pf. $\frac{\partial}{\partial x} \big(x^\top y \big) = \big( \frac{\partial}{\partial x} x^\top \big) y = \bf{I} \bf{y} = \bf{y}$</p>
+<p>$\frac{\partial}{\partial x} x^\top = \begin{bmatrix} \frac{\partial}{\partial x_1} \\ \vdots \\ \frac{\partial}{\partial x_n}\end{bmatrix} \begin{bmatrix} x_1 &amp; \dots &amp; x_n \end{bmatrix} = \begin{bmatrix} \frac{\partial}{\partial x_1} x_1 &amp; \dots &amp; \frac{\partial}{\partial x_n} x_n \\ \vdots &amp; &amp; \\ \frac{\partial}{\partial x_n} x_1 &amp; \dots &amp;\frac{\partial}{\partial x_n} x_n \end{bmatrix} = \bf{I}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[2] $\frac{\partial}{\partial x}(\bf{y}^\top \bf{x} ) = \bf{y}$</p>
+<p>pf. $\frac{\partial}{\partial x}(\bf{y}^\top\bf{x}) = \frac{\partial}{\partial x}(\bf{x}^\top \bf{y}) = \bf{y}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[3] $\frac{\partial}{\partial B}(\bf{y}^\top \bf{X} \bf{B}) = \bf{x}^\top \bf{y}$</p>
+<p>단, $\bf{B} := p \times 1$ vector, $\bf{X} := n \times p$ matrix, $\bf{y} := n \times 1$ vector</p>
+<p>pf. $\bf{y}^\top \bf{X} \bf{B}$는 스칼라이므로 $\bf{y}^\top\bf{X}\bf{B} = (\bf{y}^\top \bf{X} \bf{B})^\top = \bf{B}^\top \bf{X}^\top \bf{y}$</p>
+<p>$\frac{\partial}{\partial \bf{B}}(\bf{y}^\top \bf{X} \bf{B}) = \frac{\partial}{\partial \bf{B}}(\bf{B}^\top \bf{X}^\top \bf{y}) = \big( \frac{\partial}{\partial \bf{B}} \bf{B}^\top \big) \bf{X}^\top \bf{y} = \bf{X}^\top \bf{y}$</p>
+<p>(다른 풀이) $\frac{\partial}{\partial \bf{B}}(\bf{y}^\top \bf{X} \bf{B}) = \bf{X}^\top \bf{y}$임을 보이는 다른 풀이</p>
+<p>$\bf{XB} = \begin{bmatrix} x_{11} &amp; \dots &amp; x_{1p} \\ \vdots &amp; &amp; \\ x_{n1} &amp; \dots &amp; x_{np} \end{bmatrix} \begin{bmatrix} \beta_1 \\ \vdots \\ \beta_p \end{bmatrix} = \begin{bmatrix} x_{11}B_1 + \dots + x_{1p} \beta_p \\ x_{21}B_1 + \dots + x_{2p}B_p \\ \vdots \\ x_{n1} B_1 + \dots + x_{np} B_p \end{bmatrix}$</p>
+<p>$\bf{y}^\top \bf{XB} = \begin{bmatrix} y_1 &amp; \dots y_n \end{bmatrix}\begin{bmatrix} x_{11}B_1 + \dots + x_{1p} \beta_p \\ x_{21}B_1 + \dots + x_{2p}B_p \\ \vdots \\ x_{n1} B_1 + \dots + x_{np} B_p \end{bmatrix}$</p>
+<p>$ = y_1(x_{11}B_1 + \dots + x_{1p}B_p) + y_2(x_{21}B_1 + \dots + x_{2p}B_p ) + \dots + y_n(x_{1p}B_1 + \dots + x_{np} B_p) = A_1 + A_2 + \dots A_n$</p>
+<ul>
+<li>note: $A_1, A_2, \dots$은 모두 스칼라</li>
+</ul>
+<p>$\big( \frac{\partial}{\partial B} \big)(\bf{y}^\top \bf{XB}) = \begin{bmatrix} \frac{\partial}{\partial B_1} \\ \vdots \\\frac{\partial}{\partial B_p} \end{bmatrix}(A_1 A_2 + \dots A_n)$</p>
+<p>$ = \begin{bmatrix}\frac{\partial}{\partial B_1} A_1 \\ \vdots \\ \frac{\partial}{\partial B_p} A_1 \end{bmatrix} + \begin{bmatrix} \frac{\partial}{\partial B_1} A_2 \\ \vdots \\ \frac{\partial}{\partial B_p} A_2 \end{bmatrix}+ \dots +\begin{bmatrix} \frac{\partial}{\partial B_1} A_n \\ \vdots \\ \frac{\partial}{\partial B_p} A_n \end{bmatrix}$</p>
+<ul>
+<li>
+<p>$\frac{\partial}{\partial B_1}A_1 = \frac{\partial}{\partial B_1}y_1(x_{11}B_1 + \dots + x_{1p}B_p) = y_1 x_{11} + 0 + \dots + 0$</p>
+</li>
+<li>
+<p>$\frac{\partial}{\partial B_2}A_1 = \frac{\partial}{\partial B_2}y_1(x_{11}B_1 + \dots + x_{1p}B_p) = 0 + y_1 x_{12} + 0 + \dots + 0$</p>
+</li>
+</ul>
+<p>$ = \begin{bmatrix} y_1 x_{11} \\ y_1 x_{12} \\ \vdots \\ y_1 x_{1p}\end{bmatrix} + \begin{bmatrix} y_2 x_{21} \\ y_2 x_{22} \\ \vdots \\ y_2 x_{2p} \end{bmatrix}  + \dots + \begin{bmatrix} y_n x_{n1} \\ y_n x_{n2} \\ \vdots \\ y_n x_{np} \end{bmatrix} $</p>
+<p>$ = \begin{bmatrix} y_1 x_{11} + y_2 x_{21} + \dots + y_n x_{n1} \\ y_1 x_{12} + y_2 x_{22} + \dots + y_n x_{n2} \\ \vdots \\ y_1 x_{1p} + y_2 x_{2p} + \dots + y_n x_{np} \end{bmatrix} = \begin{bmatrix} x_{11} &amp; x_{21} &amp; \dots &amp; x_{n1} \\ x_{12} &amp; x_{22} &amp; \dots &amp; x_{n2} \\ \vdots &amp; \vdots &amp; &amp; \\ x_{1p} &amp; x_{2p} &amp; \dots &amp; x_{np} \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} = \bf{X}^\top \bf{y}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[4] $\frac{\partial}{\partial y} \bf{y}^\top \bf{y} = 2\bf{y}$</p>
+<p>pf. $\bf{y}^\top \bf{y} = \brgon{bmatrix} y_1 &amp; \dots &amp; y_n \end{bmatrix} \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = $</p>
 
 </div>
 </div>
