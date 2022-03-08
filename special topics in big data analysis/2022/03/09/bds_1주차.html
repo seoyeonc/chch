@@ -916,13 +916,13 @@ array([[20.1     , 55.418365],
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>정규방정식</strong></p>
 <p>(1)</p>
-<p>$\leftrightarrow \sum_{i=1}^{n} (y_i - \beta_0 - \beta_i x_i) = 0 \leftrightarrow \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$</p>
+<p>$\leftrightarrow \sum_{i=1}^{n} -2(y_i - \beta_0 - \beta_i x_i) \rightarrow \sum_{i=1}^{n} (y_i - \beta_0 - \beta_i x_i) = 0 \leftrightarrow \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$</p>
 <p>$\leftrightarrow \beta_0 = \frac{1}{n} \sum y_i - \beta_1 \frac{1}{n}\sum x_i \leftrightarrow \beta_0 = \bar{y} - \beta_1 \bar{x}$</p>
 <p>(2)</p>
 <p>$\leftrightarrow \sum^{n}_{i=1} x_i (y_i - \beta_0 - \beta_1 x_i) = 0 \leftrightarrow \sum x_i uy_i - \beta_0 n \bar(x) - \beta_1 \sum x_{i}^{2} = 0$</p>
-<p>$\sum x_i y_i - \bar{y} - \beta_1 \bar{x}) n \bar{x} - \beta_1 \sum x_{i}^{2} = 0$</p>
+<p>$\sum x_i y_i - ( \bar{y} - \beta_1 \bar{x}) n \bar{x} - \beta_1 \sum x_{i}^{2} = 0$</p>
 <p>$\leftrightarrow \beta_1 (n(\bar{x})^2 - \sum x_{i}^{2}) + 2 x_i y_i - \bar{y} n \bar{x} = 0$</p>
-<p>$\beta_1 = \frac{\sum x_i y_i - n \bar{x} \bar{y}}{\sum x_{i}^{2} - n (\bar{x})^2)} = \frac{\beta_1분자}{\beta_1 분모}$</p>
+<p>$\beta_1 = \frac{\sum x_i y_i - n \bar{x} \bar{y}}{\sum x_{i}^{2} - n (\bar{x})^2} = \frac{\beta_1분자}{\beta_1 분모}$</p>
 <p>(예비학습)</p>
 <p>$S_{xy} = \sum^{n}_{i=1} (x_i - \bar{x} ) (y_i - \bar{y} ) = \sum^{n}_{i=1} (x_i - \bar{x}) y_i$</p>
 <p>pf. $\sum^{x}_{i=1}(x_i - \bar{x}) \bar{y} = 0$ 을 보이면 된다.</p>
