@@ -975,10 +975,10 @@ array([[20.1     , 55.418365],
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>정규방정식</strong></p>
 <p>(1)</p>
-<p>$\leftrightarrow \sum_{i=1}^{n} -2(y_i - \beta_0 - \beta_i x_i) \rightarrow \sum_{i=1}^{n} (y_i - \beta_0 - \beta_i x_i) = 0 \leftrightarrow \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$</p>
+<p>$\leftrightarrow \sum_{i=1}^{n} -2(y_i - \beta_0 - \beta_1 x_i) \rightarrow \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0 \leftrightarrow \sum y_i - n \beta_0 - \beta_1 \sum x_i = 0$</p>
 <p>$\leftrightarrow \beta_0 = \frac{1}{n} \sum y_i - \beta_1 \frac{1}{n}\sum x_i \leftrightarrow \beta_0 = \bar{y} - \beta_1 \bar{x}$</p>
 <p>(2)</p>
-<p>$\leftrightarrow \sum^{n}_{i=1} x_i (y_i - \beta_0 - \beta_1 x_i) = 0 \leftrightarrow \sum x_i uy_i - \beta_0 n \bar(x) - \beta_1 \sum x_{i}^{2} = 0$</p>
+<p>$\leftrightarrow \sum^{n}_{i=1} x_i (y_i - \beta_0 - \beta_1 x_i) = 0 \leftrightarrow \sum x_i y_i - \beta_0 n \bar{x} - \beta_1 \sum x_{i}^{2} = 0$</p>
 <p>$\sum x_i y_i - ( \bar{y} - \beta_1 \bar{x}) n \bar{x} - \beta_1 \sum x_{i}^{2} = 0$</p>
 <p>$\leftrightarrow \beta_1 (n(\bar{x})^2 - \sum x_{i}^{2}) + 2 x_i y_i - \bar{y} n \bar{x} = 0$</p>
 <p>$\beta_1 = \frac{\sum x_i y_i - n \bar{x} \bar{y}}{\sum x_{i}^{2} - n (\bar{x})^2} = \frac{\beta_1분자}{\beta_1 분모}$</p>
@@ -989,7 +989,7 @@ array([[20.1     , 55.418365],
 <p>($\beta_1$의 분자 = $S_{xy}$임을 보이자)</p>
 <p>$S_{xy} = \sum^{n}_{i=1}(x_i - \bar{x})y_i = \sum^{n}_{i=1} x_i y_i - \bar{x} \sum^{n}_{i=1} y_i = \sum x_i y_i - \bar{x} n \bar{y} = \beta_1$의 분자</p>
 <p>($\beta_1$의 분모 = $S_{xx}$임을 보이자)</p>
-<p>$S_{xx} = \sum^{n}_{i=1}(x_i - \bar{x})^2 = \sum ( x_{i}^{2} - 2 x_i \bar{x} + (\bar{x})^2) = 2x_{i}^{2} - 2 n \bar{x} \bar{x} + n (\bar{x})^2 = \sum x_{i}^{2} - n(\bar{x})^2 = \beta_1$의 분모</p>
+<p>$S_{xx} = \sum^{n}_{i=1}(x_i - \bar{x})^2 = \sum ( x_{i}^{2} - 2 x_i \bar{x} + (\bar{x})^2) = \sum x_{i}^{2} - 2 n \bar{x} \bar{x} + n (\bar{x})^2 = \sum x_{i}^{2} - n(\bar{x})^2 = \beta_1$의 분모</p>
 
 </div>
 </div>
@@ -1445,7 +1445,7 @@ y_{10}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>벡터미분 / 매트릭스 미분</strong></p>
 <p>(1) 정의 1: 벡터로 미분</p>
-<p>$\frac{\partial}{\partial y} = \begin{bmatrix} \frac{\partial}{\partial y_1} \\ \vdots \\ \frac{\partial}{\partial y_n} \end{bmatrix}$ ,  $y = \begin{bmatrix} {y_1 \\ \vdots \\ y_n} \end{bmatrix}$</p>
+<p>$\frac{\partial}{\partial y} = \begin{bmatrix} \frac{\partial}{\partial y_1} \\ \vdots \\ \frac{\partial}{\partial y_n} \end{bmatrix}$ , $y = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix}$</p>
 <p>(2) 정의 2: 매트릭스로 미분</p>
 <p>$\frac{\partial}{\partial \bf{X} } := \begin{bmatrix} \frac{\partial}{\partial x_{11} } &amp; \dots &amp; \frac{\partial}{\partial x_{1p} } \\ \vdots &amp;  &amp; \vdots \\ \frac{\partial}{\partial x_{n1} }  &amp; \dots &amp; \frac{\partial}{\partial x_{np} } \end{bmatrix}, \bf{X} = \begin{bmatrix} x_{11} &amp; \dots &amp; x_{1p} \\ \vdots &amp; &amp; \vdots \\ x_{n1} &amp; \dots &amp; x_{np}  \end{bmatrix}$</p>
 
@@ -1495,7 +1495,7 @@ y_{10}
 <p><code>(다른 풀이)</code> $\frac{\partial}{\partial \bf{B}}(\bf{y}^\top \bf{X} \bf{B}) = \bf{X}^\top \bf{y}$임을 보이는 다른 풀이</p>
 <p>$\bf{XB} = \begin{bmatrix} x_{11} &amp; \dots &amp; x_{1p} \\ \vdots &amp; &amp; \vdots \\ x_{n1} &amp; \dots &amp; x_{np} \end{bmatrix} \begin{bmatrix} \beta_1 \\ \vdots \\ \beta_p \end{bmatrix} = \begin{bmatrix} x_{11}B_1 + \dots + x_{1p} \beta_p \\ x_{21}B_1 + \dots + x_{2p}B_p \\ \vdots \\ x_{n1} B_1 + \dots + x_{np} B_p \end{bmatrix}$</p>
 <p>$\bf{y}^\top \bf{XB} = \begin{bmatrix} y_1 &amp; \dots y_n \end{bmatrix}\begin{bmatrix} x_{11}B_1 + \dots + x_{1p} \beta_p \\ x_{21}B_1 + \dots + x_{2p}B_p \\ \vdots \\ x_{n1} B_1 + \dots + x_{np} B_p \end{bmatrix}$</p>
-<p>$ = y_1(x_{11}B_1 + \dots + x_{1p}B_p) + y_2(x_{21}B_1 + \dots + x_{2p}B_p ) + \dots + y_n(x_{1p}B_1 + \dots + x_{np} B_p) = A_1 + A_2 + \dots A_n$</p>
+<p>$ = y_1(x_{11}B_1 + \dots + x_{1p}B_p) + y_2(x_{21}B_1 + \dots + x_{2p}B_p ) + \dots + y_n(x_{n1}B_1 + \dots + x_{np} B_p) = A_1 + A_2 + \dots A_n$</p>
 <ul>
 <li>note: $A_1, A_2, \dots$은 모두 스칼라($1 \times 1$)</li>
 </ul>
@@ -1522,7 +1522,7 @@ y_{10}
 <p>pf. $\bf{y}^\top \bf{y} = \begin{bmatrix} y_1 &amp; \dots &amp; y_n \end{bmatrix} \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = y_{1}^{2} + \dots + y_{n}^{2}$</p>
 <p>$\therefore \frac{\partial}{\partial y}(\bf{y}^\top y) = \frac{\partial}{\partial y}(y_{1}^{2} + \dots + y_{n}^{2}) = \begin{bmatrix} \frac{\partial}{\partial y_1} \\ \vdots \\ \frac{\partial}{\partial y_n} \end{bmatrix} (y_{1}^{2} + \dots + y_{n}^{2})$</p>
 <p>$ = \begin{bmatrix} \frac{\partial}{\partial y_1}(y_{1}^{2} + \dots + y_{n}^{2}) \\ \vdots \\ \frac{\partial}{\partial y_n}(y_{1}^{2} + \dots + y_{n}^{2}) \end{bmatrix} = \begin{bmatrix}2y_1 + 0 + \dots + 0 \\ 0 + 2y_2 + \dots + 0 \\ \vdots \\ 0 + 0 + \dots + 2y_n \end{bmatrix} = 2\begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} = 2\bf{y}$</p>
-<p>(틀린 풀이) $\frac{\partial}{\partial y}(\bf{y}^\top \bf{y}) = \big( \frac{\partial}{\partial y} \bf{y}^\top \big) \bf{y}$ 미분하는 값에 대해 상수일때만 가능</p>
+<p>(틀린 풀이) $\frac{\partial}{\partial y}(\bf{y}^\top \bf{y}) {\color{orange}=} \big( \frac{\partial}{\partial y} \bf{y}^\top \big) \bf{y}$ 미분하는 값에 대해 상수일때만 가능</p>
 <p>그런데 $\big(\frac{\partial}{\partial y}\bf{y}^\top \big) = \bf{I}$이므로, $\frac{\partial}{\partial y} (\bf{y}^\top \bf{y}) = \bf{I} \bf{y} = \bf{y}$</p>
 <p>(틀린 풀이의 스칼라 버전) $\frac{d}{dy} y^2 = \big( \frac{d}{dy} y \big) y = 1 \times y = \bf{y}$</p>
 <p>(올바른 풀이) : $\frac{d}{dy} y^2 = \big( \frac{d}{dy} \big) {\color{red}y} {\color{blue}y} = \big( \frac{d}{dy} {\color{red}y} \big) {\color{blue}y} + {\color{red}y} \big( \frac{d}{dy} {\color{blue}y} \big)$</p>
@@ -1545,7 +1545,7 @@ y_{10}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>5</code> $\frac{\partial}{\partial; B} \bf{B}^\top \bf{X}^\top \bf{X} \bf{B} = 2\bf{X}^\top \bf{XB}$</p>
+<p><code>5</code> $\frac{\partial}{\partial B} \bf{B}^\top \bf{X}^\top \bf{X} \bf{B} = 2\bf{X}^\top \bf{XB}$</p>
 <p>pf. $\frac{\partial}{\partial B}({\color{red}B}^\top{\color{red}X}^\top {\color{blue}X} {\color{blue}B}) = A + B = \bf{I}\bf{X}^\top \bf{XB} + \bf{I}\bf{X}^\top\bf{XB} = 2\bf{X}^\top \bf{XB}$</p>
 <p>$A = \big( \frac{\partial}{\partial B} {\color{red}B}^\top\big) \bf{X}^\top \bf{X} {\color{blue}B} = \bf{I} \bf{X}^\top \bf{X} {\color{red}B}$</p>
 <p>$B = \big( \frac{\partial}{\partial B} \big) ( {\color{red}B}^\top \bf{X}^\top \bf{X} {\color{blue}B}) = \big(\frac{\partial}{\partial B} \big) ({\color{blue}B}^\top \bf{X}^\top \bf{X}{\color{red}B}) = \bf{I} \bf{X}^\top \bf{X} {\color{red}B}$</p>
@@ -1564,7 +1564,7 @@ y_{10}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$loss = (\bf{y} - \bf{XB}^\top(\bf{y} - \bf{XB}) = \bf{y}\bf{y}^\top - \bf{y}^\top\bf{XB} - \bf{B}^\top\bf{X}^\top \bf{y} + \bf{B}^\top \bf{X}^\top \bf{XB}$</p>
+<p>$loss = (\bf{y} - \bf{XB})^\top(\bf{y} - \bf{XB}) = \bf{y}\bf{y}^\top - \bf{y}^\top\bf{XB} - \bf{B}^\top\bf{X}^\top \bf{y} + \bf{B}^\top \bf{X}^\top \bf{XB}$</p>
 <p>$\frac{\partial}{\partial B} loss = 0 - \frac{\partial}{\partial B} \bf{y}^\top \bf{XB} - \frac{\partial}{\partial B} \bf{B}^\top \bf{X}^\top \bf{y} + \frac{\partial}{\partial B} \bf{B}^\top \bf{X}^\top \bf{XB} = 0 - \bf{X}^\top \bf{y} - \bf{X}^\top \bf{y} + 2\bf{X}^\top \bf{XB}$</p>
 <p>$\therefore \frac{\partial}{\partial B} loss = 0 \leftrightarrow 2\bf{X}^\top \bf{y} = 2\bf{X}^\top \bf{XB}$</p>
 <p>$\therefore \hat{\bf{B}} = (\bf{X}^\top \bf{X})^{-1}\bf{X}^\top \bf{y}$</p>
