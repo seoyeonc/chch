@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Geometric deep learning going beyond Euclidean data | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Geometric deep learning going beyond Euclidean data" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Michael M. Bronstein, Joan Bruna, Yann LeCun, Arthur Szlam, Pierre Vandergheynst" />
+<meta property="og:description" content="Michael M. Bronstein, Joan Bruna, Yann LeCun, Arthur Szlam, Pierre Vandergheynst" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/2022/03/11/GDL.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/2022/03/11/GDL.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-11T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Michael M. Bronstein, Joan Bruna, Yann LeCun, Arthur Szlam, Pierre Vandergheynst","url":"https://seoyeonc.github.io/chch/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/2022/03/11/GDL.html","@type":"BlogPosting","headline":"Geometric deep learning going beyond Euclidean data","dateModified":"2022-03-11T00:00:00-06:00","datePublished":"2022-03-11T00:00:00-06:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/2022/03/11/GDL.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Geometric deep learning going beyond Euclidean data</h1><p class="page-description">Michael M. Bronstein, Joan Bruna, Yann LeCun, Arthur Szlam, Pierre Vandergheynst</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-11T00:00:00-06:00" itemprop="datePublished">
+        Mar 11, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#논문리뷰">논문리뷰</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-03-11-GDL.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-03-11-GDL.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-03-11-GDL.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#I.-INTRODUCTION">I. INTRODUCTION </a></li>
+<li class="toc-entry toc-h3"><a href="#II.-GEOMETRIC-LEARNING-PROBLEMS">II. GEOMETRIC LEARNING PROBLEMS </a></li>
+<li class="toc-entry toc-h3"><a href="#III.-DEEP-LEARNING-ON-EUCLIDEAN-DOMAINS">III. DEEP LEARNING ON EUCLIDEAN DOMAINS </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-11-GDL.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Geometric deep learning is an umbrella term for emerging techniques attempting to generalize (structured) deep neural models to non-Euclidean domains such as graphs and manifolds.<ul>
+<li>기하학적 딥러닝: 그래프나 매니폴드같은 비유클리디언 도메인에서 구조화된 깊은 신경망 모델을 일반화하는 등장하는 기술 시도를 포괄하는 용어</li>
+</ul>
+</li>
+<li>The purpose of this paper is to overview different examples of geometric deep learning problems and present available solutions, key difficulties, applications, and future research directions in this nascent field.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="I.-INTRODUCTION">
+<a class="anchor" href="#I.-INTRODUCTION" aria-hidden="true"><span class="octicon octicon-link"></span></a>I. INTRODUCTION<a class="anchor-link" href="#I.-INTRODUCTION"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The use of convolutions has a two-fold effect. <ul>
+<li>First, it allows extracting local features that are shared across the image domain and greatly reduces the number of parameters in the network with respect to generic deep architectures (and thus also the risk of overfitting), without sacrificing the expressive capacity of the network.</li>
+<li>적은 수의 파라메터, 로컬 특징 추출</li>
+<li>Second, the convolutional architecture itself imposes some priors about the data, which appear very suitable especially for natural images</li>
+<li>자연 이미지에 적합한 우선순위 부과</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The non-Euclidean nature of such data implies that there are no such familiar properties as global parameterization, common system of coordinates, vector space structure, or shift-invariance. </li>
+<li>Consequently, basic operations like convolution that are taken for granted in the Euclidean case are even not well defined on non-Euclidean domains. <ul>
+<li>유클리드레서 당연한 컨벌루션같은 기본 연산은 비유클리드 도메인에서 잘 정의되지 않음!</li>
+</ul>
+</li>
+<li>The purpose of our paper is to show different methods of translating the key ingredients of successful deep learning methods such as convolutional neural networks to non-Euclidean data.<ul>
+<li>목적: 비유클리디안 데이터에 컨벌루션 신경망같은 성공적인 딥러닝 방법의 주요 구성을 변환하는 다양한 방법을 보여주기~</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="II.-GEOMETRIC-LEARNING-PROBLEMS">
+<a class="anchor" href="#II.-GEOMETRIC-LEARNING-PROBLEMS" aria-hidden="true"><span class="octicon octicon-link"></span></a>II. GEOMETRIC LEARNING PROBLEMS<a class="anchor-link" href="#II.-GEOMETRIC-LEARNING-PROBLEMS"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Broadly speaking, we can distinguish between two classes of geometric learning problems.</li>
+<li>In the first class of problems, the goal is to characterize the structure of the data.<ul>
+<li>목적은 데이터 구조를 특성화하는 것</li>
+</ul>
+</li>
+<li>The second class of problems deals with analyzing functions defined on a given non-Euclidean domain. </li>
+<li>These two classes are related, since understanding the properties of functions defined on a domain conveys certain information about the domain, and vice-versa, the structure of the domain imposes certain properties on the functions on it.<ul>
+<li>도메인에 정의된 함수의 특성을 이해하는 것은 도메인에 대한 특정 정보를 전달하고, 그 반대로 도매안의 구조는 도메인에서 함수에 특성 속성을 부과하기 때문에 구 클래스는 연관이 있다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Structure of the domain:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Many methods for nonlinear dimensionality reduction consist of two steps: <ul>
+<li>first, they start with constructing a representation of local affinity of the data points (typically, a sparsely connected graph). <ul>
+<li>데이터 포인트의 로컬 관련성 구성</li>
+</ul>
+</li>
+<li>Second, the data points are embedded into a low-dimensional space trying to preserve some criterion of the original affinity.<ul>
+<li>데이터 포인트는 저차원 공간에 임베드됨</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Instead of embedding the vertices, the graph structure can be processed by decomposing it into small sub-graphs called motifs [36] or graphlets [37].</p>
+<ul>
+<li>정점 임베딩하는 대신 그래프 구조는 모티브나 그래프릿같은 작은 서브 그래프에서 분해함으로써 처리 가능</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In network analysis applications such as computational sociology, the topological structure of the social graph representing the social relations between people carries important insights allowing, for example, to classify the vertices and detect communities [40].<ul>
+<li>네트워크 분석 어플리케이션은 정점을 분류하고 커뮤니티 탐지</li>
+</ul>
+</li>
+<li>In natural language processing, words in a corpus can be represented by the co-occurrence graph, where two words are connected if they often appear near each other [41].<ul>
+<li>자연어 처리에서는 두 단어가 서로 근처에 나타나면 연결된 동시 발생 그래프로 표현 가능</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Data on a domain</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Our second class of problems deals with analyzing functions defined on a given non-Euclidean domain.</li>
+<li>We can further break down such problems into two subclasses: problems where the domain is fixed and those where multiple domains are given.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In computer graphics and vision applications, finding similarity and correspondence between shapes are examples of the second sub-class of problems: each shape is modeled as a manifold, and one has to work with multiple such domains.<ul>
+<li>각 모양은 매니폴드로 모델와되고, 하나는 여러 도메인에서 작업해야 한다.</li>
+</ul>
+</li>
+<li>In this setting, a generalization of convolution in the spatial domain using local charting [46], [47], [48] appears to be more appropriate.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Brief history</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The main focus of this review is on this second class of problems, namely learning functions on non-Euclidean structured domains, and in particular, attempts to generalize the popular CNNs to such settings.</li>
+<li>First attempts to generalize neural networks to graphs we are aware of are due to Scarselli et al. [49], who proposed a scheme combining recurrent neural networks and random walk models.<ul>
+<li>그래프에서 신경망을 일반화하려는 첫번째 시도는 Scarselli이 함~ 임의보행 모델과 반복 신경망 모델의 결합을 제안함</li>
+</ul>
+</li>
+<li>The first formulation of CNNs on graphs is due to Bruna et al. [52], who used the definition of convolutions in the spectral domain.<ul>
+<li>그레프에서 cnn을 첫번째 공식화한 건 Bruna, 스펙트럼 도메인에서 컨벌루션 정의를 사용!</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Their paper, while being of conceptual importance, came with significant computational drawbacks that fell short of a truly useful method.<ul>
+<li>유용한데 계산상의 결점이 존재.</li>
+</ul>
+</li>
+<li>These drawbacks were subsequently addressed in the followup works of Henaff et al.[44] and Defferrard et al. [45].</li>
+<li>In the latter paper, graph CNNs allowed achieving some state-of-the-art results.<ul>
+<li>후에 해결책 제시하는듯?!</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In a parallel effort in the computer vision and graphics community, Masci et al. [47] showed the first CNN model on meshed surfaces, resorting to a spatial definition of the convolution operation based on local intrinsic patches.<ul>
+<li>평행적 노력: 로컬 고유 패치를 기반으로 한 컨벌루션 연산의 공간적 정의에 의존한 매쉬드 표면에서 첫번째 CNN 모델을 보임</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The interest in deep learning on graphs or manifolds has exploded in the past year, resulting in numerous attempts to apply these methods in a broad spectrum of problems ranging from biochemistry [55] to recommender systems [56].</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Structure of the paper</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Going to the non-Euclidean world in Section IV, we then define basic notions in differential geometry and graph theory.</li>
+<li>These topics are insufficiently known in the signal processing community, and to our knowledge, there is no introductorylevel reference treating these so different structures in a common way.</li>
+<li>One of our goals is to provide an accessible overview of these models resorting as much as possible to the intuition of traditional signal processing.</li>
+<li>In Sections V–VIII, we overview the main geometric deep learning paradigms, emphasizing the similarities and the differences between Euclidean and non-Euclidean learning methods.</li>
+<li>In Section IX, we show examples of selected problems from the fields of network analysis, particle physics, recommender systems, computer vision, and graphics. </li>
+<li>In Section X, we draw conclusions and outline current main challenges and potential future research directions in geometric deep learning. </li>
+<li>To make the paper more readable, we use inserts to illustrate important concepts.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="III.-DEEP-LEARNING-ON-EUCLIDEAN-DOMAINS">
+<a class="anchor" href="#III.-DEEP-LEARNING-ON-EUCLIDEAN-DOMAINS" aria-hidden="true"><span class="octicon octicon-link"></span></a>III. DEEP LEARNING ON EUCLIDEAN DOMAINS<a class="anchor-link" href="#III.-DEEP-LEARNING-ON-EUCLIDEAN-DOMAINS"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Geometric priors</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Consider a compact d-dimensional Euclidean domain $\Omega = [0; 1]^d \subset \mathbb{R}^d $ on which squareintegrable functions $f \in L2(\Omega)$ are defined<ul>
+<li>제곱할 수 있는 함수가 정의된 컴책트한 d차원의 유클리디안 도메인을 고려해보자.</li>
+</ul>
+</li>
+<li>We consider a generic supervised learning setting, in which an unknown8 function $y : L^2(\Omega) \rightarrow \cal{Y}$ is observed on a training set<ul>
+<li>$\{ f_i \in L^2 (\Omega) , y_i = y(f_i )  \}_{i \in \cal{I}}$..(1)</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In a supervised classification setting, the target space $\cal{Y}$ can be thought discrete with $| \cal{Y} |$ being the number of classes. </li>
+<li>In a multiple object recognition setting, we can replace $\cal{Y}$ by the $K$-dimensional simplex, which represents the posterior class probabilities $p(y|x)$. In regression tasks, we may consider $\cal{Y} = \mathbb{R}^m$.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Stationarity</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Let $\cal{T}vf(x) = f(x - v),$  $x; v \in \Omega$ (2) be a translation operator acting on functions $f \in L^2 (\Omega)$</li>
+<li>Our first assumption is that the function y is either invariant or equivariant with respect to translations, depending on the task.</li>
+<li>In the former case, we have $y(\cal{T}_v f) = y(f)$ for any $f \in L^2(\Omega)$ and $v \in \Omega$. </li>
+<li>This is typically the case in object classification tasks. </li>
+<li>In the latter, we have $y(\cal{T}_v f) = \cal{T}_v y(f)$, which is welldefined when the output of the model is a space in which translations can act upon (for example, in problems of object8 localization, semantic segmentation, or motion estimation).</li>
+<li><em>Our definition of invariance should not be confused with the traditional notion of translation invariant systems in signal processing, which corresponds to translation equivariance in our language (since the output translates whenever the input translates).</em></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Local deformations and scale separation</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Similarly, a deformation $\cal{L}_{\cal{T}}$, where $\tau : \Omega \rightarrow \Omega$ is a smooth vector field, acts on $L^2 (\Omega)$ as $\cal{L}_{\cal{T}} f(x) = f(x - \tau(x))$.</li>
+<li>deformation can model local translations, changes in point of view, rotations and frequency transpositions</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Most tasks studied in computer vision are not only translation invariant/equivariant, but also stable with respect to local deformations [57], [18]. </li>
+<li>In tasks that are translation invariant we have<ul>
+<li>$| y(\cal{L}_{\cal{T}} f) - y(f)| \approx \| \bigtriangledown \tau \|$, (3)</li>
+<li>for all $f$, $\tau$ .</li>
+</ul>
+</li>
+<li>Here, $\| \bigtriangledown \tau \|$ measures the smoothness of a given deformation field.</li>
+<li>In other words, the quantity to be predicted does not change much if the input image is slightly deformed.</li>
+<li>In tasks that are translation equivariant, we have<ul>
+<li>$| y(\cal{L}_{\cal{T}} f) - \cal{L}_{\cal{T}}y(f)| \approx \| \bigtriangledown \tau \|$, (4)</li>
+</ul>
+</li>
+<li>This property is much <strong>stronger</strong> than the previous one, since the space of local deformations has a high dimensionality, as opposed to the d-dimensional translation group.</li>
+<li>It follows from (3) that we can extract sufficient statistics at a lower spatial resolution by downsampling demodulated localized filter responses without losing approximation power.</li>
+<li>An important consequence of this is that long-range dependencies can be broken into multi-scale local interaction terms, leading to hierarchical models in which spatial resolution is progressively reduced. </li>
+<li>To illustrate this principle, denote by<ul>
+<li>$Y (x_1; x2; v) = Prob(f(u) = x1 \text{ and } f(u + v) = x2)$ (5)</li>
+<li>the joint distribution of two image pixels at an offset $v$ from each other.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In the presence of long-range dependencies, this joint distribution will not be separable for any $v$.</li>
+<li>However, the deformation stability prior states that $Y (x_1, x_2; v) \approx Y (x_1, x_2; v(1 + \epsilon ))$ for small $\epsilon$. </li>
+<li>In other words, whereas long-range dependencies indeed exist in natural images and are critical to object recognition, they can be captured and down-sampled at different scales. </li>
+<li>This principle of stability to local deformations has been exploited in the computer vision community in models other than CNNs,</li>
+<li>for instance, deformable parts models [58].</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Convolutional neural networks</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/2022/03/11/GDL.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
