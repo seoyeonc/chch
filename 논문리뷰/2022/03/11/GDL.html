@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      20 min read
     
 </span></p>
 
@@ -713,7 +713,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>The Laplacian can be interpreted as the difference between the average of a function on an infinitesimal sphere around a point and the value of the function at the point itself.<ul>
-<li>라플라시안은 point 주위의 극소구 상의 함수의 평균과 점 자체의 함수 값의 차이로 해석될 수 있다.</li>
+<li>라플라시안은 point 주위의 극소수 상의 함수의 평균과 점 자체의 함수 값의 차이로 해석될 수 있다.</li>
 </ul>
 </li>
 </ul>
@@ -796,6 +796,128 @@ $$\bigtriangleup f = A^{-1} (D - W) f  \text{  (26)}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Discrete manifolds</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>As we mentioned, there are many practical situations in which one is given a sampling of points arising from a manifold but not the manifold itself.</li>
+<li>In computer graphics applications, reconstructing a correct discretization of a manifold from a point cloud is a difficult problem of its own, referred to a meshing (see insert IN2).</li>
+<li>In manifold learning problems, the manifold is typically approximated as a graph capturing the local affinity structure.</li>
+<li>We warn the reader that the term “manifold” as used in the context of generic data science is not geometrically rigorous, and can have less structure than a classical smooth manifold we have defined beforehand.<ul>
+<li>일반적인 데이터 과학에서 사용되는 manifold는 엄격하지도 않고 더 적은 구조를 가질 수 있음</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Fourier analysis on non-Euclidean domains</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The Laplacian operator is a self-adjoint positive-semidefinite operator, admitting on a compact domain an eigendecomposition with a discrete set of orthonormal eigenfunctions $φ_0, φ_1, . . .$ (satisfying $(φ_i, φ_j)_{i^L2(\cal{X}} = δ_{ij} )$ and non-negative real eigenvalues $0 = λ_0 ≤ λ_1 ≤ . . .$ (referred to as the spectrum of the Laplacian),
+
+$$\bigtriangleup \phi_i = \lambda_i \phi_i , \text{  } i=0,1,\dots \text{  (31)}$$
+</li>
+<li>The eigenfunctions are the smoothest functions in the sense of the Dirichlet energy (see insert IN3) and can be interpreted as a generalization of the standard Fourier basis (given, in fact, by the eigenfunctions of the 1D Euclidean Laplacian, $−\frac{d^2}{x^2} e^{iωx} = ω^2 e^{iωx}$) to a non-Euclidean domain.</li>
+<li>It is important to emphasize that the Laplacian eigenbasis is intrinsic due to the intrinsic construction of the Laplacian itself.<ul>
+<li>라플라시안 고유기저는 라플라시안 자체의 고유한 구조 떄문에 고유하다는 건 중요</li>
+</ul>
+</li>
+<li>A square-integrable function $f$ on $\cal{X}$ can be decomposed into Fourier series as
+
+$$f(x) = \sum_{i \geq 0} (f,\phi_i)_{L^2 (\cal{X})} \phi_i (x)$$
+</li>
+<li>where the projection on the basis functions producing a discrete set of Fourier coefficients $(\hat{f}_i = (f,\phi_i)_{L^2 (\cal{X})})$ generalizes the analysis (forward transform) stage in classical signal processing, and summing up the basis functions with these coefficients is the synthesis (inverse transform) stage.<ul>
+<li>푸리에 계수의 이산집합을 만드는 기저 함수의 projection은 고전적 신호 처리에서 분석 단계를 일반화</li>
+<li>이 걔수로 기저 함수를 합한 것이 합성 단계</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<em>A centerpiece of classical Euclidean signal processing is the property of the Fourier transform diagonalizing the convolution operator, colloquially referred to as the Convolution Theorem.</em><ul>
+<li><em>컨벌루션 이론: 고전적인 유클리드 신호 처리의 중점이 컨볼루션 연산자를 대각화하는 푸리에 변환의 성질</em></li>
+</ul>
+</li>
+<li>
+<em>This property allows to express the convolution $f </em> g$ of two functions in the spectral domain as the element-wise product of their Fourier transforms,*<ul>
+<li>
+<em>이 특성 때문에 스펙트럼 도메인에서 두 함수의 컨볼루션을 푸리에 변환의 원소별 곱으로 표현 가능!</em>
+
+$$(\widehat{f * g}) (w) = \int_{-\infty}^{\infty} f(x) e^{-iwx} dx \int^{\infty}_{-\infty} g(x) e^{-iwx} dx \text{  (33)} $$
+</li>
+</ul>
+</li>
+<li>Unfortunately, in the non-Euclidean case we cannot even define the operation $x − x'$ on the manifold or graph, so the notion of convolution (7) does not directly extend to this case. </li>
+<li>
+<em>One possibility to generalize convolution to non-Euclidean domains is by using the Convolution Theorem as a definition,</em><ul>
+<li>
+<em>컨발루션 이론을 정의로 사용함으로써 비유클리드 영역으로 컨볼루션 일반화 가능!</em>
+
+$$(f * g) (x) = \sum_{i \geq 0} &lt; f, \phi_i &gt;_{L^2 ( \cal{X} )} &lt;g,\phi_i&gt;_{L^2 ( \cal{X} ) }\phi_i(x) \text{  (34)}$$
+</li>
+</ul>
+</li>
+<li>One of the key differences of such a construction from the classical convolution is the lack of shift-invariance.<ul>
+<li>shift-invariance의 부족..</li>
+</ul>
+</li>
+<li>In terms of signal processing, it can be interpreted as a position-dependent filter.<ul>
+<li>신호 처리에서 이건 위치 의존적 필터로 해석 가능</li>
+</ul>
+</li>
+<li>While parametrized by a fixed number of coefficients in the frequency domain, the spatial representation of the filter can vary dramatically at different points (see FIGS4).<ul>
+<li>주파수 영역에서 고정된 수의 계수에 의해 파라미터화되는 동안 필터의 공간적 표현은 다른 포인트에서 극적으로 달라질 수 있음</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The discussion above also applies to graphs instead of manifolds, where one only has to replace the inner product in equations (32) and (34) with the discrete one (20).<ul>
+<li>그래프에서도 적용됨!</li>
+</ul>
+</li>
+<li>All the sums over $i$ would become finite, as the graph Laplacian $∆$ has $n$ eigenvectors.<ul>
+<li>그래프 라플라시안이 n개의 고유벡터 가지기 때문에 모든 합이 유한해짐</li>
+</ul>
+</li>
+<li>In matrix-vector notation, the generalized convolution $f * g$ can be expressed as $Gf = Φ diag(\hat{g})Φ^\top f$, where $\hat{g} = (\hat{g}_1, . . . , \hat{g}_n)$ is the spectral representation of the filter and $Φ = (φ_1 , . . . , φ_n)$ denotes the Laplacian eigenvectors (30). </li>
+<li>The lack of shift invariance results in the absence of circulant (Toeplitz) structure in the matrix $G$, which characterizes the Euclidean setting. <ul>
+<li>토플리츠 행렬; 행의 값이 행마다 각각 같음</li>
+</ul>
+</li>
+<li>Furthermore, it is easy to see that the convolution operation commutes with the Laplacian, $G∆f = ∆Gf$.<ul>
+<li>컨벌루션 연산이 라플라시안과 일치!</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
