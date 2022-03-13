@@ -250,11 +250,11 @@ window.onload = wrap_img;
 <ul>
 <li>Many methods for nonlinear dimensionality reduction consist of two steps: <ul>
 <li>first, they start with constructing a representation of local affinity of the data points (typically, a sparsely connected graph). <ul>
-<li>데이터 포인트의 로컬 관련성 구성</li>
+<li>데이터 포인트의 지엽적 유사도local affinity 구성</li>
 </ul>
 </li>
 <li>Second, the data points are embedded into a low-dimensional space trying to preserve some criterion of the original affinity.<ul>
-<li>데이터 포인트는 저차원 공간에 임베드됨</li>
+<li>데이터 포인트는 원본 유사도를 보존하면서 저차원 공간에 임베드됨</li>
 </ul>
 </li>
 </ul>
@@ -270,6 +270,7 @@ window.onload = wrap_img;
 <p>Instead of embedding the vertices, the graph structure can be processed by decomposing it into small sub-graphs called motifs [36] or graphlets [37].</p>
 <ul>
 <li>정점 임베딩하는 대신 그래프 구조는 모티브나 그래프릿같은 작은 서브 그래프에서 분해함으로써 처리 가능</li>
+<li>데이터가 manifold나 graph로 주어지면 유사도를 구성하는 과정이 불필요함</li>
 </ul>
 
 </div>
@@ -316,7 +317,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>In computer graphics and vision applications, finding similarity and correspondence between shapes are examples of the second sub-class of problems: each shape is modeled as a manifold, and one has to work with multiple such domains.<ul>
-<li>각 모양은 매니폴드로 모델와되고, 하나는 여러 도메인에서 작업해야 한다.</li>
+<li>각 모양은 매니폴드로 모델화되고, 하나는 여러 도메인에서 작업해야 한다.</li>
 </ul>
 </li>
 <li>In this setting, a generalization of convolution in the spatial domain using local charting [46], [47], [48] appears to be more appropriate.</li>
@@ -475,7 +476,10 @@ window.onload = wrap_img;
 <ul>
 <li>Let $\cal{T}vf(x) = f(x - v),$  $x; v \in \Omega$ (2) be a translation operator acting on functions $f \in L^2 (\Omega)$</li>
 <li>Our first assumption is that the function y is either invariant or equivariant with respect to translations, depending on the task.</li>
-<li>In the former case, we have $y(\cal{T}_v f) = y(f)$ for any $f \in L^2(\Omega)$ and $v \in \Omega$. </li>
+<li>In the former case, we have $y(\cal{T}_v f) = y(f)$ for any $f \in L^2(\Omega)$ and $v \in \Omega$. <ul>
+<li>invariant의 뜻</li>
+</ul>
+</li>
 <li>This is typically the case in object classification tasks. </li>
 <li>In the latter, we have $y(\cal{T}_v f) = \cal{T}_v y(f)$, which is welldefined when the output of the model is a space in which translations can act upon (for example, in problems of object8 localization, semantic segmentation, or motion estimation).</li>
 <li><em>Our definition of invariance should not be confused with the traditional notion of translation invariant systems in signal processing, which corresponds to translation equivariance in our language (since the output translates whenever the input translates).</em></li>
