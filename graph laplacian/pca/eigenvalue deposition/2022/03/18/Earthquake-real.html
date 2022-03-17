@@ -558,23 +558,6 @@ $$dist((x_i,y_i),(x_j,y_j)) = \sqrt{(x_j-x_i)^2+(y_j-y_i)^2}$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">haversine</span><span class="p">((</span><span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">i</span><span class="p">]),(</span><span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">_df</span><span class="o">.</span><span class="n">Longitude</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
     <span class="n">a1</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">a2</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">_df</span><span class="o">.</span><span class="n">Latitude</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
