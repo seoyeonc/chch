@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      6 min read
     
 </span></p>
 
@@ -139,6 +139,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#1">1 </a></li>
 <li class="toc-entry toc-h3"><a href="#2">2 </a></li>
+<li class="toc-entry toc-h3"><a href="#3">3 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -316,12 +317,19 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>MDP</p>
+<p><strong>마르코프 결정 과정Markov decision process MDP</strong></p>
 <ul>
+<li>수학 프레임워크, 이를 이용해서 강화학습 환경을 연속적인 의사결정 문제로 표현하는 방법 학습.</li>
+<li>일반적인 형태는 불확실성상에 놓여진 상황에서 어떠한 복잡한 연속적 결정을 가상으로 모델링해서, 강화학습 에이전트가 모델과 반응을 주고받고, 경험을 통해서 스스로 학습할 수 있게 해준다.</li>
 <li>모든 상태들의 집합S</li>
-<li>모든 <em>시작 상태</em>starting state<em> 혹은 </em>초기 상태in itial state*라고 부르는 S+의 부분집합이 있음</li>
+<li>모든 <em>시작 상태starting state</em> 혹은 <em>초기 상태initial state</em>라고 부르는 S+의 부분집합이 있음</li>
 <li>MDP와의 상호작용 시작하면서 어떤 S에서의 특정 상태에서 어떤 확률 붙포 간의 관계를 그릴 수 있는데 이때 이 확률 분포는 무엇이든 될 수 있지만, 학습이 이뤄지는 동안에는 고정되어 있어야 한다.<ul>
 <li>즉, 이 확률 분포에서 샘플링된 확률은 학습과 에이전트 검증의 처름 에피소드부터 마지막 에피소드까지는 항상 동일해야 한다는 것</li>
+</ul>
+</li>
+<li>
+<em>흡수absorbing</em> 또는 <em>종료 상태terminal state</em> 라는 특별한 상태도 존재.<ul>
+<li>종료 상태(꼭 하나는 아님) 이외의 모든 상태들을 S라고 표현</li>
 </ul>
 </li>
 </ul>
@@ -332,7 +340,216 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p.83</p>
+<p>MDP에서는</p>
+<ul>
+<li>
+<strong>A</strong>: 상태에 따라 결정되는 행동의 집합<ul>
+<li>$\therefore$ 특정 상태에서 허용되지 않는 행동도 존재한다는 말.</li>
+<li>상태(s)를 인자로 받는 함수.</li>
+<li>A(s); 상태(s)에서 취할 수 있는 행동들의 집합 반환, 상수 정의 가능.</li>
+</ul>
+</li>
+<li>행동 영역은 유한 혹은 무한 가능,<ul>
+<li>단일 행동에 대한 변수들의 집합은 한 개 이상의 료소를 가질 수 있고, 유한해야 함.</li>
+<li>$\therefore$ 대부분의 환경에서 모든 상태에서 취할 수 있는 행동의 수는 같도록 설계됨</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>상태-전이 확률state-transition probability</em> = <em>전이 함수</em></p>
+<ul>
+<li>$T(s,a,s')$</li>
+<li>전이함수$T$는 각 전이 튜플인 $(s,a,s')$을 확률과 연결시켜준다.</li>
+<li>어떤 상태 s에서 행동 a를 취하고 다음 상태가 s'이 되었을 때, 이때의 확률을 반환해준다는 뜻</li>
+<li>이 확률의 합은 1
+
+$$p(s'|s,a) = P(S_t = s'|S_{t-1} = s,A_{t-1}=a)$$
+
+
+$$\sum_{s' \in S}p(s'|s,a) = a, \forall s \in S, \forall a \in A(s)$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>보상 함수$R$</em></p>
+<ul>
+<li>전이 튜플 $s,a,s'$을 특정한 스칼라 값으로 매핑,<ul>
+<li>양수 보상 = 수익 또는 이득</li>
+<li>음수 보상 = 비용, 벌칙, 패널티</li>
+</ul>
+</li>
+<li>$R(s,a,s')$ = $R(s,a)$ = $R(s)$</li>
+<li>
+<em>보상 함수를 표현하는 가장 명확한 방법은 상태와 행동 그리고 다음 상태, 이 세 가지를 함께 쓰는 것</em>
+
+$$r(s,a) = \mathbb{E} [R_t|S_{t-1} = s,A_{t-1} = a]$$
+
+
+$$r(s,a,s') = \mathbb{E} [R_t|S_{t-1} = s, A_{t-1} = a, S_t= s']$$
+
+
+$$R_t \in \cal{R} \subset \mathbb{R}$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>호라이즌horixon</em></p>
+<ul>
+<li>계획 호라이즌planning horizon: 에피소드형 업무나 연속적 업무를 에이전트의 관점에서 정의<ul>
+<li>유한 호라이즌finite horizon: 에이전트가 유한한 타임 스템 내에 업무가 종료된다는 것을 알고 있는 계획 호라이즌</li>
+<li>탐욕 호라이즌greedy horizon: 계획 호라이즌이 1인 경우</li>
+<li>무한 호라이즌infinite horiaon 에이전트한테 미리 정의된 타임 스텝에 대한 제한이 없어 에이전트가 무한하게 계획할 수 있음<ul>
+<li>특히, 무한한 계획 호라이즌을 가지는 업무는 무기한 호라이즌 업무indefinite horizon task 라고 부름</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>에이전트가 타임 스텝 루프에 빠지는 것을 막기 위해 타임 스텝을 제한하기도 한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>감가율discount factor  = 감마gamma</em></p>
+<ul>
+<li>받았던 보상의 시점이 미래로 더 멀어질수록, 현재 시점에서는 이에 대한 가치를 더 낮게 평가
+
+$$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \dots R_T$$
+
+
+$$G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots +\gamma^{T-1} R_T$$
+
+
+$$G_t = \sum^{\infty}_{k=0} \gamma^k R_{t+k+1}$$
+
+
+$$G_t = R_{t+1}+ \gamma G_{t+1}$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3">
+<a class="anchor" href="#3" aria-hidden="true"><span class="octicon octicon-link"></span></a>3<a class="anchor-link" href="#3"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>에이전트의 목표: 반환값(보상의 총합)을 최대화할 수 있는 행동의 집합을 찾는 것, 정책이 필요하다.</p>
+<ul>
+<li>
+<em>정책policy</em>: 가능한 모든 상태를 포괄한 전체적인 계획.</li>
+<li>확률적 혹은 결정적</li>
+<li>정책을 비교하기 위해 시작 상태를 포함한 모든 상태들에 대해 기대 반환값을 계산할 수 있어야 한다.</li>
+</ul>
+<ul>
+<li>정책$\pi$를 수행할 때, 상태 s에 대한 가치를 정의할 수 있다.<ul>
+<li>에이전트가 정책 $\pi$를 따르면서 상태 s에서 시작했을 때, 상태 s의 가치는 반환값의 기대치라고 할 수 있다.</li>
+<li>가치함수는 상태 s에서 정책$\pi$를 따르면서 시작했을 때의 반환값에 대한 기대치를 나타낸다.
+
+$$v_{\pi} (s) = \mathbb{E}_{\pi} [G_t|S_t = s]$$
+
+
+$$v_{\pi} (s) = \mathbb{E}_{\pi}[R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{+3} + \dots |S_t = s]$$
+
+
+$$v_{\pi} (s) = \sum_a \pi (a|s) \sum_{s',r} p(s',r|s,a)[r + \gamma v_\pi (s')] \forall s \in S$$
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>행동-가치 함수action-value function</em> = Q 함수 = $Q^{\pi}(s,a)$</p>
+<ul>
+<li>상태 s에서 행동 a를 취했을 때, 에이전트가 정책$\pi$를 수행하면서 얻을 수 있는 기대 반환값</li>
+<li>MDP 없이도 정책을 개선시킬 수 있게 해준다.
+
+$$q_{\pi} (s,a) = \mathbb{E}_{\pi} [G_t|S_t = s,A_t = a]$$
+
+
+$$q_{\pi}(s,a) = \mathbb{E}_{\pi}[R_t + \gamma G_{t+1} | S_t = s, A_t = a]$$
+
+
+$$q_{\pi}(s,a) = \sum_{s',r} p(s',r|s,a)[r+\gamma v_{\pi} (s')], \forall s \in S, \forall a \in A(s)$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>행동-이점 함수action-advamtage function</em> = 이점함수advantage function = $A$</p>
+<ul>
+<li>상태 s에서 행동를 취했을 때의 가치와 정책 $\pi$에서 상태 s에 대한 상태-가치 함수 간의 차이
+
+$$a_{\pi}(s,a) = q_{\pi}(s,a) - v_{\pi}(s)$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이상적인 정책optimal policy</p>
+<ul>
+<li>모든 상태에 대해서 다른 정책들보다 기대 반환값이 같거나 더 크게 얻을 수 있는 정책
+
+$$v_{*}(s) = max_{\pi} v_{\pi} (s), \forall_s \in S$$
+
+
+$$q_{*}(s,a) = max_{\pi} q_{\pi}(s,a), \forall s \in S, \forall a \in A(s)$$
+
+
+$$v_{*}(s) = max_{a} \sum_{s',r} p(s',r|s,a)[r+\gamma v_{*} (s')]$$
+
+
+$$q_{*}(s,a) = \sum_{s',r}p(s',r|s,a) [r + \gamma max_{a'} q_{*}(s',a')]$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>p.114</p>
 
 </div>
 </div>
