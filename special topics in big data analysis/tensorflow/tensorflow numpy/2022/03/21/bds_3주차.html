@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      23 min read
     
 </span></p>
 
@@ -3124,7 +3124,7 @@ array([[[ 1,  2],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>1이라고 저장되었던 a를 다시 값을 주면 재할당의 개념.</p>
+<p>😀 : 1이라고 저장되었던 a를 다시 값을 주면 재할당의 개념.</p>
 <ul>
 <li>메모리 주소가 바뀐 것.</li>
 <li>주소가 같다면 편집의 개념이 되겠지</li>
@@ -3274,6 +3274,453 @@ array([[[ 1,  2],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>(손풀이)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\frac{dy}{dx} = 6x$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이므로 $x=2$를 대입하면 $12$이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(컴퓨터를 이용한 풀이)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>단계1</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span> <span class="n">x1</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.000000001</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x2</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>단계2</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>27</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>파이썬에서는 first class object일때 가능</p>
+<p>텐서는?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.000000001</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="mf">0.000000001</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.000000992884452</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>f를 선언하지 않고 함수를 정의하는 방법은 없을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>단계3</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.000000992884452</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>실행하면 함수라는 object생기면서 입력으로 전달이 된다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1e-09</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>모든 함수에 대한 미분으로 확장은 불가능하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>단계4</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f(x,y) = x^2 + 3y$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [77]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">d</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: d() missing 1 required positional argument: 'x'</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>왜 안 될까?</p>
+<ul>
+<li>변수를 하나라 하고 가정,</li>
+<li>편미분으로 구현하고자 한다면</li>
+<li>x,y 각각 편미분 할 것을 정의해놓는 것 필요, 구현하는 패키지 쓰면 편하겠지.</li>
+<li>텐서에서 그 패키지 찾아서 사용하자</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="tf.GradientTape()-사용방법">
 <a class="anchor" href="#tf.GradientTape()-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.GradientTape() 사용방법<a class="anchor-link" href="#tf.GradientTape()-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95"> </a>
 </h4>
@@ -3288,6 +3735,418 @@ array([[[ 1,  2],
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="c1"># 미분하고 싶은 값을 tf.Variable로 잡아라</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="c1"># 기울기, 뭔가를 입력하는...</span>
+<span class="n">mytape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tensorflow.python.eager.backprop.GradientTape at 0x7f41a67f40a0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>뭔가 실행이 되었고 저 메모리 주소안에 있다?!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>mytape
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>           GradientTape
+<span class="ansi-red-fg">String form:</span>    &lt;tensorflow.python.eager.backprop.GradientTape object at 0x7f41a67f40a0&gt;
+<span class="ansi-red-fg">File:</span>           ~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/eager/backprop.py
+<span class="ansi-red-fg">Docstring:</span>     
+Record operations for automatic differentiation.
+
+Operations are recorded if they are executed within this context manager and
+at least one of their inputs is being "watched".
+
+Trainable variables (created by `tf.Variable` or `tf.compat.v1.get_variable`,
+where `trainable=True` is default in both cases) are automatically watched.
+Tensors can be manually watched by invoking the `watch` method on this context
+manager.
+
+For example, consider the function `y = x * x`. The gradient at `x = 3.0` can
+be computed as:
+
+&gt;&gt;&gt; x = tf.constant(3.0)
+&gt;&gt;&gt; with tf.GradientTape() as g:
+...   g.watch(x)
+...   y = x * x
+&gt;&gt;&gt; dy_dx = g.gradient(y, x)
+&gt;&gt;&gt; print(dy_dx)
+tf.Tensor(6.0, shape=(), dtype=float32)
+
+GradientTapes can be nested to compute higher-order derivatives. For example,
+
+&gt;&gt;&gt; x = tf.constant(5.0)
+&gt;&gt;&gt; with tf.GradientTape() as g:
+...   g.watch(x)
+...   with tf.GradientTape() as gg:
+...     gg.watch(x)
+...     y = x * x
+...   dy_dx = gg.gradient(y, x)  # dy_dx = 2 * x
+&gt;&gt;&gt; d2y_dx2 = g.gradient(dy_dx, x)  # d2y_dx2 = 2
+&gt;&gt;&gt; print(dy_dx)
+tf.Tensor(10.0, shape=(), dtype=float32)
+&gt;&gt;&gt; print(d2y_dx2)
+tf.Tensor(2.0, shape=(), dtype=float32)
+
+By default, the resources held by a GradientTape are released as soon as
+GradientTape.gradient() method is called. To compute multiple gradients over
+the same computation, create a persistent gradient tape. This allows multiple
+calls to the gradient() method as resources are released when the tape object
+is garbage collected. For example:
+
+&gt;&gt;&gt; x = tf.constant(3.0)
+&gt;&gt;&gt; with tf.GradientTape(persistent=True) as g:
+...   g.watch(x)
+...   y = x * x
+...   z = y * y
+&gt;&gt;&gt; dz_dx = g.gradient(z, x)  # (4*x^3 at x = 3)
+&gt;&gt;&gt; print(dz_dx)
+tf.Tensor(108.0, shape=(), dtype=float32)
+&gt;&gt;&gt; dy_dx = g.gradient(y, x)
+&gt;&gt;&gt; print(dy_dx)
+tf.Tensor(6.0, shape=(), dtype=float32)
+
+By default GradientTape will automatically watch any trainable variables that
+are accessed inside the context. If you want fine grained control over which
+variables are watched you can disable automatic tracking by passing
+`watch_accessed_variables=False` to the tape constructor:
+
+&gt;&gt;&gt; x = tf.Variable(2.0)
+&gt;&gt;&gt; w = tf.Variable(5.0)
+&gt;&gt;&gt; with tf.GradientTape(
+...     watch_accessed_variables=False, persistent=True) as tape:
+...   tape.watch(x)
+...   y = x ** 2  # Gradients will be available for `x`.
+...   z = w ** 3  # No gradients will be available as `w` isn't being watched.
+&gt;&gt;&gt; dy_dx = tape.gradient(y, x)
+&gt;&gt;&gt; print(dy_dx)
+tf.Tensor(4.0, shape=(), dtype=float32)
+&gt;&gt;&gt; # No gradients will be available as `w` isn't being watched.
+&gt;&gt;&gt; dz_dy = tape.gradient(z, w)
+&gt;&gt;&gt; print(dz_dy)
+None
+
+Note that when using models you should ensure that your variables exist when
+using `watch_accessed_variables=False`. Otherwise it's quite easy to make your
+first iteration not have any gradients:
+
+```python
+a = tf.keras.layers.Dense(32)
+b = tf.keras.layers.Dense(32)
+
+with tf.GradientTape(watch_accessed_variables=False) as tape:
+  tape.watch(a.variables)  # Since `a.build` has not been called at this point
+                           # `a.variables` will return an empty list and the
+                           # tape will not be watching anything.
+  result = b(a(inputs))
+  tape.gradient(result, a.variables)  # The result of this computation will be
+                                      # a list of `None`s since a's variables
+                                      # are not being watched.
+```
+
+Note that only tensors with real or complex dtypes are differentiable.
+<span class="ansi-red-fg">Init docstring:</span>
+Creates a new GradientTape.
+
+Args:
+  persistent: Boolean controlling whether a persistent gradient tape
+    is created. False by default, which means at most one call can
+    be made to the gradient() method on this object.
+  watch_accessed_variables: Boolean controlling whether the tape will
+    automatically `watch` any (trainable) variables accessed while the tape
+    is active. Defaults to True meaning gradients can be requested from any
+    result computed in the tape derived from reading a trainable `Variable`.
+    If False users must explicitly `watch` any `Variable`s they want to
+    request gradients from.
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>mytape 메소드 확인</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">mytape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__enter__',
+ '__eq__',
+ '__exit__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_ensure_recording',
+ '_persistent',
+ '_pop_tape',
+ '_push_tape',
+ '_recording',
+ '_tape',
+ '_tf_api_names',
+ '_tf_api_names_v1',
+ '_watch_accessed_variables',
+ '_watched_variables',
+ 'batch_jacobian',
+ 'gradient',
+ 'jacobian',
+ 'reset',
+ 'stop_recording',
+ 'watch',
+ 'watched_variables']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>mytape을 tab하면 나오는 method 들 이외에 숨겨진 method값이 나온다!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>mytape.__enter__
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span> mytape<span class="ansi-blue-fg">.</span>__enter__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span> Enters a context inside which operations are recorded on this tape.
+<span class="ansi-red-fg">File:</span>      ~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/eager/backprop.py
+<span class="ansi-red-fg">Type:</span>      method
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>비디오 테이프 또는 연습장의 개념</li>
+<li>폈다?-&gt; 녹화의 개념, 기록의 개념</li>
+<li>녹화 또는 가록을 할 준비가 되었다</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 기록 시작</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2 = 3x^2</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span><span class="c1"># 기록 끝</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># y를 x로 미분하라</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>미분하고 싶은 값을 tf.Variable에 저장한다.</li>
+<li>미분하고 싶지 않은 값도 tf.constant로 어딘가에 선언한다. </li>
+<li>gradientt으로 만들어서</li>
+<li>enter exit 할건데</li>
+<li>그 사이에 수식을 입력</li>
+</ol>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3296,6 +4155,104 @@ array([[[ 1,  2],
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
+<span class="c1"># a = tf.constant(3.0)</span>
+
+<span class="n">mytape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 기록 시작</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a = (3/2)x # y=ax^2 = (3/2)x^3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span><span class="c1"># 기록 끝</span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$a = \frac{3}{2}x$$
+
+
+$$y = ax^2 = \frac{3}{2} x^3$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\frac{dy}{dx} = \frac{3}{2} 3 x^2$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>18.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3307,13 +4264,32 @@ array([[[ 1,  2],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>tape에 미분하고 싶은 값과 안 할 값을 variable과 constant 이용해서 정의를 해주는데,</p>
+<ul>
+<li>컴퓨터에게 수식을 써서 보여줘야 하는데, 이를 명시해주자</li>
+<li>공책을 만들어주는데 그 이름도 명시해주자 여기서는 mytape</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>(상황)</p>
 <p>우리가 어려운 미분계산을 컴퓨터에게 부탁하는 상황임. (예를들면 $y=3x^2$) 컴퓨터에게 부탁을 하기 위해서는 연습장(=테이프)에 $y=3x^2$이라는 수식을 써서 보여줘야하는데 이때 컴퓨터에게 target이 무엇인지 그리고 무엇으로 미분하고 싶은 것인지를 명시해야함.</p>
-<p>(1) <code>mytape = tf.GradientTape()</code>:</p>
-<p>(2) <code>mytape.__enter__()</code>:</p>
-<p>(3) <code>a=x/2*3; y=a*x**2</code>:</p>
-<p>(4) <code>mytape.__exit__(None,None,None)</code>:</p>
-<p>(5) <code>mytape.gradient(y,x)</code>:</p>
+<p>(1) <code>mytape = tf.GradientTape()</code>: tf.GradientTape()는 연습장을 만드는 명령어, 만들어진 연습장을 mytape라고 이름을 붙인다.</p>
+<ul>
+<li>여러개의 연습장 생성해서 연속적인 계산 가능하게끔,</li>
+<li>연습장을 정의해줘야 여러 개의 연습장도 정의하는 길로 가겠지</li>
+</ul>
+<p>(2) <code>mytape.__enter__()</code>: 만들어진 공책을 연다.( = 기록할 수 있는 상태로 만든다.)</p>
+<ul>
+<li>지금부터 내가 수식을 소개할게</li>
+</ul>
+<p>(3) <code>a=x/2*3; y=a*x**2</code>: 컴퓨터에게 전달할 수식을 쓴다.</p>
+<p>(4) <code>mytape.__exit__(None,None,None)</code>: 공책을 닫는다.</p>
+<p>(5) <code>mytape.gradient(y,x)</code>: $y$룰 $x$로 미분하라는 메모를 남기고 컴퓨터에게 전달한다.</p>
 
 </div>
 </div>
@@ -3322,6 +4298,55 @@ array([[[ 1,  2],
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 예제3: 연습장을 언제 열고 닫을지 결정하는건 중요하다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
+
+<span class="n">mytape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 기록 시작</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span><span class="c1"># 기록 끝</span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>연습장 밖에서 정의한 a, 컴퓨터는 이 식을 모른다.</p>
 
 </div>
 </div>
@@ -3337,11 +4362,244 @@ array([[[ 1,  2],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>매크로화 시켜볼까</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>with 다음 선언되는 것은 그 다음 실행되는 것은 object가 생성됨</p>
+<ul>
+<li>똑같이 실행될 식 가져와</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="c1">## with 문 시작</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1">## with문 끝</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(문법해설)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래와 같이 쓴다.</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">expression</span> <span class="k">as</span> <span class="n">myname</span><span class="p">:</span>
+    <span class="c1">## with문 시작: myname.__enter__()</span>
+    <span class="n">실행하고</span> <span class="n">싶은</span> <span class="n">것들</span> <span class="n">입력</span>
+    <span class="c1">## with문 끝: myname.__exit__()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위와 같은 형식을 많이 접할 수 있다.</p>
+<ul>
+<li>반복적인 계산 포함될 때 편해</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) expresion 의 실행 결과 오브젝트가 생성, 생성된 오브젝트는 myname으로 이름 붙임. 이 오브젝트는 <code>__enter__()</code>와 <code>__exit__</code>를 숨겨진 기능으로 포함해야 한다.</p>
+<ul>
+<li>__ 있는 이유 사용자가 쓸 필요가 없으니까.</li>
+<li>with같이 쓰면 __ 쓸 이유가 없어서 아예 숨겨버림<ul>
+<li>with문 시작하면 <strong>enter</strong>로 시작되고 <strong>exit</strong>로 끝나는게 자동으로 정의된다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) with문이 시작되면서 <code>myname__enter__()</code>이 실행된다.</p>
+<ul>
+<li>여기까지는 약속.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3) 실행하고 싶은 것들 입력한 게 실행된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(4) with문이 종료되면서 <code>myname.__exit__()</code>이 실행된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 예제5: 예제2를 with문과 함께 구현</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">myname</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">myname</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
