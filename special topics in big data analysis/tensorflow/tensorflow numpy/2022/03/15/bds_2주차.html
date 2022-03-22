@@ -2715,7 +2715,7 @@ array([[1, 0],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [5]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [8]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">inv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/ops/gen_linalg_ops.py:1506</span>, in <span class="ansi-cyan-fg">matrix_inverse</span><span class="ansi-blue-fg">(input, adjoint, name)</span>
@@ -2796,14 +2796,9 @@ array([[1., 0.],
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [1]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span style="color: rgb(98,98,98)">.</span>linalg<span style="color: rgb(98,98,98)">.</span>inv(a)
-
-<span class="ansi-red-fg">NameError</span>: name 'tf' is not defined</pre>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-03-23 05:26:47.687629: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x561fadf9e130
+</pre>
 </div>
 </div>
 
