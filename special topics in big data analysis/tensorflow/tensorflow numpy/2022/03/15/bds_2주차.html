@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -2668,6 +2668,16 @@ array([[5],
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-03-23 17:41:21.522800: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-23 17:41:21.993112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22288 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:65:00.0, compute capability: 8.6
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -2715,7 +2725,7 @@ array([[1, 0],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [8]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [4]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">inv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/ops/gen_linalg_ops.py:1506</span>, in <span class="ansi-cyan-fg">matrix_inverse</span><span class="ansi-blue-fg">(input, adjoint, name)</span>
@@ -2797,9 +2807,21 @@ array([[1., 0.],
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-03-23 05:26:47.687629: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x561fadf9e130
+<pre>2022-03-23 17:41:31.083892: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x559ebabefa60
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[1. , 0. ],
+       [0. , 0.5]], dtype=float32)&gt;</pre>
+</div>
+
 </div>
 
 </div>
@@ -2847,10 +2869,12 @@ array([[1., 0.],
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-03-22 05:44:59.935010: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x555b80ee5310
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=-2.0&gt;</pre>
 </div>
+
 </div>
 
 </div>
@@ -2873,6 +2897,22 @@ array([[1., 0.],
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=5.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -2887,6 +2927,25 @@ array([[1., 0.],
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;tf.Tensor: shape=(2,), dtype=complex64, numpy=array([-0.37228122+0.j,  5.372281  +0.j], dtype=complex64)&gt;,
+ &lt;tf.Tensor: shape=(2, 2), dtype=complex64, numpy=
+ array([[-0.8245648 +0.j, -0.41597357+0.j],
+        [ 0.56576747+0.j, -0.90937674+0.j]], dtype=complex64)&gt;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
