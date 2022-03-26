@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      2 min read
     
 </span></p>
 
@@ -145,7 +145,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#2.-$f(x)-=-y$-정의">2. $f(x) = y$ 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#3.-비유클리드-공간에서의-거리-정의">3. 비유클리드 공간에서의 거리 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#4.-거리를-이용한-a-weighted-adjacency-matrix-$W$-정의">4. 거리를 이용한 a weighted adjacency matrix $W$ 정의 </a></li>
-<li class="toc-entry toc-h5"><a href="#5.-Temporal-Graph-cut">5. Temporal Graph cut </a></li>
+<li class="toc-entry toc-h5"><a href="#5.-the-weight-edge-function-for-Temporal-Graph-cut">5. the weight edge function for Temporal Graph cut </a></li>
 <li class="toc-entry toc-h5"><a href="#6.-Graph-Laplacian-matrix-정의">6. Graph Laplacian matrix 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#7.-고유값-분해">7. 고유값 분해 </a></li>
 <li class="toc-entry toc-h5"><a href="#8.-주성분-분석">8. 주성분 분석 </a></li>
@@ -391,8 +391,8 @@ $$W_{u,v}=\begin{cases}{exp(-\frac{[dist(u,v)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="5.-Temporal-Graph-cut">
-<a class="anchor" href="#5.-Temporal-Graph-cut" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Temporal Graph cut<a class="anchor-link" href="#5.-Temporal-Graph-cut"> </a>
+<h5 id="5.-the-weight-edge-function-for-Temporal-Graph-cut">
+<a class="anchor" href="#5.-the-weight-edge-function-for-Temporal-Graph-cut" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. the weight edge function for Temporal Graph cut<a class="anchor-link" href="#5.-the-weight-edge-function-for-Temporal-Graph-cut"> </a>
 </h5>
 </div>
 </div>
@@ -620,6 +620,47 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">_index</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4000</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1.0006413019095382+4.5301866439065095e-21j)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="9.-PCA">
 <a class="anchor" href="#9.-PCA" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. PCA<a class="anchor-link" href="#9.-PCA"> </a>
 </h5>
@@ -728,12 +769,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># ax.annotate("Japan Sanriku", xy=(141.81051675491926,39.138785036804705), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
-    <span class="c1"># ax.annotate("Indonesia Sumatra", xy=( 101.28817388446576,-0.26014368149947664), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -778,9 +813,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># ax.annotate("Indonesia Sumatra", xy=( 101.28817388446576,-0.26014368149947664), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -825,9 +857,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># ax.annotate("Indonesia Sumatra", xy=( 101.28817388446576,-0.26014368149947664), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -872,12 +901,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># ax.annotate("Chile Maule", xy=(-72.41179564292405,-35.301421198712724), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
-    <span class="c1"># ax.annotate("Indonesia Sumatra", xy=( 101.28817388446576,-0.26014368149947664), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -922,12 +945,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_on</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># ax.annotate("Chile Maule", xy=(-72.41179564292405,-35.301421198712724), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
-    <span class="c1"># ax.annotate("Indonesia Sumatra", xy=( 101.28817388446576,-0.26014368149947664), xycoords="data",</span>
-    <span class="c1">#               va="center", ha="center",</span>
-    <span class="c1">#               bbox=dict(boxstyle="circle, pad=5", alpha = 0.1,fc="w",lw=1, ec='r'))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
