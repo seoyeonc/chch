@@ -145,7 +145,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h5"><a href="#2.-$f(x)-=-y$-정의">2. $f(x) = y$ 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#3.-비유클리드-공간에서의-거리-정의">3. 비유클리드 공간에서의 거리 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#4.-거리를-이용한-a-weighted-adjacency-matrix-$W$-정의">4. 거리를 이용한 a weighted adjacency matrix $W$ 정의 </a></li>
-<li class="toc-entry toc-h5"><a href="#5.-$W_{i,j}$-행렬을-이용한-차수-행렬-정의">5. $W_{i,j}$ 행렬을 이용한 차수 행렬 정의 </a></li>
+<li class="toc-entry toc-h5"><a href="#5.-Temporal-Graph-cut">5. Temporal Graph cut </a></li>
 <li class="toc-entry toc-h5"><a href="#6.-Graph-Laplacian-matrix-정의">6. Graph Laplacian matrix 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#7.-고유값-분해">7. 고유값 분해 </a></li>
 <li class="toc-entry toc-h5"><a href="#8.-주성분-분석">8. 주성분 분석 </a></li>
@@ -391,6 +391,15 @@ $$W_{u,v}=\begin{cases}{exp(-\frac{[dist(u,v)]^2}{2\theta^2})} &amp; \quad \text
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="5.-Temporal-Graph-cut">
+<a class="anchor" href="#5.-Temporal-Graph-cut" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Temporal Graph cut<a class="anchor-link" href="#5.-Temporal-Graph-cut"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>
 $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ W_{u,v} \odot \beta  &amp; \quad \text{if }u=v \text{ and } r=s-1 \\ 0 &amp; \quad \text{otherwise} \end{cases}$$
 </p>
@@ -458,11 +467,11 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="5.-$W_{i,j}$-행렬을-이용한-차수-행렬-정의">
-<a class="anchor" href="#5.-%24W_%7Bi,j%7D%24-%ED%96%89%EB%A0%AC%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%B0%A8%EC%88%98-%ED%96%89%EB%A0%AC-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. $W_{i,j}$ 행렬을 이용한 차수 행렬 정의<a class="anchor-link" href="#5.-%24W_%7Bi,j%7D%24-%ED%96%89%EB%A0%AC%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%B0%A8%EC%88%98-%ED%96%89%EB%A0%AC-%EC%A0%95%EC%9D%98"> </a>
+<h5 id="6.-Graph-Laplacian-matrix-정의">
+<a class="anchor" href="#6.-Graph-Laplacian-matrix-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Graph Laplacian matrix 정의<a class="anchor-link" href="#6.-Graph-Laplacian-matrix-%EC%A0%95%EC%9D%98"> </a>
 </h5>
 <ul>
-<li>$D$ = Degree Matrix</li>
+<li>$L = D - W$</li>
 </ul>
 
 </div>
@@ -485,19 +494,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="6.-Graph-Laplacian-matrix-정의">
-<a class="anchor" href="#6.-Graph-Laplacian-matrix-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Graph Laplacian matrix 정의<a class="anchor-link" href="#6.-Graph-Laplacian-matrix-%EC%A0%95%EC%9D%98"> </a>
-</h5>
-<ul>
-<li>$L = D - W$</li>
-</ul>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
