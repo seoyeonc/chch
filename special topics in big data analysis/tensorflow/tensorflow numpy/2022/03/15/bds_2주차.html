@@ -161,6 +161,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#tnp-사용방법-(불만해결방법)">tnp 사용방법 (불만해결방법) </a></li>
 <li class="toc-entry toc-h4"><a href="#선언고급">선언고급 </a></li>
 <li class="toc-entry toc-h4"><a href="#타입">타입 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#?">? </a>
+<ul>
 <li class="toc-entry toc-h4"><a href="#tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들 </a></li>
 <li class="toc-entry toc-h4"><a href="#그렇지만-np.array는-아님">그렇지만 np.array는 아님 </a></li>
 </ul>
@@ -843,7 +847,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;property at 0x7f4426efb1f0&gt;</pre>
+<pre>&lt;property at 0x7fe5625bef70&gt;</pre>
 </div>
 
 </div>
@@ -1247,6 +1251,14 @@ array([[[ 0,  1,  1],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>type이 int64인 tf.constant에서의 np.array</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1285,6 +1297,14 @@ array([[[ 0,  1,  1],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>type이 int32인tf.constatnt</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1701,7 +1721,7 @@ array([[1, 2],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [45]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [44]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> a[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">11</span>
 
 <span class="ansi-red-fg">TypeError</span>: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment</pre>
@@ -1854,7 +1874,7 @@ Input <span class="ansi-green-fg">In [45]</span>, in <span class="ansi-cyan-fg">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [49]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [47]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3.14</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2096,7 +2116,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [55]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [54]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1.0</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">float64</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3.14</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2668,16 +2688,6 @@ array([[5],
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-03-23 17:41:21.522800: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-03-23 17:41:21.993112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22288 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:65:00.0, compute capability: 8.6
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -2725,7 +2735,7 @@ array([[1, 0],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [4]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [67]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">inv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/ops/gen_linalg_ops.py:1506</span>, in <span class="ansi-cyan-fg">matrix_inverse</span><span class="ansi-blue-fg">(input, adjoint, name)</span>
@@ -2803,14 +2813,6 @@ array([[1., 0.],
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-03-23 17:41:31.083892: I tensorflow/core/util/cuda_solvers.cc:179] Creating GpuSolver handles for stream 0x559ebabefa60
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -2942,6 +2944,39 @@ array([[1. , 0. ],
  &lt;tf.Tensor: shape=(2, 2), dtype=complex64, numpy=
  array([[-0.8245648 +0.j, -0.41597357+0.j],
         [ 0.56576747+0.j, -0.90937674+0.j]], dtype=complex64)&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=int32, numpy=2&gt;</pre>
 </div>
 
 </div>
@@ -3260,7 +3295,7 @@ array([[ 1,  2,  3],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> <code>tf.resh</code></p>
+<p><code>-</code> <code>tf.reshape</code></p>
 
 </div>
 </div>
@@ -4690,7 +4725,7 @@ array([[1, 2],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [52]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [121]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">concat</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">b</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">axis</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -5375,7 +5410,7 @@ array([[1, 0, 0],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([ 1.42308069,  0.91939242, -0.46340233,  1.53400725, -0.6479653 ])</pre>
+<pre>array([0.04918584, 0.3668472 , 0.2532084 , 0.76346774, 2.21527317])</pre>
 </div>
 
 </div>
@@ -5408,7 +5443,7 @@ array([[1, 0, 0],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;tf.Tensor: shape=(5,), dtype=float64, numpy=array([ 0.93337931,  1.88504689, -0.19008945,  0.15225971,  0.12544678])&gt;</pre>
+<pre>&lt;tf.Tensor: shape=(5,), dtype=float64, numpy=array([ 1.02154736, -0.08452754, -0.21204739,  0.45301064, -0.17636086])&gt;</pre>
 </div>
 
 </div>
@@ -5562,9 +5597,92 @@ array([[1],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="?">
+<a class="anchor" href="#?" aria-hidden="true"><span class="octicon octicon-link"></span></a>?<a class="anchor-link" href="#?"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">min</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;bound method amin of &lt;tf.Tensor: shape=(1, 4), dtype=int64, numpy=array([[1, 2, 3, 4]])&gt;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">mean</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;bound method mean of &lt;tf.Tensor: shape=(1, 4), dtype=int64, numpy=array([[1, 2, 3, 4]])&gt;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">
 <a class="anchor" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들<a class="anchor-link" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>?</p>
+
 </div>
 </div>
 </div>
@@ -5694,7 +5812,7 @@ array([[1],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [25]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [153]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> a[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">11</span>
 
 <span class="ansi-red-fg">TypeError</span>: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment</pre>
