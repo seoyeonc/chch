@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="강찬석" />
 <meta property="og:description" content="강찬석" />
-<link rel="canonical" href="https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/20/DRL.html" />
-<meta property="og:url" content="https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/20/DRL.html" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/27/DRL.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/27/DRL.html" />
 <meta property="og:site_name" content="Seoyeon Choi" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-03-20T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-03-27T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"강찬석","url":"https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/20/DRL.html","@type":"BlogPosting","headline":"(not_done_review)그로킹 심층 강화학습","dateModified":"2022-03-20T00:00:00-05:00","datePublished":"2022-03-20T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/20/DRL.html"},"@context":"https://schema.org"}</script>
+{"description":"강찬석","url":"https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/27/DRL.html","@type":"BlogPosting","headline":"(not_done_review)그로킹 심층 강화학습","dateModified":"2022-03-27T00:00:00-05:00","datePublished":"2022-03-27T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/reinforcement%20learning/2022/03/27/DRL.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,15 +88,15 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(not_done_review)그로킹 심층 강화학습</h1><p class="page-description">강찬석</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-20T00:00:00-05:00" itemprop="datePublished">
-        Mar 20, 2022
+    <h1 class="post-title p-name" itemprop="name headline">(not_done_review)그로킹 심층 강화학습</h1><p class="page-description">강찬석</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-27T00:00:00-05:00" itemprop="datePublished">
+        Mar 27, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">최서연</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -114,19 +114,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-03-20-DRL.ipynb" role="button" target="_blank">
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-03-27-DRL.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-03-20-DRL.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-03-27-DRL.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-03-20-DRL.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-03-27-DRL.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -140,13 +140,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#1">1 </a></li>
 <li class="toc-entry toc-h3"><a href="#2">2 </a></li>
 <li class="toc-entry toc-h3"><a href="#3">3 </a></li>
+<li class="toc-entry toc-h3"><a href="#4">4 </a></li>
 </ul>
 </li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2022-03-20-DRL.ipynb
+# file to edit: _notebooks/2022-03-27-DRL.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -431,7 +432,11 @@ $$R_t \in \cal{R} \subset \mathbb{R}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>감가율discount factor  = 감마gamma</em></p>
 <ul>
-<li>받았던 보상의 시점이 미래로 더 멀어질수록, 현재 시점에서는 이에 대한 가치를 더 낮게 평가
+<li>
+<p>받았던 보상의 시점이 미래로 더 멀어질수록, 현재 시점에서는 이에 대한 가치를 더 낮게 평가</p>
+</li>
+<li>
+<p>환경; 자세한 예제; 5개의 미끄러지는 칸을 가지는 환경slippery walk five, SWF
 
 $$G_t = R_{t+1} + R_{t+2} + R_{t+3} + \dots R_T$$
 
@@ -443,6 +448,7 @@ $$G_t = \sum^{\infty}_{k=0} \gamma^k R_{t+k+1}$$
 
 
 $$G_t = R_{t+1}+ \gamma G_{t+1}$$
+</p>
 </li>
 </ul>
 
@@ -528,7 +534,8 @@ $$a_{\pi}(s,a) = q_{\pi}(s,a) - v_{\pi}(s)$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>이상적인 정책optimal policy</p>
 <ul>
-<li>모든 상태에 대해서 다른 정책들보다 기대 반환값이 같거나 더 크게 얻을 수 있는 정책
+<li>모든 상태에 대해서 다른 정책들보다 기대 반환값이 같거나 더 크게 얻을 수 있는 정책<ul>
+<li>벨만 이상성 공식(아래)
 
 $$v_{*}(s) = max_{\pi} v_{\pi} (s), \forall_s \in S$$
 
@@ -542,6 +549,8 @@ $$v_{*}(s) = max_{a} \sum_{s',r} p(s',r|s,a)[r+\gamma v_{*} (s')]$$
 $$q_{*}(s,a) = \sum_{s',r}p(s',r|s,a) [r + \gamma max_{a'} q_{*}(s',a')]$$
 </li>
 </ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -549,8 +558,50 @@ $$q_{*}(s,a) = \sum_{s',r}p(s',r|s,a) [r + \gamma max_{a'} q_{*}(s',a')]$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p.114</p>
+<p><em>반복 정책 평가법iteractive policy evaluation</em> = <em>정책평가법policy rvaluation</em></p>
+<ul>
+<li>임의의 정책을 평가할 수 있는 알고리즘</li>
+<li>상태 영역을 살펴보면서 반복적으로 에측치를 개선하는 방법 사용</li>
+<li>정책을 입력으로 받고, <em>예측문제prediction problem</em>를 풀 수 있는 알고리즘에 대한 가치 함수를 출력으로 내보내는 알고리즘, 이때는 미리 정의한 정책의 가치를 계산..(?)
 
+$$v_{k+1}(s) = \sum_a \pi(a|s) \sum_{s', r} p(s',r|s,a) \big[ r+\gamma v_k (s') \big]$$
+</li>
+<li>
+<p>정책 평가 알고리즘을 충분히 반복하면 정책에 대한 가치함수로 수렴시킬 수 있다.</p>
+</li>
+<li>
+<p>실제로 적용하는 경우에는 우리가 근사하고자 하는 가치 함수의 변화를 확인하기 위해서 기분보다 작은 임계값을 사용.</p>
+<ul>
+<li>이런 경우에는 가치 함수의 변화가 우리가 정한 임계값보다 작을경우 반복을 멈추게 된다.</li>
+</ul>
+</li>
+<li>
+<p>SWF환경에서 항상 왼쪽 행동을 취하는 정책에 이 알고리즘이 어떻게 동작할까?
+
+$$v_{k+1} (s) = \sum_a \pi(a|s) \sum_{s',r} p(s',r|s,a) \big[ r + \gamma v_k (s') \big] $$
+</p>
+<ul>
+<li>$\gamma$는 1이라 가정,</li>
+<li>항상 왼쪽으로 가는 정책 사용
+
+$$ v^{\pi}_{1}(5)  = p(s'=4|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},4) + v^{\pi}_{0}(4)] + p(s'=5|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},5) + v^{\pi}_{0}(5)] + p(s'=6|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},6) + v^{\pi}_{0}(6)]$$
+
+
+$$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \text{   1번 정책 평가법을 사용했을 떄 상태에 대한 가치를 나타냄}$$
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4">
+<a class="anchor" href="#4" aria-hidden="true"><span class="octicon octicon-link"></span></a>4<a class="anchor-link" href="#4"> </a>
+</h3>
 </div>
 </div>
 </div>
@@ -558,7 +609,7 @@ $$q_{*}(s,a) = \sum_{s',r}p(s',r|s,a) [r + \gamma max_{a'} q_{*}(s',a')]$$
 
 
 
-  </div><a class="u-url" href="/chch/reinforcement%20learning/2022/03/20/DRL.html" hidden></a>
+  </div><a class="u-url" href="/chch/reinforcement%20learning/2022/03/27/DRL.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
