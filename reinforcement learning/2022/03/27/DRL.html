@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      11 min read
     
 </span></p>
 
@@ -141,6 +141,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#2">2 </a></li>
 <li class="toc-entry toc-h3"><a href="#3">3 </a></li>
 <li class="toc-entry toc-h3"><a href="#4">4 </a></li>
+<li class="toc-entry toc-h3"><a href="#5">5 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -671,7 +672,10 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>정책 순환 알고리즘policy iteration</em></p>
+<p><em>잃반화된 정책 순환generalized policy iteration, GPI</em> - 정책 순환, 가치 순환</p>
+<ul>
+<li>예측된 가치 함수를 사용해서 정책을 개선시키고, 예측된 가치 함수도 현대 정책의 실제 가치 함수를 바탕으로 개선시키는 강화학습의 일반적인 아이디어</li>
+</ul>
 
 </div>
 </div>
@@ -679,7 +683,16 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">policy</span> <span class="n">_iteration</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span>
+<p><em>정책 순환policy iteration</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 정책 순환 알고리즘</span>
+<span class="k">def</span> <span class="nf">policy</span> <span class="n">_iteration</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span>
     <span class="n">random_actions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
     <span class="n">pi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">a</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">random_actions</span><span class="p">)}[</span><span class="n">s</span><span class="p">]</span> <span class="c1"># 임의 행동집합 만들고 행동에 대한 상태 매핑</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -688,7 +701,50 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
         <span class="n">pi</span> <span class="o">=</span> <span class="n">policy_improvement</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">old_pi</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">pi</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))}:</span> <span class="c1"># 새로운 정책이 달라진 점이 있나? 있으면 앞의 과정 반복적 시행</span>
             <span class="k">break</span>
-    <span class="k">return</span> <span class="n">V</span><span class="p">,</span> <span class="n">pi</span> <span class="c1"># 없다면 루푸 wnmdeks gn 이상적인 정책과 이상적인 상태-가치 함수 반환</span>
+    <span class="k">return</span> <span class="n">V</span><span class="p">,</span> <span class="n">pi</span> <span class="c1"># 없다면 루프 중단시키고 이상적인 정책과 이상적인 상태-가치 함수 반환</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>가치 순환value iteration, VI</em></p>
+<ul>
+<li>단일 반복 이후에 부분적인 정책 평가를 하더라도, 정책 평가시 한번 상태-영역을 훑은 이후에 대한 예측된 Q-함수에 탐용 정책을 취하면, 초기의 정책을 개선시킬 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>가치 순환 공식
+
+$$v_{k+1} (s) = max_a \sum_{s',r} p(s',r|s,a) \big[ r + \gamma v_k (s') \big]$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 가치 순환 알고리즘</span>
+<span class="k">def</span> <span class="nf">value_iteration</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span> <span class="c1"># tehta는 수렴에 대한 임계값</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1"># Q 함수가 0이어야 예측치가 정확해진다.</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">s</span><span class="p">])):</span>
+                <span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">P</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">a</span><span class="p">]:</span>
+                    <span class="n">Q</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">V</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">done</span><span class="p">))</span> <span class="c1"># 행동-가치 함수 계산</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">V</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">&lt;</span> <span class="n">theta</span><span class="p">:</span> <span class="c1"># 상태-가치 함수가 변하지 않으면 이상적인 V함수를 찾은 것이고, 루프가 멈춤</span>
+            <span class="k">break</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 개선과 평가 단계의 혼합</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">a</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))}[</span><span class="n">s</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -699,6 +755,108 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="4">
 <a class="anchor" href="#4" aria-hidden="true"><span class="octicon octicon-link"></span></a>4<a class="anchor-link" href="#4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>멀티 암드 밴딧Multi-armed bandit, MAB</em></p>
+<ul>
+<li>상태 영역과 이에 따른 호라이즌이 1인 독특한 강화학습 문제</li>
+<li>여러 개의 선택지 중 하나를 선택하는 환경
+
+$$G_0 = 1* 0 + 0.99 * 0 0.9801 * 0 + 0.9702 * 0 + 0.9605 * 0.9509 * 1$$
+
+
+$$q(a) = \mathbb{E} \big[ R_t | A_t = a \big]$$
+</li>
+<li>행동 A에 대한 Q 함수는 A 가 샘플링 되었을 때의 기대 보상치를 나타낸다.
+
+$$v_* = q(a_*) = max_{a \in A} q(a)$$
+
+
+$$a_* = argmax_{a \in A} q(a)$$
+
+
+$$q(a_*) = v_*$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>전체 후회값total regret</em></p>
+<ul>
+<li>전체 에피소드를 통해서 얻은 보상의 총합과 전체 보상치 간의 오차를 줄이면서 에피소드 당 기대 보상치를 최대화하는 것</li>
+<li>에피소드별로 이상적인 행동을 취했을 때의 실제 기대 보상치와 현재 정책이 선택한 행동을 취했을 때의 기대 보상치 간의 차이를 존부 더한다.</li>
+<li>낮을수록 더 좋은 성능
+
+$$T = \sum^{E}_{e = 1} \mathbb{E} \big[ v_* - q_* (A_e) \big]$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>MAB 환경을 풀기 위한 방법들</p>
+<ol>
+<li>임의 탐색 전략random exploration strategy<ul>
+<li>대부분 탐욕적으로 행동을 취하다가 입실론이라는 임계값의 확률로 행동을 임의로 선택</li>
+</ul>
+</li>
+<li>낙관적인 탐색 전략optimistic exploration strategy<ul>
+<li>의사 결정 문제에서 불확실성을 수치적으로 표현하고, 높은 불확실성 상에서도 상태에 대한 선호도를 높이는 조금 더 체계적인 방법</li>
+</ul>
+</li>
+<li>정보 상태 영역 탐색 전략information state-space exploration strategy<ul>
+<li>환경의 일부로써 에이전트의 정보 상태를 모델링, 상태 영역의 일부로 불확실성을 해석<ul>
+<li>환경의 상태가 탐색되지 않은 미지의 경우와 이미 탐색된 경우일 때 다르게 보일 수 있다는 것을 의미</li>
+</ul>
+</li>
+<li>상태 영역을 늘림으로써 복잡성이 증가하는 단점 존재</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>그리디 전략greedy strategy</em> = <em>순수 착취 전략pure exploration strategy</em></p>
+<ul>
+<li>탐욕적으로 행동을 취하는 전략은 항상 가장 높은 추정 가치를 얻는 행동을 취한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 순수 착취 전략</span>
+<span class="k">def</span> <span class="nf">pure_exploitation</span><span class="p">(</span><span class="n">enc</span><span class="p">,</span> <span class="n">n_episodes</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5">
+<a class="anchor" href="#5" aria-hidden="true"><span class="octicon octicon-link"></span></a>5<a class="anchor-link" href="#5"> </a>
 </h3>
 </div>
 </div>
