@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -206,7 +206,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li>
-<strong>싱태 영역state space</strong>: 변수가 가질 수 있는 모든 값들의 집합</li>
+<strong>상태 영역state space</strong>: 변수가 가질 수 있는 모든 값들의 집합</li>
 <li>
 <strong>관찰observation</strong>: 에이전트가 관찰할 수 있는 상태의 일부</li>
 <li>
@@ -239,7 +239,7 @@ window.onload = wrap_img;
 <p>연속형 피드백이 야기하는 문제</p>
 <ul>
 <li>
-<strong>시긴적 가치 할당 문제tamporal credit assignment problem</strong>:문제에 시간적 개념이 들어가 있고, 행동에도 지연된 속성이 담겨 있으면, 보상에 대한 가치를 부여하기 어렵다. </li>
+<strong>시간적 가치 할당 문제tamporal credit assignment problem</strong>:문제에 시간적 개념이 들어가 있고, 행동에도 지연된 속성이 담겨 있으면, 보상에 대한 가치를 부여하기 어렵다. </li>
 </ul>
 </li>
 <li>평가 가능한 피드백이 야기하는 문제<ul>
@@ -284,7 +284,7 @@ window.onload = wrap_img;
 <li>
 <em>보상 함수reward function</em>: 행동과 관련된 보상에 대한 함수</li>
 <li>
-<em>모델mpdel</em>: 전이와 보상 함수에 </li>
+<em>모델mpdel</em>: 전이와 보상 함수의 표현</li>
 </ul>
 
 </div>
@@ -293,7 +293,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>보상 신호가 밀집되어 있을수록, 에이전트의 직관성과 학습속도가 높아지지만, 에이전트에게 평견을 주입하게 되어, 결국 에이전트가 예상하지 못한 행동을 할 가능성은 적어지게 된다. 반면, 보상 신호가 적을수록 직관성이 낮아져 에이전트가 새로운 행동을 취할 확률이 높아지지만, 그만큼 에이전트르르 학습시키는데 오래 걸리게 될 것이다.</p>
+<p>보상 신호가 밀집되어 있을수록, 에이전트의 직관성과 학습속도가 높아지지만, 에이전트에게 편견을 주입하게 되어, 결국 에이전트가 예상하지 못한 행동을 할 가능성은 적어지게 된다. 반면, 보상 신호가 적을수록 직관성이 낮아져 에이전트가 새로운 행동을 취할 확률이 높아지지만, 그만큼 에이전트르르 학습시키는데 오래 걸리게 될 것이다.</p>
 <ul>
 <li>
 <em>타임 스텝time step</em>: 상호작용이 진행되는 사이클, 시간의 단위</li>
@@ -583,9 +583,15 @@ $$v_{k+1} (s) = \sum_a \pi(a|s) \sum_{s',r} p(s',r|s,a) \big[ r + \gamma v_k (s'
 <ul>
 <li>$\gamma$는 1이라 가정,</li>
 <li>항상 왼쪽으로 가는 정책 사용</li>
-<li>$k$: 반목적 정책-쳥가 알고리즘의 수행횟수
+<li>$k$: 반복적 정책-평가 알고리즘의 수행횟수
 
-$$ v^{\pi}_{1}(5)  = p(s'=4|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},4) + v^{\pi}_{0}(4)] + p(s'=5|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},5) + v^{\pi}_{0}(5)] + p(s'=6|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},6) + v^{\pi}_{0}(6)]$$
+$$ v^{\pi}_{1}(5)  = p(s'=4|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},4) + v^{\pi}_{0}(4)] +$$
+
+
+$$p(s'=5|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},5) + v^{\pi}_{0}(5)] + $$
+
+
+$$p(s'=6|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},6) + v^{\pi}_{0}(6)]$$
 
 
 $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \text{   1번 정책 평가법을 사용했을 떄 상태에 대한 가치를 나타냄}$$
@@ -608,7 +614,7 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="c1"># 정책 평가 알고리즘</span>
+<div class="highlight"><pre><span></span><span class="c1"># 정책(pi) 평가 알고리즘</span>
 <span class="k">def</span> <span class="nf">policy_evaluation</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span>
     <span class="n">prev_V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -620,6 +626,69 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
             <span class="k">break</span>
         <span class="n">prev_V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">V</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>정책-개선 알고리즘이 동작하는 방법, 상태-가치 함수와 MDP를 사용해서 행동-가치 함수를 계산하고, 원래 정책의 행동-가치 함수에 대한 탐용 정책을 반환
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>정책개선 공식$$\pi ' (s) argmax_a \sum_{s',r} p(s',r|s,a) \big[ r + \gamma v_{\pi} (s') \big]$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 정책 개선(new_pi) 알고리즘</span>
+<span class="k">def</span> <span class="nf">policy_improvement</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span><span class="o">+</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">{</span><span class="n">P</span><span class="p">},</span> <span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">rnage</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">s</span><span class="p">])):</span>
+            <span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">P</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">a</span><span class="p">]:</span> <span class="c1"># 여기서 done의 의미는 다음 상태가 종료 상태인지의 여부를 나타냄</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">a</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">V</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">*</span> <span class="n">nor</span> <span class="n">done</span><span class="p">)</span>
+    <span class="n">new_pi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">a</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)))}[</span><span class="n">s</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">new_pi</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>정책 순환 알고리즘policy iteration</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">policy</span> <span class="n">_iteration</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">random_actions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">a</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">random_actions</span><span class="p">)}[</span><span class="n">s</span><span class="p">]</span> <span class="c1"># 임의 행동집합 만들고 행동에 대한 상태 매핑</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">old_pi</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">pi</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))}</span> <span class="c1"># 이전 정책에 대한 복사본 만들기</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">policy_evaluation</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="n">pi</span> <span class="o">=</span> <span class="n">policy_improvement</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_pi</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">pi</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">))}:</span> <span class="c1"># 새로운 정책이 달라진 점이 있나? 있으면 앞의 과정 반복적 시행</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">V</span><span class="p">,</span> <span class="n">pi</span> <span class="c1"># 없다면 루푸 wnmdeks gn 이상적인 정책과 이상적인 상태-가치 함수 반환</span>
 </pre></div>
 
 </div>
