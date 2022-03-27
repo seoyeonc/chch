@@ -582,7 +582,8 @@ $$v_{k+1} (s) = \sum_a \pi(a|s) \sum_{s',r} p(s',r|s,a) \big[ r + \gamma v_k (s'
 </p>
 <ul>
 <li>$\gamma$는 1이라 가정,</li>
-<li>항상 왼쪽으로 가는 정책 사용
+<li>항상 왼쪽으로 가는 정책 사용</li>
+<li>$k$: 반목적 정책-쳥가 알고리즘의 수행횟수
 
 $$ v^{\pi}_{1}(5)  = p(s'=4|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},4) + v^{\pi}_{0}(4)] + p(s'=5|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},5) + v^{\pi}_{0}(5)] + p(s'=6|s=5, a=\text{왼쪽}) * [R(5,\text{왼쪽},6) + v^{\pi}_{0}(6)]$$
 
@@ -592,6 +593,34 @@ $$c^{\pi}_{1} (5) = 0.50 * (0+0) + 0.33 * (0+0) + 0.166 * (1+0) = 0.166 \dots \t
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\rightarrow$ Bootstraping 붓스트랩 방법: 예측치를 통해서 새로운 예측치를 계산하는 방법</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 정책 평가 알고리즘</span>
+<span class="k">def</span> <span class="nf">policy_evaluation</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">prev_V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">aeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">float64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">P</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">pi</span><span class="p">(</span><span class="n">s</span><span class="p">)]:</span>
+            <span class="n">V</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">+-</span> <span class="n">prob</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">prev_V</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">nor</span> <span class="n">done</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">prev_V</span> <span class="o">-</span> <span class="n">V</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">theta</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">prev_V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">V</span>
+</pre></div>
 
 </div>
 </div>
