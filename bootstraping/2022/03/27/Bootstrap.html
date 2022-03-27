@@ -380,7 +380,7 @@ $$\hat{var}(\bar{X})^{*} = \frac{1}{B} \sum^{B}_{b=1} \big( \bar{X}^{*}_{b} - \f
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">"estimated variance by a theorerical way: "</span> <span class="p">,</span> <span class="n">Est_var</span><span class="p">,</span> <span class="s">"estimated variance by Bootstrap: "</span><span class="p">,</span> <span class="n">Est_var_B</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">"estimated variance by a theorerical way: "</span> <span class="p">,</span> <span class="n">Est_var</span><span class="p">,</span> <span class="s">"\nestimated variance by Bootstrap: "</span><span class="p">,</span> <span class="n">Est_var_B</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -393,7 +393,8 @@ $$\hat{var}(\bar{X})^{*} = \frac{1}{B} \sum^{B}_{b=1} \big( \bar{X}^{*}_{b} - \f
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>estimated variance by a theorerical way:  0.8823097 estimated variance by Bootstrap:  0.8962641</pre>
+<pre>estimated variance by a theorerical way:  0.8823097 
+estimated variance by Bootstrap:  0.8962641</pre>
 </div>
 </div>
 
@@ -1049,7 +1050,7 @@ by Bootstrap (percentile interval):  3.920087 7.487923</pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>estimated variance by Bootstrap:  0.04473418</pre>
+<pre>estimated variance by Bootstrap:  0.04454241</pre>
 </div>
 </div>
 
@@ -1110,7 +1111,7 @@ by Bootstrap (percentile interval):  3.920087 7.487923</pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>by Bootstrap (normal interval):  1.84383 2.672913</pre>
+<pre>by Bootstrap (normal interval):  1.84472 2.672023</pre>
 </div>
 </div>
 
@@ -1155,9 +1156,9 @@ by Bootstrap (percentile interval):  3.920087 7.487923</pre>
 .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
 .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
 </style>&lt;dl class=dl-inline&gt;<dt>97.5%</dt>
-<dd>1.81605141762102</dd>
+<dd>1.80945846285009</dd>
 <dt>2.5%</dt>
-<dd>2.65648202980987</dd>&lt;/dl&gt;
+<dd>2.64758753019289</dd>&lt;/dl&gt;
 
 </div>
 
@@ -1204,9 +1205,9 @@ by Bootstrap (percentile interval):  3.920087 7.487923</pre>
 .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
 .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
 </style>&lt;dl class=dl-inline&gt;<dt>2.5%</dt>
-<dd>1.86026064617619</dd>
+<dd>1.86915514579318</dd>
 <dt>97.5%</dt>
-<dd>2.70069125836505</dd>&lt;/dl&gt;
+<dd>2.70728421313597</dd>&lt;/dl&gt;
 
 </div>
 
@@ -2416,22 +2417,6 @@ Traceback:
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-Error in ncvTest(fit): could not find function "ncvTest"
-Traceback:
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
