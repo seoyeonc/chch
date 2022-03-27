@@ -832,7 +832,7 @@ $$T = \sum^{E}_{e = 1} \mathbb{E} \big[ v_* - q_* (A_e) \big]$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>그리디 전략greedy strategy</em> = <em>순수 착취 전략pure exploration strategy</em></p>
+<p><em>그리디 전략greedy strategy</em> = <em>순수 착취 전략pure exploitation strategy</em></p>
 <ul>
 <li>탐욕적으로 행동을 취하는 전략은 항상 가장 높은 추정 가치를 얻는 행동을 취한다.</li>
 </ul>
@@ -847,7 +847,30 @@ $$T = \sum^{E}_{e = 1} \mathbb{E} \big[ v_* - q_* (A_e) \big]$$
 <span class="k">def</span> <span class="nf">pure_exploitation</span><span class="p">(</span><span class="n">enc</span><span class="p">,</span> <span class="n">n_episodes</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">Qe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Pure exploitation'</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">),</span> <span class="c1"># 메인 루프로 들어가면서 환경과 상호작용이 일어나는 구간</span>
+                  <span class="n">desc</span> <span class="o">=</span> <span class="s1">'Episodes for: '</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
+                  <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span> <span class="c1"># Q 값을 최대화할 수 있는 행동 선택</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="c1"># 환경에 해당 행동 적용 후 새로운 보상</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reward</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">])</span><span class="o">/</span><span class="n">N</span><span class="p">[</span><span class="n">action</span><span class="p">]</span>
+        <span class="n">Qe</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span>
+        <span class="n">returns</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward</span>
+        <span class="n">actions</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">Qe</span><span class="p">,</span> <span class="n">actions</span>
 </pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>p. 147</p>
 
 </div>
 </div>
