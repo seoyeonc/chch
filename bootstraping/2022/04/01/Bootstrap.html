@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -2930,7 +2930,7 @@ Traceback:
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Permutation test</p>
+<p>Permutation test순열 검정법</p>
 <ul>
 <li>검정할 때 쓰는, 검정을 위한 방법 </li>
 <li>C.I. 안 써!</li>
@@ -2940,6 +2940,17 @@ Traceback:
 <li>검정에 대한 기본적 원리를 알고 있다면...</li>
 <li>표본$\hat{\theta}$의 분포만 안다면...</li>
 </ul>
+<p>만약 두 표본 그룹이 동일한 모집단에서 추출되었다고 한다면, 두 그룹 안에 있는 샘플들을 교환한 뒤 통계적으로 검증해도 여전히 두 그룹간에는 차이가 없어야 한다.</p>
+<p>우리는 샘플들을 섞어가면서 통계량을 여러번 추출할 것이다.</p>
+<p>그리고 추출된 통계량들의 값의 분포를 확인해보면 원래 주어진 데이터에서 계산한 통계량이 얼마나 큰 값인지 유추해볼 수 있을 것이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ref: <a href="https://angeloyeo.github.io/2021/10/28/permutation_test.html">https://angeloyeo.github.io/2021/10/28/permutation_test.html</a></p>
 
 </div>
 </div>
@@ -2952,6 +2963,19 @@ Traceback:
 <li>C.I. 구성, 분산 추정에 많이 사용</li>
 <li>다소 modern한 방법</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>부트스트랩도 permutation test와 유사하게 추정량(estimator)에 대한 분포를 확인하게 해주는 비모수통계 기법이다.</p>
+<p>차이가 있다면 크게 두 가지로 볼 수 있을 것 같다. 목적에 맞게 적절한 방법을 선택하도록 하자.</p>
+<ol>
+<li>Bootstrap은 estimator의 Confidence interval을 확인하기 위한 목적으로 주로 사용되는 반면 Permutation test는 null hypothesis를 test하기 위해 만들어졌다. </li>
+<li>수행 과정 상에서는 Bootstrap은 중복을 허용하는 resampling을 수행하는 반면 permutation test는 중복없는 재배열을 수행한다는 차이점이 있다. </li>
+</ol>
 
 </div>
 </div>
