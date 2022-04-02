@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -870,7 +870,98 @@ $$T = \sum^{E}_{e = 1} \mathbb{E} \big[ v_* - q_* (A_e) \big]$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p. 147</p>
+<p><em>임의 전략random strategy</em> = <em>순수 탐색 전략 pure exploration strategy</em></p>
+<ul>
+<li>착취하지 않고 탐색만 하는 전략, </li>
+<li>에이전트의 유일한 목표는 정보를 얻는 것</li>
+<li>착취없이 행동을 결정하는 간단한 방식</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># 순수 탄색 전략</span>
+<span class="k">def</span> <span class="nf">pure_exploration</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">n_episodes</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">Qe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Pure exploration'</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">),</span>
+                  <span class="n">desc</span> <span class="o">=</span> <span class="s1">'Episodes for: '</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
+                  <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">action</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rsndit</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="c1"># 환경에 해당 행동 적용 후 새로운 보상</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reward</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">])</span><span class="o">/</span><span class="n">N</span><span class="p">[</span><span class="n">action</span><span class="p">]</span>
+        <span class="n">Qe</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span>
+        <span class="n">returns</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward</span>
+        <span class="n">actions</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">Qe</span><span class="p">,</span> <span class="n">actions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>착취는 목표이며, 탐색은 이 목표를 달성하기 위한 정보를 제공한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>입실론-그리디 전략 epsilon-greedy strategy</em></p>
+<ul>
+<li>행동을 임의로 선택,</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">epsilon_greedy</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="n">epsilon</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">n_episodes</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">Qe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">'Epsilon-Greedy </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_episodes</span><span class="p">),</span>
+                  <span class="n">desc</span><span class="o">=</span><span class="s1">'Episodes for: '</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
+                  <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">epsilon</span><span class="p">:</span> <span class="c1"># 우선 임의로 숫자를 선택하고 이 값을 하이퍼파라미터인 epsilon과 비교</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randit</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="c1"># 환경에 해당 행동 적용 후 새로운 보상</span>
+            <span class="n">B</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">reward</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="n">action</span><span class="p">])</span><span class="o">/</span><span class="n">N</span><span class="p">[</span><span class="n">action</span><span class="p">]</span>
+            <span class="n">Qe</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span>
+            <span class="n">returns</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">reward</span>
+            <span class="n">actions</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">Qe</span><span class="p">,</span> <span class="n">actions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>입실론-그리디 감가 전략 decaying epsilon-greedy strategy</em></p>
+<ul>
+<li>처음에는 입실론을 1보다 작거나 같은 매우 큰 값으로 시작하고, 매 타임 스텝마다 그 값을 감가시키는 것</li>
+</ul>
 
 </div>
 </div>
