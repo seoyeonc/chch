@@ -143,13 +143,12 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h5"><a href="#1.-Data">1. Data </a></li>
 <li class="toc-entry toc-h5"><a href="#2.-$f(x)$">2. $f(x)$ </a></li>
-<li class="toc-entry toc-h5"><a href="#3.-Definition-of-Distiance-at-non-Euclidian-space-using-Haversine-Fomula">3. Definition of Distiance at non-Euclidian space using Haversine Fomula </a></li>
+<li class="toc-entry toc-h5"><a href="#3.-Haversine-Fomula-사용한-거리-정의">3. Haversine Fomula 사용한 거리 정의 </a></li>
 <li class="toc-entry toc-h5"><a href="#4.-Definition-of-a-weighted-adjacency-matrix-$W$">4. Definition of a weighted adjacency matrix $W$ </a></li>
 <li class="toc-entry toc-h5"><a href="#5.-The-weight-edge-function-with-temporal-edge-$(v_t,v_{t+1})$">5. The weight edge function with temporal edge $(v_t,v_{t+1})$ </a></li>
 <li class="toc-entry toc-h5"><a href="#6.-Definition-of-Graph-Laplacian-matrix">6. Definition of Graph Laplacian matrix </a></li>
-<li class="toc-entry toc-h5"><a href="#7.-Eigenvalue-Decomposition">7. Eigenvalue Decomposition </a></li>
-<li class="toc-entry toc-h5"><a href="#8.-Singular-Value-Decomposition">8. Singular Value Decomposition </a></li>
-<li class="toc-entry toc-h5"><a href="#9.-Principal-components-Analysis">9. Principal components Analysis </a></li>
+<li class="toc-entry toc-h5"><a href="#7.-Eigendecomposition">7. Eigendecomposition </a></li>
+<li class="toc-entry toc-h5"><a href="#8.-Principal-components-Analysis">8. Principal components Analysis </a></li>
 <li class="toc-entry toc-h5"><a href="#2004,-$n=571$">2004, $n=571$ </a></li>
 <li class="toc-entry toc-h5"><a href="#2005,-$n=533$">2005, $n=533$ </a></li>
 <li class="toc-entry toc-h5"><a href="#2006,-$n=512$">2006, $n=512$ </a></li>
@@ -311,8 +310,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="3.-Definition-of-Distiance-at-non-Euclidian-space-using-Haversine-Fomula">
-<a class="anchor" href="#3.-Definition-of-Distiance-at-non-Euclidian-space-using-Haversine-Fomula" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Definition of Distiance at non-Euclidian space using Haversine Fomula<a class="anchor-link" href="#3.-Definition-of-Distiance-at-non-Euclidian-space-using-Haversine-Fomula"> </a>
+<h5 id="3.-Haversine-Fomula-사용한-거리-정의">
+<a class="anchor" href="#3.-Haversine-Fomula-%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B1%B0%EB%A6%AC-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Haversine Fomula 사용한 거리 정의<a class="anchor-link" href="#3.-Haversine-Fomula-%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B1%B0%EB%A6%AC-%EC%A0%95%EC%9D%98"> </a>
 </h5>
 </div>
 </div>
@@ -515,8 +514,8 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="7.-Eigenvalue-Decomposition">
-<a class="anchor" href="#7.-Eigenvalue-Decomposition" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Eigenvalue Decomposition<a class="anchor-link" href="#7.-Eigenvalue-Decomposition"> </a>
+<h5 id="7.-Eigendecomposition">
+<a class="anchor" href="#7.-Eigendecomposition" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Eigendecomposition<a class="anchor-link" href="#7.-Eigendecomposition"> </a>
 </h5>
 <ul>
 <li>${\bf L} = {\boldsymbol\Psi} {\boldsymbol\Lambda} {\boldsymbol\Psi}^\top$</li>
@@ -562,9 +561,15 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="8.-Singular-Value-Decomposition">
-<a class="anchor" href="#8.-Singular-Value-Decomposition" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Singular Value Decomposition<a class="anchor-link" href="#8.-Singular-Value-Decomposition"> </a>
+<h5 id="8.-Principal-components-Analysis">
+<a class="anchor" href="#8.-Principal-components-Analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Principal components Analysis<a class="anchor-link" href="#8.-Principal-components-Analysis"> </a>
 </h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>$comp_k = f @ np.outer(Ψ[:,k], Ψ[:,k]) $<ul>
 <li>$k = 1, 2, 3, n$</li>
@@ -615,15 +620,6 @@ $$W_{u_r,v_sj}=\begin{cases} {W_{u,v}} &amp; \quad \text{ if }  u,v \in V_t  \\ 
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="9.-Principal-components-Analysis">
-<a class="anchor" href="#9.-Principal-components-Analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. Principal components Analysis<a class="anchor-link" href="#9.-Principal-components-Analysis"> </a>
-</h5>
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
