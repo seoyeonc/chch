@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>빅데이터 분석 특강 (5주차) 4월 4일 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="빅데이터 분석 특강 (5주차) 4월 4일" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/04/04/bds_5%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/04/04/bds_5%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-04T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/04/04/bds_5%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"빅데이터 분석 특강 (5주차) 4월 4일","dateModified":"2022-04-04T00:00:00-05:00","datePublished":"2022-04-04T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/04/04/bds_5%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">빅데이터 분석 특강 (5주차) 4월 4일</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-04T00:00:00-05:00" itemprop="datePublished">
+        Apr 4, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Big Data Analysis">Special Topics in Big Data Analysis</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#TensorFlow">TensorFlow</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#TensorFlow NumPy">TensorFlow NumPy</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-04-04-bds_5주차.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-04-04-bds_5%EC%A3%BC%EC%B0%A8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-04-04-bds_5주차.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#imports">imports </a></li>
+<li class="toc-entry toc-h3"><a href="#최적화의-문제">최적화의 문제 </a></li>
+<li class="toc-entry toc-h3"><a href="#tf.keras.optimizers를-이용한-최적화방법">tf.keras.optimizers를 이용한 최적화방법 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#방법1:-opt.apply_gradients()를-이용">방법1: opt.apply_gradients()를 이용 </a></li>
+<li class="toc-entry toc-h4"><a href="#방법2:-opt.minimize()">방법2: opt.minimize() </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#회귀분석-문제">회귀분석 문제 </a></li>
+<li class="toc-entry toc-h3"><a href="#이론적-풀이">이론적 풀이 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#풀이1:-스칼라버전">풀이1: 스칼라버전 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이2:-벡터버전">풀이2: 벡터버전 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이3:-벡터버전,-손실함수의-도함수이용">풀이3: 벡터버전, 손실함수의 도함수이용 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#GradientTape를-이용">GradientTape를 이용 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전">풀이1: 벡터버전 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이2:-스칼라버전">풀이2: 스칼라버전 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#GradientTape-+-opt.apply_gradients">GradientTape + opt.apply_gradients </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전">풀이1: 벡터버전 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이2:-스칼라버전">풀이2: 스칼라버전 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#opt.minimize">opt.minimize </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전,-사용자정의-손실함수-with-lambda">풀이1: 벡터버전, 사용자정의 손실함수 with lambda </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이2:-스칼라버전,-사용자정의-손실함수-with-lambda">풀이2: 스칼라버전, 사용자정의 손실함수 with lambda </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이3:-벡터버전,-사용자정의-(짧은)-손실함수">풀이3: 벡터버전, 사용자정의 (짧은) 손실함수 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이4:-벡터버전,-사용자정의-(긴)-손실함수">풀이4: 벡터버전, 사용자정의 (긴) 손실함수 </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이5:-벡터버전,-사용자정의-손실함수-<--tf.losses.MSE">풀이5: 벡터버전, 사용자정의 손실함수 &lt;- tf.losses.MSE </a></li>
+<li class="toc-entry toc-h4"><a href="#풀이6:-벡터버전,-사용자정의-손실함수-<--tf.losses.MeaSquaredError">풀이6: 벡터버전, 사용자정의 손실함수 &lt;- tf.losses.MeaSquaredError </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#tf.keras.Sequential">tf.keras.Sequential </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전,-사용자정의-손실함수">풀이1: 벡터버전, 사용자정의 손실함수 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-04-bds_5주차.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="imports">
+<a class="anchor" href="#imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>imports<a class="anchor-link" href="#imports"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="최적화의-문제">
+<a class="anchor" href="#%EC%B5%9C%EC%A0%81%ED%99%94%EC%9D%98-%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>최적화의 문제<a class="anchor-link" href="#%EC%B5%9C%EC%A0%81%ED%99%94%EC%9D%98-%EB%AC%B8%EC%A0%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $loss=(\frac{1}{2}\beta-1)^2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기존에 했던 방법은 수식을 알고 있어야 한다는 단점이 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="tf.keras.optimizers를-이용한-최적화방법">
+<a class="anchor" href="#tf.keras.optimizers%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%B5%9C%EC%A0%81%ED%99%94%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.keras.optimizers를 이용한 최적화방법<a class="anchor-link" href="#tf.keras.optimizers%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%B5%9C%EC%A0%81%ED%99%94%EB%B0%A9%EB%B2%95"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="방법1:-opt.apply_gradients()를-이용">
+<a class="anchor" href="#%EB%B0%A9%EB%B2%951:-opt.apply_gradients()%EB%A5%BC-%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법1: opt.apply_gradients()를 이용<a class="anchor-link" href="#%EB%B0%A9%EB%B2%951:-opt.apply_gradients()%EB%A5%BC-%EC%9D%B4%EC%9A%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="방법2:-opt.minimize()">
+<a class="anchor" href="#%EB%B0%A9%EB%B2%952:-opt.minimize()" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법2: opt.minimize()<a class="anchor-link" href="#%EB%B0%A9%EB%B2%952:-opt.minimize()"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="회귀분석-문제">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D-%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀분석 문제<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D-%EB%AC%B8%EC%A0%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> ${\bf y} \approx 4 + 2.5 {\bf x}$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span> 
+<span class="n">epsilon</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.5</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">epsilon</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="mf">2.5</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">'.'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_true</span><span class="p">,</span><span class="s1">'r--'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7eff782a2f50&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="이론적-풀이">
+<a class="anchor" href="#%EC%9D%B4%EB%A1%A0%EC%A0%81-%ED%92%80%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>이론적 풀이<a class="anchor-link" href="#%EC%9D%B4%EB%A1%A0%EC%A0%81-%ED%92%80%EC%9D%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이1:-스칼라버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 스칼라버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<ul>
+<li>$S_{xx}=$, $S_{xy}=$</li>
+<li>$\hat{\beta}_0=$, $\hat{\beta}_1=$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이2:-벡터버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 벡터버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<ul>
+<li>$\hat{\beta}=(X'X)^{-1}X'y$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이3:-벡터버전,-손실함수의-도함수이용">
+<a class="anchor" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%84%ED%95%A8%EC%88%98%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이3: 벡터버전, 손실함수의 도함수이용<a class="anchor-link" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%84%ED%95%A8%EC%88%98%EC%9D%B4%EC%9A%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<ul>
+<li>$loss'(\beta)=-2X'y +2X'X\beta$</li>
+<li>$\beta_{new} = \beta_{old} - \alpha \times loss'(\beta_{old})$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GradientTape를-이용">
+<a class="anchor" href="#GradientTape%EB%A5%BC-%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>GradientTape를 이용<a class="anchor-link" href="#GradientTape%EB%A5%BC-%EC%9D%B4%EC%9A%A9"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이1:-벡터버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 벡터버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드1: 그레디언트 테입  </span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">loss</span> <span class="o">=</span> 
+<span class="c1">## 포인트코드2: 미분 </span>
+<span class="n">slope</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta_hat</span><span class="p">)</span> 
+<span class="c1">## 포인트코드3: update </span>
+<span class="n">beta_hat</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope</span><span class="o">*</span><span class="n">alph</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이2:-스칼라버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 스칼라버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 미분</span>
+<span class="n">slope0</span><span class="p">,</span><span class="n">slope1</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,[</span><span class="n">beta0_hat</span><span class="p">,</span><span class="n">beta1_hat</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GradientTape-+-opt.apply_gradients">
+<a class="anchor" href="#GradientTape-+-opt.apply_gradients" aria-hidden="true"><span class="octicon octicon-link"></span></a>GradientTape + opt.apply_gradients<a class="anchor-link" href="#GradientTape-+-opt.apply_gradients"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이1:-벡터버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 벡터버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 업데이트</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">([(</span><span class="n">slope</span><span class="p">,</span><span class="n">beta_hat</span><span class="p">)])</span>  <span class="c1">## pair의 list가 입력</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이2:-스칼라버전">
+<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 스칼라버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 업데이트 </span>
+<span class="n">opt</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">([(</span><span class="n">slope0</span><span class="p">,</span><span class="n">beta0_hat</span><span class="p">),(</span><span class="n">slope1</span><span class="p">,</span><span class="n">beta1_hat</span><span class="p">)])</span> <span class="c1">## pair의 list가 입력</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="opt.minimize">
+<a class="anchor" href="#opt.minimize" aria-hidden="true"><span class="octicon octicon-link"></span></a>opt.minimize<a class="anchor-link" href="#opt.minimize"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이1:-벡터버전,-사용자정의-손실함수-with-lambda">
+<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-with-lambda" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 벡터버전, 사용자정의 손실함수 with lambda<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-with-lambda"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이2:-스칼라버전,-사용자정의-손실함수-with-lambda">
+<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-with-lambda" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 스칼라버전, 사용자정의 손실함수 with lambda<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-with-lambda"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 미분 &amp; 업데이트 = minimize </span>
+<span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,[</span><span class="n">beta0_hat</span><span class="p">,</span><span class="n">beta1_hat</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이3:-벡터버전,-사용자정의-(짧은)-손실함수">
+<a class="anchor" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-(%EC%A7%A7%EC%9D%80)-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이3: 벡터버전, 사용자정의 (짧은) 손실함수<a class="anchor-link" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-(%EC%A7%A7%EC%9D%80)-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 손실함수정의 </span>
+<span class="k">def</span> <span class="nf">loss_fn</span><span class="p">():</span>
+    <span class="k">return</span> <span class="err">??</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이4:-벡터버전,-사용자정의-(긴)-손실함수">
+<a class="anchor" href="#%ED%92%80%EC%9D%B44:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-(%EA%B8%B4)-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이4: 벡터버전, 사용자정의 (긴) 손실함수<a class="anchor-link" href="#%ED%92%80%EC%9D%B44:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-(%EA%B8%B4)-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 손실함수정의 </span>
+<span class="k">def</span> <span class="nf">loss_fn</span><span class="p">():</span>
+    <span class="err">??</span>
+    <span class="err">??</span>
+    <span class="k">return</span> <span class="err">??</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이5:-벡터버전,-사용자정의-손실함수-&lt;--tf.losses.MSE">
+<a class="anchor" href="#%ED%92%80%EC%9D%B45:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-&lt;--tf.losses.MSE" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이5: 벡터버전, 사용자정의 손실함수 &lt;- tf.losses.MSE<a class="anchor-link" href="#%ED%92%80%EC%9D%B45:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-&lt;--tf.losses.MSE"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 미리구현되어있는 손실함수 이용 </span>
+<span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이6:-벡터버전,-사용자정의-손실함수-&lt;--tf.losses.MeaSquaredError">
+<a class="anchor" href="#%ED%92%80%EC%9D%B46:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-&lt;--tf.losses.MeaSquaredError" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이6: 벡터버전, 사용자정의 손실함수 &lt;- tf.losses.MeaSquaredError<a class="anchor-link" href="#%ED%92%80%EC%9D%B46:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-&lt;--tf.losses.MeaSquaredError"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 클래스로부터 손실함수 오브젝트 생성 (함수를 찍어내는 클래스) </span>
+<span class="n">mse_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()</span>
+<span class="n">mse_fn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="tf.keras.Sequential">
+<a class="anchor" href="#tf.keras.Sequential" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.keras.Sequential<a class="anchor-link" href="#tf.keras.Sequential"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\hat{y}_i=\hat{\beta}_0+\hat{\beta}_1x_i$ 의 서로다른 표현</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="k">def</span> <span class="nf">gv</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="k">return</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="s1">'digraph G{ rankdir="LR"'</span><span class="o">+</span><span class="n">s</span> <span class="o">+</span> <span class="s1">'; }'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gv</span><span class="p">(</span><span class="s1">''' </span>
+<span class="s1">    "1" -&gt; "beta0_hat + x*beta1_hat,    bias=False"[label="* beta0_hat"]</span>
+<span class="s1">    "x" -&gt; "beta0_hat + x*beta1_hat,    bias=False"[label="* beta1_hat"]</span>
+<span class="s1">    "beta0_hat + x*beta1_hat,    bias=False" -&gt; "yhat"[label="indentity"]</span>
+<span class="s1">    '''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 3.0.0 (20220315.2325)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="727pt" height="98pt" viewbox="0.00 0.00 726.86 98.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 722.86,-94 722.86,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-72" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-68.3" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- beta0_hat + x*beta1_hat, &#160;&#160;&#160;bias=False -->
+<g id="node2" class="node">
+<title>beta0_hat + x*beta1_hat,    bias=False</title>
+<ellipse fill="none" stroke="black" cx="363.73" cy="-45" rx="191.97" ry="18"></ellipse>
+<text text-anchor="middle" x="363.73" y="-41.3" font-family="Times,serif" font-size="14.00">beta0_hat + x*beta1_hat,    bias=False</text>
+</g>
+<!-- 1&#45;&gt;beta0_hat + x*beta1_hat, &#160;&#160;&#160;bias=False -->
+<g id="edge1" class="edge">
+<title>1-&gt;beta0_hat + x*beta1_hat,    bias=False</title>
+<path fill="none" stroke="black" d="M53.99,-69.9C87.46,-67.2 148.36,-62.29 207.28,-57.54"></path>
+<polygon fill="black" stroke="black" points="207.79,-61.01 217.48,-56.72 207.23,-54.03 207.79,-61.01"></polygon>
+<text text-anchor="middle" x="113" y="-71.8" font-family="Times,serif" font-size="14.00">* beta0_hat</text>
+</g>
+<!-- yhat -->
+<g id="node4" class="node">
+<title>yhat</title>
+<ellipse fill="none" stroke="black" cx="687.66" cy="-45" rx="31.4" ry="18"></ellipse>
+<text text-anchor="middle" x="687.66" y="-41.3" font-family="Times,serif" font-size="14.00">yhat</text>
+</g>
+<!-- beta0_hat + x*beta1_hat, &#160;&#160;&#160;bias=False&#45;&gt;yhat -->
+<g id="edge3" class="edge">
+<title>beta0_hat + x*beta1_hat,    bias=False-&gt;yhat</title>
+<path fill="none" stroke="black" d="M555.72,-45C589.92,-45 622.25,-45 646.23,-45"></path>
+<polygon fill="black" stroke="black" points="646.3,-48.5 656.3,-45 646.3,-41.5 646.3,-48.5"></polygon>
+<text text-anchor="middle" x="605.97" y="-48.8" font-family="Times,serif" font-size="14.00">indentity</text>
+</g>
+<!-- x -->
+<g id="node3" class="node">
+<title>x</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00">x</text>
+</g>
+<!-- x&#45;&gt;beta0_hat + x*beta1_hat, &#160;&#160;&#160;bias=False -->
+<g id="edge2" class="edge">
+<title>x-&gt;beta0_hat + x*beta1_hat,    bias=False</title>
+<path fill="none" stroke="black" d="M53.99,-20.1C87.46,-22.8 148.36,-27.71 207.28,-32.46"></path>
+<polygon fill="black" stroke="black" points="207.23,-35.97 217.48,-33.28 207.79,-28.99 207.23,-35.97"></polygon>
+<text text-anchor="middle" x="113" y="-30.8" font-family="Times,serif" font-size="14.00">* beta1_hat</text>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gv</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">"x" -&gt; "x*beta1_hat,    bias=True"[label="*beta1_hat"] ;</span>
+<span class="s1">"x*beta1_hat,    bias=True" -&gt; "yhat"[label="indentity"] '''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 3.0.0 (20220315.2325)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="598pt" height="44pt" viewbox="0.00 0.00 598.07 44.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 594.07,-40 594.07,4 -4,4"></polygon>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00">x</text>
+</g>
+<!-- x*beta1_hat, &#160;&#160;&#160;bias=True -->
+<g id="node2" class="node">
+<title>x*beta1_hat,    bias=True</title>
+<ellipse fill="none" stroke="black" cx="297.34" cy="-18" rx="129.18" ry="18"></ellipse>
+<text text-anchor="middle" x="297.34" y="-14.3" font-family="Times,serif" font-size="14.00">x*beta1_hat,    bias=True</text>
+</g>
+<!-- x&#45;&gt;x*beta1_hat, &#160;&#160;&#160;bias=True -->
+<g id="edge1" class="edge">
+<title>x-&gt;x*beta1_hat,    bias=True</title>
+<path fill="none" stroke="black" d="M54.22,-18C78.96,-18 118.07,-18 157.71,-18"></path>
+<polygon fill="black" stroke="black" points="157.79,-21.5 167.79,-18 157.79,-14.5 157.79,-21.5"></polygon>
+<text text-anchor="middle" x="111" y="-21.8" font-family="Times,serif" font-size="14.00">*beta1_hat</text>
+</g>
+<!-- yhat -->
+<g id="node3" class="node">
+<title>yhat</title>
+<ellipse fill="none" stroke="black" cx="558.87" cy="-18" rx="31.4" ry="18"></ellipse>
+<text text-anchor="middle" x="558.87" y="-14.3" font-family="Times,serif" font-size="14.00">yhat</text>
+</g>
+<!-- x*beta1_hat, &#160;&#160;&#160;bias=True&#45;&gt;yhat -->
+<g id="edge2" class="edge">
+<title>x*beta1_hat,    bias=True-&gt;yhat</title>
+<path fill="none" stroke="black" d="M426.97,-18C459.87,-18 492.87,-18 517.5,-18"></path>
+<polygon fill="black" stroke="black" points="517.53,-21.5 527.53,-18 517.53,-14.5 517.53,-21.5"></polygon>
+<text text-anchor="middle" x="477.18" y="-21.8" font-family="Times,serif" font-size="14.00">indentity</text>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gv</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">"X=[1 x]" -&gt; "X@beta_hat,    bias=False"[label="@beta_hat"] ;</span>
+<span class="s1">"X@beta_hat,    bias=False" -&gt; "yhat"[label="indentity"] '''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 3.0.0 (20220315.2325)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="640pt" height="44pt" viewbox="0.00 0.00 639.56 44.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 635.56,-40 635.56,4 -4,4"></polygon>
+<!-- X=[1 x] -->
+<g id="node1" class="node">
+<title>X=[1 x]</title>
+<ellipse fill="none" stroke="black" cx="46.15" cy="-18" rx="46.29" ry="18"></ellipse>
+<text text-anchor="middle" x="46.15" y="-14.3" font-family="Times,serif" font-size="14.00">X=[1 x]</text>
+</g>
+<!-- X@beta_hat, &#160;&#160;&#160;bias=False -->
+<g id="node2" class="node">
+<title>X@beta_hat,    bias=False</title>
+<ellipse fill="none" stroke="black" cx="336.23" cy="-18" rx="131.88" ry="18"></ellipse>
+<text text-anchor="middle" x="336.23" y="-14.3" font-family="Times,serif" font-size="14.00">X@beta_hat,    bias=False</text>
+</g>
+<!-- X=[1 x]&#45;&gt;X@beta_hat, &#160;&#160;&#160;bias=False -->
+<g id="edge1" class="edge">
+<title>X=[1 x]-&gt;X@beta_hat,    bias=False</title>
+<path fill="none" stroke="black" d="M92.48,-18C120.07,-18 156.97,-18 193.66,-18"></path>
+<polygon fill="black" stroke="black" points="193.99,-21.5 203.99,-18 193.99,-14.5 193.99,-21.5"></polygon>
+<text text-anchor="middle" x="148.29" y="-21.8" font-family="Times,serif" font-size="14.00">@beta_hat</text>
+</g>
+<!-- yhat -->
+<g id="node3" class="node">
+<title>yhat</title>
+<ellipse fill="none" stroke="black" cx="600.37" cy="-18" rx="31.4" ry="18"></ellipse>
+<text text-anchor="middle" x="600.37" y="-14.3" font-family="Times,serif" font-size="14.00">yhat</text>
+</g>
+<!-- X@beta_hat, &#160;&#160;&#160;bias=False&#45;&gt;yhat -->
+<g id="edge2" class="edge">
+<title>X@beta_hat,    bias=False-&gt;yhat</title>
+<path fill="none" stroke="black" d="M468.3,-18C501.34,-18 534.38,-18 559.02,-18"></path>
+<polygon fill="black" stroke="black" points="559.04,-21.5 569.04,-18 559.04,-14.5 559.04,-21.5"></polygon>
+<text text-anchor="middle" x="518.67" y="-21.8" font-family="Times,serif" font-size="14.00">indentity</text>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="풀이1:-벡터버전,-사용자정의-손실함수">
+<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 벡터버전, 사용자정의 손실함수<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인트</p>
+<div class="highlight"><pre><span></span><span class="c1">## 포인트코드1: 네트워크 생성 </span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+
+<span class="c1">## 포인트코드2: 네트워크의 아키텍처 설계 </span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> 
+
+<span class="c1">## 포인트코드3: 네트워크 컴파일 = 아키텍처 + 손실함수 + 옵티마이저</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">loss_fn2</span><span class="p">)</span>
+
+<span class="c1">## 포인트코드4: 미분 &amp; update </span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/04/04/bds_5%EC%A3%BC%EC%B0%A8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
