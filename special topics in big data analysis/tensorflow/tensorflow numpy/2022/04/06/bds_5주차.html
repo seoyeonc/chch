@@ -163,6 +163,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#풀이2:-스칼라버전">풀이2: 스칼라버전 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h1"><a href="#여기부터-다시-복습-시작">여기부터 다시 복습 시작 </a>
+<ul>
 <li class="toc-entry toc-h3"><a href="#GradientTape-+-opt.apply_gradients">GradientTape + opt.apply_gradients </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전">풀이1: 벡터버전 </a></li>
@@ -182,6 +184,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#tf.keras.Sequential">tf.keras.Sequential </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전,-사용자정의-손실함수">풀이1: 벡터버전, 사용자정의 손실함수 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -1925,7 +1929,7 @@ array([[-5],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>미분해서 slope구하고 alpha * slope를 beta에서 뺴기,</p>
+<p>미분해서 slope구하고 alpha * slope를 beta에서 뺴기_위의 식 그대로 풀어쓴 거..</p>
 <ul>
 <li>만약 slope 안 쓴다면?</li>
 </ul>
@@ -1980,7 +1984,7 @@ array([[-1820.07378797],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>alpha가 1820씩 움직일 것...적당히 잡아갸겠다 다짐..</p>
+<p>alpha가 1820씩 움직일 것. 너무 크니 적당히 잡아야겠다 다짐..</p>
 
 </div>
 </div>
@@ -2108,6 +2112,7 @@ array([[2.58366721],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span><span class="n">x</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -2185,7 +2190,7 @@ array([[-5],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> <span class="o">+</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span> <span class="o">@</span> <span class="n">beta_hat</span><span class="p">)</span><span class="o">/</span><span class="n">N</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> <span class="o">+</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span> <span class="o">@</span> <span class="n">beta_hat</span><span class="p">)</span><span class="o">/</span><span class="n">N</span> <span class="c1"># 위에서 1820 나왔잖아.. 나눠줘도 loss찾는데 문제 없으니까 뭐</span>
 <span class="n">slope</span>
 </pre></div>
 
@@ -2324,7 +2329,7 @@ array([[2.58366061],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>MSE로 loss값을 구해주면 같이 최소점을 찾을 수 있으나 alpha를 더 크게 적당히 움직이면서 가능..</p>
+<p>MSE로 loss값을 구해주면 같이 최소점을 찾을 수 있으나 alpha를 더 크게 적당히 움직이면서 가능..!</p>
 
 </div>
 </div>
@@ -2807,6 +2812,15 @@ array([[2.58366061],
 <li><em>바뀌는 과정에서 최적화가 덜 되었다고 표현</em></li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="여기부터-다시-복습-시작">
+<a class="anchor" href="#%EC%97%AC%EA%B8%B0%EB%B6%80%ED%84%B0-%EB%8B%A4%EC%8B%9C-%EB%B3%B5%EC%8A%B5-%EC%8B%9C%EC%9E%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>여기부터 다시 복습 시작<a class="anchor-link" href="#%EC%97%AC%EA%B8%B0%EB%B6%80%ED%84%B0-%EB%8B%A4%EC%8B%9C-%EB%B3%B5%EC%8A%B5-%EC%8B%9C%EC%9E%91"> </a>
+</h1>
 </div>
 </div>
 </div>
