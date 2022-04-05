@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      21 min read
     
 </span></p>
 
@@ -145,8 +145,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#최적화의-문제">최적화의 문제 </a></li>
 <li class="toc-entry toc-h3"><a href="#tf.keras.optimizers를-이용한-최적화방법">tf.keras.optimizers를 이용한 최적화방법 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#방법1:-opt.apply_gradients()를-이용">방법1: opt.apply_gradients()를 이용 </a></li>
-<li class="toc-entry toc-h4"><a href="#방법2:-opt.minimize()">방법2: opt.minimize() </a></li>
+<li class="toc-entry toc-h4"><a href="#방법1:--opt.apply_gradients([(slope,beta)])를-이용">방법1:  opt.apply_gradients([(slope,beta)])를 이용 </a></li>
+<li class="toc-entry toc-h4"><a href="#방법2:-opt.minimize(loss_fn,beta)">방법2: opt.minimize(loss_fn,beta) </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#회귀분석-문제">회귀분석 문제 </a></li>
@@ -302,7 +302,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>최적값을 만드는 함수를 만들자-&gt; optimizer</li>
-<li>beta=2를 만드는 함수 찾자</li>
+<li>beta=2를 만드는 함수 찾자, loss가 0이 되는 함수 찾자</li>
 <li>수식을 기억할 필요가 없다(장점)</li>
 </ul>
 
@@ -321,8 +321,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="방법1:-opt.apply_gradients()를-이용">
-<a class="anchor" href="#%EB%B0%A9%EB%B2%951:-opt.apply_gradients()%EB%A5%BC-%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법1: opt.apply_gradients()를 이용<a class="anchor-link" href="#%EB%B0%A9%EB%B2%951:-opt.apply_gradients()%EB%A5%BC-%EC%9D%B4%EC%9A%A9"> </a>
+<h4 id="방법1:--opt.apply_gradients([(slope,beta)])를-이용">
+<a class="anchor" href="#%EB%B0%A9%EB%B2%951:--opt.apply_gradients(%5B(slope,beta)%5D)%EB%A5%BC-%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법1:  <code>opt.apply_gradients([(slope,beta)])</code>를 이용<a class="anchor-link" href="#%EB%B0%A9%EB%B2%951:--opt.apply_gradients(%5B(slope,beta)%5D)%EB%A5%BC-%EC%9D%B4%EC%9A%A9"> </a>
 </h4>
 </div>
 </div>
@@ -367,7 +367,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f241c664910&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f21d40e6440&gt;]</pre>
 </div>
 
 </div>
@@ -472,7 +472,7 @@ window.onload = wrap_img;
 <div class="highlight"><pre><span></span><span class="n">beta</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span>
 <span class="n">beta</span>
 </pre></div>
-<p>이 거 안 하고 싶어</p>
+<p>이거 안 하고 싶어</p>
 <ul>
 <li>slope와 beta를 opt에 입력해줘야 하겠지?</li>
 </ul>
@@ -480,6 +480,39 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slope</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=-6.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -541,7 +574,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>optimizer 만들어</p>
+<p>학습률alpha이 0.01인 optimizer 만들어, SGD 확률적 경사 하강법</p>
 
 </div>
 </div>
@@ -679,6 +712,39 @@ Raises:
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slope</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=-6.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -860,7 +926,7 @@ Raises:
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>2에 가까운 beta가 나온 모습.</p>
+<p>2에 가까운 beta가 나온 모습을 볼 수 있었다.</p>
 
 </div>
 </div>
@@ -1032,8 +1098,8 @@ Raises:
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="방법2:-opt.minimize()">
-<a class="anchor" href="#%EB%B0%A9%EB%B2%952:-opt.minimize()" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법2: opt.minimize()<a class="anchor-link" href="#%EB%B0%A9%EB%B2%952:-opt.minimize()"> </a>
+<h4 id="방법2:-opt.minimize(loss_fn,beta)">
+<a class="anchor" href="#%EB%B0%A9%EB%B2%952:-opt.minimize(loss_fn,beta)" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법2: <code>opt.minimize(loss_fn,beta)</code><a class="anchor-link" href="#%EB%B0%A9%EB%B2%952:-opt.minimize(loss_fn,beta)"> </a>
 </h4>
 </div>
 </div>
@@ -1224,6 +1290,14 @@ Raises:
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\beta$에 $-10$ 넣어줬으니까 $loss$ 계산 되어서 $(\frac{1}{2}\beta-1)^2 =36$ 나온 거</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1493,7 +1567,7 @@ Raises:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f221e210a00&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f21cdd47b50&gt;]</pre>
 </div>
 
 </div>
@@ -1561,23 +1635,7 @@ Raises:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Sxx</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Sxy</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Sxx</span>
+<span class="n">Sxx</span><span class="p">,</span><span class="n">Sxy</span>
 </pre></div>
 
     </div>
@@ -1592,7 +1650,8 @@ Raises:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;tf.Tensor: shape=(), dtype=float64, numpy=16.834170854271363&gt;</pre>
+<pre>(&lt;tf.Tensor: shape=(), dtype=float64, numpy=16.834170854271363&gt;,
+ &lt;tf.Tensor: shape=(), dtype=float64, numpy=66.20937503043275&gt;)</pre>
 </div>
 
 </div>
@@ -1610,57 +1669,8 @@ Raises:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Sxy</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;tf.Tensor: shape=(), dtype=float64, numpy=66.20937503043275&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta1_hat</span> <span class="o">=</span> <span class="n">Sxy</span><span class="o">/</span><span class="n">Sxx</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta1_hat</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta1_hat</span> <span class="o">=</span> <span class="n">Sxy</span><span class="o">/</span><span class="n">Sxx</span> <span class="c1"># true값이 4니까 가깝네~</span>
+<span class="n">beta1_hat</span>
 </pre></div>
 
     </div>
@@ -1686,14 +1696,6 @@ Raises:
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>true값이 4니까 가깝네~</p>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1701,24 +1703,8 @@ Raises:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta0_hat</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">beta1_hat</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta0_hat</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta0_hat</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">beta1_hat</span> <span class="c1"># true값이 2.5니까 가깝네~</span>
+<span class="n">beta0_hat</span>
 </pre></div>
 
     </div>
@@ -1744,14 +1730,6 @@ Raises:
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>true값이 2.5니까 가깝네~</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1824,7 +1802,7 @@ Raises:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> <span class="c1"># 위에서 scalar로 구한 값과 같은 값이 나오는 모습.</span>
 </pre></div>
 
     </div>
@@ -1855,14 +1833,6 @@ array([[2.58366721],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>위에서 scalar로 구한 값과 같은 값이 나오는 모습.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="풀이3:-벡터버전,-손실함수의-도함수이용">
 <a class="anchor" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%84%ED%95%A8%EC%88%98%EC%9D%B4%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이3: 벡터버전, 손실함수의 도함수이용<a class="anchor-link" href="#%ED%92%80%EC%9D%B43:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EB%8F%84%ED%95%A8%EC%88%98%EC%9D%B4%EC%9A%A9"> </a>
 </h4>
@@ -1889,6 +1859,7 @@ array([[2.58366721],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span><span class="n">x</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -1922,7 +1893,7 @@ array([[2.58366721],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta_hat</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta_hat</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 지금 beta_hat은 아니지만.. beta_hat이 될 것이기 때문에 이름 이렇게 지정..</span>
 <span class="n">beta_hat</span>
 </pre></div>
 
@@ -1951,14 +1922,6 @@ array([[-5],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>지금 beta_hat은 아니지만.. beta_hat이 될 것이기 때문에 이름 이렇게 지정..</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
