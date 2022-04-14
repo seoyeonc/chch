@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>응용통계학 (6주차) 4월 14일 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="응용통계학 (6주차) 4월 14일" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="모형 진단" />
+<meta property="og:description" content="모형 진단" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/applied%20statistics/%EB%AA%A8%ED%98%95%20%EC%A7%84%EB%8B%A8/2022/04/15/as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/applied%20statistics/%EB%AA%A8%ED%98%95%20%EC%A7%84%EB%8B%A8/2022/04/15/as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"모형 진단","url":"https://seoyeonc.github.io/chch/applied%20statistics/%EB%AA%A8%ED%98%95%20%EC%A7%84%EB%8B%A8/2022/04/15/as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.html","@type":"BlogPosting","headline":"응용통계학 (6주차) 4월 14일","dateModified":"2022-04-15T00:00:00-05:00","datePublished":"2022-04-15T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/applied%20statistics/%EB%AA%A8%ED%98%95%20%EC%A7%84%EB%8B%A8/2022/04/15/as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">응용통계학 (6주차) 4월 14일</h1><p class="page-description">모형 진단</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-15T00:00:00-05:00" itemprop="datePublished">
+        Apr 15, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Applied Statistics">Applied Statistics</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#모형 진단">모형 진단</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-04-15-as-모형진단.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-04-15-as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-04-15-as-모형진단.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#응용통계학-:-모형-진단">응용통계학 : 모형 진단 </a></li>
+<li class="toc-entry toc-h2"><a href="#Checking-error-assumptions">Checking error assumptions </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#constant-variance-(등분산성)">constant variance (등분산성) </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-15-as-모형진단.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="응용통계학-:-모형-진단">
+<a class="anchor" href="#%EC%9D%91%EC%9A%A9%ED%86%B5%EA%B3%84%ED%95%99-:-%EB%AA%A8%ED%98%95-%EC%A7%84%EB%8B%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>응용통계학 : 모형 진단<a class="anchor-link" href="#%EC%9D%91%EC%9A%A9%ED%86%B5%EA%B3%84%ED%95%99-:-%EB%AA%A8%ED%98%95-%EC%A7%84%EB%8B%A8"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>선형모형에서 추정량의 특정 성질이나 이후 추론과정들은 모형의 가정에 의존하게 된다. 즉, 가정에 대한 검토과정이 정당성을 획득하기 위해 필요한 절차이다. 모형 가정에 대한 이슈는 다음과 같이 요약될 수 있다.</p>
+<ul>
+<li>$y = X\beta + \epsilon$</li>
+</ul>
+<ol>
+<li>오차항 가정</li>
+<li>모형가정</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>오차항 : 정규성, 등분산성, 독립성<ul>
+<li>stochastic part; Stochastic refers to the property of being well described by a random probability distribution.</li>
+</ul>
+</li>
+<li>모형 : $ E(y)=Xβ $ : 선형성<ul>
+<li>deterministric part = symmetric part</li>
+</ul>
+</li>
+<li>특이 관측치 : 간혹 소수의 관측치들이 모형에 잘 맞지 않아 모형 전체에 영향을 미칠 수 있다.<ul>
+<li>outlier 있나?</li>
+<li>어떻게 처리해서 모델을 봐 볼까?</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Checking-error-assumptions">
+<a class="anchor" href="#Checking-error-assumptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking error assumptions<a class="anchor-link" href="#Checking-error-assumptions"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>오차항을 관측 불가하므로 잔차에 기반하여 가정을 검토한다.</p>
+<p>
+$$e=y−X\hat{β}=(I−H)y.$$
+</p>
+<p>오차항은 서로 독립이더라도 잔차들은 그렇지 않음을 유의하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="constant-variance-(등분산성)">
+<a class="anchor" href="#constant-variance-(%EB%93%B1%EB%B6%84%EC%82%B0%EC%84%B1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>constant variance (등분산성)<a class="anchor-link" href="#constant-variance-(%EB%93%B1%EB%B6%84%EC%82%B0%EC%84%B1)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$e_i vs \hat{y}_i$(x축 vs y축) 산점도(residual plot)가 가장 기본이 되는 진단 방법이다. 만약 가정이 모두 만족된다면 수직축 기준으로 대칭적이고 일정한 정도를 보이는 변동만이 나타날 것이다.</p>
+<ul>
+<li>Note : 가로축에 설명변수를 넣은 산점도를 이용하기도 한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://i.stack.imgur.com/rtn7e.png" alt=""></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">faraway</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">savings</span><span class="p">,</span><span class="n">package</span><span class="o">=</span><span class="s">"faraway"</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">savings</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>'data.frame':	50 obs. of  5 variables:
+ $ sr   : num  11.43 12.07 13.17 5.75 12.88 ...
+ $ pop15: num  29.4 23.3 23.8 41.9 42.2 ...
+ $ pop75: num  2.87 4.41 4.43 1.67 0.83 2.85 1.34 0.67 1.06 1.14 ...
+ $ dpi  : num  2330 1508 2108 189 728 ...
+ $ ddpi : num  2.87 3.93 3.82 0.22 4.56 2.43 2.67 6.51 3.08 2.8 ...
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/applied%20statistics/%EB%AA%A8%ED%98%95%20%EC%A7%84%EB%8B%A8/2022/04/15/as-%EB%AA%A8%ED%98%95%EC%A7%84%EB%8B%A8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
