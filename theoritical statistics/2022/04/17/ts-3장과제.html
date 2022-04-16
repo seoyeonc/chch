@@ -275,7 +275,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="o">-</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">40</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span><span class="o">+</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">140</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pchisq</span><span class="p">(</span><span class="m">14</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pchisq</span><span class="p">(</span><span class="m">4</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -316,6 +316,70 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.977218196809988
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pchisq</span><span class="p">(</span><span class="m">19.2</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pchisq</span><span class="p">(</span><span class="m">12.8</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.412929051104458
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="o">-</span><span class="nf">pnorm</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
@@ -348,7 +412,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="o">-</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">12.8</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span><span class="o">+</span> <span class="nf">pchisq</span><span class="p">(</span><span class="m">19.2</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="p">(</span><span class="nf">pnorm</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">19.2</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pchisq</span><span class="p">(</span><span class="m">12.8</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -362,28 +426,11 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea ">
-0.412929051104458
+0.403521782730758
 </div>
 
 </div>
 
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="o">-</span><span class="nf">pnorm</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)(</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
