@@ -2105,11 +2105,107 @@ $$\kappa = \sqrt{ \frac{\lambda_{min}} {\lambda_{max}} } $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>12.</code> $X_1, X_2, \dots, X_{10}$이 $N(\mu, 25)$ 으로부터 구한 랜덤표본이라고 하자.</p>
-<p>이때 $P(4&lt;\sum^{10}_{i=1} (X_i - \bar{X}_{10} )^2 /10 &lt;14 )$</p>
+<p>이때 $P(4&lt;\sum^{10}_{i=1} (X_i - \bar{X}_{10} )^2 /10 &lt;14 )$를 계산하라.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pchisq</span><span class="p">(</span><span class="m">40</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.00366531089585167
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pchisq</span><span class="p">(</span><span class="m">140</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.220812283835164
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="o">-</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">40</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span><span class="o">+</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">140</span><span class="o">/</span><span class="m">25</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.217146972939312
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2119,6 +2215,38 @@ $$\kappa = \sqrt{ \frac{\lambda_{min}} {\lambda_{max}} } $$
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="o">-</span><span class="nf">pchisq</span><span class="p">(</span><span class="m">12.8</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span><span class="o">+</span> <span class="nf">pchisq</span><span class="p">(</span><span class="m">19.2</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.412929051104458
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
