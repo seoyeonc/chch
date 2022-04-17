@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
 <meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" />
-<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/%ED%96%89%EB%A0%AC%20%EC%97%B0%EC%82%B0/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/%ED%96%89%EB%A0%AC%20%EC%97%B0%EC%82%B0/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" />
 <meta property="og:site_name" content="Seoyeon Choi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-03-15T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"빅데이터 분석 특강 (2주차) 3월 14일","dateModified":"2022-03-15T00:00:00-05:00","datePublished":"2022-03-15T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/%ED%96%89%EB%A0%AC%20%EC%97%B0%EC%82%B0/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"빅데이터 분석 특강 (2주차) 3월 14일","dateModified":"2022-03-15T00:00:00-05:00","datePublished":"2022-03-15T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/%ED%96%89%EB%A0%AC%20%EC%97%B0%EC%82%B0/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -110,6 +110,9 @@ window.onload = wrap_img;
         &nbsp;
       
         <a class="category-tags-link" href="/chch/categories/#TensorFlow NumPy">TensorFlow NumPy</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#행렬 연산">행렬 연산</a>
         
       
       </p>
@@ -163,7 +166,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#타입">타입 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#?">? </a>
+<li class="toc-entry toc-h2"><a href="#해결">해결 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들 </a></li>
 <li class="toc-entry toc-h4"><a href="#그렇지만-np.array는-아님">그렇지만 np.array는 아님 </a></li>
@@ -2197,7 +2200,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="tf.constant-$\to$-넘파이">
-<a class="anchor" href="#tf.constant-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.constant $\to$ 넘파이<a class="anchor-link" href="#tf.constant-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4"> </a>
+<a class="anchor" href="#tf.constant-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>tf.constant $\to$ 넘파이</strong><a class="anchor-link" href="#tf.constant-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4"> </a>
 </h4>
 </div>
 </div>
@@ -4786,7 +4789,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\star$ 에러 뜨는 이유? -&gt; (4,)는 그냥 (4) 야 concat으로 못 바꿔, 명심해</p>
+<p>$\star$ 에러 뜨는 이유? -&gt; (4,)는 그냥 (4) 야 concat으로 못 바꿔, 명심해, 하고 싶으면 reshape 하세요~</p>
 
 </div>
 </div>
@@ -5630,9 +5633,58 @@ array([[1],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="?">
-<a class="anchor" href="#?" aria-hidden="true"><span class="octicon octicon-link"></span></a>?<a class="anchor-link" href="#?"> </a>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="해결">
+<a class="anchor" href="#%ED%95%B4%EA%B2%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>해결<a class="anchor-link" href="#%ED%95%B4%EA%B2%B0"> </a>
 </h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([1, 4])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이렇게 <code>i</code> 로 표시된 것은 ()없어도 실행 가능, 함수 아니기 때문데</p>
+
 </div>
 </div>
 </div>
@@ -5669,6 +5721,14 @@ array([[1],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>함수이기 때문에 <code>f</code>라고 뜸 min만 치면 에러뜨고, <code>( )</code> 같이 입력해줘야 한다.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -5804,17 +5864,17 @@ array([[1],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">
-<a class="anchor" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들<a class="anchor-link" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4"> </a>
-</h4>
+<hr>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>?</p>
-
+<h4 id="tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">
+<a class="anchor" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들<a class="anchor-link" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4"> </a>
+</h4>
 </div>
 </div>
 </div>
@@ -5972,7 +6032,7 @@ Input <span class="ansi-green-fg">In [153]</span>, in <span class="ansi-cyan-fg"
 
 
 
-  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" hidden></a>
+  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/tensorflow/tensorflow%20numpy/%ED%96%89%EB%A0%AC%20%EC%97%B0%EC%82%B0/2022/03/15/bds_2%EC%A3%BC%EC%B0%A8.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
