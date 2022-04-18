@@ -253,6 +253,51 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>위에가 아니라 아래가 답!,</p>
+<ul>
+<li>$E(\frac{1}{5}\sum^{5}_{i=1}X^{2}_{i}) = \frac{1}{5} \times 5 = 1$</li>
+<li>$var(\frac{1}{5}\sum^{5}_{i=1}X^{2}_{i}) = \frac{\sigma^2}{n} = \frac{10}{5} = 2$</li>
+<li>$\therefore \frac{1}{5} \sum^{5}_{i=1} \sim \chi^{2}_{1}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">qchisq</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+2.70554345409542
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>7.</code> $X_1,X_2, \dots, X_n$ 이 $N(\mu, \sigma^2)$로부터 구한 랜덤표본이라고 하자.</p>
 <p>이때 $\sum^{n}_{i=1}(X_i - \bar{X}_n)^2/n$ 의 분산을 구하라.</p>
 
@@ -485,13 +530,45 @@ window.onload = wrap_img;
 <p><code>17.</code> 모분포 $N(0,1)$ 로부터 랜덤표본 $X_1, X_2,\dots , X_{50}$을 얻었다고 할 때,</p>
 <p>(1) $P(X_1 - X_2 &lt; 2)$ 을 계산하라.</p>
 <p>(2) $P(X_1 + X_2 &lt; 2)$ 을 계산하라.</p>
-<p>(3) $P(X^{2}_{1} + \dots + X^{2}_{50} &lt; 60))$ 을 계산하라.</p>
+<p>(3) $P(X^{2}_{1} + \dots + X^{2}_{50} &lt; 60)$ 을 계산하라.</p>
 <p>(4) $P(40 &lt; X^{2}_{1} + \dots + X^{2}_{50} &lt; 60)$ 을 계산하라.</p>
 <p>(5) $P(X^{2}_{1} + \dots + X^{2}_{50} &lt; 50 + c) = 0.9$ 를 만족하는 상수 $c$ 를 구하라.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">2</span><span class="p">),</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.921350396474857
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -595,7 +672,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">qchisq</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">qchisq</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">50</span><span class="p">)</span><span class="m">-50</span>
 </pre></div>
 
     </div>
@@ -609,7 +686,7 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea ">
-63.1671210057263
+13.1671210057263
 </div>
 
 </div>
