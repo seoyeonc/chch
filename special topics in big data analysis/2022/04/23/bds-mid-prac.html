@@ -2162,6 +2162,14 @@ $$\hat{\beta}_1= \frac{S_{xy}}{S_{xx}}=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\ba
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>변수가 Variable로 생성되면 자동적으로 관찰되지만 constant로 생성되면 관찰되지 않으니 보고 싶다면 watch 추가하거나 variable로 생성하면 된다.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2251,9 +2259,11 @@ array([[ -126.78690968],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>Notice:시험 예상</p>
-</blockquote>
+<p></p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>시험 예상
+</div>
 
 </div>
 </div>
@@ -2369,6 +2379,30 @@ array([[ -2.74690968],
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">6</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="c1"># tf.keras.optimizers.SGD.apply_gradients 이용</span>
+<span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">([(</span><span class="n">slope</span><span class="p">,</span><span class="n">beta</span><span class="p">)])</span>
+<span class="n">beta</span>
+<span class="c1"># tf.keras.optimizer.SGD.minimize 이용</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss_fn</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">beta</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 </div>
 
 

@@ -1631,7 +1631,7 @@ array([[ -2.74690968],
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(2) 임의의 초기값(beta = -5)에서 좌우로 약간씩 이동해보고 loss를 계산한다.(beta = -5 주변에서 조금씩 움직여보면서 계산해보자)</p>
 <ul>
-<li>왼쪽으로 이동: $\beta=-5.01,\quad loss(5.01)= 12.285025$</li>
+<li>왼쪽으로 이동: $\beta=-5.01,\quad loss(-5.01)= 12.285025$</li>
 <li>오른쪽으로 이동: $\beta=-4.99, \quad loss(-4.99)= 12.215025$ </li>
 </ul>
 <p>즉 미분...</p>
@@ -2357,7 +2357,7 @@ array([[ -2.74690968],
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>왜 tf.Variable의 메소드에 assign_add, assign_sub 정도만 있는지?</p>
 <ul>
-<li>assign 은 초기화하고 싶을떄, add와 sub만 핗요해서 두 개 밖에..</li>
+<li>assign 은 초기화하고 싶을떄, add와 sub만 필요해서 두 개 밖에..</li>
 </ul>
 
 </div>
