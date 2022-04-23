@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      8 min read
     
 </span></p>
 
@@ -139,7 +139,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#1.-인지할-것">1. 인지할 것 </a></li>
 <li class="toc-entry toc-h3"><a href="#2.">2. </a></li>
 <li class="toc-entry toc-h3"><a href="#3.-아래와-같은-모형에서-시뮬레이션-된-자료가-있다고-하자.">3. 아래와 같은 모형에서 시뮬레이션 된 자료가 있다고 하자. </a></li>
-<li class="toc-entry toc-h3"><a href="#4.-다음을-잘-읽고-물음에-O/X로-답하라.-(25점)">4. 다음을 잘 읽고 물음에 O/X로 답하라. (25점) </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-다음을-잘-읽고-물음에-O/X로-답하라.-(25점)">4. 다음을 잘 읽고 물음에 O/X로 답하라. (25점) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#그리드서치의-문제점">그리드서치의 문제점 </a></li>
+<li class="toc-entry toc-h4"><a href="#왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화? </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#5.-식-정리">5. 식 정리 </a></li>
 <li class="toc-entry toc-h3"><a href="#7.-tf.GradientTape-에-관하여">7. tf.GradientTape 에 관하여 </a></li>
 </ul><!--
@@ -1924,6 +1929,86 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="그리드서치의-문제점">
+<a class="anchor" href="#%EA%B7%B8%EB%A6%AC%EB%93%9C%EC%84%9C%EC%B9%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>그리드서치의 문제점<a class="anchor-link" href="#%EA%B7%B8%EB%A6%AC%EB%93%9C%EC%84%9C%EC%B9%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 비판1: [-10,10]이외에 해가 존재하면?</p>
+<ul>
+<li>이 예제의 경우는 운좋게 [-10,10]에서 해가 존재했음</li>
+<li>하지만 임의의 고정된 $x,y$에 대하여 $loss(\beta)=(x\beta-y)^2$ 의 형태의 해가 항상 [-10,10]에서 존재한다는 보장은 없음</li>
+<li>해결책: 더 넓게 많은 범위를 탐색하자?<ul>
+<li>-100 ~ 100으로 범위 잡던가~ but, 완전한 해결은 하지 못해..</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 비판2: 효율적이지 않음</p>
+<ul>
+<li>알고리즘을 요약하면 결국 -10부터 10까지 작은 간격으로 조금씩 이동하며 loss를 조사하는 것이 grid search의 아이디어 </li>
+<li>$\to$ 생각해보니까 $\beta=2$인 순간 $loss=(\frac{1}{2}\beta-1)^2=0$이 되어서 이것보다 작은 최소값은 존재하지 않는다(제곱은 항상 양수이어야 하므로)</li>
+<li>$\to$ 따라서 $\beta=2$ 이후로는 탐색할 필요가 없다 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>이처럼 손실함수의 기울기(=경사)를 계산하여 점차적으로 가중치를 업데이트 하는 방식을 경사하강법이라고 부른다. 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">
+<a class="anchor" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?" aria-hidden="true"><span class="octicon octicon-link"></span></a>왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화?<a class="anchor-link" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래와 같이 해석 가능</p>
+<ul>
+<li>오른쪽으로 0.01 간다 = $\beta_{old}$에 0.01을 더함. (if, 미분계수가 음수)</li>
+<li>왼쪽으로 0.01 간다 = $\beta_{old}$에 0.01을 뺌. (if, 미분계수가 양수)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 수식화</p>
+<p>$\beta_{new} = \begin{cases} \beta_{old} + 0.01, &amp; loss'(\beta_{old}) &lt;0 \\ \beta_{old} - 0.01,&amp; loss'(\beta_{old})&gt;0 \end{cases}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="5.-식-정리">
 <a class="anchor" href="#5.-%EC%8B%9D-%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>5</code>. 식 정리<a class="anchor-link" href="#5.-%EC%8B%9D-%EC%A0%95%EB%A6%AC"> </a>
 </h3>
@@ -2021,6 +2106,20 @@ $$\hat{\beta}_1= \frac{S_{xy}}{S_{xx}}=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\ba
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">(</span><span class="n">미분</span> <span class="n">계속</span> <span class="n">안</span> <span class="n">되게</span> <span class="n">해</span><span class="p">),</span><span class="n">watch_accessed_variables</span><span class="o">=</span><span class="kc">False</span><span class="p">(</span><span class="n">관찰하지마</span><span class="p">))</span> <span class="k">as</span> <span class="n">myname</span><span class="p">:</span> <span class="c1"># 자동으로 감시되는 모드를 꺼라</span>
+    <span class="n">myname</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 감시하는 옵션 사용</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2028,15 +2127,242 @@ $$\hat{\beta}_1= \frac{S_{xy}}{S_{xx}}=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\ba
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="err">```</span><span class="n">python</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> 
-
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">watch_accessed_variables</span><span class="o">=</span><span class="n">False관찰</span><span class="p">())</span> <span class="k">as</span> <span class="n">myname</span><span class="p">:</span> <span class="c1"># 자동으로 감시되는 모드를 꺼라</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">epsilon</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span><span class="p">[</span><span class="mf">20.1</span><span class="p">,</span> <span class="mf">22.2</span><span class="p">,</span> <span class="mf">22.7</span><span class="p">,</span> <span class="mf">23.3</span><span class="p">,</span> <span class="mf">24.4</span><span class="p">,</span> <span class="mf">25.1</span><span class="p">,</span> <span class="mf">26.2</span><span class="p">,</span> <span class="mf">27.3</span><span class="p">,</span> <span class="mf">28.4</span><span class="p">,</span> <span class="mf">30.4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">9.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">beta_true</span><span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.2</span><span class="p">,</span><span class="mf">2.2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span> <span class="n">X</span><span class="nd">@beta_true</span><span class="o">+</span><span class="n">epsilon</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span> <span class="n">X</span><span class="nd">@beta</span>
+    <span class="n">loss</span><span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span> <span class="c1"># tf 기울기 미분한 계산값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[ -126.78690968],
+       [-3208.83947922]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>loss 함수 정의 $\to$$loss = -2\bf{X}^\top \bf{y} + 2\bf{X}^\top \bf{XB}$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X@beta</span>  <span class="c1"># 이론적 loss 계산값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[ -126.78690968],
+       [-3208.83947922]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이론적인 베타의 최적값 $\hat{\bf{B}} = (\bf{X}^\top \bf{X})^{-1}\bf{X}^\top \bf{y}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Notice:시험 예상</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code>  이론적인 𝜷의 최적값을 찾아보고 (즉 𝜷̂ 을 찾고) 그 지점에서 loss의 미분값(=접선의 기울기)를 구하라. 결과가 0인지 확인하라. (단 0은 길이가 2이고 각 원소가 0인 벡터)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>y를 최소화하는 x를 구해라 = loss를 최소화하는 beta를 구해라</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta_optimal</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span>  <span class="nd">@y</span>  <span class="c1"># 이보다 loss를 작게 만드는 beta는 없다.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">beta_optimal</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span> <span class="n">X</span><span class="nd">@beta_optimal</span>
+    <span class="n">loss</span><span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span> 
+<span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta_optimal</span><span class="p">)</span> <span class="c1"># 베타 최적값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[-6.67910172e-12],
+       [-1.67774636e-10]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">beta_true</span><span class="p">)</span>
+    <span class="n">yhat</span><span class="o">=</span> <span class="n">X</span><span class="nd">@beta_true</span>
+    <span class="n">loss</span><span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span> 
+<span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta_true</span><span class="p">)</span> <span class="c1">#베타 true 값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[ -2.74690968],
+       [-71.45947922]])&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
