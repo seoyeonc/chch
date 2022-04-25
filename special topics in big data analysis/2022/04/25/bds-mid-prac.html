@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -246,16 +246,6 @@ window.onload = wrap_img;
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-04-23 08:13:19.821724: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-23 08:13:20.277096: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22288 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:65:00.0, compute capability: 8.6
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -1493,6 +1483,28 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>🤓 질문!</p>
+<ul>
+<li>확률적 경사하강법 - <code>batch_size!=N</code> N 개 중 batch_size 만큼만 <ul>
+<li>샘플 데이터에 대해서만 경사gradient 계산</li>
+<li>최적해에 정확히 도닳하지 못할 가능성</li>
+<li>확률적 경사 하강법은 속도가 매우 빠르고 메모리를 적게 먹는다는 장점이 있으나, 경사를 구할 때, 무작위성을 띄므로 지역 최솟값에서 탈출하기 쉬우나, 전역 최솟값에 다다르기 힘들다는 단점 -&gt; 미니 배치 경사 하강법 등장.</li>
+</ul>
+</li>
+<li>경사하강법 - <code>batch_size=N</code> N 개 중 N개 모두<ul>
+<li>경사하강법 대상이 배치 크기와 동일</li>
+<li>안정적으로 수혐하나 이 때문에 최소해local minimum에 빠지더라도 헤어나오기 힘들다. 즉 local optima 문제가 발생할 가능성이 높다.</li>
+<li>학습 데이터셋이 커질수록 시간과 리소스 소모가 지나치게 크다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>(1)</code> 경사하강법은 손실함수와 상관없이 언제나 전역최소해를 찾을 수 있다.</p>
 
 </div>
@@ -1824,6 +1836,14 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 노드수가 많으면 무조건 좋다? $\to$ 대부분 나쁘지 않음. 그런데 종종 맞추지 말아야할것도 맞춤.. (overfit)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>(19)</code> CAM은 CNN의 모든층에서 사용가능하다.</p>
 
 </div>
@@ -1946,6 +1966,51 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>주의점: <code>opt.apply_gradients()</code>의 입력으로 pair의 list를 전달해야함.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss_fn</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>lambda; 입력함수</p>
+<ul>
+<li>
+<code>lambda x: x**2</code> &lt;=&gt; <code>lambda(x) = x^2</code>
+</li>
+<li>
+<code>lambda x,y: x+y</code> &lt;=&gt; <code>lambda(x,y) = x+y</code>
+</li>
+<li>
+<code>lambda y</code> &lt;=&gt; <code>lambda()=y</code>, 입력이 없으며 출력은 항상 y인 함수</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="그리드서치의-문제점">
 <a class="anchor" href="#%EA%B7%B8%EB%A6%AC%EB%93%9C%EC%84%9C%EC%B9%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>그리드서치의 문제점<a class="anchor-link" href="#%EA%B7%B8%EB%A6%AC%EB%93%9C%EC%84%9C%EC%B9%98%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90"> </a>
 </h4>
@@ -2023,6 +2088,141 @@ $$y_i= \beta_0 + \beta_1 \exp(-x_i)+ \epsilon_i$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>입력차원input_dim 혹은 input_shape 지정 안 해주면 weights를 불러오지 못함</strong>(6주차)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>optimizer 옵션!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'sgd'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mse'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.32648369,  1.44695984, -1.98500464,  0.48842733,  0.33159889,
+       -0.7165885 , -1.18978377, -1.36872158, -0.21278961,  0.30669656])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.82803225, -0.59251622,  0.45056171,  0.28124619, -0.23789187,
+       -0.77473255, -0.00237442,  0.18943517, -0.04873515,  0.06428119])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>총 차원은 유지되면서 두 번째 차원 변경 concatenate</strong>(6주차)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[1, 2, 5],
+       [3, 4, 6]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2460,6 +2660,28 @@ array([[ -2.74690968],
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span> 
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'sigmoid'</span><span class="p">))</span>
+<span class="n">bceloss_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">:</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">tnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">tnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">yhat</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">bceloss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
