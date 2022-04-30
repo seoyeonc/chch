@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>(9주차) 5월2일 (1) | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="(9주차) 5월2일 (1)" />
+<meta name="author" content="최규빈" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/2022/05/01/bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/2022/05/01/bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/2022/05/01/bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.html","@type":"BlogPosting","headline":"(9주차) 5월2일 (1)","dateModified":"2022-05-01T00:00:00-05:00","datePublished":"2022-05-01T00:00:00-05:00","author":{"@type":"Person","name":"최규빈"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/2022/05/01/bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">(9주차) 5월2일 (1)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-01T00:00:00-05:00" itemprop="datePublished">
+        May 1, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최규빈</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-05-01-bds-9주차_1-5월02일.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-05-01-bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-05-01-bds-9주차_1-5월02일.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#강의영상">강의영상 </a></li>
+<li class="toc-entry toc-h3"><a href="#imports">imports </a></li>
+<li class="toc-entry toc-h3"><a href="#우도함수와-최대우도추정량">우도함수와 최대우도추정량 </a></li>
+<li class="toc-entry toc-h3"><a href="#중간고사-1번">중간고사 1번 </a></li>
+<li class="toc-entry toc-h3"><a href="#손실함수의-설계-(선택)">손실함수의 설계 (선택) </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-05-01-bds-9주차_1-5월02일.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="강의영상">
+<a class="anchor" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>강의영상<a class="anchor-link" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-wrJ6CivKKBuJUN7ukm5OHr" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="imports">
+<a class="anchor" href="#imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>imports<a class="anchor-link" href="#imports"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span> 
+<span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="우도함수와-최대우도추정량">
+<a class="anchor" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>우도함수와 최대우도추정량<a class="anchor-link" href="#%EC%9A%B0%EB%8F%84%ED%95%A8%EC%88%98%EC%99%80-%EC%B5%9C%EB%8C%80%EC%9A%B0%EB%8F%84%EC%B6%94%EC%A0%95%EB%9F%89"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>(예제)</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$X_i \overset{iid}{\sim} Ber(p)$에서 얻은 샘플이 아래와 같다고 하자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> 
+<span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0, 1, 0, 1]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$p$는 얼마라고 볼 수 있는가? --&gt; 0.5</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>왜?? $p$가 0.5라고 주장할 수 있는 이론적 근거, 혹은 논리체계가 무엇인가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> suppose: $p=0.1$ 이라고 하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그렇다면 $(x_1,x_2,x_3,x_4)=(0,1,0,1)$와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.9</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="mf">0.1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.008100000000000001</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> suppose: $p=0.2$ 이라고 하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그렇다면 $(x_1,x_2,x_3,x_4)=(0,1,0,1)$와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.8</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="mf">0.2</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.025600000000000008</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 질문1: $p=0.1$인것 같냐? 아니면 $p=0.2$인것 같냐? -&gt; $p=0.2$</p>
+<ul>
+<li>왜?? $p=0.2$일 <del>확률</del>이 더 크다!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>(여기서 잠깐 중요한것) 확률이라는 말을 함부로 쓸 수 없다.</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 0.0256은 "$p=0.2$일 경우 샘플 (0,1,0,1)이 얻어질 확률"이지 "$p=0.2$일 확률"은 아니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>"$p=0.2$인 확률" 이라는 개념이 성립하려면 아래코드에서 <code>sum([(1-p)*p*(1-p)*p for p in _plist])</code>이 1보다는 작아야 한다. (그런데 1보다 크다)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_plist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.499</span><span class="p">,</span><span class="mf">0.501</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> 
+<span class="nb">sum</span><span class="p">([(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">_plist</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>62.49983299986714</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률이라는 말을 쓸 수 없지만 확률의 느낌은 있음 -&gt; 가능도라는 말을 쓰자.</p>
+<ul>
+<li>0.0256 $=$ $p$가 0.2일 경우 샘플 (0,1,0,1)이 얻어질 확률 $=$ $p$가 0.2일 가능도 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다시 질문1로 돌아가자!</p>
+<ul>
+<li>질문1: $p=0.1$인 것 같냐? 아니면 $p=0.2$인 것 같냐? -&gt; 답 $p=0.2$ -&gt; 왜? $p=0.2$인 가능도가 더 크니까!</li>
+<li>질문2: $p=0.2$인 것 같냐? 아니면 $p=0.3$인 것 같냐? -&gt; 답 $p=0.3$ -&gt; 왜? $p=0.3$인 가능도가 더 크니까!</li>
+<li>질문3: ... </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 궁극의 질문: $p$가 뭐일 것 같아?</p>
+<ul>
+<li>$p$가 입력으로 들어가면 가능도가 계산되는 함수를 만들자. </li>
+<li>그 함수를 최대화하는 $p$를 찾자. </li>
+<li>그 $p$가 궁극의 질문에 대한 대답이 된다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 잠깐 용어정리</p>
+<ul>
+<li>가능도함수 $=$ 우도함수 $=$ likelihood function $:=$ $L(p)$</li>
+<li>$p$의 maximum likelihood estimator $=$ p의 MLE $:=$ $\hat{p}^{mle}$ $=$ $\text{argmax}_p L(p)$ $=$ $\hat{p}$  </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(예제의 풀이)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이 예제의 경우 가능도함수를 정의하자.</p>
+<ul>
+<li>$L(p)$: $p$의 가능도함수 = $p$가 모수일때 샘플 (0,1,0,1)이 얻어질 확률 = $p$가 모수일때 $x_1$이 0일 확률 $\times \dots \times$ $p$가 모수일때 $x_4$가 1일 확률 </li>
+<li>$L(p)=\prod_{i=1}^{4} f(x_i;p)= \prod_{i=1}^{4}p^{x_i}(1-p)^{1-x_i}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>참고로 이 과정을 일반화 하면 $X_1,\dots,X_n \overset{iid}{\sim} Ber(p)$ 일때 $p$의 likelihood function은 $\prod_{i=1}^{n}p^{x_i}(1-p)^{1-x_i}$ 라고 볼 수 있다. 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>더 일반화: $x_1,\dots,x_n$이 pdf가 $f(x)$인 분포에서 뽑힌 서로 독립인 샘플일때 likelihood function은 $\prod_{i=1}^{n}f(x_i)$라고 볼 수 있다. 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이 예제의 경우 $p$의 최대우도추정량을 구하면</p>
+<p>
+$$\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p  \big\{ p^2(1-p)^2 \big\}= \frac{1}{2}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="중간고사-1번">
+<a class="anchor" href="#%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-1%EB%B2%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>중간고사 1번<a class="anchor-link" href="#%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC-1%EB%B2%88"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> $N(\mu,\sigma)$에서 얻은 샘플이 아래와 같다고 할때 $\mu,\sigma$의 MLE를 구하여라.</p>
+
+<pre><code>&lt;tf.Tensor: shape=(10000,), dtype=float64, numpy=
+array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
+        5.01072291, -1.13050477])&gt;</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> $Ber(p)$에서 얻은 샘플이 아래와 같다고 할 때 $p$의 MLE를 구하여라.</p>
+
+<pre><code>&lt;tf.Tensor: shape=(10000,), dtype=int64, numpy=array([1, 1, 1, ..., 0, 0, 1])&gt;</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> $y_i = \beta_0 + \beta_1 x_i + \epsilon_i$,  $\epsilon_i \overset{iid}{\sim} N(0,1)$ 일때 $(\beta_0,\beta_1)$의 MLE를 구하여라. (회귀모형)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이) 가능도함수</p>
+<p>
+$$L(\beta_0,\beta_1)=\prod_{i=1}^{n}f(y_i), \quad f(y_i)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(y_i-\mu_i)^2}, \quad \mu_i=\beta_0+\beta_1 x_i$$
+</p>
+<p>를 최대화하는 $\beta_0,\beta_1$을 구하면된다. 그런데 이것은 아래를 최소화하는 $\beta_0,\beta_1$을 구하는 것과 같다.</p>
+<p>
+$$-\log L(\beta_0,\beta_1) = \sum_{i=1}^{n}(y_i-\beta_0-\beta_1x_i)^2$$
+</p>
+<p>위의 식은 SSE와 같다. 결국 오차항이 정규분포를 따르는 회귀모형의 MLE는 MSE를 최소화하는 $\beta_0,\beta_1$을 구하면 된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>중간고사 1-(3)의 다른 풀이</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>step1: 생성</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10001</span><span class="p">)</span><span class="o">/</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>step2: minimize MSEloss (원래는 maximize log-likelihood)</p>
+<ul>
+<li>maximize likelihood였던 문제를 minimize MSEloss로 바꾸어도 되는근거? 주어진 함수(=가능도함수)를 최대화하는 $\beta_0,\beta_1$은 MSE를 최소화하는 $\beta_0,\beta_1$과 동일하므로 </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta0</span><span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">beta1</span><span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+        <span class="c1">#minus_log_likelihood = tf.reduce_sum((y-beta0-beta1*x)**2)</span>
+        <span class="n">loss</span> <span class="o">=</span>  <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">beta0</span><span class="o">-</span><span class="n">beta1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">slope1</span><span class="p">,</span> <span class="n">slope2</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,[</span><span class="n">beta0</span><span class="p">,</span><span class="n">beta1</span><span class="p">])</span> 
+    <span class="n">beta0</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope1</span><span class="o">*</span> <span class="mf">0.1</span><span class="o">/</span><span class="mi">10000</span><span class="p">)</span> <span class="c1"># N=10000 </span>
+    <span class="n">beta1</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope2</span><span class="o">*</span> <span class="mf">0.1</span><span class="o">/</span><span class="mi">10000</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta0</span><span class="p">,</span><span class="n">beta1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=0.49661896&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0051448&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 문제를 풀면서 생각해보니 손실함수는 <code>-로그가능도함수</code>로 선택하면 될 것 같다?</p>
+<ul>
+<li>손실함수를 선택하는 기준이 -로그가능도함수만 존재하는 것은 아니나 대부분 그러하긴함 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 출제하지 못한 중간고사 문제</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래의 모형을 생각하자.</p>
+<ul>
+<li>$Y_i \overset{iid}{\sim} Ber(\pi_i)$</li>
+<li>$\pi_i = \frac{\exp(w_0+w_1x_i)}{1+\exp(w_0+w_1x_i)}=\frac{\exp(-1+5x_i)}{1+\exp(-1+5x_i)}$ </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래는 위의 모형에서 얻은 샘플이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>함수 $L(w_0,w_1)$을 최대화하는 $(w_0,w_1)$를 <code>tf.GradeintTape()</code>를 활용하여 추정하라. (경사하강법 혹은 경사상승법을 사용하고 $(w_0,w_1)$의 초기값은 모두 0.1로 설정할 것)</p>
+<p>
+$$L(w_0,w_1)=\prod_{i=1}^{n}f(y_i), \quad f(x_i)={\pi_i}^{y_i}(1-\pi_i)^{1-y_i},\quad \pi_i=\text{sigmoid}(w_0+w_1x_i)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이1)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w0hat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> 
+<span class="n">w1hat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> 
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+        <span class="n">pihat</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">w0hat</span><span class="o">+</span><span class="n">w1hat</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">w0hat</span><span class="o">+</span><span class="n">w1hat</span> <span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">pdf</span> <span class="o">=</span> <span class="n">pihat</span><span class="o">**</span><span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pihat</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> 
+        <span class="n">logL</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pdf</span><span class="p">))</span> 
+    <span class="n">slope1</span><span class="p">,</span><span class="n">slope2</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">logL</span><span class="p">,[</span><span class="n">w0hat</span><span class="p">,</span><span class="n">w1hat</span><span class="p">])</span>
+    <span class="n">w0hat</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">slope1</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> 
+    <span class="n">w1hat</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">slope2</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w0hat</span><span class="p">,</span><span class="n">w1hat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.8875932&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=4.3785405&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(해석) - 로지스틱에서 가능도함수와 BCEloss의 관계</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$L(w_0,w_1)$를 최대화하는 $w_0,w_1$은 아래를 최소화하는 $w_0,w_1$와 같다.</p>
+<p>
+$$-\log L(w_0,w_1) = - \sum_{i=1}^{n}\big(y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)\big)$$
+</p>
+<p>이것은 최적의 $w_0,w_1$을 $\hat{w}_0,\hat{w}_1$이라고 하면 $\hat{\pi}_i=\frac{\exp(\hat{w}_0+\hat{w}_1x_i)}{1+\exp(\hat{w}_0+\hat{w}_1x_i)}=\hat{y}_i$이 되고 따라서 위의 식은 $n\times$BCEloss의 형태임을 쉽게 알 수 있다.</p>
+<p>결국 로지스틱 모형에서 $(w_0,w_1)$의 MLE를 구하기 위해서는 BCEloss를 최소화하는 $(w_0,w_1)$을 구하면 된다!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이2)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w0hat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> 
+<span class="n">w1hat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> 
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+        <span class="n">yhat</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">w0hat</span><span class="o">+</span><span class="n">w1hat</span> <span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">w0hat</span><span class="o">+</span><span class="n">w1hat</span> <span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">binary_crossentropy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">)</span>
+    <span class="n">slope1</span><span class="p">,</span><span class="n">slope2</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,[</span><span class="n">w0hat</span><span class="p">,</span><span class="n">w1hat</span><span class="p">])</span>
+    <span class="n">w0hat</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope1</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> 
+    <span class="n">w1hat</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">slope2</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w0hat</span><span class="p">,</span><span class="n">w1hat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.8875934&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=4.3785415&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="손실함수의-설계-(선택)">
+<a class="anchor" href="#%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A4%EA%B3%84-(%EC%84%A0%ED%83%9D)" aria-hidden="true"><span class="octicon octicon-link"></span></a>손실함수의 설계 (선택)<a class="anchor-link" href="#%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98%EC%9D%98-%EC%84%A4%EA%B3%84-(%EC%84%A0%ED%83%9D)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀분석이든 로지스틱이든 손실함수는 minus_log_likelihood 로 선택한다.</p>
+<ul>
+<li>그런데 (오차항이 정규분포인) 회귀분석 일때는 minus_log_likelihood 가 MSEloss가 되고 </li>
+<li>로지스틱일때는 minus_log_likelihood 가 BCEloss가 된다 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> minus_log_likelihood가 손실함수를 선택하는 유일한 기준은 아니다. &lt;--- 참고만하세요, 이 수업에서는 안중요합니다.</p>
+<ul>
+<li>오차항이 대칭이고 서로독립이며 등분산 가정을 만족하는 어떠한 분포에서의 회귀모형이 있다고 하자. 이 회귀모형에서 $\hat{\beta}$은 여전히 MSEloss를 최소화하는 $\beta$를 구함으로써 얻을 수 있다. </li>
+<li>이 경우 MSEloss를 쓰는 이론적근거? $\hat{\beta}$이 BLUE가 되기 때문임 (가우스-마코프정리) </li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="seoyeonc/chch"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/chch/2022/05/01/bds-9%EC%A3%BC%EC%B0%A8_1-5%EC%9B%9402%EC%9D%BC.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
