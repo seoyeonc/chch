@@ -305,8 +305,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$y = -2 + 3x_1 + 1x_2 + 0x_3 + 0x_4 + 0.5x_5 $</p>
-<p>$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_4 + \beta_5x_5 + \beta_6x_6$</p>
+<p>
+$$y = -2 + 3x_1 + 1x_2 + 0x_3 + 0x_4 + 0.5x_5 $$
+</p>
+<p>
+$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_4 + \beta_5x_5$$
+</p>
 
 </div>
 </div>
@@ -773,16 +777,37 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Algorithm 8.1 Stochastic gradient descent (SGD) update</strong> 위에서 참고한 알고리즘</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Require: Learning rate schedule $\epsilon_1, \epsilon_2, \dots$</p>
 <p>Require: Initial paramete $\theta$</p>
-<p>$k \gets 1$</p>
-<p>while stopping criterion not met do</p>
-<p>sample a minibatch of m examples from the training set $\{ x^{(1)},\dots,x^{(m)} \}$ with</p>
-<p>corresponding targets $y^{(i)}$.</p>
-<p>Compute gradient estimate: $\hat{g} \gets \frac{1}{m} \nabla_{\theta} \sum_i L(f(x^{(i)} ; \theta), y^{(i)} )$</p>
-<p>Apply update: $\theta \leftarrow \theta - \epsilon_k \hat{g}$</p>
-<p>$k \leftarrow k + 1$</p>
-<p>end while</p>
+<ul>
+<li>$k \gets 1$<ul>
+<li>while stopping criterion not met do<ul>
+<li>sample a minibatch of m examples from the training set $\{ x^{(1)},\dots,x^{(m)} \}$ with</li>
+<li>corresponding targets $y^{(i)}$.</li>
+<li>Compute gradient estimate: $\hat{g} \gets \frac{1}{m} \nabla_{\theta} \sum_i L(f(x^{(i)} ; \theta), y^{(i)} )$</li>
+<li>Apply update: $\theta \leftarrow \theta - \epsilon_k \hat{g}$</li>
+<li>$k \leftarrow k + 1$</li>
+</ul>
+</li>
+<li>end while</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
