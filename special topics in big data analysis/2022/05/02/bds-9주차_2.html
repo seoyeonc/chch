@@ -295,12 +295,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 특이한모형: 오버핏이 일어날 수 없는 모형이다.</p>
-<ul>
-<li>유의미한 coef: 상수항(bias), $\cos(t)$의 계수, $\cos(2t)$의 계수, $\cos(5t)$의 계수.</li>
-<li>유의미하지 않은 coef: $\cos(3t)$의 계수, $\cos(4t)$의 계수</li>
-<li>유의미하지 않은 계수는 $n$이 커질수록 0으로 추정된다 = $\cos(3t)$와 $\cos(5t)$는 사용자가 임의로 제외하지 않아도 결국 모형에서 알아서 제거된다 = overfit이 일어나지 않는다. 모형이 알아서 유의미한 변수만 뽑아서 fit하는 느낌</li>
-</ul>
+<p>색의 삼원색, 빨/파/노 가 각각 basis로 볼 때, 보라색/파란색/빨간색도 basis로 볼 수 있음, 보라색에서 빨간색으로 빼낼 수 있으니까</p>
+<p>직선의 베이시스 - 기울기와</p>
+<p>오차항을 다 따라가? 오버피팅.. 다시 듣기..</p>
 
 </div>
 </div>
@@ -308,9 +305,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>색의 삼원색, 빨/파/노 가 각각 basis로 볼 때, 보라색/파란색/빨간색도 basis로 볼 수 있음, 보라색에서 빨간색으로 빼낼 수 있으니까</p>
-<p>직선의 베이시스 - 기울기와</p>
-<p>오차항을 다 따라가? 오버피팅.. 다시 듣기..</p>
+<p><code>-</code> 특이한모형: 오버핏이 일어날 수 없는 모형이다.</p>
+<ul>
+<li>유의미한 coef: 상수항(bias), $\cos(t)$의 계수, $\cos(2t)$의 계수, $\cos(5t)$의 계수.</li>
+<li>유의미하지 않은 coef: $\cos(3t)$의 계수, $\cos(4t)$의 계수</li>
+<li>유의미하지 않은 계수는 $n$이 커질수록 0으로 추정된다 = $\cos(3t)$와 $\cos(5t)$는 사용자가 임의로 제외하지 않아도 결국 모형에서 알아서 제거된다 = overfit이 일어나지 않는다. 모형이 알아서 유의미한 변수만 뽑아서 fit하는 느낌</li>
+</ul>
 
 </div>
 </div>
