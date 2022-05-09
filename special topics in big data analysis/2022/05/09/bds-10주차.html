@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      31 min read
     
 </span></p>
 
@@ -159,7 +159,21 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Specificity(특이도),-False-Positive-Rate(FPR)">Specificity(특이도), False Positive Rate(FPR) </a></li>
 <li class="toc-entry toc-h3"><a href="#ROC-curve">ROC curve </a></li>
 <li class="toc-entry toc-h3"><a href="#fashion_mnist-(revisit)">fashion_mnist (revisit) </a></li>
-<li class="toc-entry toc-h3"><a href="#X의-차원이-(관측치수,픽셀,픽셀,채널)일-경우-DNN-쓰기">X의 차원이 (관측치수,픽셀,픽셀,채널)일 경우 DNN 쓰기 </a></li>
+<li class="toc-entry toc-h3"><a href="#X의-차원이-(관측치수,픽셀,픽셀,채널)일-경우-DNN-쓰기">X의 차원이 (관측치수,픽셀,픽셀,채널)일 경우 DNN 쓰기 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#(예제1)-X-->-Dense(30,relu)-->-Dense(10,softmax):=>-y">(예제1) X -&gt; Dense(30,relu) -&gt; Dense(10,softmax):=&gt; y </a></li>
+<li class="toc-entry toc-h4"><a href="#(예제2)-X-->-Dense(500,relu)-->-Dense(500,relu)-->-Dense(10,softmax):=>y">(예제2) X -&gt; Dense(500,relu) -&gt; Dense(500,relu) -&gt; Dense(10,softmax):=&gt;y </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#더-좋은-모형을-만들고-싶은데..">더 좋은 모형을 만들고 싶은데.. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#(예제3)-아주-복잡한-DNN">(예제3) 아주 복잡한 DNN </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#발상의-전환">발상의 전환 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -3012,11 +3026,44 @@ _________________________________________________________________
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code>- 따라서 이미지의 차원이 단지 (28,28)이라는 것은 흑백이미지라는 뜻이다.</p>
+<p><code>-</code> 따라서 이미지의 차원이 단지 (28,28)이라는 것은 흑백이미지라는 뜻이다.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># 첫번째 인덱싱을 뽑아</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(28, 28)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -3064,7 +3111,10 @@ _________________________________________________________________
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>아닌데요?! 칼라인데요?! -&gt; 흑백이다. 그냥 밝을수록 노란색, 어두울수록 남색으로 표현한것 뿐임 (colormap이 viridis일 뿐임)</li>
+<li>아닌데요?! 칼라인데요?! -&gt; 흑백이다. 그냥 밝을수록 노란색, 어두울수록 남색으로 표현한것 뿐임 (colormap이 viridis일 뿐임)<ul>
+<li>밑에처럼 빛의 색 표현 방법 중 하나일 뿐</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -3073,7 +3123,26 @@ _________________________________________________________________
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://matplotlib.org/3.5.0/_images/sphx_glr_colormaps_001.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 일반적으로 분석할 이미지는 칼라를 의미하는 채널도 포함할테니 아래와 같이 자료형을 정리하는게 일반적으로 이미지 자료를 분석하는 정석적인 처리방법이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이미지 데이터를 분류하기 좋은 형태로 자료를 재정리 하자</p>
+<ul>
+<li>0~ 255 사이로 표현되는 수들로 표현하여 float을 맞춰주자</li>
+</ul>
 
 </div>
 </div>
@@ -3092,6 +3161,61 @@ _________________________________________________________________
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 일반적인 이미지 분석 모형을 적용하기 용이한 데이터 형태로 정히했다 $\to$ 그런데 모형에 넣고 돌리려면 다시 차원을 펼쳐야 하지 않을까&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 안 펼치고 하고 싶다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[0., 0., 0., ..., 0., 0., 1.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -3151,6 +3275,2116 @@ _________________________________________________________________
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(예제1)-X--&gt;-Dense(30,relu)--&gt;-Dense(10,softmax):=&gt;-y">
+<a class="anchor" href="#(%EC%98%88%EC%A0%9C1)-X--&gt;-Dense(30,relu)--&gt;-Dense(10,softmax):=&gt;-y" aria-hidden="true"><span class="octicon octicon-link"></span></a>(예제1) X -&gt; Dense(30,relu) -&gt; Dense(10,softmax):=&gt; y<a class="anchor-link" href="#(%EC%98%88%EC%A0%9C1)-X--&gt;-Dense(30,relu)--&gt;-Dense(10,softmax):=&gt;-y"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이러한 아키텍처를 돌리기 위해서는 X의 shape을 미리 바꿔야 했었다. 혹시 바꾸지 않는 방법도 있을까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> tf.keras.layers.Flatten()</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.layers.core.flatten.Flatten at 0x7fdc1c583af0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>type: flatten &lt;- 머 어쩌란거야..</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">flttn</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['_TF_MODULE_IGNORED_PROPERTIES',
+ '__annotations__',
+ '__call__',
+ '__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getstate__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__setstate__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_activity_regularizer',
+ '_add_trackable',
+ '_add_trackable_child',
+ '_add_variable_with_custom_getter',
+ '_auto_track_sub_layers',
+ '_autocast',
+ '_autographed_call',
+ '_build_input_shape',
+ '_call_accepts_kwargs',
+ '_call_arg_was_passed',
+ '_call_fn_arg_defaults',
+ '_call_fn_arg_positions',
+ '_call_fn_args',
+ '_call_full_argspec',
+ '_callable_losses',
+ '_cast_single_input',
+ '_channels_first',
+ '_checkpoint_dependencies',
+ '_clear_losses',
+ '_compute_dtype',
+ '_compute_dtype_object',
+ '_dedup_weights',
+ '_default_training_arg',
+ '_deferred_dependencies',
+ '_delete_tracking',
+ '_deserialize_from_proto',
+ '_dtype',
+ '_dtype_policy',
+ '_dynamic',
+ '_eager_losses',
+ '_expects_mask_arg',
+ '_expects_training_arg',
+ '_flatten',
+ '_flatten_layers',
+ '_flatten_modules',
+ '_functional_construction_call',
+ '_gather_children_attribute',
+ '_gather_saveables_for_checkpoint',
+ '_get_call_arg_value',
+ '_get_cell_name',
+ '_get_existing_metric',
+ '_get_input_masks',
+ '_get_node_attribute_at_index',
+ '_get_save_spec',
+ '_get_trainable_state',
+ '_handle_activity_regularization',
+ '_handle_deferred_dependencies',
+ '_handle_weight_regularization',
+ '_inbound_nodes',
+ '_inbound_nodes_value',
+ '_infer_output_signature',
+ '_init_call_fn_args',
+ '_init_set_name',
+ '_initial_weights',
+ '_input_spec',
+ '_instrument_layer_creation',
+ '_instrumented_keras_api',
+ '_instrumented_keras_layer_class',
+ '_instrumented_keras_model_class',
+ '_is_layer',
+ '_keras_api_names',
+ '_keras_api_names_v1',
+ '_keras_tensor_symbolic_call',
+ '_list_extra_dependencies_for_serialization',
+ '_list_functions_for_serialization',
+ '_lookup_dependency',
+ '_losses',
+ '_map_resources',
+ '_maybe_build',
+ '_maybe_cast_inputs',
+ '_maybe_create_attribute',
+ '_maybe_initialize_trackable',
+ '_metrics',
+ '_metrics_lock',
+ '_must_restore_from_config',
+ '_name',
+ '_name_based_attribute_restore',
+ '_name_based_restores',
+ '_name_scope',
+ '_no_dependency',
+ '_non_trainable_weights',
+ '_obj_reference_counts',
+ '_obj_reference_counts_dict',
+ '_object_identifier',
+ '_outbound_nodes',
+ '_outbound_nodes_value',
+ '_outer_name_scope',
+ '_preload_simple_restoration',
+ '_preserve_input_structure_in_config',
+ '_restore_from_checkpoint_position',
+ '_saved_model_arg_spec',
+ '_saved_model_inputs_spec',
+ '_self_setattr_tracking',
+ '_self_tracked_trackables',
+ '_serialize_to_proto',
+ '_set_call_arg_value',
+ '_set_connectivity_metadata',
+ '_set_dtype_policy',
+ '_set_mask_keras_history_checked',
+ '_set_mask_metadata',
+ '_set_save_spec',
+ '_set_trainable_state',
+ '_set_training_mode',
+ '_setattr_tracking',
+ '_should_cast_single_input',
+ '_single_restoration_from_checkpoint_position',
+ '_split_out_first_arg',
+ '_stateful',
+ '_supports_masking',
+ '_symbolic_call',
+ '_tf_api_names',
+ '_tf_api_names_v1',
+ '_thread_local',
+ '_track_trackable',
+ '_trackable_saved_model_saver',
+ '_tracking_metadata',
+ '_trainable',
+ '_trainable_weights',
+ '_unconditional_checkpoint_dependencies',
+ '_unconditional_dependency_names',
+ '_update_uid',
+ '_updates',
+ '_use_input_spec_as_call_signature',
+ 'activity_regularizer',
+ 'add_loss',
+ 'add_metric',
+ 'add_update',
+ 'add_variable',
+ 'add_weight',
+ 'apply',
+ 'build',
+ 'built',
+ 'call',
+ 'compute_dtype',
+ 'compute_mask',
+ 'compute_output_shape',
+ 'compute_output_signature',
+ 'count_params',
+ 'data_format',
+ 'dtype',
+ 'dtype_policy',
+ 'dynamic',
+ 'finalize_state',
+ 'from_config',
+ 'get_config',
+ 'get_input_at',
+ 'get_input_mask_at',
+ 'get_input_shape_at',
+ 'get_losses_for',
+ 'get_output_at',
+ 'get_output_mask_at',
+ 'get_output_shape_at',
+ 'get_updates_for',
+ 'get_weights',
+ 'inbound_nodes',
+ 'input',
+ 'input_mask',
+ 'input_shape',
+ 'input_spec',
+ 'losses',
+ 'metrics',
+ 'name',
+ 'name_scope',
+ 'non_trainable_variables',
+ 'non_trainable_weights',
+ 'outbound_nodes',
+ 'output',
+ 'output_mask',
+ 'output_shape',
+ 'set_weights',
+ 'stateful',
+ 'submodules',
+ 'supports_masking',
+ 'trainable',
+ 'trainable_variables',
+ 'trainable_weights',
+ 'updates',
+ 'variable_dtype',
+ 'variables',
+ 'weights',
+ 'with_name_scope']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">flttn</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">{</span><span class="s1">'__call__'</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'__call__'}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>call이 있음 -&gt; 써보자<ul>
+<li>함수처럼 쓸 수 있다는 뜻이랬지~</li>
+<li>
+<em>call</em> 이 있는게 특이한 경우래....</li>
+<li>set으로 집합 만들어서 교집합 있나 봐봐, 보기 편하네..!</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">flttn</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">{</span><span class="s1">'__iterl__'</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>set()</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>direc에 iter가 있다는 뜻은 for 문을 쓸 수 있다는 뜻!!!</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([60000, 28, 28, 1])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># 오..? </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(60000, 784), dtype=float32, numpy=
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>펴진다? 즉 X.reshape(-1,784)와 같은 기능!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flttn</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>  <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(TensorShape([60000, 784]),
+ TensorShape([60000, 784]),
+ TensorShape([60000, 784]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>같은 결과!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 근데 이거 레이어다? 즉 네트워크에 add 할 수 있다는 의미!</p>
+<ul>
+<li>reshape은 layer에 넣지 못한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그렇다면 아래와 같이 예제를 풀어도 괜찮겠다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 2.5307 - accuracy: 0.4100
+Epoch 2/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.2338 - accuracy: 0.4965
+Epoch 3/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.0610 - accuracy: 0.5737
+Epoch 4/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9551 - accuracy: 0.6096
+Epoch 5/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.8816 - accuracy: 0.6415
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c7ec070&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>epoch 생략하면 한 번 돈다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>X의 shape은 유지하되 network 돌리기~</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 관찰</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;keras.layers.core.flatten.Flatten at 0x7fdc2c190a60&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7fdc1c53cf40&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7fdc2c1b18d0&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">2</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(60000, 28, 28, 1)
+(60000, 784)
+(60000, 30)
+(60000, 10)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">)</span> <span class="c1"># 레이어를 통과하는 순간 전처리!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(60000, 784), dtype=float32, numpy=
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">))</span> <span class="c1"># 출력이 30이니까~ + 렐루를 거쳐서 0또는 양수인 모습!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(60000, 30), dtype=float32, numpy=
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">2</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">net1</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">X</span><span class="p">)))</span> <span class="c1"># 최종출력 10차원, 각각은 확률을 의미하게 된다. </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(60000, 10), dtype=float32, numpy=
+array([[0.00000000e+00, 3.50745426e-29, 0.00000000e+00, ...,
+        6.88507862e-05, 0.00000000e+00, 9.99774516e-01],
+       [2.05090493e-01, 3.24630132e-03, 1.25721917e-01, ...,
+        1.69964181e-07, 1.71029102e-02, 1.85634344e-05],
+       [4.24686134e-01, 3.19446065e-02, 4.63084754e-04, ...,
+        1.53000292e-28, 1.14543705e-04, 2.59890778e-16],
+       ...,
+       [2.97999263e-01, 1.47477582e-01, 1.54143137e-07, ...,
+        0.00000000e+00, 7.85396352e-08, 5.74536048e-30],
+       [3.40784192e-01, 9.83870123e-03, 1.81787014e-02, ...,
+        1.63508890e-15, 3.11419647e-03, 1.52025437e-09],
+       [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+        1.21662097e-05, 1.92338112e-21, 2.40982081e-06]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (참고) metrics=['accuracy'] 대신에 이렇게 해도된다~</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CategoricalAccuracy</span><span class="p">()])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 2.5317 - categorical_accuracy: 0.4090
+Epoch 2/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.1508 - categorical_accuracy: 0.5481
+Epoch 3/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9856 - categorical_accuracy: 0.5984
+Epoch 4/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9317 - categorical_accuracy: 0.6148
+Epoch 5/5
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.8963 - categorical_accuracy: 0.6265
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c6622c0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CategoricalAccuracy</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CategoricalAccuracy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(94369258183568, 94369258183568)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>주소가 똑같네요, 이게 무슨말인지 알죠?<ul>
+<li>같은 역할한다는 뜻~</li>
+<li>나중에 <code>accuracy</code> 2 개 쓰게 되면 겹칠 수 있다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 주의사항: tf.metrics.Accuracy() 말고 tf.metrics.CategoricalAccuracy() 를 써야함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">,</span><span class="s1">'recall'</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [68]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 7&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> net1<span style="color: rgb(98,98,98)">.</span>add(tf<span style="color: rgb(98,98,98)">.</span>keras<span style="color: rgb(98,98,98)">.</span>layers<span style="color: rgb(98,98,98)">.</span>Dense(<span style="color: rgb(98,98,98)">10</span>,activation<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">softmax</span><span style="color: rgb(175,0,0)">'</span>))
+<span class="ansi-green-intense-fg ansi-bold">      6</span> net1<span style="color: rgb(98,98,98)">.</span>compile(loss<span style="color: rgb(98,98,98)">=</span>tf<span style="color: rgb(98,98,98)">.</span>losses<span style="color: rgb(98,98,98)">.</span>categorical_crossentropy, optimizer<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">adam</span><span style="color: rgb(175,0,0)">'</span>,metrics<span style="color: rgb(98,98,98)">=</span>[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">accuracy</span><span style="color: rgb(175,0,0)">'</span>,<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">recall</span><span style="color: rgb(175,0,0)">'</span>])
+<span class="ansi-green-fg">----&gt; 7</span> <span class="ansi-yellow-bg">net1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">X</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/utils/traceback_utils.py:67</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint: disable=broad-except</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>   filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
+<span class="ansi-green-fg">---&gt; 67</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> e<span style="color: rgb(98,98,98)">.</span>with_traceback(filtered_tb) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span class="ansi-bold" style="color: rgb(0,135,0)">finally</span>:
+<span class="ansi-green-intense-fg ansi-bold">     69</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">del</span> filtered_tb
+
+File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/tensorflow/python/framework/func_graph.py:1129</span>, in <span class="ansi-cyan-fg">func_graph_from_py_func.&lt;locals&gt;.autograph_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1127</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:  <span style="color: rgb(95,135,135)"># pylint:disable=broad-except</span>
+<span class="ansi-green-intense-fg ansi-bold">   1128</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">hasattr</span>(e, <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">ag_error_metadata</span><span style="color: rgb(175,0,0)">"</span>):
+<span class="ansi-green-fg">-&gt; 1129</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> e<span style="color: rgb(98,98,98)">.</span>ag_error_metadata<span style="color: rgb(98,98,98)">.</span>to_exception(e)
+<span class="ansi-green-intense-fg ansi-bold">   1130</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1131</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span>
+
+<span class="ansi-red-fg">ValueError</span>: in user code:
+
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/training.py", line 878, in train_function  *
+        return step_function(self, iterator)
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/training.py", line 867, in step_function  **
+        outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/training.py", line 860, in run_step  **
+        outputs = model.train_step(data)
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/training.py", line 817, in train_step
+        self.compiled_metrics.update_state(y, y_pred, sample_weight)
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/compile_utils.py", line 439, in update_state
+        self.build(y_pred, y_true)
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/compile_utils.py", line 359, in build
+        self._metrics = tf.__internal__.nest.map_structure_up_to(y_pred, self._get_metric_objects,
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/compile_utils.py", line 485, in _get_metric_objects
+        return [self._get_metric_object(m, y_t, y_p) for m in metrics]
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/compile_utils.py", line 485, in &lt;listcomp&gt;
+        return [self._get_metric_object(m, y_t, y_p) for m in metrics]
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/engine/compile_utils.py", line 504, in _get_metric_object
+        metric_obj = metrics_mod.get(metric)
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/metrics.py", line 3785, in get
+        return deserialize(str(identifier))
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/metrics.py", line 3741, in deserialize
+        return deserialize_keras_object(
+    File "/home/csy/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/utils/generic_utils.py", line 708, in deserialize_keras_object
+        raise ValueError(
+
+    ValueError: Unknown metric function: recall. Please ensure this object is passed to the `custom_objects` argument. See https://www.tensorflow.org/guide/keras/save_and_serialize#registering_the_custom_object for details.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>안 된다?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">,</span><span class="s1">'Recall'</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1875/1875 [==============================] - 7s 4ms/step - loss: 2.5245 - accuracy: 0.4134 - recall: 0.3043
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc92e53a90&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>된다?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">,</span><span class="s1">'Recall'</span><span class="p">])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1875/1875 [==============================] - 7s 4ms/step - loss: 2.5232 - Accuracy: 0.4118 - recall: 0.3029
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc92b9cfa0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>된다?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code>  (참고2) 메트릭을 추가할수도 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CategoricalAccuracy</span><span class="p">(),</span><span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">()])</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 2.5228 - categorical_accuracy: 0.4112 - recall_1: 0.3025
+Epoch 2/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 1.2330 - categorical_accuracy: 0.4987 - recall_1: 0.3898
+Epoch 3/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 1.0338 - categorical_accuracy: 0.6066 - recall_1: 0.4960
+Epoch 4/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.8158 - categorical_accuracy: 0.6894 - recall_1: 0.5707
+Epoch 5/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.7308 - categorical_accuracy: 0.7150 - recall_1: 0.5950
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c2ed5a0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 리콜을 추가하면 test set의 성능평가에도 리콜을 볼 수 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 4ms/step - loss: 0.8001 - categorical_accuracy: 0.6682 - recall_1: 0.5524
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.8001048564910889, 0.6682000160217285, 0.5523999929428101]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>loss, accuracy, recall 모두 나오지~</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_18"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_13 (Flatten)        (None, 784)               0         
+                                                                 
+ dense_43 (Dense)            (None, 30)                23550     
+                                                                 
+ dense_44 (Dense)            (None, 10)                310       
+                                                                 
+=================================================================
+Total params: 23,860
+Trainable params: 23,860
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="(예제2)-X--&gt;-Dense(500,relu)--&gt;-Dense(500,relu)--&gt;-Dense(10,softmax):=&gt;y">
+<a class="anchor" href="#(%EC%98%88%EC%A0%9C2)-X--&gt;-Dense(500,relu)--&gt;-Dense(500,relu)--&gt;-Dense(10,softmax):=&gt;y" aria-hidden="true"><span class="octicon octicon-link"></span></a>(예제2) X -&gt; Dense(500,relu) -&gt; Dense(500,relu) -&gt; Dense(10,softmax):=&gt;y<a class="anchor-link" href="#(%EC%98%88%EC%A0%9C2)-X--&gt;-Dense(500,relu)--&gt;-Dense(500,relu)--&gt;-Dense(10,softmax):=&gt;y"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다른모형으로도 적합시켜보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 2.2611 - accuracy: 0.7503
+Epoch 2/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.6463 - accuracy: 0.7890
+Epoch 3/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.5334 - accuracy: 0.8185
+Epoch 4/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4579 - accuracy: 0.8384
+Epoch 5/5
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4371 - accuracy: 0.8444
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c345480&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 2s 4ms/step - loss: 0.4691 - accuracy: 0.8350
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c2139a0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_17"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_12 (Flatten)        (None, 784)               0         
+                                                                 
+ dense_40 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_41 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_42 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 좀 더 돌려보자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 2.2335 - accuracy: 0.7515
+Epoch 2/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.6631 - accuracy: 0.7821
+Epoch 3/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.5532 - accuracy: 0.8103
+Epoch 4/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4770 - accuracy: 0.8322
+Epoch 5/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4519 - accuracy: 0.8414
+Epoch 6/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4269 - accuracy: 0.8458
+Epoch 7/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4162 - accuracy: 0.8526
+Epoch 8/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4008 - accuracy: 0.8560
+Epoch 9/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3977 - accuracy: 0.8568
+Epoch 10/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3963 - accuracy: 0.8594
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc92580c40&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 2s 4ms/step - loss: 0.4683 - accuracy: 0.8406
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc9245fe50&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code>  이 이상은 비효율적인듯..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="더-좋은-모형을-만들고-싶은데..">
+<a class="anchor" href="#%EB%8D%94-%EC%A2%8B%EC%9D%80-%EB%AA%A8%ED%98%95%EC%9D%84-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80%EB%8D%B0.." aria-hidden="true"><span class="octicon octicon-link"></span></a>더 좋은 모형을 만들고 싶은데..<a class="anchor-link" href="#%EB%8D%94-%EC%A2%8B%EC%9D%80-%EB%AA%A8%ED%98%95%EC%9D%84-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80%EB%8D%B0.."> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(예제3)-아주-복잡한-DNN">
+<a class="anchor" href="#(%EC%98%88%EC%A0%9C3)-%EC%95%84%EC%A3%BC-%EB%B3%B5%EC%9E%A1%ED%95%9C-DNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>(예제3) 아주 복잡한 DNN<a class="anchor-link" href="#(%EC%98%88%EC%A0%9C3)-%EC%95%84%EC%A3%BC-%EB%B3%B5%EC%9E%A1%ED%95%9C-DNN"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 무지성: 아 몰라 딥러닝이 해주겠지</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.9818 - accuracy: 0.7952
+Epoch 2/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.4529 - accuracy: 0.8372
+Epoch 3/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.4169 - accuracy: 0.8532
+Epoch 4/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3938 - accuracy: 0.8608
+Epoch 5/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3748 - accuracy: 0.8668
+Epoch 6/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3744 - accuracy: 0.8682
+Epoch 7/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3455 - accuracy: 0.8776
+Epoch 8/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3360 - accuracy: 0.8808
+Epoch 9/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3303 - accuracy: 0.8834
+Epoch 10/10
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3138 - accuracy: 0.8883
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc141a7f10&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net3</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 4ms/step - loss: 0.3986 - accuracy: 0.8596
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.3986082673072815, 0.8596000075340271]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_17"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_12 (Flatten)        (None, 784)               0         
+                                                                 
+ dense_40 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_41 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_42 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net3</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_19"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_14 (Flatten)        (None, 784)               0         
+                                                                 
+ dense_45 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_46 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_47 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_48 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_49 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_50 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 1,399,510
+Trainable params: 1,399,510
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위 파라메터의 수 의 일부분만 사용하고 accuracy를 늘릴 것,</p>
+<ul>
+<li>저렇게 짜야하는 이론 이런 거 없어..</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 파라메터 증가대비 그닥..</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 왠지 DNN계열로는 한계가 있어보인다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>여기까지</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="발상의-전환">
+<a class="anchor" href="#%EB%B0%9C%EC%83%81%EC%9D%98-%EC%A0%84%ED%99%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>발상의 전환<a class="anchor-link" href="#%EB%B0%9C%EC%83%81%EC%9D%98-%EC%A0%84%ED%99%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Flattne 레이어를 보면서 느낀점: 생각해보니까 $X \to \hat{y}X$ 를 만드는 과정이 꼭 Full Linear Transform(Dense layer) + Activation(Activation layer)일 필요는 없잖아?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 뭐가 있지?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['AbstractRNNCell',
+ 'Activation',
+ 'ActivityRegularization',
+ 'Add',
+ 'AdditiveAttention',
+ 'AlphaDropout',
+ 'Attention',
+ 'Average',
+ 'AveragePooling1D',
+ 'AveragePooling2D',
+ 'AveragePooling3D',
+ 'AvgPool1D',
+ 'AvgPool2D',
+ 'AvgPool3D',
+ 'BatchNormalization',
+ 'Bidirectional',
+ 'CategoryEncoding',
+ 'CenterCrop',
+ 'Concatenate',
+ 'Conv1D',
+ 'Conv1DTranspose',
+ 'Conv2D',
+ 'Conv2DTranspose',
+ 'Conv3D',
+ 'Conv3DTranspose',
+ 'ConvLSTM1D',
+ 'ConvLSTM2D',
+ 'ConvLSTM3D',
+ 'Convolution1D',
+ 'Convolution1DTranspose',
+ 'Convolution2D',
+ 'Convolution2DTranspose',
+ 'Convolution3D',
+ 'Convolution3DTranspose',
+ 'Cropping1D',
+ 'Cropping2D',
+ 'Cropping3D',
+ 'Dense',
+ 'DenseFeatures',
+ 'DepthwiseConv1D',
+ 'DepthwiseConv2D',
+ 'Discretization',
+ 'Dot',
+ 'Dropout',
+ 'ELU',
+ 'Embedding',
+ 'Flatten',
+ 'GRU',
+ 'GRUCell',
+ 'GaussianDropout',
+ 'GaussianNoise',
+ 'GlobalAveragePooling1D',
+ 'GlobalAveragePooling2D',
+ 'GlobalAveragePooling3D',
+ 'GlobalAvgPool1D',
+ 'GlobalAvgPool2D',
+ 'GlobalAvgPool3D',
+ 'GlobalMaxPool1D',
+ 'GlobalMaxPool2D',
+ 'GlobalMaxPool3D',
+ 'GlobalMaxPooling1D',
+ 'GlobalMaxPooling2D',
+ 'GlobalMaxPooling3D',
+ 'Hashing',
+ 'Input',
+ 'InputLayer',
+ 'InputSpec',
+ 'IntegerLookup',
+ 'LSTM',
+ 'LSTMCell',
+ 'Lambda',
+ 'Layer',
+ 'LayerNormalization',
+ 'LeakyReLU',
+ 'LocallyConnected1D',
+ 'LocallyConnected2D',
+ 'Masking',
+ 'MaxPool1D',
+ 'MaxPool2D',
+ 'MaxPool3D',
+ 'MaxPooling1D',
+ 'MaxPooling2D',
+ 'MaxPooling3D',
+ 'Maximum',
+ 'Minimum',
+ 'MultiHeadAttention',
+ 'Multiply',
+ 'Normalization',
+ 'PReLU',
+ 'Permute',
+ 'RNN',
+ 'RandomContrast',
+ 'RandomCrop',
+ 'RandomFlip',
+ 'RandomHeight',
+ 'RandomRotation',
+ 'RandomTranslation',
+ 'RandomWidth',
+ 'RandomZoom',
+ 'ReLU',
+ 'RepeatVector',
+ 'Rescaling',
+ 'Reshape',
+ 'Resizing',
+ 'SeparableConv1D',
+ 'SeparableConv2D',
+ 'SeparableConvolution1D',
+ 'SeparableConvolution2D',
+ 'SimpleRNN',
+ 'SimpleRNNCell',
+ 'Softmax',
+ 'SpatialDropout1D',
+ 'SpatialDropout2D',
+ 'SpatialDropout3D',
+ 'StackedRNNCells',
+ 'StringLookup',
+ 'Subtract',
+ 'TextVectorization',
+ 'ThresholdedReLU',
+ 'TimeDistributed',
+ 'UpSampling1D',
+ 'UpSampling2D',
+ 'UpSampling3D',
+ 'Wrapper',
+ 'ZeroPadding1D',
+ 'ZeroPadding2D',
+ 'ZeroPadding3D',
+ '__builtins__',
+ '__cached__',
+ '__doc__',
+ '__file__',
+ '__loader__',
+ '__name__',
+ '__package__',
+ '__path__',
+ '__spec__',
+ '_sys',
+ 'add',
+ 'average',
+ 'concatenate',
+ 'deserialize',
+ 'dot',
+ 'experimental',
+ 'maximum',
+ 'minimum',
+ 'multiply',
+ 'serialize',
+ 'subtract']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
 </div>
 
 
