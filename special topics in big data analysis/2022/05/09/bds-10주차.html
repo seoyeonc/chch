@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      19 min read
     
 </span></p>
 
@@ -158,6 +158,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#F1-score">F1 score </a></li>
 <li class="toc-entry toc-h3"><a href="#Specificity(특이도),-False-Positive-Rate(FPR)">Specificity(특이도), False Positive Rate(FPR) </a></li>
 <li class="toc-entry toc-h3"><a href="#ROC-curve">ROC curve </a></li>
+<li class="toc-entry toc-h3"><a href="#fashion_mnist-(revisit)">fashion_mnist (revisit) </a></li>
+<li class="toc-entry toc-h3"><a href="#X의-차원이-(관측치수,픽셀,픽셀,채널)일-경우-DNN-쓰기">X의 차원이 (관측치수,픽셀,픽셀,채널)일 경우 DNN 쓰기 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -582,6 +584,9 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이항분포를 차원이 2인 다항분포로 해석가능한 것처럼 sigmoid는 차원이 2인 softmax로 해석가능하다. 즉 다항분포가 이항분포의 확장형으로 해석가능한 것처럼 softmax도 sigmoid의 확장형으로 해석가능하다.</p>
+<ul>
+<li>클래스 2개면 sigmoid 클래스 3개 이상이면 softmax</li>
+</ul>
 
 </div>
 </div>
@@ -634,7 +639,10 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big)$를 표현하기 위해서 300, 500 이라는 2개의 숫자가 필요한것이 아니고 따지고보면 200이라는 하나의 숫자만 필요하다. </li>
-<li>$(\hat{\boldsymbol{y}}_1,\hat{\boldsymbol{y}}_2)$의 표현에서도 ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 라는 숫자 각각이 필요한 것이 아니고 $({\bf X}\hat{\bf W}_1 +\hat{b}_1)-({\bf X}\hat{\bf W}_2 +\hat{b}_2)$의 값만 알면 된다. </li>
+<li>$(\hat{\boldsymbol{y}}_1,\hat{\boldsymbol{y}}_2)$의 표현에서도 ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 라는 숫자 각각이 필요한 것이 아니고 $({\bf X}\hat{\bf W}_1 +\hat{b}_1)-({\bf X}\hat{\bf W}_2 +\hat{b}_2)$의 값만 알면 된다. <ul>
+<li>여기서는 (500-300=200)만 알면 되겠지!</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -654,6 +662,14 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <h3 id="분류할-클래스가-3개-이상일-경우-신경망-모형의-설계">
 <a class="anchor" href="#%EB%B6%84%EB%A5%98%ED%95%A0-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%80-3%EA%B0%9C-%EC%9D%B4%EC%83%81%EC%9D%BC-%EA%B2%BD%EC%9A%B0-%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EB%AA%A8%ED%98%95%EC%9D%98-%EC%84%A4%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>분류할 클래스가 3개 이상일 경우 신경망 모형의 설계<a class="anchor-link" href="#%EB%B6%84%EB%A5%98%ED%95%A0-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%80-3%EA%B0%9C-%EC%9D%B4%EC%83%81%EC%9D%BC-%EA%B2%BD%EC%9A%B0-%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EB%AA%A8%ED%98%95%EC%9D%98-%EC%84%A4%EA%B3%84"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>클래스가 10개일때</p>
+
 </div>
 </div>
 </div>
@@ -1053,6 +1069,279 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>y는 10차원이 되겠지, [] 안에 있는 수만큼</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Fashion_MNIST 다중분류</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 데이터정리</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[0., 0., 0., ..., 0., 0., 1.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">)</span> <span class="c1"># 60000 by 784</span>
+<span class="n">y</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span> <span class="c1"># 위처럼 10을 정렬하여 1 또는 0으로 </span>
+<span class="n">XX</span><span class="o">=</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">784</span><span class="p">)</span>
+<span class="n">yy</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span> <span class="c1"># 따로 써도 되고 같이 써도 되는 활성화함수</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span> <span class="c1"># y가 10이니까</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/20
+50/50 [==============================] - 0s 3ms/step - loss: 32.5672 - accuracy: 0.3730
+Epoch 2/20
+50/50 [==============================] - 0s 3ms/step - loss: 2.4414 - accuracy: 0.3877
+Epoch 3/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.9154 - accuracy: 0.3809
+Epoch 4/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.7740 - accuracy: 0.4041
+Epoch 5/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.6474 - accuracy: 0.4517
+Epoch 6/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.5429 - accuracy: 0.4842
+Epoch 7/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.4649 - accuracy: 0.4992
+Epoch 8/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.4001 - accuracy: 0.5227
+Epoch 9/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.3400 - accuracy: 0.5461
+Epoch 10/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.2882 - accuracy: 0.5539
+Epoch 11/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.2506 - accuracy: 0.5612
+Epoch 12/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.2194 - accuracy: 0.5707
+Epoch 13/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.1915 - accuracy: 0.5732
+Epoch 14/20
+50/50 [==============================] - 0s 3ms/step - loss: 1.1674 - accuracy: 0.5765
+Epoch 15/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.1453 - accuracy: 0.5808
+Epoch 16/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.1251 - accuracy: 0.5852
+Epoch 17/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.1047 - accuracy: 0.5886
+Epoch 18/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.0874 - accuracy: 0.5915
+Epoch 19/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.0716 - accuracy: 0.5944
+Epoch 20/20
+50/50 [==============================] - 0s 4ms/step - loss: 1.0567 - accuracy: 0.5975
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc245ad360&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 1.0963 - accuracy: 0.5930
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1.0962964296340942, 0.5929999947547913]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_10 (Dense)            (None, 30)                23550     
+                                                                 
+ dense_11 (Dense)            (None, 10)                310       
+                                                                 
+=================================================================
+Total params: 23,860
+Trainable params: 23,860
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
 </div>
 
 </div>
@@ -1578,6 +1867,250 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">43052</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/50
+50/50 [==============================] - 0s 3ms/step - loss: 21.6114 - accuracy: 0.6873
+Epoch 2/50
+50/50 [==============================] - 0s 4ms/step - loss: 1.9454 - accuracy: 0.8038
+Epoch 3/50
+50/50 [==============================] - 0s 4ms/step - loss: 1.2467 - accuracy: 0.8200
+Epoch 4/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.9279 - accuracy: 0.8338
+Epoch 5/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.7468 - accuracy: 0.8440
+Epoch 6/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.6406 - accuracy: 0.8524
+Epoch 7/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.5412 - accuracy: 0.8641
+Epoch 8/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.4863 - accuracy: 0.8701
+Epoch 9/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.4325 - accuracy: 0.8758
+Epoch 10/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.3925 - accuracy: 0.8847
+Epoch 11/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.3656 - accuracy: 0.8880
+Epoch 12/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.3400 - accuracy: 0.8934
+Epoch 13/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.3162 - accuracy: 0.8977
+Epoch 14/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.3022 - accuracy: 0.9010
+Epoch 15/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2865 - accuracy: 0.9053
+Epoch 16/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2684 - accuracy: 0.9091
+Epoch 17/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2525 - accuracy: 0.9133
+Epoch 18/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2436 - accuracy: 0.9150
+Epoch 19/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2191 - accuracy: 0.9232
+Epoch 20/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2219 - accuracy: 0.9219
+Epoch 21/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2038 - accuracy: 0.9285
+Epoch 22/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1929 - accuracy: 0.9315
+Epoch 23/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.2142 - accuracy: 0.9244
+Epoch 24/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1926 - accuracy: 0.9309
+Epoch 25/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1936 - accuracy: 0.9312
+Epoch 26/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1723 - accuracy: 0.9382
+Epoch 27/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1918 - accuracy: 0.9326
+Epoch 28/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1628 - accuracy: 0.9414
+Epoch 29/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1566 - accuracy: 0.9430
+Epoch 30/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1588 - accuracy: 0.9419
+Epoch 31/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1419 - accuracy: 0.9467
+Epoch 32/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1319 - accuracy: 0.9517
+Epoch 33/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1315 - accuracy: 0.9518
+Epoch 34/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1455 - accuracy: 0.9478
+Epoch 35/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1329 - accuracy: 0.9517
+Epoch 36/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1206 - accuracy: 0.9563
+Epoch 37/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1237 - accuracy: 0.9542
+Epoch 38/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1229 - accuracy: 0.9542
+Epoch 39/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1178 - accuracy: 0.9562
+Epoch 40/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1184 - accuracy: 0.9569
+Epoch 41/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1140 - accuracy: 0.9569
+Epoch 42/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1120 - accuracy: 0.9586
+Epoch 43/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1142 - accuracy: 0.9583
+Epoch 44/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1070 - accuracy: 0.9611
+Epoch 45/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1374 - accuracy: 0.9519
+Epoch 46/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1146 - accuracy: 0.9593
+Epoch 47/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1168 - accuracy: 0.9579
+Epoch 48/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1101 - accuracy: 0.9602
+Epoch 49/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1121 - accuracy: 0.9595
+Epoch 50/50
+50/50 [==============================] - 0s 4ms/step - loss: 0.1041 - accuracy: 0.9610
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fdc1c6b1c60&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.7063 - accuracy: 0.8620
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.706275999546051, 0.8619999885559082]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_5"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_12 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_13 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_14 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>훨씬 파라미터를 많이 썼네!</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1599,6 +2132,203 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>hint: <code>net.summary()</code> 이용</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>시도 1</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_10 (Dense)            (None, 30)                23550     
+                                                                 
+ dense_11 (Dense)            (None, 10)                310       
+                                                                 
+=================================================================
+Total params: 23,860
+Trainable params: 23,860
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 1.0963 - accuracy: 0.5930
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1.0962964296340942, 0.5929999947547913]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>시도 2</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_5"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_12 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_13 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_14 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.7063 - accuracy: 0.8620
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.706275999546051, 0.8619999885559082]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>시도 2가 사용한 파라메터의 수가 더 많다.</li>
+<li>정확도는 시도 2가 더 높았다.</li>
+</ul>
 
 </div>
 </div>
@@ -1682,6 +2412,14 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 </tr>
 </tbody>
 </table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>True/Positive/False/Negative</p>
 
 </div>
 </div>
@@ -1865,11 +2603,12 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <p><code>-</code> (상확극 시점1) 왜 애큐러시는 불충분한가?</p>
 <ul>
 <li>회사: 퇴사자예측프로그램 개발해</li>
-<li>최규빈: 귀찮은데 다 나간다고 하자! -&gt; 99퍼의 accuracy </li>
+<li>최규빈: 귀찮은데 다 안 나간다고 하자! -&gt; 99퍼의 accuracy </li>
 </ul>
 <blockquote>
 <p>모델에 사용한 파라메터 = 0. 그런데 애큐러시 = 99! 이거 엄청 좋은 모형이다?</p>
 </blockquote>
+<p>예측이 아니라.. 예상으로 그칠 듯, 결과와 비교하면? 맞지도 않을걸</p>
 
 </div>
 </div>
@@ -1958,7 +2697,10 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> (상황극 시점3) recall 만으로 불충분한 이유</p>
 <ul>
-<li>최규빈: 에휴.. 귀찮은데 그냥 좀만 수틀리면 다 나갈것 같다고 해야겠다. -&gt; 한 100명 나간다고 했음 -&gt; 실제로 최규빈이 찍은 100명중에 10명이 다 나감!</li>
+<li>최규빈: 에휴.. 귀찮은데 그냥 좀만 수틀리면 다 나갈것 같다고 해야겠다. -&gt; 한 100명 나간다고 했음 -&gt; 실제로 최규빈이 찍은 100명중에 10명이 다 나감!<ul>
+<li>0.1만 넘어도 나간다고 해버리면?</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -2094,7 +2836,7 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <blockquote>
-<p>즉 생사람잡은 비율.. 오해해서 미안한 사람의 비율..</p>
+<p>즉 생사람잡은 비율.. 오해해서 미안한 사람의 비율.. (recall 올리다가 희생된 사람)</p>
 </blockquote>
 
 </div>
@@ -2127,6 +2869,285 @@ $$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\bi
 <li>오해한 사람이 매우 적은데 recall이 우수하면 매우 좋은 모형이다. 그래서 초반부터 ROC값이 급격하게 올라가면 좋은 모형이다. </li>
 </ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://raw.githubusercontent.com/angeloyeo/angeloyeo.github.io/master/pics/2020-08-05-ROC/pic1.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="fashion_mnist-(revisit)">
+<a class="anchor" href="#fashion_mnist-(revisit)" aria-hidden="true"><span class="octicon octicon-link"></span></a>fashion_mnist (revisit)<a class="anchor-link" href="#fashion_mnist-(revisit)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span> 
+<span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> fashion mnist data 다시 불러오자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(60000, 28, 28)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이미지는 원래 가로픽셀 세로픽셀 3 이어야 한다. (색을 표현하는 basis는 빨,녹,파)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code>- 따라서 이미지의 차원이 단지 (28,28)이라는 것은 흑백이미지라는 뜻이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.image.AxesImage at 0x7fdc1c42db40&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>아닌데요?! 칼라인데요?! -&gt; 흑백이다. 그냥 밝을수록 노란색, 어두울수록 남색으로 표현한것 뿐임 (colormap이 viridis일 뿐임)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 일반적으로 분석할 이미지는 칼라를 의미하는 채널도 포함할테니 아래와 같이 자료형을 정리하는게 일반적으로 이미지 자료를 분석하는 정석적인 처리방법이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">XX</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(TensorShape([60000, 28, 28, 1]), TensorShape([10000, 28, 28, 1]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>keras에서 이미지자료는 (관측치수,픽셀,픽셀,채널)과 같은 형식을 가진다.</li>
+<li>예를들어 256*256 size인 칼라이미지(채널수=3)가 10개 있다면 X.shape은 (10,256,256,3)이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="X의-차원이-(관측치수,픽셀,픽셀,채널)일-경우-DNN-쓰기">
+<a class="anchor" href="#X%EC%9D%98-%EC%B0%A8%EC%9B%90%EC%9D%B4-(%EA%B4%80%EC%B8%A1%EC%B9%98%EC%88%98,%ED%94%BD%EC%85%80,%ED%94%BD%EC%85%80,%EC%B1%84%EB%84%90)%EC%9D%BC-%EA%B2%BD%EC%9A%B0-DNN-%EC%93%B0%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>X의 차원이 (관측치수,픽셀,픽셀,채널)일 경우 DNN 쓰기<a class="anchor-link" href="#X%EC%9D%98-%EC%B0%A8%EC%9B%90%EC%9D%B4-(%EA%B4%80%EC%B8%A1%EC%B9%98%EC%88%98,%ED%94%BD%EC%85%80,%ED%94%BD%EC%85%80,%EC%B1%84%EB%84%90)%EC%9D%BC-%EA%B2%BD%EC%9A%B0-DNN-%EC%93%B0%EA%B8%B0"> </a>
+</h3>
 </div>
 </div>
 </div>
