@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      5 min read
     
 </span></p>
 
@@ -142,6 +142,13 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#시도-1">시도 1 </a></li>
 <li class="toc-entry toc-h2"><a href="#시도-2">시도 2 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-3">시도 3 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도4">시도4 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-5">시도 5 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-5">시도 5 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-6">시도 6 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-7">시도 7 </a></li>
+<li class="toc-entry toc-h2"><a href="#시도-7">시도 7 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -298,6 +305,23 @@ window.onload = wrap_img;
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -311,6 +335,113 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="시도-1">
 <a class="anchor" href="#%EC%8B%9C%EB%8F%84-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 1<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-1"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">Nrep</span> <span class="o">=</span> <span class="m">200</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="m">1000</span>
+
+<span class="n">hatb1</span> <span class="o">&lt;-</span> <span class="n">hatb2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">te1</span> <span class="o">&lt;-</span> <span class="n">te2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">Nrep</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">-3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="m">2</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">3</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">ind</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span><span class="m">500</span><span class="p">)</span>
+<span class="n">tx1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">tx2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">tx3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">ty</span>  <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">test_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
+
+<span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">ty</span><span class="o">~</span><span class="n">tx1</span><span class="o">+</span><span class="n">tx2</span><span class="o">+</span><span class="n">tx3</span><span class="p">)</span>
+<span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">ty</span><span class="o">~</span><span class="n">tx1</span><span class="p">)</span>
+
+<span class="n">hatb1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">M2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="n">hatb2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">M1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+
+<span class="n">te1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">((</span><span class="n">test_y</span> <span class="o">-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="n">te2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">((</span><span class="n">test_y</span> <span class="o">-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">c</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">te1</span><span class="p">),</span><span class="nf">mean</span><span class="p">(</span><span class="n">te2</span><span class="p">))</span>
+<span class="nf">c</span><span class="p">(</span><span class="nf">mean</span><span class="p">((</span><span class="n">hatb1</span><span class="m">-2</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">),</span><span class="nf">mean</span><span class="p">((</span><span class="n">hatb2</span><span class="m">-1</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+&lt;ol class=list-inline&gt;<li>120.592204323053</li>
+<li>120.592204323053</li>&lt;/ol&gt;
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+&lt;ol class=list-inline&gt;<li>20.3486378566787</li>
+<li>4.11141866723293</li>&lt;/ol&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-2">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 2<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-2"> </a>
 </h2>
 </div>
 </div>
@@ -631,17 +762,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
+<p>반복</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="시도-2">
-<a class="anchor" href="#%EC%8B%9C%EB%8F%84-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 2<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-2"> </a>
-</h2>
 </div>
 </div>
 </div>
@@ -652,42 +774,27 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">Nrep</span> <span class="o">=</span> <span class="m">200</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="m">1000</span>
-
-<span class="n">hatb1</span> <span class="o">&lt;-</span> <span class="n">hatb2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
-<span class="n">te1</span> <span class="o">&lt;-</span> <span class="n">te2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
-
-<span class="nf">for </span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">Nrep</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">-3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
-<span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="m">2</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">3</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-<span class="n">ind</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span><span class="m">500</span><span class="p">)</span>
-<span class="n">tx1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">tx2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">tx3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">ty</span>  <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">test_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="n">ind</span><span class="p">]</span>
-
-<span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">ty</span><span class="o">~</span><span class="n">tx1</span><span class="o">+</span><span class="n">tx2</span><span class="o">+</span><span class="n">tx3</span><span class="p">)</span>
-<span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">ty</span><span class="o">~</span><span class="n">tx1</span><span class="p">)</span>
-
-<span class="n">hatb1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">M2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
-<span class="n">hatb2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">M1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
-
-<span class="n">te1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">((</span><span class="n">test_y</span> <span class="o">-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
-<span class="n">te2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">((</span><span class="n">test_y</span> <span class="o">-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nf">c</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">te1</span><span class="p">),</span><span class="nf">mean</span><span class="p">(</span><span class="n">te2</span><span class="p">))</span>
-<span class="nf">c</span><span class="p">(</span><span class="nf">mean</span><span class="p">((</span><span class="n">hatb1</span><span class="m">-1</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">),</span><span class="nf">mean</span><span class="p">((</span><span class="n">hatb2</span><span class="m">-2</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">500</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">1.5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">3.5</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">250</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">250</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">250</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">250</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">251</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">251</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">251</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">251</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -699,34 +806,11 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-<div class="output_html rendered_html output_subarea ">
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-&lt;ol class=list-inline&gt;<li>119.489267246747</li>
-<li>119.489267246747</li>&lt;/ol&gt;
-
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 7.007346
+[1] 7.016345
+</pre>
 </div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-&lt;ol class=list-inline&gt;<li>21.7697119975299</li>
-<li>1.09460200852911</li>&lt;/ol&gt;
-
-</div>
-
 </div>
 
 </div>
@@ -738,11 +822,531 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>다중공선성이 있는 모형과 다중공선성이 없는 모형의 MSE가 같았다.</p>
+<p>다중공선성이 있는 모형과 다중공선성이 없는 모형의 MSE가 비슷한 값이 나왔다.</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-3">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 3<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-3"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">3</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 6.682649
+[1] 6.927406
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도4">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%844" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도4<a class="anchor-link" href="#%EC%8B%9C%EB%8F%844"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">3</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.1</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 5.660808
+[1] 5.897727
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-5">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 5<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-5"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">10</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 281.1676
+[1] 281.1806
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-5">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 5<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-5"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">10</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 280.2357
+[1] 280.2495
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-6">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 6<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-6"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x4</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">4</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">10</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="m">15</span><span class="o">*</span><span class="n">x4</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="o">++</span><span class="n">train_x4</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">,</span><span class="n">test_x4</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 1705.596
+[1] 1705.619
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-7">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 7<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-7"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2_2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x4</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">4</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x5</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="m">5</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">10</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="m">15</span><span class="o">*</span><span class="n">x4</span> <span class="o">+</span> <span class="m">20</span><span class="o">*</span><span class="n">x5</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="p">)</span>
+    <span class="n">M2_2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">M2_3</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="o">+</span><span class="n">train_x4</span><span class="p">)</span>
+    <span class="n">M2_4</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="o">+</span><span class="n">train_x4</span><span class="o">+</span><span class="n">train_x5</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_3</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">,</span><span class="n">test_x4</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_4</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_4</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">,</span><span class="n">test_x4</span><span class="p">,</span><span class="n">test_x5</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_2</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_3</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_4</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 6750.782
+[1] 6750.758
+[1] 6750.782
+[1] 6750.802
+[1] 6750.812
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시도-7">
+<a class="anchor" href="#%EC%8B%9C%EB%8F%84-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>시도 7<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-7"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">result1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2_2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2_3</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">result2_4</span> <span class="o">=</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">2</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">3</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x4</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">4</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">x5</span> <span class="o">=</span> <span class="n">x1</span><span class="o">^</span><span class="m">5</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+    <span class="n">y1</span><span class="o">=</span> <span class="m">3</span> <span class="o">+</span> <span class="n">x1</span> <span class="o">+</span> <span class="m">1.5</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="m">2.5</span><span class="o">*</span><span class="n">x4</span> <span class="o">+</span> <span class="m">3</span><span class="o">*</span><span class="n">x5</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+    <span class="n">train_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">train_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">]</span>
+    <span class="n">test_x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">test_y1</span> <span class="o">=</span> <span class="n">y1</span><span class="p">[</span><span class="m">501</span><span class="o">:</span><span class="m">1000</span><span class="p">]</span>
+    <span class="n">M1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="p">)</span>
+    <span class="n">M2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="p">)</span>
+    <span class="n">M2_2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="p">)</span>
+    <span class="n">M2_3</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="o">+</span><span class="n">train_x4</span><span class="p">)</span>
+    <span class="n">M2_4</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">train_y1</span><span class="o">~</span><span class="n">train_x1</span><span class="o">+</span><span class="n">train_x2</span><span class="o">+</span><span class="n">train_x3</span><span class="o">+</span><span class="n">train_x4</span><span class="o">+</span><span class="n">train_x5</span><span class="p">)</span>
+    <span class="n">result1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M1</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_2</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_3</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">,</span><span class="n">test_x4</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+    <span class="n">result2_4</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">mean</span><span class="p">((</span><span class="n">test_y1</span><span class="o">-</span><span class="nf">predict</span><span class="p">(</span><span class="n">M2_4</span><span class="p">,</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">test_x1</span><span class="p">,</span><span class="n">test_x2</span><span class="p">,</span><span class="n">test_x3</span><span class="p">,</span><span class="n">test_x4</span><span class="p">,</span><span class="n">test_x5</span><span class="p">)))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>  
+    <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result1</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_2</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_3</span><span class="p">));</span><span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">result2_4</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 14.05266
+[1] 15.13615
+[1] 15.221
+[1] 15.24096
+[1] 15.24595
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
