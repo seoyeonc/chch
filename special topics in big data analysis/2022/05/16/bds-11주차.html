@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>빅데이터 분석 특강 (11주차) 5월16일 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="빅데이터 분석 특강 (11주차) 5월16일" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/05/16/bds-11%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/05/16/bds-11%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-16T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/05/16/bds-11%EC%A3%BC%EC%B0%A8.html","@type":"BlogPosting","headline":"빅데이터 분석 특강 (11주차) 5월16일","dateModified":"2022-05-16T00:00:00-05:00","datePublished":"2022-05-16T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/05/16/bds-11%EC%A3%BC%EC%B0%A8.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">빅데이터 분석 특강 (11주차) 5월16일</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-16T00:00:00-05:00" itemprop="datePublished">
+        May 16, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Big Data Analysis">Special Topics in Big Data Analysis</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-05-16-bds-11주차.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-05-16-bds-11%EC%A3%BC%EC%B0%A8.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-05-16-bds-11주차.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#imports">imports </a></li>
+<li class="toc-entry toc-h2"><a href="#maxpoling">maxpoling </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#테스트1">테스트1 </a></li>
+<li class="toc-entry toc-h4"><a href="#테스트2">테스트2 </a></li>
+<li class="toc-entry toc-h4"><a href="#테스트3">테스트3 </a></li>
+<li class="toc-entry toc-h4"><a href="#테스트4">테스트4 </a></li>
+<li class="toc-entry toc-h4"><a href="#테스트5">테스트5 </a></li>
+<li class="toc-entry toc-h4"><a href="#테스트5">테스트5 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-05-16-bds-11주차.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="imports">
+<a class="anchor" href="#imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>imports<a class="anchor-link" href="#imports"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'),
+ PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_train</span> <span class="c1"># 이 데이터는 클래스의 데이터</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([9, 0, 0, ..., 3, 0, 5], dtype=uint8)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(60000, 28, 28)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span> <span class="c1"># 30 잘 안 맞는 거 아는데 처음이니까~ 해보자</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+  57/1875 [..............................] - ETA: 5s - loss: 17.1517 - accuracy: 0.2111  </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-05-16 19:18:57.584523: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1875/1875 [==============================] - 7s 3ms/step - loss: 1.9477 - accuracy: 0.4426
+Epoch 2/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.0451 - accuracy: 0.5917
+Epoch 3/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.8487 - accuracy: 0.6686
+Epoch 4/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7931 - accuracy: 0.6836
+Epoch 5/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7587 - accuracy: 0.7028
+Epoch 6/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7128 - accuracy: 0.7225
+Epoch 7/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.6896 - accuracy: 0.7284
+Epoch 8/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.6661 - accuracy: 0.7359
+Epoch 9/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.6561 - accuracy: 0.7393
+Epoch 10/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.6475 - accuracy: 0.7394
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f0fbe329f90&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.7311 - accuracy: 0.7128
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.7310638427734375, 0.7128000259399414]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>net가 단순하다보니 정확도 계산에 한계가 있는 거 같다 에폭 20해도 크게 변하지 않음!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 2.0995 - accuracy: 0.7383
+Epoch 2/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.7340 - accuracy: 0.7693
+Epoch 3/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.5704 - accuracy: 0.8125
+Epoch 4/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4953 - accuracy: 0.8313
+Epoch 5/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4669 - accuracy: 0.8410
+Epoch 6/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4544 - accuracy: 0.8445
+Epoch 7/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4325 - accuracy: 0.8504
+Epoch 8/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4320 - accuracy: 0.8501
+Epoch 9/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4231 - accuracy: 0.8539
+Epoch 10/10
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4182 - accuracy: 0.8522
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f100416a710&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.4547 - accuracy: 0.8397
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.4547102153301239, 0.8396999835968018]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_9"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten_8 (Flatten)         (None, 784)               0         
+                                                                 
+ dense_20 (Dense)            (None, 500)               392500    
+                                                                 
+ dense_21 (Dense)            (None, 500)               250500    
+                                                                 
+ dense_22 (Dense)            (None, 10)                5010      
+                                                                 
+=================================================================
+Total params: 648,010
+Trainable params: 648,010
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dense layer로 한계가 있는 것 같으니 다른 방법을 찾아보자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두번째 시도</p>
+<ul>
+<li><code>tf.keras.layers.Conv2D</code></li>
+<li><code>tf.keras.layers.MaxPool2D</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">30</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">30</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 1.3192 - accuracy: 0.7984
+Epoch 2/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.4260 - accuracy: 0.8600
+Epoch 3/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3790 - accuracy: 0.8711
+Epoch 4/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3572 - accuracy: 0.8771
+Epoch 5/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3407 - accuracy: 0.8831
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f0f9c325cf0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.4007 - accuracy: 0.8666
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.4006589353084564, 0.866599977016449]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_10"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_5 (Conv2D)           (None, 27, 27, 30)        150       
+                                                                 
+ max_pooling2d_4 (MaxPooling  (None, 13, 13, 30)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_6 (Conv2D)           (None, 12, 12, 30)        3630      
+                                                                 
+ max_pooling2d_5 (MaxPooling  (None, 6, 6, 30)         0         
+ 2D)                                                             
+                                                                 
+ flatten_9 (Flatten)         (None, 1080)              0         
+                                                                 
+ dense_23 (Dense)            (None, 10)                10810     
+                                                                 
+=================================================================
+Total params: 14,590
+Trainable params: 14,590
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>dense에 파라메터 뭉쳐있는 이유</p>
+<ul>
+<li>펼쳐진 노드를 뭉치기 때문에..</li>
+<li>1080<em>10</em>bias10개 = 10810 이렇게 계산되지!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>정확도만 보면 net2가 낫네?</li>
+<li>파라메터 수를 보니 첫번째 시도 대비 파라메터를 적게 사용한 모습을 볼 수 있다.</li>
+</ul>
+<p>$\therefore$ 파라메터 조금쓰고 정확도 높은 좋은 net2모형!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;keras.layers.convolutional.Conv2D at 0x7f0f9c7da230&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f0f9c7da8f0&gt;,
+ &lt;keras.layers.convolutional.Conv2D at 0x7f10c033bf40&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f10047a9ae0&gt;,
+ &lt;keras.layers.core.flatten.Flatten at 0x7f0f9c7db370&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f10c033be50&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>내가 설계한 네트워크의 순서를 확인해보자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c1</span><span class="p">,</span><span class="n">m1</span><span class="p">,</span><span class="n">c2</span><span class="p">,</span><span class="n">m2</span><span class="p">,</span><span class="n">flttn</span><span class="p">,</span><span class="n">dns</span> <span class="o">=</span> <span class="n">net2</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 입력이미지 = 2D # 1은 채널이 하나라는 뜻</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D # 갑자기 채널이 30이 되어버리!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D # maxpool 통과했더니 fixel 크기가 줄어들었네?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D # 또 줄어들고 채널은 30으로 유지되는데?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D # 모두 퍼져서 12*12*30=4320이 되어버림</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dns</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 2D</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(60000, 28, 28, 1)
+(60000, 27, 27, 30)
+(60000, 13, 13, 30)
+(60000, 12, 12, 30)
+(60000, 6, 6, 30)
+(60000, 1080)
+(60000, 10)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">30</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">30</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.7736 - accuracy: 0.8055
+Epoch 2/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3742 - accuracy: 0.8654
+Epoch 3/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3343 - accuracy: 0.8789
+Epoch 4/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3126 - accuracy: 0.8867
+Epoch 5/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.2971 - accuracy: 0.8908
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f0f9c765510&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.3276 - accuracy: 0.8802
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.32759028673171997, 0.8802000284194946]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="maxpoling">
+<a class="anchor" href="#maxpoling" aria-hidden="true"><span class="octicon octicon-link"></span></a>maxpoling<a class="anchor-link" href="#maxpoling"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트1">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B81" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트1<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B81"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span> <span class="c1"># observation / color / channel</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 4, 4, 1), dtype=int64, numpy=
+array([[[[ 0],
+         [ 1],
+         [ 2],
+         [ 3]],
+
+        [[ 4],
+         [ 5],
+         [ 6],
+         [ 7]],
+
+        [[ 8],
+         [ 9],
+         [10],
+         [11]],
+
+        [[12],
+         [13],
+         [14],
+         [15]]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int64, numpy=
+array([[[ 5,  7],
+        [13, 15]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>여기로 가는 mapping을 찾아볼까</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#우리가 생각하는 이미지의 모습</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 4, 4), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3],
+        [ 4,  5,  6,  7],
+        [ 8,  9, 10, 11],
+        [12, 13, 14, 15]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[0,1,4,5] 중 max는 5</p>
+<p>[2,3,6,7] 중 max는 7</p>
+<p>[8,9,12,13] 중 max는 13</p>
+<p>[10,11,14,15] 중 max는 15</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> MaxPool2D layer의 역할: (2,2) 윈도우를 만들고 (2,2) 윈도우에서 max를 뽑아 값을 기록, 윈도우를 움직이면서 반복</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트2">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B82" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트2<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B82"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># 흑백 이미지라면 이렇게 보일 것</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 6, 6), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3,  4,  5],
+        [ 6,  7,  8,  9, 10, 11],
+        [12, 13, 14, 15, 16, 17],
+        [18, 19, 20, 21, 22, 23],
+        [24, 25, 26, 27, 28, 29],
+        [30, 31, 32, 33, 34, 35]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 3, 3), dtype=int64, numpy=
+array([[[ 7,  9, 11],
+        [19, 21, 23],
+        [31, 33, 35]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트3">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B83" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트3<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B83"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>tf.keras.layers.MaxPooling2D<span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Init signature:</span>
+tf<span class="ansi-blue-fg">.</span>keras<span class="ansi-blue-fg">.</span>layers<span class="ansi-blue-fg">.</span>MaxPooling2D<span class="ansi-blue-fg">(</span>
+    pool_size<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+    strides<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    padding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'valid'</span><span class="ansi-blue-fg">,</span>
+    data_format<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Source:</span>        
+<span class="ansi-blue-fg">@</span>keras_export<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'keras.layers.MaxPool2D'</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'keras.layers.MaxPooling2D'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">class</span> MaxPooling2D<span class="ansi-blue-fg">(</span>Pooling2D<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+  <span class="ansi-blue-fg">"""Max pooling operation for 2D spatial data.</span>
+
+<span class="ansi-blue-fg">  Downsamples the input along its spatial dimensions (height and width)</span>
+<span class="ansi-blue-fg">  by taking the maximum value over an input window</span>
+<span class="ansi-blue-fg">  (of size defined by `pool_size`) for each channel of the input.</span>
+<span class="ansi-blue-fg">  The window is shifted by `strides` along each dimension.</span>
+
+<span class="ansi-blue-fg">  The resulting output,</span>
+<span class="ansi-blue-fg">  when using the `"valid"` padding option, has a spatial shape</span>
+<span class="ansi-blue-fg">  (number of rows or columns) of:</span>
+<span class="ansi-blue-fg">  `output_shape = math.floor((input_shape - pool_size) / strides) + 1`</span>
+<span class="ansi-blue-fg">  (when `input_shape &gt;= pool_size`)</span>
+
+<span class="ansi-blue-fg">  The resulting output shape when using the `"same"` padding option is:</span>
+<span class="ansi-blue-fg">  `output_shape = math.floor((input_shape - 1) / strides) + 1`</span>
+
+<span class="ansi-blue-fg">  For example, for `strides=(1, 1)` and `padding="valid"`:</span>
+
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.constant([[1., 2., 3.],</span>
+<span class="ansi-blue-fg">  ...                  [4., 5., 6.],</span>
+<span class="ansi-blue-fg">  ...                  [7., 8., 9.]])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.reshape(x, [1, 3, 3, 1])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d = tf.keras.layers.MaxPooling2D(pool_size=(2, 2),</span>
+<span class="ansi-blue-fg">  ...    strides=(1, 1), padding='valid')</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d(x)</span>
+<span class="ansi-blue-fg">  &lt;tf.Tensor: shape=(1, 2, 2, 1), dtype=float32, numpy=</span>
+<span class="ansi-blue-fg">    array([[[[5.],</span>
+<span class="ansi-blue-fg">             [6.]],</span>
+<span class="ansi-blue-fg">            [[8.],</span>
+<span class="ansi-blue-fg">             [9.]]]], dtype=float32)&gt;</span>
+
+<span class="ansi-blue-fg">  For example, for `strides=(2, 2)` and `padding="valid"`:</span>
+
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.constant([[1., 2., 3., 4.],</span>
+<span class="ansi-blue-fg">  ...                  [5., 6., 7., 8.],</span>
+<span class="ansi-blue-fg">  ...                  [9., 10., 11., 12.]])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.reshape(x, [1, 3, 4, 1])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d = tf.keras.layers.MaxPooling2D(pool_size=(2, 2),</span>
+<span class="ansi-blue-fg">  ...    strides=(2, 2), padding='valid')</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d(x)</span>
+<span class="ansi-blue-fg">  &lt;tf.Tensor: shape=(1, 1, 2, 1), dtype=float32, numpy=</span>
+<span class="ansi-blue-fg">    array([[[[6.],</span>
+<span class="ansi-blue-fg">             [8.]]]], dtype=float32)&gt;</span>
+
+<span class="ansi-blue-fg">  Usage Example:</span>
+
+<span class="ansi-blue-fg">  &gt;&gt;&gt; input_image = tf.constant([[[[1.], [1.], [2.], [4.]],</span>
+<span class="ansi-blue-fg">  ...                            [[2.], [2.], [3.], [2.]],</span>
+<span class="ansi-blue-fg">  ...                            [[4.], [1.], [1.], [1.]],</span>
+<span class="ansi-blue-fg">  ...                            [[2.], [2.], [1.], [4.]]]])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; output = tf.constant([[[[1], [0]],</span>
+<span class="ansi-blue-fg">  ...                       [[0], [1]]]])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; model = tf.keras.models.Sequential()</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2),</span>
+<span class="ansi-blue-fg">  ...    input_shape=(4, 4, 1)))</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; model.compile('adam', 'mean_squared_error')</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; model.predict(input_image, steps=1)</span>
+<span class="ansi-blue-fg">  array([[[[2.],</span>
+<span class="ansi-blue-fg">           [4.]],</span>
+<span class="ansi-blue-fg">          [[4.],</span>
+<span class="ansi-blue-fg">           [4.]]]], dtype=float32)</span>
+
+<span class="ansi-blue-fg">  For example, for stride=(1, 1) and padding="same":</span>
+
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.constant([[1., 2., 3.],</span>
+<span class="ansi-blue-fg">  ...                  [4., 5., 6.],</span>
+<span class="ansi-blue-fg">  ...                  [7., 8., 9.]])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; x = tf.reshape(x, [1, 3, 3, 1])</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d = tf.keras.layers.MaxPooling2D(pool_size=(2, 2),</span>
+<span class="ansi-blue-fg">  ...    strides=(1, 1), padding='same')</span>
+<span class="ansi-blue-fg">  &gt;&gt;&gt; max_pool_2d(x)</span>
+<span class="ansi-blue-fg">  &lt;tf.Tensor: shape=(1, 3, 3, 1), dtype=float32, numpy=</span>
+<span class="ansi-blue-fg">    array([[[[5.],</span>
+<span class="ansi-blue-fg">             [6.],</span>
+<span class="ansi-blue-fg">             [6.]],</span>
+<span class="ansi-blue-fg">            [[8.],</span>
+<span class="ansi-blue-fg">             [9.],</span>
+<span class="ansi-blue-fg">             [9.]],</span>
+<span class="ansi-blue-fg">            [[8.],</span>
+<span class="ansi-blue-fg">             [9.],</span>
+<span class="ansi-blue-fg">             [9.]]]], dtype=float32)&gt;</span>
+
+<span class="ansi-blue-fg">  Args:</span>
+<span class="ansi-blue-fg">    pool_size: integer or tuple of 2 integers,</span>
+<span class="ansi-blue-fg">      window size over which to take the maximum.</span>
+<span class="ansi-blue-fg">      `(2, 2)` will take the max value over a 2x2 pooling window.</span>
+<span class="ansi-blue-fg">      If only one integer is specified, the same window length</span>
+<span class="ansi-blue-fg">      will be used for both dimensions.</span>
+<span class="ansi-blue-fg">    strides: Integer, tuple of 2 integers, or None.</span>
+<span class="ansi-blue-fg">      Strides values.  Specifies how far the pooling window moves</span>
+<span class="ansi-blue-fg">      for each pooling step. If None, it will default to `pool_size`.</span>
+<span class="ansi-blue-fg">    padding: One of `"valid"` or `"same"` (case-insensitive).</span>
+<span class="ansi-blue-fg">      `"valid"` means no padding. `"same"` results in padding evenly to</span>
+<span class="ansi-blue-fg">      the left/right or up/down of the input such that output has the same</span>
+<span class="ansi-blue-fg">      height/width dimension as the input.</span>
+<span class="ansi-blue-fg">    data_format: A string,</span>
+<span class="ansi-blue-fg">      one of `channels_last` (default) or `channels_first`.</span>
+<span class="ansi-blue-fg">      The ordering of the dimensions in the inputs.</span>
+<span class="ansi-blue-fg">      `channels_last` corresponds to inputs with shape</span>
+<span class="ansi-blue-fg">      `(batch, height, width, channels)` while `channels_first`</span>
+<span class="ansi-blue-fg">      corresponds to inputs with shape</span>
+<span class="ansi-blue-fg">      `(batch, channels, height, width)`.</span>
+<span class="ansi-blue-fg">      It defaults to the `image_data_format` value found in your</span>
+<span class="ansi-blue-fg">      Keras config file at `~/.keras/keras.json`.</span>
+<span class="ansi-blue-fg">      If you never set it, then it will be "channels_last".</span>
+
+<span class="ansi-blue-fg">  Input shape:</span>
+<span class="ansi-blue-fg">    - If `data_format='channels_last'`:</span>
+<span class="ansi-blue-fg">      4D tensor with shape `(batch_size, rows, cols, channels)`.</span>
+<span class="ansi-blue-fg">    - If `data_format='channels_first'`:</span>
+<span class="ansi-blue-fg">      4D tensor with shape `(batch_size, channels, rows, cols)`.</span>
+
+<span class="ansi-blue-fg">  Output shape:</span>
+<span class="ansi-blue-fg">    - If `data_format='channels_last'`:</span>
+<span class="ansi-blue-fg">      4D tensor with shape `(batch_size, pooled_rows, pooled_cols, channels)`.</span>
+<span class="ansi-blue-fg">    - If `data_format='channels_first'`:</span>
+<span class="ansi-blue-fg">      4D tensor with shape `(batch_size, channels, pooled_rows, pooled_cols)`.</span>
+
+<span class="ansi-blue-fg">  Returns:</span>
+<span class="ansi-blue-fg">    A tensor of rank 4 representing the maximum pooled values.  See above for</span>
+<span class="ansi-blue-fg">    output shape.</span>
+<span class="ansi-blue-fg">  """</span>
+
+  <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span>
+               pool_size<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+               strides<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+               padding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'valid'</span><span class="ansi-blue-fg">,</span>
+               data_format<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+               <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+    super<span class="ansi-blue-fg">(</span>MaxPooling2D<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span>
+        tf<span class="ansi-blue-fg">.</span>compat<span class="ansi-blue-fg">.</span>v1<span class="ansi-blue-fg">.</span>nn<span class="ansi-blue-fg">.</span>max_pool<span class="ansi-blue-fg">,</span>
+        pool_size<span class="ansi-blue-fg">=</span>pool_size<span class="ansi-blue-fg">,</span> strides<span class="ansi-blue-fg">=</span>strides<span class="ansi-blue-fg">,</span>
+        padding<span class="ansi-blue-fg">=</span>padding<span class="ansi-blue-fg">,</span> data_format<span class="ansi-blue-fg">=</span>data_format<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">File:</span>           ~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/layers/pooling.py
+<span class="ansi-red-fg">Type:</span>           type
+<span class="ansi-red-fg">Subclasses:</span>     MaxPooling2D
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># 흑백 이미지라면 이렇게 보일 것</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 6, 6), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3,  4,  5],
+        [ 6,  7,  8,  9, 10, 11],
+        [12, 13, 14, 15, 16, 17],
+        [18, 19, 20, 21, 22, 23],
+        [24, 25, 26, 27, 28, 29],
+        [30, 31, 32, 33, 34, 35]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int64, numpy=
+array([[[14, 17],
+        [32, 35]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트4">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B84" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트4<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B84"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 흑백 이미지라면 이렇게 보일 것</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 5, 5), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3,  4],
+        [ 5,  6,  7,  8,  9],
+        [10, 11, 12, 13, 14],
+        [15, 16, 17, 18, 19],
+        [20, 21, 22, 23, 24]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int64, numpy=
+array([[[ 6,  8],
+        [16, 18]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>애매한 열/행 수를 넣어주니 마지막 열/행은 버려버리네!</p>
+<ul>
+<li>차원이 안 맞으면 버려버림( 기본 옵션)</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">padding</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 흑백 이미지라면 이렇게 보일 것</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 5, 5), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3,  4],
+        [ 5,  6,  7,  8,  9],
+        [10, 11, 12, 13, 14],
+        [15, 16, 17, 18, 19],
+        [20, 21, 22, 23, 24]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 3, 3), dtype=int64, numpy=
+array([[[ 6,  8,  9],
+        [16, 18, 19],
+        [21, 23, 24]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>padding ="same"</code> 옵션을 넣어주니 차원을 버리지 않고 다 사용하네?</p>
+<ul>
+<li>균형을 맞춰 구하진 않음</li>
+<li>24의 경우 24 하나의 값 중에서 큰 값인 24를 택한 것.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트5">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B85" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트5<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B85"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">XXX</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 4, 4), dtype=int64, numpy=
+array([[[ 0,  1,  2,  3],
+        [ 4,  5,  6,  7],
+        [ 8,  9, 10, 11],
+        [12, 13, 14, 15]],
+
+       [[16, 17, 18, 19],
+        [20, 21, 22, 23],
+        [24, 25, 26, 27],
+        [28, 29, 30, 31]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 2, 2), dtype=int64, numpy=
+array([[[ 5,  7],
+        [13, 15]],
+
+       [[21, 23],
+        [29, 31]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="테스트5">
+<a class="anchor" href="#%ED%85%8C%EC%8A%A4%ED%8A%B85" aria-hidden="true"><span class="octicon octicon-link"></span></a>테스트5<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B85"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># observation 1 channel 3으로 고정</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span><span class="p">[:,:,:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 4, 4), dtype=int64, numpy=
+array([[[ 0,  3,  6,  9],
+        [12, 15, 18, 21],
+        [24, 27, 30, 33],
+        [36, 39, 42, 45]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위 아래 같은 결과..! 생략구문이라 부른다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 4, 4), dtype=int64, numpy=
+array([[[ 0,  3,  6,  9],
+        [12, 15, 18, 21],
+        [24, 27, 30, 33],
+        [36, 39, 42, 45]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)[:,:,:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int64, numpy=
+array([[[15, 21],
+        [39, 45]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">XXX</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int64, numpy=
+array([[[15, 21],
+        [39, 45]]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/2022/05/16/bds-11%EC%A3%BC%EC%B0%A8.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
