@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      13 min read
     
 </span></p>
 
@@ -1526,11 +1526,28 @@ $$Relative risk (RR)=\frac{p_1}{p_2}, \begin{cases} 1 &amp; 1\approx2\\ &gt;1 &a
 <p>
 $$∑^{n}_{i=1}(y_i−\hat{y_i})^2$$
 </p>
+<ul>
+<li>$s(\beta) \sum^{n}_{i=1}(y_i - X_{i}^{\top} \beta )^2$</li>
+<li>$s(\hat{\beta} = \sum^{n}_{i=1}(y - \hat{y})^2 = \sum^{n}_{i=1} (y-X\beta)^2 = SSE$</li>
+<li>$-2[l_{\mathcal{M}} - l_s] \ge 0$, 단 $l_{\mathcal{M}}\le l_s$</li>
+</ul>
 <p>이는 선형모형이 자료를 얼마나 잘 적합하는지를 평가하는 하나의 측도이다. 이를 일반화하여 Deviance라는 개념을 소개한다. 특정 모형$(M)$에 대한 deviance는 다음과 같이 정의된다.</p>
+<ul>
+<li>deviance가 작을수록 포화모형이다.</li>
+<li>$SSE_s = 0, SSE_\mathcal{M} = \sum^{n}_{i=1} (y_i - \hat{y})^2$</li>
+</ul>
 <p>
 $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 </p>
+<ul>
+<li>$-2(\log l_{\mathcal{M}} - \log l_s) \ge 0$</li>
+<li>$L(\hat{\beta}) = l_{\mathcal{M}}$</li>
+<li>$exp(\beta) = l_{\mathcal{M}}$</li>
+</ul>
 <p>여기서 $L_{\mathcal{M}}$은 최대화된 가능도 값을 의미한다. $L_S$란 포화모형(Saturated model)에서의 최대화된 가능도 값을 의미한다. 포화모형이란 자료 하나당 모수를 하나씩 대응시켜 perfect fit을 가져오는 모형을 의미한다. 위 deviance값이 작을 수록 모형의 적합도가 높은 것으로 평가한다. 적절한 가정 하에서 deviance값은 적절한 자유도를 가지는 카이제곱 분포로 근사할 수 있는데 이를 이용하여 모수에 대한 유의성 검정을 수행할 수 있게 된다.</p>
+<ul>
+<li>$D_{\mathcal{M}} \sim \chi^2_{(K)}$</li>
+</ul>
 <p>참고로 deviance는 오차항이 정규분포인 선형모형에서는 잔차제곱합의 정의와 일치하게 됨이 알려져 있다.</p>
 <p>R 결과창에서 <code>Null deviance</code> 는 설명변수를 하나도 포함시키지 않은 모형에서의 deviance를 의미하고 <code>Residual deviance</code>가 현재 적합된 모형의 deviance를 의미한다. 만약 이 둘 사이에 큰 차이가 있다면 현재 모형이 유의성이 있다는 의미이다 (why?).</p>
 
@@ -1569,6 +1586,18 @@ $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>nulldeviance 17812 - deviance 1749 = 32.2</li>
+<li>유의미한 변화일까?</li>
+<li>$H_0 : \beta_1 \in \beta_2 = 0$ vs $H_1 : not H_0$</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1649,6 +1678,14 @@ $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>p값은 0.3374로 유의미한 변화(D감소)를 가져오지 않았다.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
