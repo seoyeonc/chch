@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -993,11 +993,65 @@ Number of Fisher Scoring iterations: 5
 <p>
 $$Odd=\frac{p}{1−p} ∈(0,∞)$$
 </p>
+<ul>
+<li>ex) $p=0.8, 1-p=0.2$<ul>
+<li>$\frac{p}{1-p} = \frac{0.8}{0.2} = 4$</li>
+<li>이길 확률이 질 확률의 4배</li>
+</ul>
+</li>
+<li>ex) $p=0.75, 1-p=0.25$<ul>
+<li>$\frac{p}{1-p} = \frac{0.75}{0.25} = 3$</li>
+<li>이길 확률이 질 확률의 3배</li>
+</ul>
+</li>
+</ul>
 <p>만약 설명변수가 두 개라면 log-odds는 다음과 같이 표현된다.</p>
 <p>
 $$log(\frac{p}{1−p})=β_0+β_1x_1+β_2x_2$$
 </p>
 <p>때로는 서로 다른 개체들의 오즈값을 비교하고자 한다. 만약, $x_1$이 1단위만큼 변한다면 혹은 $x_1$이 0과 1의 값을 가지는 factor라면 두 경우의 오즈값의 변화는 $exp(β_1)$이 된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$x_1$</th>
+<th>$x_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>65</td>
+<td>10</td>
+</tr>
+<tr>
+<td>B</td>
+<td>65</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\log \frac{p_A}{1-p_A} = \beta_0 + \beta_1 10 + \beta_2 65$</p>
+<p>$\log \frac{p_B}{1-p_B} = \beta_0 + \beta_1 11 + \beta_2 65$</p>
+<p>$\to \log \frac{p_B}{1-p_B} - \log \frac{p_A}{1-p_A} = \beta_1$</p>
+<p>$\frac{\frac{p_B}{1-p_B}}{\frac{p_A}{1-p_A}} = exp(\beta_1)$</p>
+<ul>
+<li>$x$가 1 증가했을때 오즈값의 변화</li>
+</ul>
 
 </div>
 </div>
@@ -1082,13 +1136,57 @@ $$log(\frac{p}{1−p})=β_0+β_1x_1+β_2x_2$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>이를 일반화하여 오즈비(odds ratio)로 쓰기도 한다.</p>
 <p>
-$$Odds ratio (OR)=\frac{p_1}{1−p_1} \big/ \frac{p_2}{1−p_2}$$
+$$Odds ratio (OR)=\frac{p_1}{1−p_1} \big/ \frac{p_2}{1−p_2}, \begin{cases} 1 &amp; 1\approx2\\ &gt;1 &amp;1&gt;2\\ &lt;1 &amp;1&lt;2\end{cases}$$
 </p>
 <p>오즈비는 다음과 같이 정의되는 상대위험도(relative risk)와는 약간 다르다.</p>
 <p>
-$$Relative risk (RR)=\frac{p_1}{p_2}$$
+$$Relative risk (RR)=\frac{p_1}{p_2}, \begin{cases} 1 &amp; 1\approx2\\ &gt;1 &amp;1&gt;2\\ &lt;1 &amp;1&lt;2\end{cases}$$
 </p>
 <p>직관적으로는 상대위험도가 이해하기 더 쉽다. 하지만, 이 값은 어떤 실험환경에서는 계산이 불가능하다.</p>
+<ul>
+<li>코호트 연구<ul>
+<li>돈, 시간이 많이 든다.</li>
+<li>특히 희귀질병은 샘플이 많이 필요하다.</li>
+<li>그룹을 나누어 위험도 측정</li>
+<li>Odds ratio 계산 가능하다.</li>
+<li>Rerative Risk 계산 가능하다.</li>
+</ul>
+</li>
+<li>후향적 연구<ul>
+<li>나중에 물어보는 연구</li>
+<li>Rerative Ratio 구하기 힘들다. 제어가 힘들기 때문</li>
+<li>Odds ratio 계산은 가능</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$x_1$</th>
+<th>$x_2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>68</td>
+<td>20</td>
+</tr>
+<tr>
+<td>B</td>
+<td>68</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -1132,6 +1230,16 @@ $$Relative risk (RR)=\frac{p_1}{p_2}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>1보다 작네?</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1167,7 +1275,33 @@ $$Relative risk (RR)=\frac{p_1}{p_2}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>여기서는 상대위험도와 오즈비의 값이 굉장히 비슷하낟. 희박하게 발생하는 사건의 경우 위 두 값은 보통 크게 차이나지 않으나 그렇지 않으면 매우 달라진다.</p>
+<ul>
+<li>질병에 걸릴 확률이 담배를20개피 폈을때가 안 폈을때보다 1.5배 정도 높다.</li>
+<li>ilogit 은 logit의 역함수</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>여기서는 상대위험도와 오즈비의 값이 굉장히 비슷하다. 희박하게 발생하는 사건의 경우 위 두 값은 보통 크게 차이나지 않으나 그렇지 않으면 매우 달라진다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>만약, $p_1. p_2$가 작다면? $p_1,p_2 \approx 0$?</li>
+</ul>
+<p>$\frac{\frac{p_1}{1-p_1}}{\frac{p_2}{1-p_2}} \approx \frac{p_1}{p_2} \neq \frac{p_1}{p_2}$</p>
+<ul>
+<li>너무 작으면 값이 비슷하게 나온다. </li>
+<li>커지면 비슷하지 않겠지만, 적어도 양/음수는 같다.</li>
+</ul>
 
 </div>
 </div>
@@ -1214,6 +1348,16 @@ $$Relative risk (RR)=\frac{p_1}{p_2}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>비슷하네</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1256,6 +1400,16 @@ $$Relative risk (RR)=\frac{p_1}{p_2}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>점점 차이나기 시작</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1298,6 +1452,64 @@ $$Relative risk (RR)=\frac{p_1}{p_2}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>거의 안 비슷하다고 봐야지.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>if $exp(\beta_1)&gt;1$?</p>
+<ul>
+<li>Odds ratio vs Rerative risk<ul>
+<li>$\frac{p_B}{1-p_B} &gt; \frac{p_A}{1-p_A} \therefore p_B &gt; p_A , \beta &gt; 0$ </li>
+</ul>
+</li>
+</ul>
+<p>if $exp(\beta_1)&lt;1$?</p>
+<ul>
+<li>Odds ratio vs Rerative risk<ul>
+<li>$\frac{p_B}{1-p_B} &lt; \frac{p_A}{1-p_A} \therefore p_B &lt; p_A , \beta &lt; 0$ </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Odds ratio 는 Rerative Risk 보다 증폭되는 경향이 있다.</p>
+<p>$\frac{p_A}{1-p_A}, p_A = \frac{1}{3}, p_B=\frac{1}{4}, p_A &gt; p_B$</p>
+<ul>
+<li>A가 더 위험하다. 즉, 질병발생 확률이 더 크다.</li>
+</ul>
+<p>$\frac{\frac{p_A}{1-p_A}}{\frac{p_B}{1-p_B}} = \frac{\frac{\frac{1}{3}}{\frac{2}{3}}}{\frac{\frac{1}{4}}{\frac{3}{4}}} = \frac{\frac{1}{2}}{\frac{1}{3}} = \frac{3}{2} = 1.5$</p>
+<ul>
+<li>즉, A의 Odds와 B의 Odds 사이의 ratio</li>
+<li>A의 Odds가 b의 Odds 보다 1.5만큼 크다,</li>
+</ul>
+<p>$\frac{p_A}{p_B} = \frac{\frac{1}{3}}{\frac{1}{4}} = \frac{4}{3} = 1.333$</p>
+<ul>
+<li>원래 1.3배인데 Odds ratio는 1.5?</li>
+<li>증폭되었네?</li>
+</ul>
+<p>if $p_A = p_B$?</p>
+<ul>
+<li>Odds ratio = 1</li>
+<li>Reratve Risk = 1</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
