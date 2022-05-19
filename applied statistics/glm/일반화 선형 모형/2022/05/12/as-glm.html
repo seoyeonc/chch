@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -587,8 +587,13 @@ $$log\frac{p_i}{1−p_i}=β_0+β_1x_{i1}+⋯+β_qx_{qi}$$
 </p>
 <ul>
 <li>$p_i$ 자체의 움직임이 아니라 연결함수도 함께 고려해야한다. 달라질 수 있으니까</li>
+<li>$x$기 증가하면 $p$도 증가하고(positive), $x$가 감소하면 $p$도 감소할걸(negative)?</li>
 </ul>
 <p>위에서 양변이 모두 $R$의 $range$를 가짐을 알 수 있다.</p>
+<ul>
+<li>$\hat{p}_i = P(Y_i=1|x_{i1}, \dots, x_{qi} ) = \frac{exp(\hat{η_i})}{1+exp(\hat{η_i})}$</li>
+<li>$1-\hat{p}_i = \frac{1}{1+exp(\hat{η_i})}$</li>
+</ul>
 
 </div>
 </div>
@@ -662,6 +667,33 @@ $$log\frac{p_i}{1−p_i}=β_0+β_1x_{i1}+⋯+β_qx_{qi}$$
 <p>
 $$l(β)=∑_{i=1}^{n}[y_iη_i−log(1+exp^{η_i})]$$
 </p>
+<ul>
+<li>$P(y_i = 1| x_{i1},\dots,x_{iq}) = p_i)$</li>
+<li>$y_{i|x_{i1},\dots,x_{iq}} \sim Bernoulli(p_i)$</li>
+<li>확률질량함수$f(y_i) = p_i^{y_i}(1-p_i)^{1-y_i}, y_i = 0,1$</li>
+<li>$L = \Pi^{n}_{i=1} f(y_i) = \Pi^{n}_{i=1} p_{i}^{y_i}(1-p_i)^{1-y_i}$</li>
+<li>$l = \log L = \sum^{n}_{i=1} (y_i \log p_i + (1-y_i) \log(1-p_i))$</li>
+<li>$= \sum^{n}_{i=1}(y_i \log p_i - y_i \log (1-p_i) + \log (1-p_i))$</li>
+<li>$= \sum^{n}_{i=1} (y_i(log\frac{p_i}{1-p_i}) + \log (1-p_i))$<ul>
+<li>$\log \frac{p_i}{1-p_i} = \beta_0 + \beta_1 x_{i1} + \dots + \beta_q x_{qi} = η_i = X_{i}^{\top}\beta$</li>
+<li>$\_i = \frac{exp(\hat{η_i})}{a+exp(\hat{η_i})}$</li>
+</ul>
+</li>
+<li>$\sum^{n}_{i=1} [y_i η_i - \log (1+exp(\hat{η_i}))]$</li>
+<li>
+<p>$argmax_{\beta = \beta_0,\dots, \beta_q} l(\beta) = MLE$</p>
+</li>
+<li>
+<p>$y_i = β_0+β_1x_{i1}+⋯+β_qx_{qi} + \epsilon$</p>
+</li>
+<li>$argmin_{\beta_0,\dots,\beta_q}\sum(y_i - \hat{y})^2$<ul>
+<li>최소제곱법 사용?</li>
+<li>$y_i$는 0 또는 1의 값이 나오고</li>
+<li>$\hat{y}$는 0에서 1사이의 값이 나온다.</li>
+<li>어떻게 계산해? $y_i$를 실수화시키자</li>
+</ul>
+</li>
+</ul>
 <p>위 로그가능도함수를 β에 대해서 최대화시키면 그 값이 추정량이 된다.</p>
 
 </div>
@@ -763,6 +795,21 @@ Number of Fisher Scoring iterations: 5
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>즉, h,c가 증가하면 $\hat{p}_i$가 증가한다고 해석가능, 즉 방향으로 해석가능</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>null deviance에서 residual deviance로 32.3 정도 감소했다.</p>
+<ul>
+<li>null deviance는 parameter 다 뺀 가장 작은 deviance라고 생각</li>
+<li>residual deviance = $D_M = -2(\log L_M - \log L_s)$<div class="highlight"><pre><span></span><span class="n">Null</span> <span class="n">deviance</span><span class="o">:</span> <span class="m">1781.2</span>  <span class="n">on</span> <span class="m">3153</span>  <span class="n">degrees</span> <span class="n">of</span> <span class="n">freedom</span>
+<span class="n">Residual</span> <span class="n">deviance</span><span class="o">:</span> <span class="m">1749.0</span>  <span class="n">on</span> <span class="m">3151</span>  <span class="n">degrees</span> <span class="n">of</span> <span class="n">freedom</span>
+</pre></div>
+</li>
 </ul>
 
 </div>
