@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -1533,7 +1533,7 @@ $$∑^{n}_{i=1}(y_i−\hat{y_i})^2$$
 </ul>
 <p>이는 선형모형이 자료를 얼마나 잘 적합하는지를 평가하는 하나의 측도이다. 이를 일반화하여 Deviance라는 개념을 소개한다. 특정 모형$(M)$에 대한 deviance는 다음과 같이 정의된다.</p>
 <ul>
-<li>deviance가 작을수록 포화모형이다.</li>
+<li>deviance를 가장 많이 사용하고, deviance가 작을수록 포화모형이다.</li>
 <li>$SSE_s = 0, SSE_\mathcal{M} = \sum^{n}_{i=1} (y_i - \hat{y})^2$</li>
 </ul>
 <p>
@@ -1544,7 +1544,7 @@ $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 <li>$L(\hat{\beta}) = l_{\mathcal{M}}$</li>
 <li>$exp(\beta) = l_{\mathcal{M}}$</li>
 </ul>
-<p>여기서 $L_{\mathcal{M}}$은 최대화된 가능도 값을 의미한다. $L_S$란 포화모형(Saturated model)에서의 최대화된 가능도 값을 의미한다. 포화모형이란 자료 하나당 모수를 하나씩 대응시켜 perfect fit을 가져오는 모형을 의미한다. 위 deviance값이 작을 수록 모형의 적합도가 높은 것으로 평가한다. 적절한 가정 하에서 deviance값은 적절한 자유도를 가지는 카이제곱 분포로 근사할 수 있는데 이를 이용하여 모수에 대한 유의성 검정을 수행할 수 있게 된다.</p>
+<p>여기서 $L_{\mathcal{M}}$은 <strong>최대화된 가능도 값</strong>을 의미한다. $L_S$란 <strong>포화모형(Saturated model)에서의 최대화된 가능도 값</strong>을 의미한다. 포화모형이란 자료 하나당 모수를 하나씩 대응시켜 perfect fit을 가져오는 모형을 의미한다. 위 deviance값이 작을 수록 모형의 적합도가 높은 것으로 평가한다. 적절한 가정 하에서 deviance값은 적절한 자유도를 가지는 <strong>카이제곱 분포</strong>로 근사할 수 있는데 이를 이용하여 모형에 대한 유의성 검정을 수행할 수 있게 된다.</p>
 <ul>
 <li>$D_{\mathcal{M}} \sim \chi^2_{(K)}$</li>
 </ul>
@@ -1681,7 +1681,11 @@ $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p값은 0.3374로 유의미한 변화(D감소)를 가져오지 않았다.</p>
+<ul>
+<li>p값은 0.3374로 유의미한 변화(D감소)를 가져오지 않았다.</li>
+<li>자유도도 1로, 파라메터 차이도 1이다.</li>
+<li>$H_0: \beta_\eta$ vs $H_1 : \beta_\eta \ne 0$</li>
+</ul>
 
 </div>
 </div>
@@ -1763,6 +1767,17 @@ $$D_M=−2 \log \big( \frac{L_{\mathcal{M}}}{L_S} \big)$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>logistic의 필수 step은 아니다.</li>
+<li>가장 잘 적합하는 $\hat{\beta}$ 잘 찾았나? </li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1833,6 +1848,17 @@ Traceback:
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>위 결과 보는데 obserded와 expected 값의 차이가 너무 커서 확인 후 알려주신대~</li>
+<li>p값도 좋지 않았다.(낮았다.)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The logistic model fits data well? : Hosmer-Lemeshow test</p>
 <p><a href="https://en.wikipedia.org/wiki/Hosmer%E2%80%93Lemeshow_test">https://en.wikipedia.org/wiki/Hosmer%E2%80%93Lemeshow_test</a></p>
 
@@ -1854,12 +1880,22 @@ Traceback:
 <p>로지스틱 모형이 가장 폭넓게 쓰이지만 다른 연결함수들을 고려할 수도 있다. 단, 연결함수는 다음의 성질을 만족해야 할 것이다.</p>
 <ul>
 <li>증가함수</li>
-<li>적절한 range를 보장</li>
+<li>적절한 range를 보장<ul>
+<li>$g(0,1) \to \cal{R}$ 실수 전체를 아우르면 좋겠다.</li>
+</ul>
+</li>
 </ul>
 <p>대체연결함수로 사용할 수 있는 것들에는 다음이 있다.</p>
 <ul>
-<li>Probit : $g=Φ^{−1}(p) , Φ : N(0,1)$의 CDF.</li>
-<li>Complementary log-log : $g=log(−log(1−p))$.</li>
+<li>Probit : $g=Φ^{−1}(p) , Φ : N(0,1)$의 CDF.<ul>
+<li>CDF $Φ: \cal{R} \to (0,1)$</li>
+<li>$Φ^{-1} : (0,1) \to \cal{R}$</li>
+</ul>
+</li>
+<li>Complementary log-log : $g=log(−log(1−p))$.<ul>
+<li>$g(0,1) \to \cal{R}$</li>
+</ul>
+</li>
 <li>Cauchit : $g=\tan(π(p−0.5))$</li>
 </ul>
 
@@ -1904,6 +1940,34 @@ Traceback:
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>어떤 link function을 사용해야 하는가? 답은 없다.</li>
+<li>검은색 선: logit link<ul>
+<li>점(0,0.5)에 대해 대칭</li>
+</ul>
+</li>
+<li>빨간색 선: Probit : $Φ^{-1}(p_i) = Φ(X_i \beta)$<ul>
+<li>점(0,0.5)에 대해 대칭</li>
+</ul>
+</li>
+<li>파란색 선: Cauchit<ul>
+<li>점(0,0.5)에 대해 대칭</li>
+</ul>
+</li>
+<li>연두색 선: Complementary log-log : $g=log(−log(1−p))$<ul>
+<li>빨리 증가 -&gt; 천천히 증가</li>
+<li>연두색 선만 대칭이 아닌 것을 확인 할 수 있다.</li>
+<li>약물 반응 등</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1972,6 +2036,16 @@ Number of Fisher Scoring iterations: 5
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Complementary log-log</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2029,6 +2103,16 @@ Number of Fisher Scoring iterations: 5
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>prob</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2086,6 +2170,21 @@ Number of Fisher Scoring iterations: 5
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>estimate값이 달라졌다?<ul>
+<li>하지만 실제로 probability를 다르게 주진 않았다.</li>
+</ul>
+</li>
+<li>적합도가 <code>1748.7</code>로 가장 좋다고 볼 수 있지만. 소수점 차이 밖에 나지 않았자.</li>
+<li>적합도 좋은 것을 찾는게 좋으나, 큰 차이게 없다면 logistic을 쓰자!</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 
 
