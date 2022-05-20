@@ -216,6 +216,23 @@ window.onload = wrap_img;
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'),
+ PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -264,6 +281,22 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([9, 0, 0, ..., 3, 0, 5], dtype=uint8)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -320,22 +353,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-05-16 23:14:37.455432: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-05-16 23:14:37.921882: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22288 MB memory:  -&gt; device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:65:00.0, compute capability: 8.6
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -366,14 +383,14 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-  61/1875 [..............................] - ETA: 4s - loss: 11.0811 - accuracy: 0.2643 </pre>
+  53/1875 [..............................] - ETA: 5s - loss: 12.4897 - accuracy: 0.1285  </pre>
 </div>
 </div>
 
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-05-16 23:14:39.600608: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+<pre>2022-05-20 14:32:32.348693: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
 </pre>
 </div>
 </div>
@@ -381,25 +398,25 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1875/1875 [==============================] - 7s 3ms/step - loss: 1.8700 - accuracy: 0.4017
+<pre>1875/1875 [==============================] - 7s 3ms/step - loss: 1.7518 - accuracy: 0.4450
 Epoch 2/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.3279 - accuracy: 0.4386
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.0457 - accuracy: 0.5776
 Epoch 3/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.2846 - accuracy: 0.4532
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9631 - accuracy: 0.6084
 Epoch 4/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.2572 - accuracy: 0.4582
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9359 - accuracy: 0.6181
 Epoch 5/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.2376 - accuracy: 0.4637
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.9194 - accuracy: 0.6306
 Epoch 6/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.2256 - accuracy: 0.4686
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.8654 - accuracy: 0.6763
 Epoch 7/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 1.1040 - accuracy: 0.5220
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7548 - accuracy: 0.7106
 Epoch 8/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 0.9104 - accuracy: 0.6125
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7245 - accuracy: 0.7212
 Epoch 9/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 0.8703 - accuracy: 0.6280
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7194 - accuracy: 0.7192
 Epoch 10/10
-1875/1875 [==============================] - 6s 3ms/step - loss: 0.8587 - accuracy: 0.6300
+1875/1875 [==============================] - 6s 3ms/step - loss: 0.7291 - accuracy: 0.7203
 </pre>
 </div>
 </div>
@@ -409,7 +426,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f24882a6f80&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f849c00b550&gt;</pre>
 </div>
 
 </div>
@@ -440,7 +457,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.8412 - accuracy: 0.6323
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.7162 - accuracy: 0.7168
 </pre>
 </div>
 </div>
@@ -450,7 +467,87 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.8411927819252014, 0.6323000192642212]</pre>
+<pre>[0.7161707878112793, 0.7167999744415283]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span> <span class="c1"># 30 잘 안 맞는 거 아는데 처음이니까~ 해보자</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f849c4cce80&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.5354 - accuracy: 0.8199
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.5353805422782898, 0.8198999762535095]</pre>
 </div>
 
 </div>
@@ -496,25 +593,25 @@ Epoch 10/10
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 2.2242 - accuracy: 0.7443
+1875/1875 [==============================] - 7s 4ms/step - loss: 2.1847 - accuracy: 0.7394
 Epoch 2/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.6633 - accuracy: 0.7841
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.6391 - accuracy: 0.7886
 Epoch 3/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.5478 - accuracy: 0.8168
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.5177 - accuracy: 0.8232
 Epoch 4/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4863 - accuracy: 0.8323
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4437 - accuracy: 0.8418
 Epoch 5/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4664 - accuracy: 0.8398
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4260 - accuracy: 0.8482
 Epoch 6/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4459 - accuracy: 0.8458
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.4005 - accuracy: 0.8549
 Epoch 7/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4524 - accuracy: 0.8406
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3859 - accuracy: 0.8621
 Epoch 8/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4177 - accuracy: 0.8526
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3801 - accuracy: 0.8633
 Epoch 9/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4049 - accuracy: 0.8575
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3718 - accuracy: 0.8679
 Epoch 10/10
-1875/1875 [==============================] - 7s 4ms/step - loss: 0.4019 - accuracy: 0.8589
+1875/1875 [==============================] - 7s 4ms/step - loss: 0.3669 - accuracy: 0.8684
 </pre>
 </div>
 </div>
@@ -524,7 +621,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f2480217970&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f8420173e80&gt;</pre>
 </div>
 
 </div>
@@ -555,7 +652,7 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.4784 - accuracy: 0.8448
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.4506 - accuracy: 0.8496
 </pre>
 </div>
 </div>
@@ -565,7 +662,7 @@ Epoch 10/10
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.4784226417541504, 0.8447999954223633]</pre>
+<pre>[0.45062270760536194, 0.8496000170707703]</pre>
 </div>
 
 </div>
@@ -596,17 +693,17 @@ Epoch 10/10
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: "sequential_1"
+<pre>Model: "sequential_2"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- flatten_1 (Flatten)         (None, 784)               0         
+ flatten_2 (Flatten)         (None, 784)               0         
                                                                  
- dense_3 (Dense)             (None, 500)               392500    
+ dense_6 (Dense)             (None, 500)               392500    
                                                                  
- dense_4 (Dense)             (None, 500)               250500    
+ dense_7 (Dense)             (None, 500)               250500    
                                                                  
- dense_5 (Dense)             (None, 10)                5010      
+ dense_8 (Dense)             (None, 10)                5010      
                                                                  
 =================================================================
 Total params: 648,010
@@ -687,12 +784,12 @@ _________________________________________________________________
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-05-16 23:16:55.108670: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8201
-2022-05-16 23:16:55.864308: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
-2022-05-16 23:16:55.865030: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
-2022-05-16 23:16:55.865043: W tensorflow/stream_executor/gpu/asm_compiler.cc:80] Couldn't get ptxas version string: INTERNAL: Couldn't invoke ptxas --version
-2022-05-16 23:16:55.865744: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
-2022-05-16 23:16:55.865884: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] INTERNAL: Failed to launch ptxas
+<pre>2022-05-20 14:41:39.740405: I tensorflow/stream_executor/cuda/cuda_dnn.cc:366] Loaded cuDNN version 8201
+2022-05-20 14:41:40.496352: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-05-20 14:41:40.497384: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-05-20 14:41:40.497424: W tensorflow/stream_executor/gpu/asm_compiler.cc:80] Couldn't get ptxas version string: INTERNAL: Couldn't invoke ptxas --version
+2022-05-20 14:41:40.498473: I tensorflow/core/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2022-05-20 14:41:40.498597: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] INTERNAL: Failed to launch ptxas
 Relying on driver to perform ptx compilation. 
 Modify $PATH to customize ptxas location.
 This message will be only logged once.
@@ -703,15 +800,15 @@ This message will be only logged once.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1875/1875 [==============================] - 10s 4ms/step - loss: 1.4011 - accuracy: 0.7997
+<pre>1875/1875 [==============================] - 10s 4ms/step - loss: 1.4103 - accuracy: 0.8007
 Epoch 2/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.4403 - accuracy: 0.8587
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.4455 - accuracy: 0.8582
 Epoch 3/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3764 - accuracy: 0.8722
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3830 - accuracy: 0.8701
 Epoch 4/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3493 - accuracy: 0.8805
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3543 - accuracy: 0.8776
 Epoch 5/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3379 - accuracy: 0.8829
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3344 - accuracy: 0.8825
 </pre>
 </div>
 </div>
@@ -721,7 +818,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f2420234dc0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f8398740460&gt;</pre>
 </div>
 
 </div>
@@ -793,23 +890,23 @@ Epoch 5/5
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: "sequential_2"
+<pre>Model: "sequential_3"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- conv2d (Conv2D)             (None, 27, 27, 30)        150       
+ conv2d (Conv2D)             (32, 27, 27, 30)          150       
                                                                  
- max_pooling2d (MaxPooling2D  (None, 13, 13, 30)       0         
+ max_pooling2d (MaxPooling2D  (32, 13, 13, 30)         0         
  )                                                               
                                                                  
- conv2d_1 (Conv2D)           (None, 12, 12, 30)        3630      
+ conv2d_1 (Conv2D)           (32, 12, 12, 30)          3630      
                                                                  
- max_pooling2d_1 (MaxPooling  (None, 6, 6, 30)         0         
+ max_pooling2d_1 (MaxPooling  (32, 6, 6, 30)           0         
  2D)                                                             
                                                                  
- flatten_2 (Flatten)         (None, 1080)              0         
+ flatten_3 (Flatten)         (32, 1080)                0         
                                                                  
- dense_6 (Dense)             (None, 10)                10810     
+ dense_9 (Dense)             (32, 10)                  10810     
                                                                  
 =================================================================
 Total params: 14,590
@@ -872,12 +969,12 @@ _________________________________________________________________
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;keras.layers.convolutional.Conv2D at 0x7f2480050af0&gt;,
- &lt;keras.layers.pooling.MaxPooling2D at 0x7f25ec3cf220&gt;,
- &lt;keras.layers.convolutional.Conv2D at 0x7f24800517e0&gt;,
- &lt;keras.layers.pooling.MaxPooling2D at 0x7f2480051840&gt;,
- &lt;keras.layers.core.flatten.Flatten at 0x7f242024f940&gt;,
- &lt;keras.layers.core.dense.Dense at 0x7f242024fcd0&gt;]</pre>
+<pre>[&lt;keras.layers.convolutional.Conv2D at 0x7f83c8263a00&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f84344cb910&gt;,
+ &lt;keras.layers.convolutional.Conv2D at 0x7f8434527be0&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f83c82632e0&gt;,
+ &lt;keras.layers.core.flatten.Flatten at 0x7f83c82916f0&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f83c8291660&gt;]</pre>
 </div>
 
 </div>
@@ -949,7 +1046,7 @@ _________________________________________________________________
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-05-16 23:17:38.990942: W tensorflow/core/kernels/gpu_utils.cc:49] Failed to allocate memory for convolution redzone checking; skipping this check. This is benign and only means that we won't check cudnn for out-of-bounds reads and writes. This message will only be printed once.
+<pre>2022-05-20 14:44:38.071552: W tensorflow/core/kernels/gpu_utils.cc:49] Failed to allocate memory for convolution redzone checking; skipping this check. This is benign and only means that we won't check cudnn for out-of-bounds reads and writes. This message will only be printed once.
 </pre>
 </div>
 </div>
@@ -1009,15 +1106,15 @@ _________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.8541 - accuracy: 0.8019
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.8637 - accuracy: 0.7969
 Epoch 2/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3797 - accuracy: 0.8633
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3873 - accuracy: 0.8627
 Epoch 3/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3422 - accuracy: 0.8754
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3449 - accuracy: 0.8747
 Epoch 4/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3178 - accuracy: 0.8834
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3242 - accuracy: 0.8837
 Epoch 5/5
-1875/1875 [==============================] - 8s 4ms/step - loss: 0.3043 - accuracy: 0.8891
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.3030 - accuracy: 0.8894
 </pre>
 </div>
 </div>
@@ -1027,7 +1124,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f24201d4430&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f839869add0&gt;</pre>
 </div>
 
 </div>
@@ -1058,7 +1155,7 @@ Epoch 5/5
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 1s 4ms/step - loss: 0.3617 - accuracy: 0.8718
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 0.3729 - accuracy: 0.8755
 </pre>
 </div>
 </div>
@@ -1068,7 +1165,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0.36165037751197815, 0.8718000054359436]</pre>
+<pre>[0.3728622794151306, 0.8755000233650208]</pre>
 </div>
 
 </div>
@@ -2184,7 +2281,7 @@ array([[[15, 21],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.layers.convolutional.Conv2D at 0x7f24200d8d30&gt;</pre>
+<pre>&lt;keras.layers.convolutional.Conv2D at 0x7f8398687c70&gt;</pre>
 </div>
 
 </div>
@@ -2282,7 +2379,7 @@ array([[[ 0,  1,  2,  3],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [47]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [56]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">cnv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">XXX</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/utils/traceback_utils.py:67</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2374,17 +2471,17 @@ array([[[ 0.,  1.,  2.,  3.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(1, 3, 3, 1), dtype=float32, numpy=
-array([[[[ 5.3501616],
-         [ 6.310525 ],
-         [ 7.2708883]],
+array([[[[-1.0253725],
+         [-1.8695811],
+         [-2.7137897]],
 
-        [[ 9.191614 ],
-         [10.151978 ],
-         [11.112342 ]],
+        [[-4.402207 ],
+         [-5.246415 ],
+         [-6.090624 ]],
 
-        [[13.033068 ],
-         [13.993431 ],
-         [14.9537945]]]], dtype=float32)&gt;</pre>
+        [[-7.7790413],
+         [-8.62325  ],
+         [-9.467459 ]]]], dtype=float32)&gt;</pre>
 </div>
 
 </div>
@@ -2465,11 +2562,11 @@ array([[[0., 1., 2.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(1, 2, 2, 1), dtype=float32, numpy=
-array([[[[3.9940367],
-         [4.9544   ]],
+array([[[[-0.73827314],
+         [-1.5824816 ]],
 
-        [[6.875127 ],
-         [7.8354897]]]], dtype=float32)&gt;</pre>
+        [[-3.2708988 ],
+         [-4.1151075 ]]]], dtype=float32)&gt;</pre>
 </div>
 
 </div>
@@ -2541,9 +2638,9 @@ array([[[ 0.,  1.,  2.,  3.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(1, 3, 3), dtype=float32, numpy=
-array([[[ 5.3501616,  6.310525 ,  7.2708883],
-        [ 9.191614 , 10.151978 , 11.112342 ],
-        [13.033068 , 13.993431 , 14.9537945]]], dtype=float32)&gt;</pre>
+array([[[-1.0253725, -1.8695811, -2.7137897],
+        [-4.402207 , -5.246415 , -6.090624 ],
+        [-7.7790413, -8.62325  , -9.467459 ]]], dtype=float32)&gt;</pre>
 </div>
 
 </div>
@@ -3846,7 +3943,7 @@ array([[-0.08676198, -0.1595147 , -0.13450584],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.layers.convolutional.Conv2D at 0x7f2364760190&gt;</pre>
+<pre>&lt;keras.layers.convolutional.Conv2D at 0x7f8398699ed0&gt;</pre>
 </div>
 
 </div>
@@ -3880,7 +3977,7 @@ array([[-0.08676198, -0.1595147 , -0.13450584],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [162]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [97]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">cnv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">XXX</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-packages/keras/utils/traceback_utils.py:67</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -3895,7 +3992,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/stbda2022/lib/python3.10/site-
 <span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span style="color: rgb(98,98,98)">.</span>message <span style="color: rgb(98,98,98)">+</span><span style="color: rgb(98,98,98)">=</span> (<span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)"> name: </span><span style="color: rgb(175,0,0)">"</span> <span style="color: rgb(98,98,98)">+</span> name <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">"</span>)
 <span class="ansi-green-fg">-&gt; 7107</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> core<span style="color: rgb(98,98,98)">.</span>_status_to_exception(e) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span style="color: rgb(0,135,0)">None</span>
 
-<span class="ansi-red-fg">InvalidArgumentError</span>: Exception encountered when calling layer "conv2d_14" (type Conv2D).
+<span class="ansi-red-fg">InvalidArgumentError</span>: Exception encountered when calling layer "conv2d_7" (type Conv2D).
 
 Value for attr 'T' of int64 is not in the list of allowed values: half, bfloat16, float, double, int32
 	; NodeDef: {{node Conv2D}}; Op&lt;name=Conv2D; signature=input:T, filter:T -&gt; output:T; attr=T:type,allowed=[DT_HALF, DT_BFLOAT16, DT_FLOAT, DT_DOUBLE, DT_INT32]; attr=strides:list(int); attr=use_cudnn_on_gpu:bool,default=true; attr=padding:string,allowed=["SAME", "VALID", "EXPLICIT"]; attr=explicit_paddings:list(int),default=[]; attr=data_format:string,default="NHWC",allowed=["NHWC", "NCHW"]; attr=dilations:list(int),default=[1, 1, 1, 1]&gt; [Op:Conv2D]
@@ -4001,7 +4098,7 @@ Call arguments received:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;bound method Layer.get_weights of &lt;keras.layers.convolutional.Conv2D object at 0x7f2364760190&gt;&gt;</pre>
+<pre>&lt;bound method Layer.get_weights of &lt;keras.layers.convolutional.Conv2D object at 0x7f8398699ed0&gt;&gt;</pre>
 </div>
 
 </div>
@@ -5922,11 +6019,11 @@ array([[[0., 0., 0., 1., 1., 1.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(1, 5, 5), dtype=float32, numpy=
-array([[[ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798],
-        [ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798],
-        [ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798],
-        [ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798],
-        [ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798]]],
+array([[[0.       , 0.       , 1.4988861, 1.336632 , 1.336632 ],
+        [0.       , 0.       , 1.4988861, 1.336632 , 1.336632 ],
+        [0.       , 0.       , 1.4988861, 1.336632 , 1.336632 ],
+        [0.       , 0.       , 1.4988861, 1.336632 , 1.336632 ],
+        [0.       , 0.       , 1.4988861, 1.336632 , 1.336632 ]]],
       dtype=float32)&gt;</pre>
 </div>
 
@@ -5960,15 +6057,15 @@ array([[[ 0.       ,  0.       , -1.3357408, -1.2275798, -1.2275798],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;tf.Variable 'conv2d_22/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
-array([[[[-0.33915216]],
+<pre>&lt;tf.Variable 'conv2d_13/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
+array([[[[-0.51669824]],
 
-        [[-0.7177604 ]]],
+        [[ 0.6782736 ]]],
 
 
-       [[[ 0.447313  ]],
+       [[[ 0.3544441 ]],
 
-        [[-0.61798036]]]], dtype=float32)&gt;</pre>
+        [[ 0.8206125 ]]]], dtype=float32)&gt;</pre>
 </div>
 
 </div>
@@ -5987,7 +6084,7 @@ array([[[[-0.33915216]],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="n">x</span>
 </pre></div>
 
     </div>
@@ -6036,7 +6133,7 @@ array([[[[-0.33915216]],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;tf.Variable 'conv2d_22/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
+<pre>[&lt;tf.Variable 'conv2d_13/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
  array([[[[-1.]],
  
          [[ 1.]]],
@@ -6045,7 +6142,7 @@ array([[[[-0.33915216]],
         [[[-1.]],
  
          [[ 1.]]]], dtype=float32)&gt;,
- &lt;tf.Variable 'conv2d_22/bias:0' shape=(1,) dtype=float32, numpy=array([0.], dtype=float32)&gt;]</pre>
+ &lt;tf.Variable 'conv2d_13/bias:0' shape=(1,) dtype=float32, numpy=array([0.], dtype=float32)&gt;]</pre>
 </div>
 
 </div>
