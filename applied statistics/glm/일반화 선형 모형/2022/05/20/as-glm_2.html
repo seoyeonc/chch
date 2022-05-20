@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -190,6 +190,18 @@ $$η_i=g(p_i)=β_0+β_1x_{i1}+⋯+β_qx_{qi}$$
 <blockquote>
 <p><code>Challenger</code> data :1986년에 발사직후 폭발한 우주왕복선 챌린저호는 엔진상의 부품 중 O-ring에 문제가 있었던 것으로 밝혀졌다. 23회의 이번 mission에서 관측된 데이터가 기록되었다. 왕복선 내에는 총 6개의 O-ring 부품이 있으며 온도에 따라서 부품이상작동 확률이 변하는 것으로 알려져 있다. 발사 당시 온도는 31F로 기룩되었다.</p>
 </blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\chi_i \sim B(6,p_i), i=1,2,3$</p>
+<ul>
+<li>6개 관측</li>
+<li>p는 정상작동확률</li>
+</ul>
 
 </div>
 </div>
@@ -323,6 +335,16 @@ $$η_i=g(p_i)=β_0+β_1x_{i1}+⋯+β_qx_{qi}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이상작동한 것이면 1씩 증가</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -359,7 +381,10 @@ $$η_i=g(p_i)=β_0+β_1x_{i1}+⋯+β_qx_{qi}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>여기서 O-ring의 이상작동 확률이 온도와 어떻게 연관되는지를 살펴보고자 한다.</p>
+<p>여기서 O-ring의 이상작동 확률이 <strong>온도</strong>와 어떻게 연관되는지를 살펴보고자 한다.</p>
+<ul>
+<li>6-damage의 뜻은 이상반응이 없는 것이라는 뜻.</li>
+</ul>
 
 </div>
 </div>
@@ -436,6 +461,16 @@ Deviance = 16.91228 Null Deviance = 38.89766 (Difference = 21.98538)
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>적합된 logistic curve이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -593,6 +628,18 @@ Deviance = 54.75942 Null Deviance = 76.74480 (Difference = 21.98538)
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>Difference</code>가 <code>21.98538</code>으로 같은 모습!</li>
+<li>모형의 적합도에서는 차이가 중요하다.</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -684,6 +731,22 @@ Deviance = 54.75942 Null Deviance = 76.74480 (Difference = 21.98538)
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>주어진 선형 함수에서 event 확률을 적절하게 추정하자.</li>
+<li>cut-off (threshold)에 따라 달라질 수 있다. 즉, 영향을 미친다.</li>
+<li>$\hat{p_i} \in (0,1) \to \hat{Y_i} \in {0,1}$<ul>
+<li>ex) $\hat{p_i} = 0.2 \to 0$</li>
+<li>0에 가까우니 0으로 볼래! 하지만 이것은 정해진 것이 아니다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="3.-다항로지스틱-모형">
 <a class="anchor" href="#3.-%EB%8B%A4%ED%95%AD%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 다항로지스틱 모형<a class="anchor-link" href="#3.-%EB%8B%A4%ED%95%AD%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95"> </a>
 </h2>
@@ -698,7 +761,11 @@ Deviance = 54.75942 Null Deviance = 76.74480 (Difference = 21.98538)
 <p>
 $$log\frac{p_j}{p_K}=β_{j0}+∑_{s=1}^{q}β_{js}X_s,  j=1,2,…,K−1$$
 </p>
-<p>위 모형에서 $K$번째 범주가 기준(reference level)으로 설정되었다. 모수의 추정 등은 최대가능도추정법 등을 활용하여 가능하다. 만약 $K=2$이면 위 모형은 binary response에서의 로지스틱 모형과 일치한다.</p>
+<ul>
+<li>$p_j$는 변화하지만 $p_K$는 고정이다.</li>
+<li>$(q+1) \times (k-1)$ 개의 $\beta$가 존재한다.</li>
+</ul>
+<p>위 모형에서 $K$번째 범주가 기준(reference level)으로 설정되었다. 모수의 추정 등은 최대가능도추정법 등을 활용하여 가능하다. 만약 $K=2$이면 <strong>위 모형은 binary response에서의 로지스틱 모형과 일치</strong>한다.</p>
 <p>이러한 다항로지스틱 모형은 (이항)로지스틱 모형의 자연스러운 확장으로 볼 수 있으며 다수준을 가지는 분류문제에의 활용도 가능하다.</p>
 <p>때로는 다항반응변수의 경우 특정수준을 제외한 다른 수준을 병합하여 binary문제로 바꾸어 모형화 하고, 이러한 방식을 모든 수준에 대해서 반복하는 방식으로 접근하기도 한다.</p>
 
