@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      6 min read
     
 </span></p>
 
@@ -151,6 +151,16 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h3"><a href="#2.-Fitting-a-GLM">2. Fitting a GLM </a></li>
 <li class="toc-entry toc-h3"><a href="#3.-Hypothesis-tests">3. Hypothesis tests </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-GLM-Diagnostics">4. GLM Diagnostics </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#4.1.-Residuals">4.1. Residuals </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#4.1.1.-Pearson-residual">4.1.1. Pearson residual </a></li>
+<li class="toc-entry toc-h5"><a href="#4.1.2.-Deviance-residual">4.1.2. Deviance residual </a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -371,10 +381,654 @@ $$\eta = g(\mu) = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p = x^\top \beta$$
 <p>
 $$1[log(y,\phi|y) - log(\hat{\mu},\phi|y)]$$
 </p>
+<ul>
+<li>적합도가 좋으면 이 값이 작아진다.</li>
+</ul>
 <p>이를 deviance라 하고 다음과 같이 쓴다.</p>
 <p>
 $$D(y,\hat{\mu})$$
 </p>
+<ul>
+<li>$\sqrt{d_i}$ : Deviance type residual</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th>GLM</th>
+<th>Deviance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gaussian_Normal</td>
+<td>$\sum_i (y_i - \hat{\mu}_i)^2$ $\approx$ SSE</td>
+</tr>
+<tr>
+<td>Poisson</td>
+<td>$2\sum_i[y_i log(y_i/\hat{\mu}-i) - (y_i - \hat{\mu}_i)]$ $ =2 생략하고 \sum d_i = \sum (\sqrt{d_i})^2$,제곱하는 개념으로 보고 root씌운 것을 잔차라고 놓는다. $\sqrt{d_i}$는 양수/음수 가능</td>
+</tr>
+<tr>
+<td>Binomial</td>
+<td>$2\sum_i [y_i(log(y_i/\hat{\mu}_i) + (m-y_i)log((m-y_i)/(m-\hat{\mu}_i))]$</td>
+</tr>
+<tr>
+<td>Gamma</td>
+<td>$2\sum_i[-log(y_i/\hat{\mu}_i) + (y_i - \hat{\mu}_i)/\hat{\mu}_i]]$</td>
+</tr>
+<tr>
+<td>Inverse Gaussian</td>
+<td>$\sum_i (y_i - \hat{\mu}_i)^2/(\hat{\mu}^{2}_{i} y_i)$</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이는 선형모형에거 SSE를 GLM 하에서 일반화시킨 것으로 간주할 수 있다.</p>
+<p>적합도를 측정하는 또 다른 방법 중 하나는 Pearson’s $X^2$ 통계량을 고려하는 것이다.</p>
+<p>
+$$X^2 = \sum_i \frac{(y_i - \hat{\mu_i})^2}{V(\hat{\mu}_i)}$$
+</p>
+<ul>
+<li>일종의 잔차 표준화이다.</li>
+<li>표준화 $\big(\frac{X-\mu}{\sigma}\big)^2 = \frac{(X-\mu)^2}{\sigma} \sim \chi^2_{(1)}, Z \sim \chi^2_{(1)}$</li>
+<li>값이 클 수록 적합도가 안 좋다는 뜻, 값이 작을수록 적합도가 좋다는 뜻</li>
+</ul>
+<p>더 큰 모형을 $Ω$ 작은 모형을 $ω$라 할 때, scaled deviance의 차이 $D_ω−D_Ω$는 점근적으로 $χ^2$ 분포를library(faraway) 따르게 된다. 이 때 자유도는 두 모형의 모수 개수의 차이이다.</p>
+<ul>
+<li>적합도 평가 뿐만이 아니라 차이의 카이제곱분포를 따름을 보이고 유의성 평가까지 할 것.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">faraway</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>conc는 살충제 농도이고,</li>
+<li>binomial로 놓은 이유는 생존을 이진수로 나타내니까</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">bliss</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s">"faraway"</span><span class="p">)</span>
+<span class="n">modl</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">dead</span><span class="p">,</span><span class="n">alive</span><span class="p">)</span> <span class="o">~</span> <span class="n">conc</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">binomial</span><span class="p">,</span> <span class="n">bliss</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">modl</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+glm(formula = cbind(dead, alive) ~ conc, family = binomial, data = bliss)
+
+Deviance Residuals: 
+      1        2        3        4        5  
+-0.4510   0.3597   0.0000   0.0643  -0.2045  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -2.3238     0.4179  -5.561 2.69e-08 ***
+conc          1.1619     0.1814   6.405 1.51e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 64.76327  on 4  degrees of freedom
+Residual deviance:  0.37875  on 3  degrees of freedom
+AIC: 20.854
+
+Number of Fisher Scoring iterations: 4
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>conc의 estimate가 양수이다. 1.1619</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">1</span><span class="o">-</span><span class="nf">pchisq</span><span class="p">(</span><span class="nf">deviance</span><span class="p">(</span><span class="n">modl</span><span class="p">),</span><span class="nf">df.residual</span><span class="p">(</span><span class="n">modl</span><span class="p">))</span>  <span class="c1"># test for goodness of fit</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.944596758540894
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>함수 2개 쓰는 2차 함수 사용</li>
+<li>test='chi' 없어도 된대</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">modl2</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">dead</span><span class="p">,</span><span class="n">alive</span><span class="p">)</span> <span class="o">~</span> <span class="n">conc</span><span class="o">+</span><span class="nf">I</span><span class="p">(</span><span class="n">conc</span><span class="o">^</span><span class="m">2</span><span class="p">),</span> <span class="n">family</span><span class="o">=</span><span class="n">binomial</span><span class="p">,</span> <span class="n">bliss</span><span class="p">)</span>
+<span class="nf">anova</span><span class="p">(</span><span class="n">modl</span><span class="p">,</span><span class="n">modl2</span><span class="p">,</span><span class="n">test</span><span class="o">=</span><span class="s">"Chi"</span><span class="p">)</span>   <span class="c1"># test for additional parameter</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Resid. Df</th>
+<th scope="col">Resid. Dev</th>
+<th scope="col">Df</th>
+<th scope="col">Deviance</th>
+<th scope="col">Pr(&gt;Chi)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">1</th>
+<td>3</td>
+<td>0.3787483</td>
+<td>NA</td>
+<td>       NA</td>
+<td>       NA</td>
+</tr>
+	<tr>
+<th scope="row">2</th>
+<td>2</td>
+<td>0.1954940</td>
+<td> 1</td>
+<td>0.1832542</td>
+<td>0.6685914</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>0.6685914로 유의하지 않음.</li>
+<li>유의미하게 적합도를 높이지 않는다.</li>
+<li>굳이 모델 2로 확장하지 않아도 된다.</li>
+<li>모델 2가 안 좋은 모델은 아님</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">modl2</span><span class="p">,</span><span class="n">test</span><span class="o">=</span><span class="s">"Chi"</span><span class="p">)</span>        <span class="c1"># test for additional parameter</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 3 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Deviance</th>
+<th scope="col">Resid. Df</th>
+<th scope="col">Resid. Dev</th>
+<th scope="col">Pr(&gt;Chi)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">NULL</th>
+<td>NA</td>
+<td>        NA</td>
+<td>4</td>
+<td>64.7632662</td>
+<td>          NA</td>
+</tr>
+	<tr>
+<th scope="row">conc</th>
+<td> 1</td>
+<td>64.3845179</td>
+<td>3</td>
+<td> 0.3787483</td>
+<td>1.023593e-15</td>
+</tr>
+	<tr>
+<th scope="row">I(conc^2)</th>
+<td> 1</td>
+<td> 0.1832542</td>
+<td>2</td>
+<td> 0.1954940</td>
+<td>6.685914e-01</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-GLM-Diagnostics">
+<a class="anchor" href="#4.-GLM-Diagnostics" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. GLM Diagnostics<a class="anchor-link" href="#4.-GLM-Diagnostics"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>선형모형에서 잔차를 중심으로 모형진단을 했듯이 GLM에서도 비슷한 절차가 필요할 수 있다.</p>
+<ul>
+<li>이 모형 진단은 중요도가 떨어지긴 한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.1.-Residuals">
+<a class="anchor" href="#4.1.-Residuals" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. Residuals<a class="anchor-link" href="#4.1.-Residuals"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>잔차는 response 상에서 관측치와 모형에 의한 적합치 사이의 차이를 의미한다. 선형모형에서 정의했던 것을 확장하여 잔차를 GLM에서 정의하기도 한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="4.1.1.-Pearson-residual">
+<a class="anchor" href="#4.1.1.-Pearson-residual" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1.1. Pearson residual<a class="anchor-link" href="#4.1.1.-Pearson-residual"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>선형모형에서의 표준화잔차와 유사한 개념으로 이해할 수 있다.</p>
+<p>
+$$r_P = \frac{y-\hat{\mu}}{\sqrt{V(\mu})}$$
+</p>
+<p>여기서 $V(\mu)=b''(\theta)$이다. 또한 $\sum r^{2}_{P}=X^2$가 된다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="4.1.2.-Deviance-residual">
+<a class="anchor" href="#4.1.2.-Deviance-residual" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1.2. Deviance residual<a class="anchor-link" href="#4.1.2.-Deviance-residual"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Deviance로부터 정의되는 타입의 잔차이다.</p>
+<p>
+$$sum r^{2}_{D} = Deviance = \sum d_i$$
+</p>
+<p>따라서</p>
+<p>
+$$r_D = sign(y - \hat{\mu})\sqrt{d_i}$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">residuals</span><span class="p">(</span><span class="n">modl</span><span class="p">)</span>     <span class="c1"># deviance residual</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style>&lt;dl class=dl-inline&gt;<dt>1</dt>
+<dd>-0.451015104787619</dd>
+<dt>2</dt>
+<dd>0.359696068619502</dd>
+<dt>3</dt>
+<dd>0</dd>
+<dt>4</dt>
+<dd>0.0643023497984944</dd>
+<dt>5</dt>
+<dd>-0.204493466553935</dd>&lt;/dl&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">residuals</span><span class="p">(</span><span class="n">modl</span><span class="p">,</span><span class="s">"pearson"</span><span class="p">)</span> <span class="c1"># Pearson residual</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style>&lt;dl class=dl-inline&gt;<dt>1</dt>
+<dd>-0.432523418155746</dd>
+<dt>2</dt>
+<dd>0.364372922057795</dd>
+<dt>3</dt>
+<dd>-3.64856516669287e-15</dd>
+<dt>4</dt>
+<dd>0.0641468727776392</dd>
+<dt>5</dt>
+<dd>-0.208106840520636</dd>&lt;/dl&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">residuals</span><span class="p">(</span><span class="n">modl</span><span class="p">,</span><span class="s">"response"</span><span class="p">)</span> <span class="c1"># response residual</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style>&lt;dl class=dl-inline&gt;<dt>1</dt>
+<dd>-0.0225050988094856</dd>
+<dt>2</dt>
+<dd>0.0283435309523039</dd>
+<dt>3</dt>
+<dd>-3.33066907387547e-16</dd>
+<dt>4</dt>
+<dd>0.00498980238102908</dd>
+<dt>5</dt>
+<dd>-0.010828234523848</dd>&lt;/dl&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">bliss</span><span class="o">$</span><span class="n">dead</span><span class="o">/</span><span class="m">30</span> <span class="o">-</span> <span class="nf">fitted</span><span class="p">(</span><span class="n">modl</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style>&lt;dl class=dl-inline&gt;<dt>1</dt>
+<dd>-0.0225050988094856</dd>
+<dt>2</dt>
+<dd>0.0283435309523039</dd>
+<dt>3</dt>
+<dd>-3.33066907387547e-16</dd>
+<dt>4</dt>
+<dd>0.00498980238102908</dd>
+<dt>5</dt>
+<dd>-0.010828234523848</dd>&lt;/dl&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>QQ plot은 선형모형에서 정규성을 확인하기 위해 사용하는 시각화 방법 중 하나였다. GLM에서는 분포 자체를 확인하기 위한 목적보다는 이상점의 존재를 확인하기 위한 목적으로 보통 활용된다.</p>
 
 </div>
 </div>
