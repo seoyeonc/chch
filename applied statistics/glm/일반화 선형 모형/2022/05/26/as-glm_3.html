@@ -663,19 +663,6 @@ Number of Fisher Scoring iterations: 4
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>0.6685914로 유의하지 않음.</li>
-<li>유의미하게 적합도를 높이지 않는다.</li>
-<li>굳이 모델 2로 확장하지 않아도 된다.</li>
-<li>모델 2가 안 좋은 모델은 아님</li>
-</ul>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -758,6 +745,19 @@ Number of Fisher Scoring iterations: 4
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>0.6685914로 유의하지 않음.</li>
+<li>유의미하게 적합도를 높이지 않는다.</li>
+<li>굳이 모델 2로 확장하지 않아도 된다.</li>
+<li>모델 2가 안 좋은 모델은 아님</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="4.-GLM-Diagnostics">
 <a class="anchor" href="#4.-GLM-Diagnostics" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. GLM Diagnostics<a class="anchor-link" href="#4.-GLM-Diagnostics"> </a>
 </h3>
@@ -788,6 +788,9 @@ Number of Fisher Scoring iterations: 4
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>잔차는 response 상에서 관측치와 모형에 의한 적합치 사이의 차이를 의미한다. 선형모형에서 정의했던 것을 확장하여 잔차를 GLM에서 정의하기도 한다.</p>
+<ul>
+<li>사실 로지스틱하고 진단을 잘 안 하긴 하다.</li>
+</ul>
 
 </div>
 </div>
@@ -808,7 +811,16 @@ Number of Fisher Scoring iterations: 4
 <p>
 $$r_P = \frac{y-\hat{\mu}}{\sqrt{V(\mu})}$$
 </p>
+<ul>
+<li>피어슨 타입 잔차</li>
+</ul>
 <p>여기서 $V(\mu)=b''(\theta)$이다. 또한 $\sum r^{2}_{P}=X^2$가 된다.</p>
+<ul>
+<li>$y = X\beta' + \epsilon$에서 $\epsilon \sim N(,)$임을 확닉하나? $|to$ $y$랑 분포 맞추자.</li>
+<li>연속 $y \to \sqrt{y}. log y$</li>
+<li>이진 $y \to $ ? $\epsilon$(Bernoulli) or $\epsilon$(Binary)</li>
+<li>count $y \to $ ? $\epsilon$(poisson)</li>
+</ul>
 
 </div>
 </div>
@@ -826,13 +838,24 @@ $$r_P = \frac{y-\hat{\mu}}{\sqrt{V(\mu})}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Deviance로부터 정의되는 타입의 잔차이다.</p>
+<ul>
+<li>Deviance는 SSE의 일반화 버전</li>
+<li>$\sum^{n}_{i=1} e^{2}_{i}$ 잔차제곱합 일반화 = 총합의 개념 $y-\hat{\mu}&gt;0$</li>
+</ul>
 <p>
 $$sum r^{2}_{D} = Deviance = \sum d_i$$
 </p>
+<ul>
+<li>$d_i$를 Deviance의 제곱이라 보자</li>
+</ul>
 <p>따라서</p>
 <p>
 $$r_D = sign(y - \hat{\mu})\sqrt{d_i}$$
 </p>
+<ul>
+<li>$y&gt;\hat{\mu} \to$ residual &gt;0</li>
+<li>$y&lt;\hat{\mu} \to$ residual &lt;0</li>
+</ul>
 
 </div>
 </div>
@@ -1028,7 +1051,7 @@ $$r_D = sign(y - \hat{\mu})\sqrt{d_i}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>QQ plot은 선형모형에서 정규성을 확인하기 위해 사용하는 시각화 방법 중 하나였다. GLM에서는 분포 자체를 확인하기 위한 목적보다는 이상점의 존재를 확인하기 위한 목적으로 보통 활용된다.</p>
+<p>QQ plot은 선형모형에서 정규성을 확인하기 위해 사용하는 시각화 방법 중 하나였다. GLM에서는 분포 자체를 확인하기 위한 목적보다는 <strong>이상점의 존재를 확인하기 위한 목적으로 보통 활용</strong>된다.</p>
 
 </div>
 </div>
