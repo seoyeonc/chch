@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>빅데이터분석 특강 기말고사 예상문제 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="빅데이터분석 특강 기말고사 예상문제" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-13T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html","@type":"BlogPosting","headline":"빅데이터분석 특강 기말고사 예상문제","dateModified":"2022-06-13T00:00:00-05:00","datePublished":"2022-06-13T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">빅데이터분석 특강 기말고사 예상문제</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-13T00:00:00-05:00" itemprop="datePublished">
+        Jun 13, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Big Data Analysis">Special Topics in Big Data Analysis</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-06-13-bds기말고사-예상문제.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-06-13-bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-06-13-bds기말고사-예상문제.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#imports">imports </a></li>
+<li class="toc-entry toc-h2"><a href="#1.-Fashion_mnist,-DNN-(30점)">1. Fashion_mnist, DNN (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#2.-Fashion_mnist,-CNN-(30점)">2. Fashion_mnist, CNN (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#3.-CIFAR10-(30점)">3. CIFAR10 (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#4.-다음을-읽고-물음에-답하라.-(10점)">4. 다음을 읽고 물음에 답하라. (10점) </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-06-13-bds기말고사-예상문제.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="imports">
+<a class="anchor" href="#imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>imports<a class="anchor-link" href="#imports"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span> 
+<span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="k">def</span> <span class="nf">gv</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="k">return</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="s1">'digraph G{ rankdir="LR"'</span><span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">';}'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Fashion_mnist,-DNN-(30점)">
+<a class="anchor" href="#1.-Fashion_mnist,-DNN-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Fashion_mnist, DNN (30점)<a class="anchor-link" href="#1.-Fashion_mnist,-DNN-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> <code>tf.keras.datasets.fashion_mnist.load_data()</code>을 이용하여 fashion_mnist 자료를 불러온 뒤 아래의 네트워크를 이용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>평가지표로 accuracy를 이용할 것 </li>
+<li>epoch은 10으로 설정할 것 </li>
+<li>optimizer는 adam을 이용할 것 </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gv</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">splines=line</span>
+<span class="s1">subgraph cluster_1{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "x1"</span>
+<span class="s1">    "x2"</span>
+<span class="s1">    ".."</span>
+<span class="s1">    "x784"</span>
+<span class="s1">    label = "Layer 0"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_2{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "x1" -&gt; "node1"</span>
+<span class="s1">    "x2" -&gt; "node1"</span>
+<span class="s1">    ".." -&gt; "node1"</span>
+<span class="s1">    "x784" -&gt; "node1"</span>
+<span class="s1">    </span>
+<span class="s1">    "x1" -&gt; "node2"</span>
+<span class="s1">    "x2" -&gt; "node2"</span>
+<span class="s1">    ".." -&gt; "node2"</span>
+<span class="s1">    "x784" -&gt; "node2"</span>
+<span class="s1">    </span>
+<span class="s1">    "x1" -&gt; "..."</span>
+<span class="s1">    "x2" -&gt; "..."</span>
+<span class="s1">    ".." -&gt; "..."</span>
+<span class="s1">    "x784" -&gt; "..."</span>
+
+<span class="s1">    "x1" -&gt; "node20"</span>
+<span class="s1">    "x2" -&gt; "node20"</span>
+<span class="s1">    ".." -&gt; "node20"</span>
+<span class="s1">    "x784" -&gt; "node20"</span>
+
+
+<span class="s1">    label = "Layer 1: relu"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_3{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "node1" -&gt; "node1 "</span>
+<span class="s1">    "node2" -&gt; "node1 "</span>
+<span class="s1">    "..." -&gt; "node1 "</span>
+<span class="s1">    "node20" -&gt; "node1 "</span>
+<span class="s1">    </span>
+<span class="s1">    "node1" -&gt; "node2 "</span>
+<span class="s1">    "node2" -&gt; "node2 "</span>
+<span class="s1">    "..." -&gt; "node2 "</span>
+<span class="s1">    "node20" -&gt; "node2 "</span>
+<span class="s1">    </span>
+<span class="s1">    "node1" -&gt; "... "</span>
+<span class="s1">    "node2" -&gt; "... "</span>
+<span class="s1">    "..." -&gt; "... "</span>
+<span class="s1">    "node20" -&gt; "... "</span>
+
+<span class="s1">    "node1" -&gt; "node30 "</span>
+<span class="s1">    "node2" -&gt; "node30 "</span>
+<span class="s1">    "..." -&gt; "node30 "</span>
+<span class="s1">    "node20" -&gt; "node30 "</span>
+
+
+<span class="s1">    label = "Layer 2: relu"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_4{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+
+<span class="s1">    "node1 " -&gt; "y10"</span>
+<span class="s1">    "node2 " -&gt; "y10"</span>
+<span class="s1">    "... " -&gt; "y10"</span>
+<span class="s1">    "node30 " -&gt; "y10"</span>
+<span class="s1">    </span>
+<span class="s1">    "node1 " -&gt; "y1"</span>
+<span class="s1">    "node2 " -&gt; "y1"</span>
+<span class="s1">    "... " -&gt; "y1"</span>
+<span class="s1">    "node30 " -&gt; "y1"</span>
+<span class="s1">    </span>
+<span class="s1">    "node1 " -&gt; "."</span>
+<span class="s1">    "node2 " -&gt; "."</span>
+<span class="s1">    "... " -&gt; "."</span>
+<span class="s1">    "node30 " -&gt; "."</span>
+<span class="s1">    </span>
+<span class="s1">    label = "Layer 3: softmax"</span>
+<span class="s1">}</span>
+<span class="s1">'''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 3.0.0 (20220315.2325)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="516pt" height="261pt" viewbox="0.00 0.00 516.37 261.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 257)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-257 512.37,-257 512.37,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="8,-8 8,-245 91.59,-245 91.59,-8 8,-8"></polygon>
+<text text-anchor="middle" x="49.8" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 0</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="111.59,-8 111.59,-245 219.29,-245 219.29,-8 111.59,-8"></polygon>
+<text text-anchor="middle" x="165.44" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 1: relu</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="239.29,-8 239.29,-245 351.48,-245 351.48,-8 239.29,-8"></polygon>
+<text text-anchor="middle" x="295.38" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 2: relu</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="371.48,-35 371.48,-218 508.37,-218 508.37,-35 371.48,-35"></polygon>
+<text text-anchor="middle" x="439.93" y="-202.8" font-family="Times,serif" font-size="14.00">Layer 3: softmax</text>
+</g>
+<!-- x1 -->
+<g id="node1" class="node">
+<title>x1</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-196" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-192.3" font-family="Times,serif" font-size="14.00">x1</text>
+</g>
+<!-- node1 -->
+<g id="node5" class="node">
+<title>node1</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-196" rx="38.99" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-192.3" font-family="Times,serif" font-size="14.00">node1</text>
+</g>
+<!-- x1&#45;&gt;node1 -->
+<g id="edge1" class="edge">
+<title>x1-&gt;node1</title>
+<path fill="none" stroke="black" d="M76.87,-196C88.57,-196 102.75,-196 116.27,-196"></path>
+<polygon fill="black" stroke="black" points="116.42,-199.5 126.42,-196 116.42,-192.5 116.42,-199.5"></polygon>
+</g>
+<!-- node2 -->
+<g id="node6" class="node">
+<title>node2</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-142" rx="38.99" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-138.3" font-family="Times,serif" font-size="14.00">node2</text>
+</g>
+<!-- x1&#45;&gt;node2 -->
+<g id="edge5" class="edge">
+<title>x1-&gt;node2</title>
+<path fill="none" stroke="black" d="M72.17,-185.84C88.01,-178.32 109.97,-167.88 128.5,-159.08"></path>
+<polygon fill="black" stroke="black" points="130.01,-162.23 137.54,-154.78 127.01,-155.91 130.01,-162.23"></polygon>
+</g>
+<!-- ... -->
+<g id="node7" class="node">
+<title>...</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-84.3" font-family="Times,serif" font-size="14.00">...</text>
+</g>
+<!-- x1&#45;&gt;... -->
+<g id="edge9" class="edge">
+<title>x1-&gt;...</title>
+<path fill="none" stroke="black" d="M66.12,-181.43C85.53,-163 119.12,-131.07 141.56,-109.74"></path>
+<polygon fill="black" stroke="black" points="144.16,-112.11 148.99,-102.68 139.33,-107.03 144.16,-112.11"></polygon>
+</g>
+<!-- node20 -->
+<g id="node8" class="node">
+<title>node20</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-34" rx="44.69" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-30.3" font-family="Times,serif" font-size="14.00">node20</text>
+</g>
+<!-- x1&#45;&gt;node20 -->
+<g id="edge13" class="edge">
+<title>x1-&gt;node20</title>
+<path fill="none" stroke="black" d="M62.11,-179.87C81.8,-151.81 122.52,-93.76 146.23,-59.97"></path>
+<polygon fill="black" stroke="black" points="149.27,-61.72 152.15,-51.52 143.54,-57.7 149.27,-61.72"></polygon>
+</g>
+<!-- x2 -->
+<g id="node2" class="node">
+<title>x2</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-142" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-138.3" font-family="Times,serif" font-size="14.00">x2</text>
+</g>
+<!-- x2&#45;&gt;node1 -->
+<g id="edge2" class="edge">
+<title>x2-&gt;node1</title>
+<path fill="none" stroke="black" d="M72.17,-152.16C88.01,-159.68 109.97,-170.12 128.5,-178.92"></path>
+<polygon fill="black" stroke="black" points="127.01,-182.09 137.54,-183.22 130.01,-175.77 127.01,-182.09"></polygon>
+</g>
+<!-- x2&#45;&gt;node2 -->
+<g id="edge6" class="edge">
+<title>x2-&gt;node2</title>
+<path fill="none" stroke="black" d="M76.87,-142C88.57,-142 102.75,-142 116.27,-142"></path>
+<polygon fill="black" stroke="black" points="116.42,-145.5 126.42,-142 116.42,-138.5 116.42,-145.5"></polygon>
+</g>
+<!-- x2&#45;&gt;... -->
+<g id="edge10" class="edge">
+<title>x2-&gt;...</title>
+<path fill="none" stroke="black" d="M72.17,-131.84C89.52,-123.6 114.21,-111.87 133.69,-102.61"></path>
+<polygon fill="black" stroke="black" points="135.24,-105.75 142.77,-98.3 132.24,-99.43 135.24,-105.75"></polygon>
+</g>
+<!-- x2&#45;&gt;node20 -->
+<g id="edge14" class="edge">
+<title>x2-&gt;node20</title>
+<path fill="none" stroke="black" d="M66.12,-127.43C84.98,-109.51 117.25,-78.84 139.66,-57.55"></path>
+<polygon fill="black" stroke="black" points="142.29,-59.88 147.13,-50.45 137.47,-54.8 142.29,-59.88"></polygon>
+</g>
+<!-- .. -->
+<g id="node3" class="node">
+<title>..</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-84.3" font-family="Times,serif" font-size="14.00">..</text>
+</g>
+<!-- ..&#45;&gt;node1 -->
+<g id="edge3" class="edge">
+<title>..-&gt;node1</title>
+<path fill="none" stroke="black" d="M66.12,-102.57C85.09,-120.59 117.63,-151.51 140.04,-172.81"></path>
+<polygon fill="black" stroke="black" points="137.85,-175.56 147.51,-179.91 142.67,-170.48 137.85,-175.56"></polygon>
+</g>
+<!-- ..&#45;&gt;node2 -->
+<g id="edge7" class="edge">
+<title>..-&gt;node2</title>
+<path fill="none" stroke="black" d="M72.17,-98.16C88.01,-105.68 109.97,-116.12 128.5,-124.92"></path>
+<polygon fill="black" stroke="black" points="127.01,-128.09 137.54,-129.22 130.01,-121.77 127.01,-128.09"></polygon>
+</g>
+<!-- ..&#45;&gt;... -->
+<g id="edge11" class="edge">
+<title>..-&gt;...</title>
+<path fill="none" stroke="black" d="M76.87,-88C91.92,-88 111.09,-88 127.66,-88"></path>
+<polygon fill="black" stroke="black" points="128.1,-91.5 138.1,-88 128.1,-84.5 128.1,-91.5"></polygon>
+</g>
+<!-- ..&#45;&gt;node20 -->
+<g id="edge15" class="edge">
+<title>..-&gt;node20</title>
+<path fill="none" stroke="black" d="M72.17,-77.84C87.5,-70.56 108.57,-60.55 126.7,-51.93"></path>
+<polygon fill="black" stroke="black" points="128.33,-55.03 135.86,-47.58 125.33,-48.71 128.33,-55.03"></polygon>
+</g>
+<!-- x784 -->
+<g id="node4" class="node">
+<title>x784</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-34" rx="33.6" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-30.3" font-family="Times,serif" font-size="14.00">x784</text>
+</g>
+<!-- x784&#45;&gt;node1 -->
+<g id="edge4" class="edge">
+<title>x784-&gt;node1</title>
+<path fill="none" stroke="black" d="M62.53,-50.73C82.42,-79.07 122.87,-136.74 146.38,-170.26"></path>
+<polygon fill="black" stroke="black" points="143.65,-172.46 152.26,-178.63 149.38,-168.44 143.65,-172.46"></polygon>
+</g>
+<!-- x784&#45;&gt;node2 -->
+<g id="edge8" class="edge">
+<title>x784-&gt;node2</title>
+<path fill="none" stroke="black" d="M67.08,-49.47C86.18,-67.63 118.05,-97.91 140.09,-118.86"></path>
+<polygon fill="black" stroke="black" points="137.79,-121.5 147.45,-125.85 142.61,-116.42 137.79,-121.5"></polygon>
+</g>
+<!-- x784&#45;&gt;... -->
+<g id="edge12" class="edge">
+<title>x784-&gt;...</title>
+<path fill="none" stroke="black" d="M75.46,-45.72C92.58,-53.85 115.51,-64.75 133.8,-73.44"></path>
+<polygon fill="black" stroke="black" points="132.36,-76.63 142.89,-77.76 135.36,-70.31 132.36,-76.63"></polygon>
+</g>
+<!-- x784&#45;&gt;node20 -->
+<g id="edge16" class="edge">
+<title>x784-&gt;node20</title>
+<path fill="none" stroke="black" d="M83.67,-34C91.95,-34 101.07,-34 110.11,-34"></path>
+<polygon fill="black" stroke="black" points="110.23,-37.5 120.23,-34 110.23,-30.5 110.23,-37.5"></polygon>
+</g>
+<!-- node1  -->
+<g id="node9" class="node">
+<title>node1 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-196" rx="42.49" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-192.3" font-family="Times,serif" font-size="14.00">node1 </text>
+</g>
+<!-- node1&#45;&gt;node1  -->
+<g id="edge17" class="edge">
+<title>node1-&gt;node1 </title>
+<path fill="none" stroke="black" d="M204.48,-196C216.45,-196 229.89,-196 242.64,-196"></path>
+<polygon fill="black" stroke="black" points="242.69,-199.5 252.69,-196 242.69,-192.5 242.69,-199.5"></polygon>
+</g>
+<!-- node2  -->
+<g id="node10" class="node">
+<title>node2 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-142" rx="42.49" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-138.3" font-family="Times,serif" font-size="14.00">node2 </text>
+</g>
+<!-- node1&#45;&gt;node2  -->
+<g id="edge21" class="edge">
+<title>node1-&gt;node2 </title>
+<path fill="none" stroke="black" d="M194.83,-184.02C212.68,-176.49 235.93,-166.67 255.48,-158.42"></path>
+<polygon fill="black" stroke="black" points="256.88,-161.63 264.73,-154.51 254.16,-155.18 256.88,-161.63"></polygon>
+</g>
+<!-- ...  -->
+<g id="node11" class="node">
+<title>... </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-84.3" font-family="Times,serif" font-size="14.00">... </text>
+</g>
+<!-- node1&#45;&gt;...  -->
+<g id="edge25" class="edge">
+<title>node1-&gt;... </title>
+<path fill="none" stroke="black" d="M185.04,-180.3C207.46,-161.37 245.19,-129.53 269.94,-108.64"></path>
+<polygon fill="black" stroke="black" points="272.41,-111.13 277.79,-102 267.89,-105.78 272.41,-111.13"></polygon>
+</g>
+<!-- node30  -->
+<g id="node12" class="node">
+<title>node30 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-34" rx="48.19" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-30.3" font-family="Times,serif" font-size="14.00">node30 </text>
+</g>
+<!-- node1&#45;&gt;node30  -->
+<g id="edge29" class="edge">
+<title>node1-&gt;node30 </title>
+<path fill="none" stroke="black" d="M179.89,-178.97C202.48,-150.36 248.16,-92.53 274.48,-59.2"></path>
+<polygon fill="black" stroke="black" points="277.28,-61.31 280.73,-51.29 271.78,-56.97 277.28,-61.31"></polygon>
+</g>
+<!-- node2&#45;&gt;node1  -->
+<g id="edge18" class="edge">
+<title>node2-&gt;node1 </title>
+<path fill="none" stroke="black" d="M194.83,-153.98C212.68,-161.51 235.93,-171.33 255.48,-179.58"></path>
+<polygon fill="black" stroke="black" points="254.16,-182.82 264.73,-183.49 256.88,-176.37 254.16,-182.82"></polygon>
+</g>
+<!-- node2&#45;&gt;node2  -->
+<g id="edge22" class="edge">
+<title>node2-&gt;node2 </title>
+<path fill="none" stroke="black" d="M204.48,-142C216.45,-142 229.89,-142 242.64,-142"></path>
+<polygon fill="black" stroke="black" points="242.69,-145.5 252.69,-142 242.69,-138.5 242.69,-145.5"></polygon>
+</g>
+<!-- node2&#45;&gt;...  -->
+<g id="edge26" class="edge">
+<title>node2-&gt;... </title>
+<path fill="none" stroke="black" d="M194.83,-130.02C214.92,-121.54 241.86,-110.17 262.65,-101.39"></path>
+<polygon fill="black" stroke="black" points="264.16,-104.55 272.01,-97.44 261.44,-98.1 264.16,-104.55"></polygon>
+</g>
+<!-- node2&#45;&gt;node30  -->
+<g id="edge30" class="edge">
+<title>node2-&gt;node30 </title>
+<path fill="none" stroke="black" d="M185.04,-126.3C206.59,-108.11 242.28,-77.98 266.99,-57.12"></path>
+<polygon fill="black" stroke="black" points="269.53,-59.56 274.92,-50.43 265.02,-54.21 269.53,-59.56"></polygon>
+</g>
+<!-- ...&#45;&gt;node1  -->
+<g id="edge19" class="edge">
+<title>...-&gt;node1 </title>
+<path fill="none" stroke="black" d="M182.9,-101.9C204.34,-119.99 242.08,-151.85 267.65,-173.43"></path>
+<polygon fill="black" stroke="black" points="265.59,-176.27 275.49,-180.05 270.1,-170.92 265.59,-176.27"></polygon>
+</g>
+<!-- ...&#45;&gt;node2  -->
+<g id="edge23" class="edge">
+<title>...-&gt;node2 </title>
+<path fill="none" stroke="black" d="M188.73,-97.41C207.06,-105.14 233.49,-116.3 255.33,-125.52"></path>
+<polygon fill="black" stroke="black" points="254.1,-128.8 264.68,-129.46 256.83,-122.35 254.1,-128.8"></polygon>
+</g>
+<!-- ...&#45;&gt;...  -->
+<g id="edge27" class="edge">
+<title>...-&gt;... </title>
+<path fill="none" stroke="black" d="M192.64,-88C211.53,-88 237.26,-88 258.12,-88"></path>
+<polygon fill="black" stroke="black" points="258.22,-91.5 268.22,-88 258.22,-84.5 258.22,-91.5"></polygon>
+</g>
+<!-- ...&#45;&gt;node30  -->
+<g id="edge31" class="edge">
+<title>...-&gt;node30 </title>
+<path fill="none" stroke="black" d="M188.73,-78.59C206.56,-71.07 232.06,-60.31 253.53,-51.24"></path>
+<polygon fill="black" stroke="black" points="254.91,-54.46 262.77,-47.34 252.19,-48.01 254.91,-54.46"></polygon>
+</g>
+<!-- node20&#45;&gt;node1  -->
+<g id="edge20" class="edge">
+<title>node20-&gt;node1 </title>
+<path fill="none" stroke="black" d="M180.13,-51.34C202.83,-80.08 248.36,-137.72 274.57,-170.91"></path>
+<polygon fill="black" stroke="black" points="271.84,-173.11 280.79,-178.79 277.34,-168.77 271.84,-173.11"></polygon>
+</g>
+<!-- node20&#45;&gt;node2  -->
+<g id="edge24" class="edge">
+<title>node20-&gt;node2 </title>
+<path fill="none" stroke="black" d="M185.59,-50.17C207.39,-68.57 243.13,-98.74 267.66,-119.44"></path>
+<polygon fill="black" stroke="black" points="265.62,-122.3 275.51,-126.07 270.13,-116.95 265.62,-122.3"></polygon>
+</g>
+<!-- node20&#45;&gt;...  -->
+<g id="edge28" class="edge">
+<title>node20-&gt;... </title>
+<path fill="none" stroke="black" d="M197.09,-46.93C216.91,-55.3 242.65,-66.17 262.68,-74.62"></path>
+<polygon fill="black" stroke="black" points="261.43,-77.89 272,-78.55 264.15,-71.44 261.43,-77.89"></polygon>
+</g>
+<!-- node20&#45;&gt;node30  -->
+<g id="edge32" class="edge">
+<title>node20-&gt;node30 </title>
+<path fill="none" stroke="black" d="M210.47,-34C219.08,-34 228.23,-34 237.2,-34"></path>
+<polygon fill="black" stroke="black" points="237.21,-37.5 247.21,-34 237.21,-30.5 237.21,-37.5"></polygon>
+</g>
+<!-- y10 -->
+<g id="node13" class="node">
+<title>y10</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-61" rx="27.9" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-57.3" font-family="Times,serif" font-size="14.00">y10</text>
+</g>
+<!-- node1 &#45;&gt;y10 -->
+<g id="edge33" class="edge">
+<title>node1 -&gt;y10</title>
+<path fill="none" stroke="black" d="M313.52,-179.72C339.01,-155.49 386.98,-109.89 415.48,-82.81"></path>
+<polygon fill="black" stroke="black" points="418.13,-85.12 422.97,-75.69 413.31,-80.04 418.13,-85.12"></polygon>
+</g>
+<!-- y1 -->
+<g id="node14" class="node">
+<title>y1</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-169" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-165.3" font-family="Times,serif" font-size="14.00">y1</text>
+</g>
+<!-- node1 &#45;&gt;y1 -->
+<g id="edge37" class="edge">
+<title>node1 -&gt;y1</title>
+<path fill="none" stroke="black" d="M334.45,-188.76C355.82,-184.7 382.31,-179.67 403.2,-175.7"></path>
+<polygon fill="black" stroke="black" points="404.09,-179.09 413.26,-173.78 402.78,-172.21 404.09,-179.09"></polygon>
+</g>
+<!-- . -->
+<g id="node15" class="node">
+<title>.</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-115" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-111.3" font-family="Times,serif" font-size="14.00">.</text>
+</g>
+<!-- node1 &#45;&gt;. -->
+<g id="edge41" class="edge">
+<title>node1 -&gt;.</title>
+<path fill="none" stroke="black" d="M321.45,-181.71C345.99,-167.71 383.37,-146.4 409.23,-131.65"></path>
+<polygon fill="black" stroke="black" points="411.25,-134.53 418.2,-126.53 407.78,-128.45 411.25,-134.53"></polygon>
+</g>
+<!-- node2 &#45;&gt;y10 -->
+<g id="edge34" class="edge">
+<title>node2 -&gt;y10</title>
+<path fill="none" stroke="black" d="M321.45,-127.71C345.85,-113.79 382.93,-92.64 408.78,-77.9"></path>
+<polygon fill="black" stroke="black" points="410.8,-80.78 417.76,-72.79 407.34,-74.7 410.8,-80.78"></polygon>
+</g>
+<!-- node2 &#45;&gt;y1 -->
+<g id="edge38" class="edge">
+<title>node2 -&gt;y1</title>
+<path fill="none" stroke="black" d="M334.45,-149.24C355.82,-153.3 382.31,-158.33 403.2,-162.3"></path>
+<polygon fill="black" stroke="black" points="402.78,-165.79 413.26,-164.22 404.09,-158.91 402.78,-165.79"></polygon>
+</g>
+<!-- node2 &#45;&gt;. -->
+<g id="edge42" class="edge">
+<title>node2 -&gt;.</title>
+<path fill="none" stroke="black" d="M334.45,-134.76C355.82,-130.7 382.31,-125.67 403.2,-121.7"></path>
+<polygon fill="black" stroke="black" points="404.09,-125.09 413.26,-119.78 402.78,-118.21 404.09,-125.09"></polygon>
+</g>
+<!-- ... &#45;&gt;y10 -->
+<g id="edge35" class="edge">
+<title>... -&gt;y10</title>
+<path fill="none" stroke="black" d="M321.45,-83.24C343.85,-78.98 376.94,-72.69 402.21,-67.88"></path>
+<polygon fill="black" stroke="black" points="402.99,-71.3 412.17,-65.99 401.69,-64.42 402.99,-71.3"></polygon>
+</g>
+<!-- ... &#45;&gt;y1 -->
+<g id="edge39" class="edge">
+<title>... -&gt;y1</title>
+<path fill="none" stroke="black" d="M316.43,-99.43C340.75,-113.3 381.93,-136.79 409.64,-152.59"></path>
+<polygon fill="black" stroke="black" points="408.06,-155.71 418.48,-157.62 411.52,-149.63 408.06,-155.71"></polygon>
+</g>
+<!-- ... &#45;&gt;. -->
+<g id="edge43" class="edge">
+<title>... -&gt;.</title>
+<path fill="none" stroke="black" d="M321.45,-92.76C344.13,-97.08 377.77,-103.47 403.16,-108.3"></path>
+<polygon fill="black" stroke="black" points="402.65,-111.76 413.13,-110.19 403.96,-104.89 402.65,-111.76"></polygon>
+</g>
+<!-- node30 &#45;&gt;y10 -->
+<g id="edge36" class="edge">
+<title>node30 -&gt;y10</title>
+<path fill="none" stroke="black" d="M338.61,-42.03C358.86,-45.88 382.85,-50.44 402.24,-54.12"></path>
+<polygon fill="black" stroke="black" points="401.73,-57.59 412.2,-56.02 403.03,-50.71 401.73,-57.59"></polygon>
+</g>
+<!-- node30 &#45;&gt;y1 -->
+<g id="edge40" class="edge">
+<title>node30 -&gt;y1</title>
+<path fill="none" stroke="black" d="M314.08,-50.82C339.78,-75.25 387.42,-120.52 415.69,-147.39"></path>
+<polygon fill="black" stroke="black" points="413.45,-150.09 423.11,-154.44 418.27,-145.02 413.45,-150.09"></polygon>
+</g>
+<!-- node30 &#45;&gt;. -->
+<g id="edge44" class="edge">
+<title>node30 -&gt;.</title>
+<path fill="none" stroke="black" d="M322.77,-49.05C347.35,-63.06 383.92,-83.92 409.34,-98.41"></path>
+<polygon fill="black" stroke="black" points="407.73,-101.53 418.15,-103.44 411.2,-95.45 407.73,-101.53"></polygon>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+  59/1875 [..............................] - ETA: 4s - loss: 11.2420 - accuracy: 0.1001  </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-05-28 21:50:41.182344: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1875/1875 [==============================] - 7s 3ms/step - loss: 2.3216 - accuracy: 0.1958
+Epoch 2/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8249 - accuracy: 0.2370
+Epoch 3/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8227 - accuracy: 0.2501
+Epoch 4/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8093 - accuracy: 0.2607
+Epoch 5/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8135 - accuracy: 0.2627
+Epoch 6/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8041 - accuracy: 0.2648
+Epoch 7/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8069 - accuracy: 0.2692
+Epoch 8/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8057 - accuracy: 0.2699
+Epoch 9/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.7941 - accuracy: 0.2773
+Epoch 10/10
+1875/1875 [==============================] - 6s 3ms/step - loss: 1.8140 - accuracy: 0.2681
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f4a5fab7bb0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> (1)에서 적합된 네트워크를 이용하여 test data의 accuracy를 구하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 1.8071 - accuracy: 0.2567
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.2567000091075897</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>test data의 accuracy: <code>0.2567000091075897</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> train set에서 20%의 자료를 validation 으로 분리하여 50에폭동안 학습하라. 텐서보드를 이용하여 train accuracy와 validation accuracy를 시각화 하고 결과를 해석하라. 오버피팅이라고 볼 수 있는가?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">cb1</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/50
+240/240 [==============================] - 2s 9ms/step - loss: 1.4272 - accuracy: 0.3600 - val_loss: 1.4204 - val_accuracy: 0.3747
+Epoch 2/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4118 - accuracy: 0.3640 - val_loss: 1.4129 - val_accuracy: 0.3647
+Epoch 3/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4082 - accuracy: 0.3606 - val_loss: 1.4141 - val_accuracy: 0.3638
+Epoch 4/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4276 - accuracy: 0.3465 - val_loss: 1.4205 - val_accuracy: 0.3573
+Epoch 5/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4066 - accuracy: 0.3624 - val_loss: 1.4224 - val_accuracy: 0.3746
+Epoch 6/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4160 - accuracy: 0.3565 - val_loss: 1.4130 - val_accuracy: 0.3720
+Epoch 7/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4153 - accuracy: 0.3562 - val_loss: 1.4422 - val_accuracy: 0.3452
+Epoch 8/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4051 - accuracy: 0.3612 - val_loss: 1.4339 - val_accuracy: 0.3419
+Epoch 9/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4148 - accuracy: 0.3625 - val_loss: 1.4212 - val_accuracy: 0.3681
+Epoch 10/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4331 - accuracy: 0.3598 - val_loss: 1.4421 - val_accuracy: 0.3259
+Epoch 11/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4202 - accuracy: 0.3620 - val_loss: 1.4268 - val_accuracy: 0.3696
+Epoch 12/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4454 - accuracy: 0.3453 - val_loss: 1.4130 - val_accuracy: 0.3638
+Epoch 13/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4192 - accuracy: 0.3569 - val_loss: 1.4063 - val_accuracy: 0.3544
+Epoch 14/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4268 - accuracy: 0.3542 - val_loss: 1.4232 - val_accuracy: 0.3399
+Epoch 15/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4022 - accuracy: 0.3594 - val_loss: 1.4285 - val_accuracy: 0.3567
+Epoch 16/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4122 - accuracy: 0.3594 - val_loss: 1.4028 - val_accuracy: 0.3731
+Epoch 17/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4269 - accuracy: 0.3540 - val_loss: 1.4144 - val_accuracy: 0.3498
+Epoch 18/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3980 - accuracy: 0.3658 - val_loss: 1.4182 - val_accuracy: 0.3476
+Epoch 19/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3998 - accuracy: 0.3620 - val_loss: 1.5200 - val_accuracy: 0.3294
+Epoch 20/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4166 - accuracy: 0.3594 - val_loss: 1.4196 - val_accuracy: 0.3497
+Epoch 21/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4165 - accuracy: 0.3622 - val_loss: 1.4270 - val_accuracy: 0.3428
+Epoch 22/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4030 - accuracy: 0.3687 - val_loss: 1.4361 - val_accuracy: 0.3562
+Epoch 23/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4050 - accuracy: 0.3715 - val_loss: 1.3991 - val_accuracy: 0.3755
+Epoch 24/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4078 - accuracy: 0.3675 - val_loss: 1.3938 - val_accuracy: 0.3745
+Epoch 25/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4123 - accuracy: 0.3656 - val_loss: 1.4234 - val_accuracy: 0.3704
+Epoch 26/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4217 - accuracy: 0.3565 - val_loss: 1.4115 - val_accuracy: 0.3648
+Epoch 27/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4296 - accuracy: 0.3549 - val_loss: 1.4290 - val_accuracy: 0.3388
+Epoch 28/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4027 - accuracy: 0.3621 - val_loss: 1.4172 - val_accuracy: 0.3696
+Epoch 29/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4410 - accuracy: 0.3484 - val_loss: 1.4079 - val_accuracy: 0.3413
+Epoch 30/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4136 - accuracy: 0.3580 - val_loss: 1.4316 - val_accuracy: 0.3539
+Epoch 31/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4089 - accuracy: 0.3605 - val_loss: 1.4129 - val_accuracy: 0.3479
+Epoch 32/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4010 - accuracy: 0.3664 - val_loss: 1.4568 - val_accuracy: 0.3376
+Epoch 33/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3875 - accuracy: 0.3707 - val_loss: 1.3880 - val_accuracy: 0.3650
+Epoch 34/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4016 - accuracy: 0.3655 - val_loss: 1.4015 - val_accuracy: 0.3667
+Epoch 35/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4029 - accuracy: 0.3551 - val_loss: 1.4044 - val_accuracy: 0.3753
+Epoch 36/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4110 - accuracy: 0.3637 - val_loss: 1.4066 - val_accuracy: 0.3647
+Epoch 37/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4389 - accuracy: 0.3558 - val_loss: 1.5491 - val_accuracy: 0.3447
+Epoch 38/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4199 - accuracy: 0.3571 - val_loss: 1.3974 - val_accuracy: 0.3651
+Epoch 39/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4172 - accuracy: 0.3574 - val_loss: 1.4138 - val_accuracy: 0.3613
+Epoch 40/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4114 - accuracy: 0.3615 - val_loss: 1.4113 - val_accuracy: 0.3733
+Epoch 41/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4187 - accuracy: 0.3547 - val_loss: 1.4230 - val_accuracy: 0.3579
+Epoch 42/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3954 - accuracy: 0.3609 - val_loss: 1.4027 - val_accuracy: 0.3650
+Epoch 43/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4322 - accuracy: 0.3521 - val_loss: 1.3892 - val_accuracy: 0.3592
+Epoch 44/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3871 - accuracy: 0.3697 - val_loss: 1.3895 - val_accuracy: 0.3709
+Epoch 45/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3925 - accuracy: 0.3684 - val_loss: 1.3859 - val_accuracy: 0.3638
+Epoch 46/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3971 - accuracy: 0.3680 - val_loss: 1.4100 - val_accuracy: 0.3636
+Epoch 47/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3956 - accuracy: 0.3676 - val_loss: 1.3999 - val_accuracy: 0.3722
+Epoch 48/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3863 - accuracy: 0.3719 - val_loss: 1.4079 - val_accuracy: 0.3594
+Epoch 49/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.4417 - accuracy: 0.3467 - val_loss: 1.3900 - val_accuracy: 0.3627
+Epoch 50/50
+240/240 [==============================] - 2s 10ms/step - loss: 1.3895 - accuracy: 0.3638 - val_loss: 1.4016 - val_accuracy: 0.3582
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f492046e6b0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir logs --host 0.0.0.0
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+      <iframe id="tensorboard-frame-414d8174fd263288" width="100%" height="800" frameborder="0">
+      </iframe>
+      <script>
+        (function() {
+          const frame = document.getElementById("tensorboard-frame-414d8174fd263288");
+          const url = new URL("/", window.location);
+          const port = 6006;
+          if (port) {
+            url.port = port;
+          }
+          frame.src = url;
+        })();
+      </script>
+    
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>train accuracy와 validation accuracy</p>
+<p>training accuracy는 올라가는데 validation accuracy는 그저 그렇다(우리의 목적이 아님)</p>
+<p>training loss는 줄어들고 있는데 validation loss는 오히려 커지고 있다.(이상함을 감지)</p>
+<p>-&gt; 오버피팅의 징조!!!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> (3)에서 적합된 네트워크를 이용하여 test data의 accuracy를 구하라. (2)의 결과와 비교하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> 조기종료기능을 이용하여 (3)의 네트워크를 다시 학습하라. 학습결과를 텐서보드를 이용하여 시각화 하라.</p>
+<ul>
+<li>patience=3 으로 설정할 것</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Fashion_mnist,-CNN-(30점)">
+<a class="anchor" href="#2.-Fashion_mnist,-CNN-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Fashion_mnist, CNN (30점)<a class="anchor-link" href="#2.-Fashion_mnist,-CNN-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> <code>tf.keras.datasets.fashion_mnist.load_data()</code>을 이용하여 fashion_mnist 자료를 불러온 뒤 아래의 네트워크를 이용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이때 n1=6, n2=16, n3=120 으로 설정한다, 드랍아웃비율은 20%로 설정한다.</li>
+<li>
+<code>net.summary()</code>를 출력하여 설계결과를 확인하라.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://editor.analyticsvidhya.com/uploads/90650dnn2.jpeg" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> n1=(6,64,128), n2=(16,256)에 대하여 test set의 loss가 최소화되는 조합을 찾아라. 결과를 텐서보드로 시각화하는 코드를 작성하라.</p>
+<ul>
+<li>epoc은 3회로 한정한다. </li>
+<li>validation_split은 0.2로 설정한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-CIFAR10-(30점)">
+<a class="anchor" href="#3.-CIFAR10-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. CIFAR10 (30점)<a class="anchor-link" href="#3.-CIFAR10-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>tf.keras.datasets.cifar10.load_data()</code>을 이용하여 CIFAR10을 불러온 뒤 적당한 네트워크를 사용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>결과를 텐서보드로 시각화할 필요는 없다. </li>
+<li>자유롭게 모형을 설계하여 적합하라. </li>
+<li>test set의 accuracy가 70%이상인 경우만 정답으로 인정한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-다음을-읽고-물음에-답하라.-(10점)">
+<a class="anchor" href="#4.-%EB%8B%A4%EC%9D%8C%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EB%AC%BC%EC%9D%8C%EC%97%90-%EB%8B%B5%ED%95%98%EB%9D%BC.-(10%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 다음을 읽고 물음에 답하라. (10점)<a class="anchor-link" href="#4.-%EB%8B%A4%EC%9D%8C%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EB%AC%BC%EC%9D%8C%EC%97%90-%EB%8B%B5%ED%95%98%EB%9D%BC.-(10%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) (128,128,3)의 shape을 가진 텐서가 <code>tf.keras.layers.Conv2D(5,(2,2))</code>으로 만들어진 커널을 통과할시 나오는 shape은?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) (24,24,16)의 shape을 가진 텐서가 <code>tf.keras.layers.Flatten()</code>을 통과할때 나오는 텐서의 shape은?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(4)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(5)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
