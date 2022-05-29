@@ -263,6 +263,23 @@ window.onload = wrap_img;
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3096,14 +3113,6 @@ Epoch 200/200
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>교수님 결과와 다르다....</p>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -4296,7 +4305,9 @@ net.compile(optimizer=???,loss=tf.losses.categorical_crossentropy,metrics=['accu
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">cb1</span><span class="p">,</span><span class="n">cb2</span><span class="p">])</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">()</span>
+<span class="n">cb2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span> 
+<span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">cb1</span><span class="p">,</span><span class="n">cb2</span><span class="p">])</span> 
 </pre></div>
 
     </div>
@@ -4328,7 +4339,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f5230267e20&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fb5b8332f80&gt;</pre>
 </div>
 
 </div>
@@ -4369,7 +4380,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 704910), started 0:00:07 ago. (Use '!kill 704910' to kill it.)</pre>
+<pre>Reusing TensorBoard on port 6006 (pid 811694), started 0:00:00 ago. (Use '!kill 811694' to kill it.)</pre>
 </div>
 
 </div>
@@ -4379,11 +4390,11 @@ Epoch 5/5
 
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-15d5acdfc308dd5a" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-b161f036a3c6b504" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-15d5acdfc308dd5a");
+          const frame = document.getElementById("tensorboard-frame-b161f036a3c6b504");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -4474,7 +4485,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f4b88780af0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7fb5be17f3a0&gt;</pre>
 </div>
 
 </div>
@@ -4515,7 +4526,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 705235), started 0:06:19 ago. (Use '!kill 705235' to kill it.)</pre>
+<pre>Reusing TensorBoard on port 6006 (pid 811337), started 0:00:04 ago. (Use '!kill 811337' to kill it.)</pre>
 </div>
 
 </div>
@@ -4525,11 +4536,11 @@ Epoch 5/5
 
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-89296ea57da7ee03" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-1acb14860c0ac6a" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-89296ea57da7ee03");
+          const frame = document.getElementById("tensorboard-frame-1acb14860c0ac6a");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -4620,7 +4631,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.627724289894104</pre>
+<pre>0.6277241706848145</pre>
 </div>
 
 </div>
@@ -4639,7 +4650,7 @@ Epoch 5/5
 <p>loss값만 보았을때는 <code>adam</code>이 <code>sgd</code>보다 낮았다.</p>
 <p><code>adam</code>은 trianing loss와 validation loss가 같은 수준까지 낮아지는 모습이지만,</p>
 <p><code>sgd</code>는 training loss보다 validation loss가 더 낮은 수준까지 loss가 떨어졌다.</p>
-<p>opptimizer로 <code>sgd</code>를 적합시켰을때, 20%의 validation을 제외한 80%으로 학습을 한 것보다 20%의 validation의 loss가 더 낮았다는 원하는 결과가 도출되었다.</p>
+<p>opptimizer로 <code>sgd</code>를 적합시켰을때, 20%의 validation을 제외한 training data로 학습을 한 것보다 20%의 validation의 loss가 더 낮았다는 원하는 결과가 도출되었다.</p>
 
 </div>
 </div>
