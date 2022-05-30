@@ -4251,6 +4251,43 @@ Epoch 3/3
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span> <span class="c1">## 입력이 0~255 -&gt; 0~1로 표준화 시키는 효과 + float으로 자료형이 바뀜 </span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -4321,7 +4358,22 @@ net.compile(optimizer=???,loss=tf.losses.categorical_crossentropy,metrics=['accu
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-240/240 [==============================] - 2s 6ms/step - loss: 0.7224 - accuracy: 0.7586 - recall: 0.6304 - val_loss: 0.4817 - val_accuracy: 0.8329 - val_recall: 0.7788
+ 43/240 [====&gt;.........................] - ETA: 0s - loss: 1.3928 - accuracy: 0.5717 - recall: 0.2347    </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-05-30 18:20:09.284327: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>240/240 [==============================] - 3s 6ms/step - loss: 0.7224 - accuracy: 0.7586 - recall: 0.6304 - val_loss: 0.4817 - val_accuracy: 0.8329 - val_recall: 0.7788
 Epoch 2/5
 240/240 [==============================] - 1s 5ms/step - loss: 0.4508 - accuracy: 0.8419 - recall: 0.7951 - val_loss: 0.4497 - val_accuracy: 0.8349 - val_recall: 0.7932
 Epoch 3/5
@@ -4339,7 +4391,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb5b8332f80&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f8d176abcd0&gt;</pre>
 </div>
 
 </div>
@@ -4380,7 +4432,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 811694), started 0:00:00 ago. (Use '!kill 811694' to kill it.)</pre>
+<pre>Reusing TensorBoard on port 6006 (pid 846712), started 0:00:03 ago. (Use '!kill 846712' to kill it.)</pre>
 </div>
 
 </div>
@@ -4390,11 +4442,11 @@ Epoch 5/5
 
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-b161f036a3c6b504" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-b551441869e8d100" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-b161f036a3c6b504");
+          const frame = document.getElementById("tensorboard-frame-b551441869e8d100");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -4467,7 +4519,7 @@ Epoch 5/5
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/5
-240/240 [==============================] - 2s 6ms/step - loss: 1.6588 - accuracy: 0.4999 - recall: 0.0831 - val_loss: 1.1223 - val_accuracy: 0.6730 - val_recall: 0.2842
+240/240 [==============================] - 2s 5ms/step - loss: 1.6588 - accuracy: 0.4999 - recall: 0.0831 - val_loss: 1.1223 - val_accuracy: 0.6730 - val_recall: 0.2842
 Epoch 2/5
 240/240 [==============================] - 1s 5ms/step - loss: 0.9301 - accuracy: 0.6911 - recall: 0.4377 - val_loss: 0.8035 - val_accuracy: 0.7196 - val_recall: 0.5241
 Epoch 3/5
@@ -4485,7 +4537,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7fb5be17f3a0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f8ca85c3370&gt;</pre>
 </div>
 
 </div>
@@ -4526,7 +4578,7 @@ Epoch 5/5
 
 
 <div class="output_text output_subarea ">
-<pre>Reusing TensorBoard on port 6006 (pid 811337), started 0:00:04 ago. (Use '!kill 811337' to kill it.)</pre>
+<pre>Reusing TensorBoard on port 6006 (pid 847006), started 0:00:02 ago. (Use '!kill 847006' to kill it.)</pre>
 </div>
 
 </div>
@@ -4536,11 +4588,11 @@ Epoch 5/5
 
 <div class="output_html rendered_html output_subarea ">
 
-      <iframe id="tensorboard-frame-1acb14860c0ac6a" width="100%" height="800" frameborder="0">
+      <iframe id="tensorboard-frame-46979a527bed9065" width="100%" height="800" frameborder="0">
       </iframe>
       <script>
         (function() {
-          const frame = document.getElementById("tensorboard-frame-1acb14860c0ac6a");
+          const frame = document.getElementById("tensorboard-frame-46979a527bed9065");
           const url = new URL("/", window.location);
           const port = 6006;
           if (port) {
@@ -4580,7 +4632,7 @@ Epoch 5/5
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>313/313 [==============================] - 1s 4ms/step - loss: 0.4171 - accuracy: 0.8543 - recall: 0.8275
+<pre>313/313 [==============================] - 2s 4ms/step - loss: 0.4171 - accuracy: 0.8543 - recall: 0.8275
 </pre>
 </div>
 </div>
