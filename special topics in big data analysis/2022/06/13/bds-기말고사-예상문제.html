@@ -1,0 +1,2985 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>빅데이터분석 특강 기말고사 예상문제 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="빅데이터분석 특강 기말고사 예상문제" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-13T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html","@type":"BlogPosting","headline":"빅데이터분석 특강 기말고사 예상문제","dateModified":"2022-06-13T00:00:00-05:00","datePublished":"2022-06-13T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">빅데이터분석 특강 기말고사 예상문제</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-13T00:00:00-05:00" itemprop="datePublished">
+        Jun 13, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      20 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Big Data Analysis">Special Topics in Big Data Analysis</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-06-13-bds-기말고사-예상문제.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-06-13-bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-06-13-bds-기말고사-예상문제.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#imports">imports </a></li>
+<li class="toc-entry toc-h2"><a href="#1.-Fashion_mnist,-DNN-(30점)">1. Fashion_mnist, DNN (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#2.-Fashion_mnist,-CNN-(30점)">2. Fashion_mnist, CNN (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#3.-CIFAR10-(30점)">3. CIFAR10 (30점) </a></li>
+<li class="toc-entry toc-h2"><a href="#4.-다음을-읽고-물음에-답하라.-(10점)">4. 다음을 읽고 물음에 답하라. (10점) </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-06-13-bds-기말고사-예상문제.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="imports">
+<a class="anchor" href="#imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>imports<a class="anchor-link" href="#imports"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span> 
+<span class="kn">import</span> <span class="nn">tensorflow.experimental.numpy</span> <span class="k">as</span> <span class="nn">tnp</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">experimental_enable_numpy_behavior</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="k">def</span> <span class="nf">gv</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="k">return</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="s1">'digraph G{ rankdir="LR"'</span><span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">';}'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Fashion_mnist,-DNN-(30점)">
+<a class="anchor" href="#1.-Fashion_mnist,-DNN-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Fashion_mnist, DNN (30점)<a class="anchor-link" href="#1.-Fashion_mnist,-DNN-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> <code>tf.keras.datasets.fashion_mnist.load_data()</code>을 이용하여 fashion_mnist 자료를 불러온 뒤 아래의 네트워크를 이용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((60000, 28, 28), (60000,), (10000, 28, 28), (10000,))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>평가지표로 accuracy를 이용할 것 </li>
+<li>epoch은 10으로 설정할 것 </li>
+<li>optimizer는 adam을 이용할 것 </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gv</span><span class="p">(</span><span class="s1">'''</span>
+<span class="s1">splines=line</span>
+<span class="s1">subgraph cluster_1{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "x1"</span>
+<span class="s1">    "x2"</span>
+<span class="s1">    ".."</span>
+<span class="s1">    "x784"</span>
+<span class="s1">    label = "Layer 0"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_2{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "x1" -&gt; "node1"</span>
+<span class="s1">    "x2" -&gt; "node1"</span>
+<span class="s1">    ".." -&gt; "node1"</span>
+<span class="s1">    "x784" -&gt; "node1"</span>
+<span class="s1">    </span>
+<span class="s1">    "x1" -&gt; "node2"</span>
+<span class="s1">    "x2" -&gt; "node2"</span>
+<span class="s1">    ".." -&gt; "node2"</span>
+<span class="s1">    "x784" -&gt; "node2"</span>
+<span class="s1">    </span>
+<span class="s1">    "x1" -&gt; "..."</span>
+<span class="s1">    "x2" -&gt; "..."</span>
+<span class="s1">    ".." -&gt; "..."</span>
+<span class="s1">    "x784" -&gt; "..."</span>
+
+<span class="s1">    "x1" -&gt; "node20"</span>
+<span class="s1">    "x2" -&gt; "node20"</span>
+<span class="s1">    ".." -&gt; "node20"</span>
+<span class="s1">    "x784" -&gt; "node20"</span>
+
+
+<span class="s1">    label = "Layer 1: relu"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_3{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+<span class="s1">    "node1" -&gt; "node1 "</span>
+<span class="s1">    "node2" -&gt; "node1 "</span>
+<span class="s1">    "..." -&gt; "node1 "</span>
+<span class="s1">    "node20" -&gt; "node1 "</span>
+<span class="s1">    </span>
+<span class="s1">    "node1" -&gt; "node2 "</span>
+<span class="s1">    "node2" -&gt; "node2 "</span>
+<span class="s1">    "..." -&gt; "node2 "</span>
+<span class="s1">    "node20" -&gt; "node2 "</span>
+<span class="s1">    </span>
+<span class="s1">    "node1" -&gt; "... "</span>
+<span class="s1">    "node2" -&gt; "... "</span>
+<span class="s1">    "..." -&gt; "... "</span>
+<span class="s1">    "node20" -&gt; "... "</span>
+
+<span class="s1">    "node1" -&gt; "node30 "</span>
+<span class="s1">    "node2" -&gt; "node30 "</span>
+<span class="s1">    "..." -&gt; "node30 "</span>
+<span class="s1">    "node20" -&gt; "node30 "</span>
+
+
+<span class="s1">    label = "Layer 2: relu"</span>
+<span class="s1">}</span>
+<span class="s1">subgraph cluster_4{</span>
+<span class="s1">    style=filled;</span>
+<span class="s1">    color=lightgrey;</span>
+
+<span class="s1">    "node1 " -&gt; "y10"</span>
+<span class="s1">    "node2 " -&gt; "y10"</span>
+<span class="s1">    "... " -&gt; "y10"</span>
+<span class="s1">    "node30 " -&gt; "y10"</span>
+<span class="s1">    </span>
+<span class="s1">    "node1 " -&gt; "y1"</span>
+<span class="s1">    "node2 " -&gt; "y1"</span>
+<span class="s1">    "... " -&gt; "y1"</span>
+<span class="s1">    "node30 " -&gt; "y1"</span>
+<span class="s1">    </span>
+<span class="s1">    "node1 " -&gt; "."</span>
+<span class="s1">    "node2 " -&gt; "."</span>
+<span class="s1">    "... " -&gt; "."</span>
+<span class="s1">    "node30 " -&gt; "."</span>
+<span class="s1">    </span>
+<span class="s1">    label = "Layer 3: softmax"</span>
+<span class="s1">}</span>
+<span class="s1">'''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 2.50.0 (20211209.0339)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="516pt" height="261pt" viewbox="0.00 0.00 516.37 261.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 257)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-257 512.37,-257 512.37,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="8,-8 8,-245 91.59,-245 91.59,-8 8,-8"></polygon>
+<text text-anchor="middle" x="49.8" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 0</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="111.59,-8 111.59,-245 219.29,-245 219.29,-8 111.59,-8"></polygon>
+<text text-anchor="middle" x="165.44" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 1: relu</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="239.29,-8 239.29,-245 351.48,-245 351.48,-8 239.29,-8"></polygon>
+<text text-anchor="middle" x="295.38" y="-229.8" font-family="Times,serif" font-size="14.00">Layer 2: relu</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="371.48,-35 371.48,-218 508.37,-218 508.37,-35 371.48,-35"></polygon>
+<text text-anchor="middle" x="439.93" y="-202.8" font-family="Times,serif" font-size="14.00">Layer 3: softmax</text>
+</g>
+<!-- x1 -->
+<g id="node1" class="node">
+<title>x1</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-196" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-192.3" font-family="Times,serif" font-size="14.00">x1</text>
+</g>
+<!-- node1 -->
+<g id="node5" class="node">
+<title>node1</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-196" rx="38.99" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-192.3" font-family="Times,serif" font-size="14.00">node1</text>
+</g>
+<!-- x1&#45;&gt;node1 -->
+<g id="edge1" class="edge">
+<title>x1-&gt;node1</title>
+<path fill="none" stroke="black" d="M76.87,-196C88.57,-196 102.75,-196 116.27,-196"></path>
+<polygon fill="black" stroke="black" points="116.42,-199.5 126.42,-196 116.42,-192.5 116.42,-199.5"></polygon>
+</g>
+<!-- node2 -->
+<g id="node6" class="node">
+<title>node2</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-142" rx="38.99" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-138.3" font-family="Times,serif" font-size="14.00">node2</text>
+</g>
+<!-- x1&#45;&gt;node2 -->
+<g id="edge5" class="edge">
+<title>x1-&gt;node2</title>
+<path fill="none" stroke="black" d="M72.17,-185.84C88.01,-178.32 109.97,-167.88 128.5,-159.08"></path>
+<polygon fill="black" stroke="black" points="130.01,-162.23 137.54,-154.78 127.01,-155.91 130.01,-162.23"></polygon>
+</g>
+<!-- ... -->
+<g id="node7" class="node">
+<title>...</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-84.3" font-family="Times,serif" font-size="14.00">...</text>
+</g>
+<!-- x1&#45;&gt;... -->
+<g id="edge9" class="edge">
+<title>x1-&gt;...</title>
+<path fill="none" stroke="black" d="M66.12,-181.43C85.53,-163 119.12,-131.07 141.56,-109.74"></path>
+<polygon fill="black" stroke="black" points="144.16,-112.11 148.99,-102.68 139.33,-107.03 144.16,-112.11"></polygon>
+</g>
+<!-- node20 -->
+<g id="node8" class="node">
+<title>node20</title>
+<ellipse fill="none" stroke="black" cx="165.44" cy="-34" rx="44.69" ry="18"></ellipse>
+<text text-anchor="middle" x="165.44" y="-30.3" font-family="Times,serif" font-size="14.00">node20</text>
+</g>
+<!-- x1&#45;&gt;node20 -->
+<g id="edge13" class="edge">
+<title>x1-&gt;node20</title>
+<path fill="none" stroke="black" d="M62.11,-179.87C81.8,-151.81 122.52,-93.76 146.23,-59.97"></path>
+<polygon fill="black" stroke="black" points="149.27,-61.72 152.15,-51.52 143.54,-57.7 149.27,-61.72"></polygon>
+</g>
+<!-- x2 -->
+<g id="node2" class="node">
+<title>x2</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-142" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-138.3" font-family="Times,serif" font-size="14.00">x2</text>
+</g>
+<!-- x2&#45;&gt;node1 -->
+<g id="edge2" class="edge">
+<title>x2-&gt;node1</title>
+<path fill="none" stroke="black" d="M72.17,-152.16C88.01,-159.68 109.97,-170.12 128.5,-178.92"></path>
+<polygon fill="black" stroke="black" points="127.01,-182.09 137.54,-183.22 130.01,-175.77 127.01,-182.09"></polygon>
+</g>
+<!-- x2&#45;&gt;node2 -->
+<g id="edge6" class="edge">
+<title>x2-&gt;node2</title>
+<path fill="none" stroke="black" d="M76.87,-142C88.57,-142 102.75,-142 116.27,-142"></path>
+<polygon fill="black" stroke="black" points="116.42,-145.5 126.42,-142 116.42,-138.5 116.42,-145.5"></polygon>
+</g>
+<!-- x2&#45;&gt;... -->
+<g id="edge10" class="edge">
+<title>x2-&gt;...</title>
+<path fill="none" stroke="black" d="M72.17,-131.84C89.52,-123.6 114.21,-111.87 133.69,-102.61"></path>
+<polygon fill="black" stroke="black" points="135.24,-105.75 142.77,-98.3 132.24,-99.43 135.24,-105.75"></polygon>
+</g>
+<!-- x2&#45;&gt;node20 -->
+<g id="edge14" class="edge">
+<title>x2-&gt;node20</title>
+<path fill="none" stroke="black" d="M66.12,-127.43C84.98,-109.51 117.25,-78.84 139.66,-57.55"></path>
+<polygon fill="black" stroke="black" points="142.29,-59.88 147.13,-50.45 137.47,-54.8 142.29,-59.88"></polygon>
+</g>
+<!-- .. -->
+<g id="node3" class="node">
+<title>..</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-84.3" font-family="Times,serif" font-size="14.00">..</text>
+</g>
+<!-- ..&#45;&gt;node1 -->
+<g id="edge3" class="edge">
+<title>..-&gt;node1</title>
+<path fill="none" stroke="black" d="M66.12,-102.57C85.09,-120.59 117.63,-151.51 140.04,-172.81"></path>
+<polygon fill="black" stroke="black" points="137.85,-175.56 147.51,-179.91 142.67,-170.48 137.85,-175.56"></polygon>
+</g>
+<!-- ..&#45;&gt;node2 -->
+<g id="edge7" class="edge">
+<title>..-&gt;node2</title>
+<path fill="none" stroke="black" d="M72.17,-98.16C88.01,-105.68 109.97,-116.12 128.5,-124.92"></path>
+<polygon fill="black" stroke="black" points="127.01,-128.09 137.54,-129.22 130.01,-121.77 127.01,-128.09"></polygon>
+</g>
+<!-- ..&#45;&gt;... -->
+<g id="edge11" class="edge">
+<title>..-&gt;...</title>
+<path fill="none" stroke="black" d="M76.87,-88C91.92,-88 111.09,-88 127.66,-88"></path>
+<polygon fill="black" stroke="black" points="128.1,-91.5 138.1,-88 128.1,-84.5 128.1,-91.5"></polygon>
+</g>
+<!-- ..&#45;&gt;node20 -->
+<g id="edge15" class="edge">
+<title>..-&gt;node20</title>
+<path fill="none" stroke="black" d="M72.17,-77.84C87.5,-70.56 108.57,-60.55 126.7,-51.93"></path>
+<polygon fill="black" stroke="black" points="128.33,-55.03 135.86,-47.58 125.33,-48.71 128.33,-55.03"></polygon>
+</g>
+<!-- x784 -->
+<g id="node4" class="node">
+<title>x784</title>
+<ellipse fill="none" stroke="black" cx="49.8" cy="-34" rx="33.6" ry="18"></ellipse>
+<text text-anchor="middle" x="49.8" y="-30.3" font-family="Times,serif" font-size="14.00">x784</text>
+</g>
+<!-- x784&#45;&gt;node1 -->
+<g id="edge4" class="edge">
+<title>x784-&gt;node1</title>
+<path fill="none" stroke="black" d="M62.53,-50.73C82.42,-79.07 122.87,-136.74 146.38,-170.26"></path>
+<polygon fill="black" stroke="black" points="143.65,-172.46 152.26,-178.63 149.38,-168.44 143.65,-172.46"></polygon>
+</g>
+<!-- x784&#45;&gt;node2 -->
+<g id="edge8" class="edge">
+<title>x784-&gt;node2</title>
+<path fill="none" stroke="black" d="M67.08,-49.47C86.18,-67.63 118.05,-97.91 140.09,-118.86"></path>
+<polygon fill="black" stroke="black" points="137.79,-121.5 147.45,-125.85 142.61,-116.42 137.79,-121.5"></polygon>
+</g>
+<!-- x784&#45;&gt;... -->
+<g id="edge12" class="edge">
+<title>x784-&gt;...</title>
+<path fill="none" stroke="black" d="M75.46,-45.72C92.58,-53.85 115.51,-64.75 133.8,-73.44"></path>
+<polygon fill="black" stroke="black" points="132.36,-76.63 142.89,-77.76 135.36,-70.31 132.36,-76.63"></polygon>
+</g>
+<!-- x784&#45;&gt;node20 -->
+<g id="edge16" class="edge">
+<title>x784-&gt;node20</title>
+<path fill="none" stroke="black" d="M83.67,-34C91.95,-34 101.07,-34 110.11,-34"></path>
+<polygon fill="black" stroke="black" points="110.23,-37.5 120.23,-34 110.23,-30.5 110.23,-37.5"></polygon>
+</g>
+<!-- node1  -->
+<g id="node9" class="node">
+<title>node1 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-196" rx="42.49" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-192.3" font-family="Times,serif" font-size="14.00">node1 </text>
+</g>
+<!-- node1&#45;&gt;node1  -->
+<g id="edge17" class="edge">
+<title>node1-&gt;node1 </title>
+<path fill="none" stroke="black" d="M204.48,-196C216.45,-196 229.89,-196 242.64,-196"></path>
+<polygon fill="black" stroke="black" points="242.69,-199.5 252.69,-196 242.69,-192.5 242.69,-199.5"></polygon>
+</g>
+<!-- node2  -->
+<g id="node10" class="node">
+<title>node2 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-142" rx="42.49" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-138.3" font-family="Times,serif" font-size="14.00">node2 </text>
+</g>
+<!-- node1&#45;&gt;node2  -->
+<g id="edge21" class="edge">
+<title>node1-&gt;node2 </title>
+<path fill="none" stroke="black" d="M194.83,-184.02C212.68,-176.49 235.93,-166.67 255.48,-158.42"></path>
+<polygon fill="black" stroke="black" points="256.88,-161.63 264.73,-154.51 254.16,-155.18 256.88,-161.63"></polygon>
+</g>
+<!-- ...  -->
+<g id="node11" class="node">
+<title>... </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-88" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-84.3" font-family="Times,serif" font-size="14.00">... </text>
+</g>
+<!-- node1&#45;&gt;...  -->
+<g id="edge25" class="edge">
+<title>node1-&gt;... </title>
+<path fill="none" stroke="black" d="M185.04,-180.3C207.46,-161.37 245.19,-129.53 269.94,-108.64"></path>
+<polygon fill="black" stroke="black" points="272.41,-111.13 277.79,-102 267.89,-105.78 272.41,-111.13"></polygon>
+</g>
+<!-- node30  -->
+<g id="node12" class="node">
+<title>node30 </title>
+<ellipse fill="none" stroke="black" cx="295.38" cy="-34" rx="48.19" ry="18"></ellipse>
+<text text-anchor="middle" x="295.38" y="-30.3" font-family="Times,serif" font-size="14.00">node30 </text>
+</g>
+<!-- node1&#45;&gt;node30  -->
+<g id="edge29" class="edge">
+<title>node1-&gt;node30 </title>
+<path fill="none" stroke="black" d="M179.89,-178.97C202.48,-150.36 248.16,-92.53 274.48,-59.2"></path>
+<polygon fill="black" stroke="black" points="277.28,-61.31 280.73,-51.29 271.78,-56.97 277.28,-61.31"></polygon>
+</g>
+<!-- node2&#45;&gt;node1  -->
+<g id="edge18" class="edge">
+<title>node2-&gt;node1 </title>
+<path fill="none" stroke="black" d="M194.83,-153.98C212.68,-161.51 235.93,-171.33 255.48,-179.58"></path>
+<polygon fill="black" stroke="black" points="254.16,-182.82 264.73,-183.49 256.88,-176.37 254.16,-182.82"></polygon>
+</g>
+<!-- node2&#45;&gt;node2  -->
+<g id="edge22" class="edge">
+<title>node2-&gt;node2 </title>
+<path fill="none" stroke="black" d="M204.48,-142C216.45,-142 229.89,-142 242.64,-142"></path>
+<polygon fill="black" stroke="black" points="242.69,-145.5 252.69,-142 242.69,-138.5 242.69,-145.5"></polygon>
+</g>
+<!-- node2&#45;&gt;...  -->
+<g id="edge26" class="edge">
+<title>node2-&gt;... </title>
+<path fill="none" stroke="black" d="M194.83,-130.02C214.92,-121.54 241.86,-110.17 262.65,-101.39"></path>
+<polygon fill="black" stroke="black" points="264.16,-104.55 272.01,-97.44 261.44,-98.1 264.16,-104.55"></polygon>
+</g>
+<!-- node2&#45;&gt;node30  -->
+<g id="edge30" class="edge">
+<title>node2-&gt;node30 </title>
+<path fill="none" stroke="black" d="M185.04,-126.3C206.59,-108.11 242.28,-77.98 266.99,-57.12"></path>
+<polygon fill="black" stroke="black" points="269.53,-59.56 274.92,-50.43 265.02,-54.21 269.53,-59.56"></polygon>
+</g>
+<!-- ...&#45;&gt;node1  -->
+<g id="edge19" class="edge">
+<title>...-&gt;node1 </title>
+<path fill="none" stroke="black" d="M182.9,-101.9C204.34,-119.99 242.08,-151.85 267.65,-173.43"></path>
+<polygon fill="black" stroke="black" points="265.59,-176.27 275.49,-180.05 270.1,-170.92 265.59,-176.27"></polygon>
+</g>
+<!-- ...&#45;&gt;node2  -->
+<g id="edge23" class="edge">
+<title>...-&gt;node2 </title>
+<path fill="none" stroke="black" d="M188.73,-97.41C207.06,-105.14 233.49,-116.3 255.33,-125.52"></path>
+<polygon fill="black" stroke="black" points="254.1,-128.8 264.68,-129.46 256.83,-122.35 254.1,-128.8"></polygon>
+</g>
+<!-- ...&#45;&gt;...  -->
+<g id="edge27" class="edge">
+<title>...-&gt;... </title>
+<path fill="none" stroke="black" d="M192.64,-88C211.53,-88 237.26,-88 258.12,-88"></path>
+<polygon fill="black" stroke="black" points="258.22,-91.5 268.22,-88 258.22,-84.5 258.22,-91.5"></polygon>
+</g>
+<!-- ...&#45;&gt;node30  -->
+<g id="edge31" class="edge">
+<title>...-&gt;node30 </title>
+<path fill="none" stroke="black" d="M188.73,-78.59C206.56,-71.07 232.06,-60.31 253.53,-51.24"></path>
+<polygon fill="black" stroke="black" points="254.91,-54.46 262.77,-47.34 252.19,-48.01 254.91,-54.46"></polygon>
+</g>
+<!-- node20&#45;&gt;node1  -->
+<g id="edge20" class="edge">
+<title>node20-&gt;node1 </title>
+<path fill="none" stroke="black" d="M180.13,-51.34C202.83,-80.08 248.36,-137.72 274.57,-170.91"></path>
+<polygon fill="black" stroke="black" points="271.84,-173.11 280.79,-178.79 277.34,-168.77 271.84,-173.11"></polygon>
+</g>
+<!-- node20&#45;&gt;node2  -->
+<g id="edge24" class="edge">
+<title>node20-&gt;node2 </title>
+<path fill="none" stroke="black" d="M185.59,-50.17C207.39,-68.57 243.13,-98.74 267.66,-119.44"></path>
+<polygon fill="black" stroke="black" points="265.62,-122.3 275.51,-126.07 270.13,-116.95 265.62,-122.3"></polygon>
+</g>
+<!-- node20&#45;&gt;...  -->
+<g id="edge28" class="edge">
+<title>node20-&gt;... </title>
+<path fill="none" stroke="black" d="M197.09,-46.93C216.91,-55.3 242.65,-66.17 262.68,-74.62"></path>
+<polygon fill="black" stroke="black" points="261.43,-77.89 272,-78.55 264.15,-71.44 261.43,-77.89"></polygon>
+</g>
+<!-- node20&#45;&gt;node30  -->
+<g id="edge32" class="edge">
+<title>node20-&gt;node30 </title>
+<path fill="none" stroke="black" d="M210.47,-34C219.08,-34 228.23,-34 237.2,-34"></path>
+<polygon fill="black" stroke="black" points="237.21,-37.5 247.21,-34 237.21,-30.5 237.21,-37.5"></polygon>
+</g>
+<!-- y10 -->
+<g id="node13" class="node">
+<title>y10</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-61" rx="27.9" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-57.3" font-family="Times,serif" font-size="14.00">y10</text>
+</g>
+<!-- node1 &#45;&gt;y10 -->
+<g id="edge33" class="edge">
+<title>node1 -&gt;y10</title>
+<path fill="none" stroke="black" d="M313.52,-179.72C339.01,-155.49 386.98,-109.89 415.48,-82.81"></path>
+<polygon fill="black" stroke="black" points="418.13,-85.12 422.97,-75.69 413.31,-80.04 418.13,-85.12"></polygon>
+</g>
+<!-- y1 -->
+<g id="node14" class="node">
+<title>y1</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-169" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-165.3" font-family="Times,serif" font-size="14.00">y1</text>
+</g>
+<!-- node1 &#45;&gt;y1 -->
+<g id="edge37" class="edge">
+<title>node1 -&gt;y1</title>
+<path fill="none" stroke="black" d="M334.45,-188.76C355.82,-184.7 382.31,-179.67 403.2,-175.7"></path>
+<polygon fill="black" stroke="black" points="404.09,-179.09 413.26,-173.78 402.78,-172.21 404.09,-179.09"></polygon>
+</g>
+<!-- . -->
+<g id="node15" class="node">
+<title>.</title>
+<ellipse fill="none" stroke="black" cx="439.43" cy="-115" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="439.43" y="-111.3" font-family="Times,serif" font-size="14.00">.</text>
+</g>
+<!-- node1 &#45;&gt;. -->
+<g id="edge41" class="edge">
+<title>node1 -&gt;.</title>
+<path fill="none" stroke="black" d="M321.45,-181.71C345.99,-167.71 383.37,-146.4 409.23,-131.65"></path>
+<polygon fill="black" stroke="black" points="411.25,-134.53 418.2,-126.53 407.78,-128.45 411.25,-134.53"></polygon>
+</g>
+<!-- node2 &#45;&gt;y10 -->
+<g id="edge34" class="edge">
+<title>node2 -&gt;y10</title>
+<path fill="none" stroke="black" d="M321.45,-127.71C345.85,-113.79 382.93,-92.64 408.78,-77.9"></path>
+<polygon fill="black" stroke="black" points="410.8,-80.78 417.76,-72.79 407.34,-74.7 410.8,-80.78"></polygon>
+</g>
+<!-- node2 &#45;&gt;y1 -->
+<g id="edge38" class="edge">
+<title>node2 -&gt;y1</title>
+<path fill="none" stroke="black" d="M334.45,-149.24C355.82,-153.3 382.31,-158.33 403.2,-162.3"></path>
+<polygon fill="black" stroke="black" points="402.78,-165.79 413.26,-164.22 404.09,-158.91 402.78,-165.79"></polygon>
+</g>
+<!-- node2 &#45;&gt;. -->
+<g id="edge42" class="edge">
+<title>node2 -&gt;.</title>
+<path fill="none" stroke="black" d="M334.45,-134.76C355.82,-130.7 382.31,-125.67 403.2,-121.7"></path>
+<polygon fill="black" stroke="black" points="404.09,-125.09 413.26,-119.78 402.78,-118.21 404.09,-125.09"></polygon>
+</g>
+<!-- ... &#45;&gt;y10 -->
+<g id="edge35" class="edge">
+<title>... -&gt;y10</title>
+<path fill="none" stroke="black" d="M321.45,-83.24C343.85,-78.98 376.94,-72.69 402.21,-67.88"></path>
+<polygon fill="black" stroke="black" points="402.99,-71.3 412.17,-65.99 401.69,-64.42 402.99,-71.3"></polygon>
+</g>
+<!-- ... &#45;&gt;y1 -->
+<g id="edge39" class="edge">
+<title>... -&gt;y1</title>
+<path fill="none" stroke="black" d="M316.43,-99.43C340.75,-113.3 381.93,-136.79 409.64,-152.59"></path>
+<polygon fill="black" stroke="black" points="408.06,-155.71 418.48,-157.62 411.52,-149.63 408.06,-155.71"></polygon>
+</g>
+<!-- ... &#45;&gt;. -->
+<g id="edge43" class="edge">
+<title>... -&gt;.</title>
+<path fill="none" stroke="black" d="M321.45,-92.76C344.13,-97.08 377.77,-103.47 403.16,-108.3"></path>
+<polygon fill="black" stroke="black" points="402.65,-111.76 413.13,-110.19 403.96,-104.89 402.65,-111.76"></polygon>
+</g>
+<!-- node30 &#45;&gt;y10 -->
+<g id="edge36" class="edge">
+<title>node30 -&gt;y10</title>
+<path fill="none" stroke="black" d="M338.61,-42.03C358.86,-45.88 382.85,-50.44 402.24,-54.12"></path>
+<polygon fill="black" stroke="black" points="401.73,-57.59 412.2,-56.02 403.03,-50.71 401.73,-57.59"></polygon>
+</g>
+<!-- node30 &#45;&gt;y1 -->
+<g id="edge40" class="edge">
+<title>node30 -&gt;y1</title>
+<path fill="none" stroke="black" d="M314.08,-50.82C339.78,-75.25 387.42,-120.52 415.69,-147.39"></path>
+<polygon fill="black" stroke="black" points="413.45,-150.09 423.11,-154.44 418.27,-145.02 413.45,-150.09"></polygon>
+</g>
+<!-- node30 &#45;&gt;. -->
+<g id="edge44" class="edge">
+<title>node30 -&gt;.</title>
+<path fill="none" stroke="black" d="M322.77,-49.05C347.35,-63.06 383.92,-83.92 409.34,-98.41"></path>
+<polygon fill="black" stroke="black" points="407.73,-101.53 418.15,-103.44 411.2,-95.45 407.73,-101.53"></polygon>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="o">!</span>rm -rf logs
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/10
+ 51/300 [====&gt;.........................] - ETA: 0s - loss: 10.3140 - accuracy: 0.1126</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-06-12 20:20:18.074442: I tensorflow/stream_executor/cuda/cuda_blas.cc:1774] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>300/300 [==============================] - 2s 3ms/step - loss: 3.3773 - accuracy: 0.1935
+Epoch 2/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.7547 - accuracy: 0.2837
+Epoch 3/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.5505 - accuracy: 0.3734
+Epoch 4/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.3838 - accuracy: 0.4317
+Epoch 5/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.2905 - accuracy: 0.4512
+Epoch 6/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.2546 - accuracy: 0.4586
+Epoch 7/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.2338 - accuracy: 0.4630
+Epoch 8/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.2205 - accuracy: 0.4682
+Epoch 9/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.2067 - accuracy: 0.4745
+Epoch 10/10
+300/300 [==============================] - 1s 4ms/step - loss: 1.1229 - accuracy: 0.5188
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f8bfbf9c580&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten (Flatten)           (200, 784)                0         
+                                                                 
+ dense (Dense)               (200, 20)                 15700     
+                                                                 
+ dense_1 (Dense)             (200, 30)                 630       
+                                                                 
+ dense_2 (Dense)             (200, 10)                 310       
+                                                                 
+=================================================================
+Total params: 16,640
+Trainable params: 16,640
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> (1)에서 적합된 네트워크를 이용하여 test data의 accuracy를 구하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 3ms/step - loss: 1.1249 - accuracy: 0.5273
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5273000001907349</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> train set에서 20%의 자료를 validation 으로 분리하여 50에폭동안 학습하라. 텐서보드를 이용하여 train accuracy와 validation accuracy를 시각화 하고 결과를 해석하라. 오버피팅이라고 볼 수 있는가?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="o">!</span>rm -rf logs
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">cb1</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/50
+240/240 [==============================] - 1s 5ms/step - loss: 3.5097 - accuracy: 0.1968 - val_loss: 1.8552 - val_accuracy: 0.2494
+Epoch 2/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.7568 - accuracy: 0.2974 - val_loss: 1.7041 - val_accuracy: 0.3078
+Epoch 3/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.6305 - accuracy: 0.3401 - val_loss: 1.5662 - val_accuracy: 0.3707
+Epoch 4/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.4904 - accuracy: 0.4000 - val_loss: 1.4276 - val_accuracy: 0.4173
+Epoch 5/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.3527 - accuracy: 0.4417 - val_loss: 1.3184 - val_accuracy: 0.4498
+Epoch 6/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2798 - accuracy: 0.4554 - val_loss: 1.2782 - val_accuracy: 0.4569
+Epoch 7/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2515 - accuracy: 0.4604 - val_loss: 1.2648 - val_accuracy: 0.4592
+Epoch 8/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2296 - accuracy: 0.4644 - val_loss: 1.2487 - val_accuracy: 0.4635
+Epoch 9/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2178 - accuracy: 0.4703 - val_loss: 1.2319 - val_accuracy: 0.4638
+Epoch 10/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.1885 - accuracy: 0.4926 - val_loss: 1.1478 - val_accuracy: 0.4963
+Epoch 11/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.1013 - accuracy: 0.5245 - val_loss: 1.0751 - val_accuracy: 0.5587
+Epoch 12/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.0572 - accuracy: 0.5429 - val_loss: 1.0514 - val_accuracy: 0.5526
+Epoch 13/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.0314 - accuracy: 0.5544 - val_loss: 1.1089 - val_accuracy: 0.5083
+Epoch 14/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.0145 - accuracy: 0.5592 - val_loss: 1.0447 - val_accuracy: 0.5441
+Epoch 15/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.9906 - accuracy: 0.5718 - val_loss: 0.9869 - val_accuracy: 0.5895
+Epoch 16/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.9770 - accuracy: 0.5760 - val_loss: 0.9818 - val_accuracy: 0.5671
+Epoch 17/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.9542 - accuracy: 0.5903 - val_loss: 0.9571 - val_accuracy: 0.6049
+Epoch 18/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.8954 - accuracy: 0.6348 - val_loss: 0.8723 - val_accuracy: 0.6518
+Epoch 19/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.8584 - accuracy: 0.6534 - val_loss: 0.8626 - val_accuracy: 0.6635
+Epoch 20/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.8212 - accuracy: 0.6676 - val_loss: 0.8379 - val_accuracy: 0.6567
+Epoch 21/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7915 - accuracy: 0.6787 - val_loss: 0.8099 - val_accuracy: 0.6718
+Epoch 22/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7768 - accuracy: 0.6862 - val_loss: 0.8036 - val_accuracy: 0.6880
+Epoch 23/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7623 - accuracy: 0.6923 - val_loss: 0.7813 - val_accuracy: 0.6964
+Epoch 24/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7432 - accuracy: 0.6993 - val_loss: 0.7785 - val_accuracy: 0.6958
+Epoch 25/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7412 - accuracy: 0.7002 - val_loss: 0.7933 - val_accuracy: 0.6976
+Epoch 26/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7376 - accuracy: 0.7056 - val_loss: 0.7776 - val_accuracy: 0.7045
+Epoch 27/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7349 - accuracy: 0.7118 - val_loss: 0.7849 - val_accuracy: 0.6673
+Epoch 28/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.7123 - accuracy: 0.7284 - val_loss: 0.7190 - val_accuracy: 0.7448
+Epoch 29/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6976 - accuracy: 0.7342 - val_loss: 0.7479 - val_accuracy: 0.7185
+Epoch 30/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6715 - accuracy: 0.7477 - val_loss: 0.6951 - val_accuracy: 0.7377
+Epoch 31/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6776 - accuracy: 0.7413 - val_loss: 0.7037 - val_accuracy: 0.7303
+Epoch 32/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6567 - accuracy: 0.7505 - val_loss: 0.6952 - val_accuracy: 0.7441
+Epoch 33/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6456 - accuracy: 0.7566 - val_loss: 0.6864 - val_accuracy: 0.7623
+Epoch 34/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6361 - accuracy: 0.7619 - val_loss: 0.6739 - val_accuracy: 0.7613
+Epoch 35/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6391 - accuracy: 0.7652 - val_loss: 0.6839 - val_accuracy: 0.7510
+Epoch 36/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6397 - accuracy: 0.7662 - val_loss: 0.6572 - val_accuracy: 0.7676
+Epoch 37/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6235 - accuracy: 0.7734 - val_loss: 0.6690 - val_accuracy: 0.7717
+Epoch 38/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6127 - accuracy: 0.7791 - val_loss: 0.6474 - val_accuracy: 0.7796
+Epoch 39/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6073 - accuracy: 0.7812 - val_loss: 0.6473 - val_accuracy: 0.7802
+Epoch 40/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5960 - accuracy: 0.7856 - val_loss: 0.6459 - val_accuracy: 0.7808
+Epoch 41/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6039 - accuracy: 0.7840 - val_loss: 0.6936 - val_accuracy: 0.7622
+Epoch 42/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6002 - accuracy: 0.7850 - val_loss: 0.6455 - val_accuracy: 0.7729
+Epoch 43/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6010 - accuracy: 0.7833 - val_loss: 0.6551 - val_accuracy: 0.7792
+Epoch 44/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6033 - accuracy: 0.7840 - val_loss: 0.6101 - val_accuracy: 0.7910
+Epoch 45/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5868 - accuracy: 0.7893 - val_loss: 0.6341 - val_accuracy: 0.7854
+Epoch 46/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5934 - accuracy: 0.7864 - val_loss: 0.6225 - val_accuracy: 0.7891
+Epoch 47/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.6246 - accuracy: 0.7786 - val_loss: 0.6429 - val_accuracy: 0.7804
+Epoch 48/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5729 - accuracy: 0.7906 - val_loss: 0.6607 - val_accuracy: 0.7561
+Epoch 49/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5760 - accuracy: 0.7926 - val_loss: 0.7408 - val_accuracy: 0.7321
+Epoch 50/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.5829 - accuracy: 0.7890 - val_loss: 0.6363 - val_accuracy: 0.7809
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f8bfa5e3ee0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir logs --host 0.0.0.0
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>Reusing TensorBoard on port 6006 (pid 2281220), started 0:00:00 ago. (Use '!kill 2281220' to kill it.)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+      <iframe id="tensorboard-frame-8c99cd91e0e75e14" width="100%" height="800" frameborder="0">
+      </iframe>
+      <script>
+        (function() {
+          const frame = document.getElementById("tensorboard-frame-8c99cd91e0e75e14");
+          const url = new URL("/", window.location);
+          const port = 6006;
+          if (port) {
+            url.port = port;
+          }
+          frame.src = url;
+        })();
+      </script>
+    
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>train accuracy보다validation accuracy accuracy가 0.01정도 높게 나왔다.</p>
+<p>우리의 목적은 validation accuracy가 더 좋게 나오길 원하는 것이었다.</p>
+<p>training loss와 같이 validation loss도 줄어들고 있었다.</p>
+<p>비록 중간에 조금 상승하는 구간이 보이지만 결국 training loss와 비슷한 값에 수렴했다.(0.01 정도 차이)</p>
+<p>오버피팅은 아니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> (3)에서 적합된 네트워크를 이용하여 test data의 accuracy를 구하라. (2)의 결과와 비교하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 1s 4ms/step - loss: 0.6505 - accuracy: 0.7786
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.7785999774932861</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>validation을 split하여 training하니 정확도가 높아졌다.</p>
+<p>20%의 validation을 제외한 training data로 학습을 한 것보다 20%의 validation의 loss가 더 낮아지는 결과가 도출되었다.</p>
+<p>(3)의 결과에서 알 수 있듯이 오버피팅의 징조가 보이니 validation split을 한 network는 좋은 net을 설계했다고 볼 수 없겠다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> 조기종료기능을 이용하여 (3)의 네트워크를 다시 학습하라. 학습결과를 텐서보드를 이용하여 시각화 하라.</p>
+<ul>
+<li>patience=3 으로 설정할 것</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="o">!</span>rm -rf logs
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cb1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">()</span>
+<span class="n">cb2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">cb1</span><span class="p">,</span><span class="n">cb2</span><span class="p">])</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/50
+240/240 [==============================] - 2s 8ms/step - loss: 3.5097 - accuracy: 0.1968 - val_loss: 1.8552 - val_accuracy: 0.2495
+Epoch 2/50
+240/240 [==============================] - 1s 4ms/step - loss: 1.7548 - accuracy: 0.2991 - val_loss: 1.6986 - val_accuracy: 0.3088
+Epoch 3/50
+240/240 [==============================] - 2s 7ms/step - loss: 1.6166 - accuracy: 0.3491 - val_loss: 1.5575 - val_accuracy: 0.3804
+Epoch 4/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.4841 - accuracy: 0.4009 - val_loss: 1.4335 - val_accuracy: 0.4156
+Epoch 5/50
+240/240 [==============================] - 1s 6ms/step - loss: 1.3541 - accuracy: 0.4414 - val_loss: 1.3242 - val_accuracy: 0.4461
+Epoch 6/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2795 - accuracy: 0.4547 - val_loss: 1.2824 - val_accuracy: 0.4543
+Epoch 7/50
+240/240 [==============================] - 2s 7ms/step - loss: 1.2504 - accuracy: 0.4594 - val_loss: 1.2627 - val_accuracy: 0.4586
+Epoch 8/50
+240/240 [==============================] - 1s 6ms/step - loss: 1.2340 - accuracy: 0.4628 - val_loss: 1.2426 - val_accuracy: 0.4618
+Epoch 9/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.2207 - accuracy: 0.4683 - val_loss: 1.2317 - val_accuracy: 0.4631
+Epoch 10/50
+240/240 [==============================] - 1s 3ms/step - loss: 1.1920 - accuracy: 0.4914 - val_loss: 1.1480 - val_accuracy: 0.4908
+Epoch 11/50
+240/240 [==============================] - 1s 5ms/step - loss: 1.0957 - accuracy: 0.5300 - val_loss: 1.0769 - val_accuracy: 0.5415
+Epoch 12/50
+240/240 [==============================] - 1s 6ms/step - loss: 1.0510 - accuracy: 0.5433 - val_loss: 1.0635 - val_accuracy: 0.5305
+Epoch 13/50
+240/240 [==============================] - 2s 7ms/step - loss: 1.0286 - accuracy: 0.5562 - val_loss: 1.0352 - val_accuracy: 0.5621
+Epoch 14/50
+240/240 [==============================] - 1s 6ms/step - loss: 1.0163 - accuracy: 0.5579 - val_loss: 1.0201 - val_accuracy: 0.5585
+Epoch 15/50
+240/240 [==============================] - 1s 6ms/step - loss: 1.0054 - accuracy: 0.5674 - val_loss: 1.0188 - val_accuracy: 0.5562
+Epoch 16/50
+240/240 [==============================] - 1s 4ms/step - loss: 0.9956 - accuracy: 0.5766 - val_loss: 1.0052 - val_accuracy: 0.5876
+Epoch 17/50
+240/240 [==============================] - 2s 7ms/step - loss: 0.9294 - accuracy: 0.6262 - val_loss: 0.9101 - val_accuracy: 0.6352
+Epoch 18/50
+240/240 [==============================] - 2s 7ms/step - loss: 0.8882 - accuracy: 0.6436 - val_loss: 0.9630 - val_accuracy: 0.6083
+Epoch 19/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8617 - accuracy: 0.6510 - val_loss: 0.8606 - val_accuracy: 0.6593
+Epoch 20/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.8529 - accuracy: 0.6573 - val_loss: 0.8814 - val_accuracy: 0.6575
+Epoch 21/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8249 - accuracy: 0.6711 - val_loss: 0.8362 - val_accuracy: 0.6753
+Epoch 22/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8149 - accuracy: 0.6709 - val_loss: 0.8508 - val_accuracy: 0.6546
+Epoch 23/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8063 - accuracy: 0.6756 - val_loss: 0.8348 - val_accuracy: 0.6833
+Epoch 24/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8036 - accuracy: 0.6752 - val_loss: 0.8407 - val_accuracy: 0.6733
+Epoch 25/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.8005 - accuracy: 0.6783 - val_loss: 0.8608 - val_accuracy: 0.6524
+Epoch 26/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.7874 - accuracy: 0.6834 - val_loss: 0.8181 - val_accuracy: 0.6619
+Epoch 27/50
+240/240 [==============================] - 1s 5ms/step - loss: 0.8025 - accuracy: 0.6809 - val_loss: 0.8235 - val_accuracy: 0.6429
+Epoch 28/50
+240/240 [==============================] - 2s 7ms/step - loss: 0.7822 - accuracy: 0.6908 - val_loss: 0.8205 - val_accuracy: 0.6938
+Epoch 29/50
+240/240 [==============================] - 1s 6ms/step - loss: 0.7672 - accuracy: 0.6988 - val_loss: 0.8417 - val_accuracy: 0.6491
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f11702d51b0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir logs --host 0.0.0.0
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>Reusing TensorBoard on port 6006 (pid 2045929), started 0:00:04 ago. (Use '!kill 2045929' to kill it.)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+      <iframe id="tensorboard-frame-e6a1b936d3d8deb2" width="100%" height="800" frameborder="0">
+      </iframe>
+      <script>
+        (function() {
+          const frame = document.getElementById("tensorboard-frame-e6a1b936d3d8deb2");
+          const url = new URL("/", window.location);
+          const port = 6006;
+          if (port) {
+            url.port = port;
+          }
+          frame.src = url;
+        })();
+      </script>
+    
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Fashion_mnist,-CNN-(30점)">
+<a class="anchor" href="#2.-Fashion_mnist,-CNN-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Fashion_mnist, CNN (30점)<a class="anchor-link" href="#2.-Fashion_mnist,-CNN-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> <code>tf.keras.datasets.fashion_mnist.load_data()</code>을 이용하여 fashion_mnist 자료를 불러온 뒤 아래의 네트워크를 이용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">XX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이때 n1=6, n2=16, n3=120 으로 설정한다, 드랍아웃비율은 20%로 설정한다.</li>
+<li>
+<code>net.summary()</code>를 출력하여 설계결과를 확인하라.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://editor.analyticsvidhya.com/uploads/90650dnn2.jpeg" alt=""></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="o">!</span>rm -rf logs
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">6</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.8791 - accuracy: 0.7674
+Epoch 2/5
+1875/1875 [==============================] - 10s 5ms/step - loss: 0.4308 - accuracy: 0.8436
+Epoch 3/5
+1875/1875 [==============================] - 10s 5ms/step - loss: 0.3858 - accuracy: 0.8593
+Epoch 4/5
+1875/1875 [==============================] - 9s 5ms/step - loss: 0.3617 - accuracy: 0.8671
+Epoch 5/5
+1875/1875 [==============================] - 8s 5ms/step - loss: 0.3410 - accuracy: 0.8731
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f17423697b0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">layers</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;keras.layers.convolutional.Conv2D at 0x7f17a82c9720&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f118847b970&gt;,
+ &lt;keras.layers.convolutional.Conv2D at 0x7f118847ba60&gt;,
+ &lt;keras.layers.pooling.MaxPooling2D at 0x7f11884fce50&gt;,
+ &lt;keras.layers.core.flatten.Flatten at 0x7f173a555780&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f17d043e320&gt;,
+ &lt;keras.layers.core.dropout.Dropout at 0x7f17d043f040&gt;,
+ &lt;keras.layers.core.dense.Dense at 0x7f173a60cdc0&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c1</span><span class="p">,</span><span class="n">m1</span><span class="p">,</span><span class="n">c2</span><span class="p">,</span><span class="n">m2</span><span class="p">,</span><span class="n">flttn</span><span class="p">,</span><span class="n">rel</span><span class="p">,</span><span class="n">dro</span><span class="p">,</span><span class="n">dns</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">layers</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">rel</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">dro</span><span class="p">(</span><span class="n">rel</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">)))))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">dns</span><span class="p">(</span><span class="n">dro</span><span class="p">(</span><span class="n">rel</span><span class="p">(</span><span class="n">flttn</span><span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">c2</span><span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">c1</span><span class="p">(</span><span class="n">X</span><span class="p">))))))))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(60000, 28, 28, 1)
+(60000, 24, 24, 6)
+(60000, 12, 12, 6)
+(60000, 8, 8, 16)
+(60000, 4, 4, 16)
+(60000, 256)
+(60000, 120)
+(60000, 120)
+(60000, 10)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model: "sequential_200"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_394 (Conv2D)         (32, 24, 24, 6)           156       
+                                                                 
+ max_pooling2d_390 (MaxPooli  (32, 12, 12, 6)          0         
+ ng2D)                                                           
+                                                                 
+ conv2d_395 (Conv2D)         (32, 8, 8, 16)            2416      
+                                                                 
+ max_pooling2d_391 (MaxPooli  (32, 4, 4, 16)           0         
+ ng2D)                                                           
+                                                                 
+ flatten_200 (Flatten)       (32, 256)                 0         
+                                                                 
+ dense_403 (Dense)           (32, 120)                 30840     
+                                                                 
+ dropout_196 (Dropout)       (32, 120)                 0         
+                                                                 
+ dense_404 (Dense)           (32, 10)                  1210      
+                                                                 
+=================================================================
+Total params: 34,622
+Trainable params: 34,622
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> n1=(6,64,128), n2=(16,256)에 대하여 test set의 loss가 최소화되는 조합을 찾아라. 결과를 텐서보드로 시각화하는 코드를 작성하라.</p>
+<ul>
+<li>epoc은 3회로 한정한다. </li>
+<li>validation_split은 0.2로 설정한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard.plugins.hparams</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">hp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="o">!</span>rm -rf logs
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">128</span><span class="p">]:</span> 
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">256</span><span class="p">]:</span> 
+        <span class="n">logdir</span> <span class="o">=</span> <span class="s1">'logs/hp_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">create_file_writer</span><span class="p">(</span><span class="n">logdir</span><span class="p">)</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">u</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+            <span class="n">cb3</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">KerasCallback</span><span class="p">(</span><span class="n">logdir</span><span class="p">,</span> <span class="p">{</span><span class="s1">'n1'</span><span class="p">:</span><span class="n">u</span><span class="p">,</span> <span class="s1">'n2'</span><span class="p">:</span><span class="n">d</span><span class="p">})</span>
+            <span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">cb3</span><span class="p">)</span>
+            <span class="n">_rslt</span><span class="o">=</span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span>
+            <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_rslt</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="s1">'loss(테스트셋)'</span><span class="p">,</span><span class="n">_rslt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/3
+240/240 [==============================] - 3s 10ms/step - loss: 2.2066 - accuracy: 0.6594 - val_loss: 0.5792 - val_accuracy: 0.7904
+Epoch 2/3
+240/240 [==============================] - 2s 8ms/step - loss: 0.5800 - accuracy: 0.7913 - val_loss: 0.4755 - val_accuracy: 0.8284
+Epoch 3/3
+240/240 [==============================] - 2s 7ms/step - loss: 0.4906 - accuracy: 0.8231 - val_loss: 0.4423 - val_accuracy: 0.8372
+313/313 [==============================] - 2s 6ms/step - loss: 0.4550 - accuracy: 0.8348
+Epoch 1/3
+240/240 [==============================] - 3s 8ms/step - loss: 1.2998 - accuracy: 0.7496 - val_loss: 0.3960 - val_accuracy: 0.8584
+Epoch 2/3
+240/240 [==============================] - 2s 9ms/step - loss: 0.4058 - accuracy: 0.8568 - val_loss: 0.3453 - val_accuracy: 0.8751
+Epoch 3/3
+240/240 [==============================] - 2s 8ms/step - loss: 0.3365 - accuracy: 0.8796 - val_loss: 0.3175 - val_accuracy: 0.8848
+313/313 [==============================] - 2s 4ms/step - loss: 0.3444 - accuracy: 0.8784
+Epoch 1/3
+240/240 [==============================] - 2s 8ms/step - loss: 1.6604 - accuracy: 0.5781 - val_loss: 0.6658 - val_accuracy: 0.7638
+Epoch 2/3
+240/240 [==============================] - 2s 9ms/step - loss: 0.6420 - accuracy: 0.7723 - val_loss: 0.5566 - val_accuracy: 0.8022
+Epoch 3/3
+240/240 [==============================] - 2s 7ms/step - loss: 0.5498 - accuracy: 0.8012 - val_loss: 0.5062 - val_accuracy: 0.8204
+313/313 [==============================] - 2s 5ms/step - loss: 0.5221 - accuracy: 0.8104
+Epoch 1/3
+240/240 [==============================] - 2s 6ms/step - loss: 1.4709 - accuracy: 0.7603 - val_loss: 0.3609 - val_accuracy: 0.8709
+Epoch 2/3
+240/240 [==============================] - 2s 8ms/step - loss: 0.3619 - accuracy: 0.8729 - val_loss: 0.3122 - val_accuracy: 0.8838
+Epoch 3/3
+240/240 [==============================] - 3s 11ms/step - loss: 0.3004 - accuracy: 0.8941 - val_loss: 0.2842 - val_accuracy: 0.8971
+313/313 [==============================] - 2s 6ms/step - loss: 0.3028 - accuracy: 0.8904
+Epoch 1/3
+240/240 [==============================] - 3s 11ms/step - loss: 1.4419 - accuracy: 0.5775 - val_loss: 0.6410 - val_accuracy: 0.7645
+Epoch 2/3
+240/240 [==============================] - 3s 11ms/step - loss: 0.5972 - accuracy: 0.7793 - val_loss: 0.4851 - val_accuracy: 0.8187
+Epoch 3/3
+240/240 [==============================] - 2s 10ms/step - loss: 0.4984 - accuracy: 0.8176 - val_loss: 0.4373 - val_accuracy: 0.8357
+313/313 [==============================] - 2s 5ms/step - loss: 0.4565 - accuracy: 0.8273
+Epoch 1/3
+240/240 [==============================] - 4s 13ms/step - loss: 2.0745 - accuracy: 0.7771 - val_loss: 0.3579 - val_accuracy: 0.8695
+Epoch 2/3
+240/240 [==============================] - 3s 11ms/step - loss: 0.3385 - accuracy: 0.8813 - val_loss: 0.2956 - val_accuracy: 0.8947
+Epoch 3/3
+240/240 [==============================] - 3s 11ms/step - loss: 0.2799 - accuracy: 0.9005 - val_loss: 0.2731 - val_accuracy: 0.8999
+313/313 [==============================] - 2s 4ms/step - loss: 0.2948 - accuracy: 0.8939
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir logs --host 0.0.0.0
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+      <iframe id="tensorboard-frame-f571a36a11ee35cc" width="100%" height="800" frameborder="0">
+      </iframe>
+      <script>
+        (function() {
+          const frame = document.getElementById("tensorboard-frame-f571a36a11ee35cc");
+          const url = new URL("/", window.location);
+          const port = 6006;
+          if (port) {
+            url.port = port;
+          }
+          frame.src = url;
+        })();
+      </script>
+    
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.4550354480743408,
+ 0.34435006976127625,
+ 0.522118866443634,
+ 0.3027571737766266,
+ 0.45646074414253235,
+ 0.2948054075241089]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위는 순서대로</p>
+<ul>
+<li>$n_1$=(6), $n_2$=(16)</li>
+<li>$n_1$=(6), $n_2$=(256)</li>
+<li>$n_1$=(64), $n_2$=(16)</li>
+<li>$n_1$=(64), $n_2$=(256)</li>
+<li>$n_1$=(128), $n_2$=(16)</li>
+<li>$n_1$=(128), $n_2$=(256)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>$n_1=128, n_2 = 256$에서 test set의 loss가 $0.2948054075241089$로 최소화된다.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-CIFAR10-(30점)">
+<a class="anchor" href="#3.-CIFAR10-(30%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. CIFAR10 (30점)<a class="anchor-link" href="#3.-CIFAR10-(30%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>tf.keras.datasets.cifar10.load_data()</code>을 이용하여 CIFAR10을 불러온 뒤 적당한 네트워크를 사용하여 적합하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((50000, 32, 32, 3), (50000, 1), (10000, 32, 32, 3), (10000, 1))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span> <span class="c1"># 50000 by 1024 by </span>
+<span class="n">y</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span> 
+<span class="n">XX</span><span class="o">=</span><span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">yy</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">XX</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">yy</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((50000, 32, 32, 3), (50000, 10), (10000, 32, 32, 3), (10000, 10))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>결과를 텐서보드로 시각화할 필요는 없다. </li>
+<li>자유롭게 모형을 설계하여 적합하라. </li>
+<li>test set의 accuracy가 70%이상인 경우만 정답으로 인정한다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">1213</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">98</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">98</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">))</span>
+<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="s1">'accuracy'</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+1250/1250 [==============================] - 11s 8ms/step - loss: 1.4445 - accuracy: 0.4749 - val_loss: 1.0996 - val_accuracy: 0.6179
+Epoch 2/5
+1250/1250 [==============================] - 9s 7ms/step - loss: 0.9984 - accuracy: 0.6500 - val_loss: 0.9094 - val_accuracy: 0.6784
+Epoch 3/5
+1250/1250 [==============================] - 9s 7ms/step - loss: 0.8065 - accuracy: 0.7190 - val_loss: 0.8279 - val_accuracy: 0.7145
+Epoch 4/5
+1250/1250 [==============================] - 10s 8ms/step - loss: 0.6654 - accuracy: 0.7656 - val_loss: 0.7672 - val_accuracy: 0.7406
+Epoch 5/5
+1250/1250 [==============================] - 10s 8ms/step - loss: 0.5462 - accuracy: 0.8066 - val_loss: 0.7723 - val_accuracy: 0.7448
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7f173a653280&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>313/313 [==============================] - 2s 6ms/step - loss: 0.7952 - accuracy: 0.7404
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.7404000163078308</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-다음을-읽고-물음에-답하라.-(10점)">
+<a class="anchor" href="#4.-%EB%8B%A4%EC%9D%8C%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EB%AC%BC%EC%9D%8C%EC%97%90-%EB%8B%B5%ED%95%98%EB%9D%BC.-(10%EC%A0%90)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 다음을 읽고 물음에 답하라. (10점)<a class="anchor-link" href="#4.-%EB%8B%A4%EC%9D%8C%EC%9D%84-%EC%9D%BD%EA%B3%A0-%EB%AC%BC%EC%9D%8C%EC%97%90-%EB%8B%B5%ED%95%98%EB%9D%BC.-(10%EC%A0%90)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) (128,128,3)의 shape을 가진 텐서가 <code>tf.keras.layers.Conv2D(5,(2,2))</code>으로 만들어진 커널을 통과할시 나오는 shape은?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">128</span><span class="o">*</span><span class="mi">128</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnv</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([1, 127, 127, 5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>answer: <code>(1, 127, 127, 5)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) (24,24,16)의 shape을 가진 텐서가 <code>tf.keras.layers.Flatten()</code>을 통과할때 나오는 텐서의 shape은?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">24</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">16</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>9216</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flltn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">XXX</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flltn</span><span class="p">(</span><span class="n">XXX</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([1, 9216])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>answerL <code>(1,9216)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(3) 관측치의 수가 10인 자료에서 batch_size=3으로 설정하면 한 에폭당 몇번의 이터레이션이 수행되는가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>3</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(4) 적당한 선형변환을 적용하여 (28,28)의 크기를 가진 흑백이미지를 (27,27)의 크기를 가지는 흑백이미지로 바꾸려 한다. (2,2) 크기의 커널을 가진 Conv2D layer를 이용한다면 몇개의 가중치가 필요한가? (바이어스는 무시한다)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">conv</span><span class="o">.</span><span class="n">weights</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;tf.Variable 'conv2d_2/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
+ array([[[[-0.42808822]],
+ 
+         [[ 0.61645263]]],
+ 
+ 
+        [[[ 0.4094376 ]],
+ 
+         [[ 0.06302863]]]], dtype=float32)&gt;,
+ &lt;tf.Variable 'conv2d_2/bias:0' shape=(1,) dtype=float32, numpy=array([0.], dtype=float32)&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'conv2d_2/kernel:0' shape=(2, 2, 1, 1) dtype=float32, numpy=
+array([[[[-0.42808822]],
+
+        [[ 0.61645263]]],
+
+
+       [[[ 0.4094376 ]],
+
+        [[ 0.06302863]]]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([60000, 27, 27, 1])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>4개</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(5) 적당한 선형변환을 적용하여 (28,28)의 크기를 가진 흑백이미지를 (27,27)의 크기를 가지는 흑백이미지로 바꾸려 한다. Dense layer를 이용한다면 몇개의 가중치가 필요한가? (바이어스는 무시한다)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.image.AxesImage at 0x7f8aac75cee0&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(60000, 28, 28, 1)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flatten</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+<span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">729</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dense</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'dense_7/kernel:0' shape=(784, 729) dtype=float32, numpy=
+array([[-0.06126465,  0.06081464, -0.02847512, ..., -0.02953292,
+        -0.0128521 , -0.01588677],
+       [ 0.00430008, -0.01665639,  0.03717923, ..., -0.06223682,
+        -0.04807941,  0.03432452],
+       [-0.04266407, -0.03506888,  0.04691477, ...,  0.03784292,
+        -0.0169938 ,  0.04724574],
+       ...,
+       [-0.03184114,  0.00621009, -0.00734317, ...,  0.05529071,
+        -0.00723364,  0.02950227],
+       [ 0.01770519,  0.03401025, -0.03957512, ..., -0.02695979,
+        -0.03614742,  0.05953851],
+       [ 0.05379319,  0.02798077, -0.0164431 , ...,  0.02935955,
+         0.04018781, -0.06059197]], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dense</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorShape([60000, 27, 27, 1])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dense</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.image.AxesImage at 0x7f896c5cf040&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>729개</code></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/special%20topics%20in%20big%20data%20analysis/2022/06/13/bds-%EA%B8%B0%EB%A7%90%EA%B3%A0%EC%82%AC-%EC%98%88%EC%83%81%EB%AC%B8%EC%A0%9C.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
