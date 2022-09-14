@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      24 min read
     
 </span></p>
 
@@ -1561,6 +1561,31 @@ dir(lrnr.model)</code></pre>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>github에서 파일의 raw click하여 주소 가져오기</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>wget사용하면 주소의 data 바로 다운 가능</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">guebin</span><span class="o">/</span><span class="n">DL2022</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">_notebooks</span><span class="o">/</span><span class="mi">2022</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="n">rcmd_view</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1894,10 +1919,26 @@ dir(lrnr.model)</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>컴퓨터가 좋아하는 타입은 아님</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>row0 - row49 에 해당하는 유저는 커피를 선호</li>
 <li>row50 - row99 에 해당하는 유저는 홍차를 선호</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위의 자료는 비효율적, tidy data로 바꿔주자, 아래와 같이 정리함으로써 저장할 data도 줄어든다.</p>
 
 </div>
 </div>
@@ -2050,6 +2091,42 @@ dir(lrnr.model)</code></pre>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">cat</span> <span class="n">파일명</span>
+</pre></div>
+<p>data 도 확인 가능하다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">guebin</span><span class="o">/</span><span class="n">DL2022</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">_notebooks</span><span class="o">/</span><span class="mi">2022</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="n">rcmd_anal</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">cat</span> <span class="n">Real_estate_valuation_data_set</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2093,6 +2170,25 @@ dir(lrnr.model)</code></pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>user는 1~100 존재</li>
+<li>item은 1~20 존재</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2110,6 +2206,14 @@ dir(lrnr.model)</code></pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>batch 데이터들의 group</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2143,63 +2247,63 @@ dir(lrnr.model)</code></pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>1</td>
-      <td>4.031811</td>
+      <td>6</td>
+      <td>19</td>
+      <td>1.009990</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>40</td>
-      <td>19</td>
-      <td>1.015886</td>
+      <td>7</td>
+      <td>4</td>
+      <td>3.727867</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>39</td>
-      <td>20</td>
-      <td>0.853394</td>
+      <td>48</td>
+      <td>3</td>
+      <td>3.718709</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>58</td>
-      <td>8</td>
-      <td>0.854745</td>
+      <td>10</td>
+      <td>16</td>
+      <td>1.047818</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>38</td>
-      <td>6</td>
-      <td>4.055263</td>
+      <td>47</td>
+      <td>17</td>
+      <td>1.321483</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>45</td>
-      <td>17</td>
-      <td>0.608018</td>
+      <td>44</td>
+      <td>18</td>
+      <td>1.579682</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>59</td>
-      <td>14</td>
-      <td>3.986921</td>
+      <td>40</td>
+      <td>4</td>
+      <td>4.470714</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>6</td>
-      <td>12</td>
-      <td>0.833454</td>
+      <td>72</td>
+      <td>18</td>
+      <td>4.032712</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>98</td>
-      <td>13</td>
-      <td>4.354638</td>
+      <td>29</td>
+      <td>6</td>
+      <td>3.917495</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>74</td>
-      <td>12</td>
-      <td>4.199568</td>
+      <td>63</td>
+      <td>4</td>
+      <td>1.169060</td>
     </tr>
   </tbody>
 </table>
@@ -2237,6 +2341,105 @@ dir(lrnr.model)</code></pre>
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Tensor</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Tensor</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">dls</span><span class="o">.</span><span class="n">one_batch</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tuple</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
@@ -2252,7 +2455,7 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(tensor([64, 15]), tensor([4.1146]))</pre>
+<pre>(tensor([19,  1]), tensor([3.8644]))</pre>
 </div>
 
 </div>
@@ -2289,6 +2492,75 @@ dir(lrnr.model)</code></pre>
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>collab_learner<span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+collab_learner<span class="ansi-blue-fg">(</span>
+    dls<span class="ansi-blue-fg">,</span>
+    n_factors<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">50</span><span class="ansi-blue-fg">,</span>
+    use_nn<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    emb_szs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    layers<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    config<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    y_range<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    loss_func<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    opt_func<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&lt;</span>function Adam at <span class="ansi-cyan-fg">0x7f9971cbd550</span><span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">,</span>
+    lr<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.001</span><span class="ansi-blue-fg">,</span>
+    splitter<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&lt;</span>function trainable_params at <span class="ansi-cyan-fg">0x7f997f97d940</span><span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">,</span>
+    cbs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    metrics<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    path<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    model_dir<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'models'</span><span class="ansi-blue-fg">,</span>
+    wd<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    wd_bn_bias<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    train_bn<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    moms<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0.95</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.85</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.95</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Source:</span>   
+<span class="ansi-blue-fg">@</span>delegates<span class="ansi-blue-fg">(</span>Learner<span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">def</span> collab_learner<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">,</span> n_factors<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">50</span><span class="ansi-blue-fg">,</span> use_nn<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> emb_szs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> layers<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> config<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> y_range<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> loss_func<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+    <span class="ansi-blue-fg">"Create a Learner for collaborative filtering on `dls`."</span>
+    emb_szs <span class="ansi-blue-fg">=</span> get_emb_sz<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">,</span> ifnone<span class="ansi-blue-fg">(</span>emb_szs<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">if</span> loss_func <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> loss_func <span class="ansi-blue-fg">=</span> MSELossFlat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">if</span> config <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> config <span class="ansi-blue-fg">=</span> tabular_config<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">if</span> y_range <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> config<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'y_range'</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> y_range
+    <span class="ansi-green-fg">if</span> layers <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span> layers <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>n_factors<span class="ansi-blue-fg">]</span>
+    <span class="ansi-green-fg">if</span> use_nn<span class="ansi-blue-fg">:</span> model <span class="ansi-blue-fg">=</span> EmbeddingNN<span class="ansi-blue-fg">(</span>emb_szs<span class="ansi-blue-fg">=</span>emb_szs<span class="ansi-blue-fg">,</span> layers<span class="ansi-blue-fg">=</span>layers<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>config<span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>      model <span class="ansi-blue-fg">=</span> EmbeddingDotBias<span class="ansi-blue-fg">.</span>from_classes<span class="ansi-blue-fg">(</span>n_factors<span class="ansi-blue-fg">,</span> dls<span class="ansi-blue-fg">.</span>classes<span class="ansi-blue-fg">,</span> y_range<span class="ansi-blue-fg">=</span>y_range<span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">return</span> Learner<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">,</span> model<span class="ansi-blue-fg">,</span> loss_func<span class="ansi-blue-fg">=</span>loss_func<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">File:</span>      ~/anaconda3/envs/csy/lib/python3.8/site-packages/fastai/collab.py
+<span class="ansi-red-fg">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span> <span class="o">=</span> <span class="n">collab_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span><span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># y_range는 평점의 범위</span>
 </pre></div>
 
@@ -2299,6 +2571,14 @@ dir(lrnr.model)</code></pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>y는 평점이니까 0~5까지의 범위를 넣어주자</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2329,31 +2609,6 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_html rendered_html output_subarea ">
-
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: left;">
@@ -2366,62 +2621,62 @@ dir(lrnr.model)</code></pre>
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.044790</td>
-      <td>0.064825</td>
+      <td>0.031651</td>
+      <td>0.045801</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.042065</td>
-      <td>0.059010</td>
+      <td>0.031555</td>
+      <td>0.046298</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.039907</td>
-      <td>0.055658</td>
+      <td>0.031353</td>
+      <td>0.046317</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.038412</td>
-      <td>0.053847</td>
+      <td>0.031095</td>
+      <td>0.046105</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>0.037186</td>
-      <td>0.052595</td>
+      <td>0.030838</td>
+      <td>0.046163</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>0.036020</td>
-      <td>0.052121</td>
+      <td>0.030741</td>
+      <td>0.046140</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>0.035041</td>
-      <td>0.051959</td>
+      <td>0.030524</td>
+      <td>0.046198</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>0.034370</td>
-      <td>0.051995</td>
+      <td>0.030306</td>
+      <td>0.046273</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>0.033759</td>
-      <td>0.052022</td>
+      <td>0.030059</td>
+      <td>0.045908</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>0.033237</td>
-      <td>0.052229</td>
+      <td>0.029897</td>
+      <td>0.045874</td>
       <td>00:00</td>
     </tr>
   </tbody>
@@ -2448,7 +2703,92 @@ dir(lrnr.model)</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이미 있는 데이터를 예측</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 하나의 배치 전체를 예측</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+<p>만 넣으면 에러뜬다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nvidia-smi
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Wed Sep 14 20:18:50 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 495.46       Driver Version: 495.46       CUDA Version: 11.5     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:65:00.0 Off |                  N/A |
+|  0%   38C    P8    26W / 420W |   6402MiB / 24268MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A     37424      C   ...onda3/envs/csy/bin/python     3419MiB |
+|    0   N/A  N/A     96111      C   ...onda3/envs/csy/bin/python     2981MiB |
++-----------------------------------------------------------------------------+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>GPU 확인 가능</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>GPU아님 CPU로 올리자</p>
 
 </div>
 </div>
@@ -2476,14 +2816,54 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([4.0162, 0.9041, 4.0706, 0.9730, 0.9861, 1.1032, 4.0559, 4.0745, 3.9329,
-        4.0195, 3.9139, 4.0732, 3.8666, 3.9556, 0.9634, 1.0055, 0.9944, 3.9826,
-        4.0456, 0.9961, 0.9438, 0.9291, 4.0212, 1.0700, 4.0543, 4.0441, 4.0918,
-        0.9850, 1.0140, 4.1212, 4.0628, 3.9923, 4.0395, 0.9331, 3.9581, 3.9999,
-        1.1152, 3.9131, 4.0565, 3.9264, 3.9619, 0.9421, 1.1348, 4.0688, 0.8939,
-        0.9684, 1.0505, 1.1034, 1.1027, 3.9411, 1.0582, 3.9680, 4.0465, 3.9554,
-        4.0419, 1.0965, 1.0784, 0.9954, 4.0205, 0.9373, 3.9045, 1.0255, 3.8102,
-        1.0640], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
+<pre>tensor([4.0272, 1.0206, 4.0742, 4.0213, 3.9787, 4.0229, 4.0004, 0.9837, 1.0100,
+        4.0154, 4.0664, 4.1089, 1.0404, 0.9753, 4.2216, 1.0111, 4.0450, 3.9848,
+        4.0535, 4.0142, 4.0920, 4.0211, 1.0506, 0.9615, 0.9160, 1.0216, 4.0909,
+        1.0519, 1.0494, 1.0381, 0.9349, 1.1573, 0.9304, 1.0652, 3.9023, 1.0467,
+        1.0299, 3.9979, 0.8441, 1.0238, 4.0146, 0.9979, 3.9893, 4.0892, 1.0085,
+        3.8964, 1.0437, 4.0580, 4.0373, 1.1093, 3.9885, 3.9174, 4.1004, 4.0604,
+        0.9327, 0.9771, 0.9311, 0.9786, 1.0577, 0.9978, 4.0170, 1.0590, 3.9068,
+        3.8986], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([3.8644, 0.8534, 3.8227, 4.0827, 4.0105, 4.0026, 4.2282, 0.8010, 1.0072,
+        3.8932, 4.2982, 4.0558, 1.0309, 0.7520, 4.1942, 0.8088, 3.8687, 3.9326,
+        4.0402, 4.1603, 4.0357, 3.7837, 0.9587, 0.9464, 0.8275, 1.1176, 3.9527,
+        1.1996, 0.7832, 1.0369, 1.0478, 1.0190, 0.9961, 1.1130, 3.7339, 1.2071,
+        1.1460, 3.8782, 0.6699, 0.9917, 3.9446, 1.2995, 4.0714, 3.8968, 1.0197,
+        3.8708, 1.1645, 4.1964, 4.1052, 1.3290, 4.0442, 3.8992, 4.2439, 4.1535,
+        0.6939, 0.9841, 0.7197, 0.9363, 1.1184, 1.2924, 3.9429, 0.9476, 4.1231,
+        3.8656])</pre>
 </div>
 
 </div>
@@ -2568,7 +2948,84 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[18,  5]])</pre>
+<pre>tensor([[19,  1]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 1번 user가 커피2 마셨을때</p>
+<ul>
+<li>예상: 4점 근처</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([4.0272], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([4.0422], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2611,7 +3068,7 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([4.1128], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
+<pre>tensor([4.0272], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2662,7 +3119,7 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[18,  5]])</pre>
+<pre>tensor([[19,  1]])</pre>
 </div>
 
 </div>
@@ -2712,7 +3169,7 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([3.9397], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
+<pre>tensor([4.0422], device='cuda:0', grad_fn=&lt;AddBackward0&gt;)</pre>
 </div>
 
 </div>
@@ -2729,6 +3186,28 @@ dir(lrnr.model)</code></pre>
 <h2 id="텍스트분석-실습">
 <a class="anchor" href="#%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%B6%84%EC%84%9D-%EC%8B%A4%EC%8A%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>텍스트분석 실습<a class="anchor-link" href="#%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%B6%84%EC%84%9D-%EC%8B%A4%EC%8A%B5"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>timeseries 와 text 순서가 중요!</p>
+<ul>
+<li>가장 잘 응용할 수 있는 게 chatbot챗봇<ul>
+<li>나는 $\to$ 학교에 $\to$ 갔다.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>timeseries는 뒤를 정확히 맞춰야 하지만, text는 그렇지 않..?</p>
+
 </div>
 </div>
 </div>
@@ -2850,7 +3329,7 @@ dir(lrnr.model)</code></pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dls</span> <span class="o">=</span> <span class="n">TextDataLoaders</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">text_col</span><span class="o">=</span><span class="s1">'text'</span><span class="p">,</span><span class="n">is_lm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span>TextDataLoaders.from_df<span class="o">??</span>
 </pre></div>
 
     </div>
@@ -2863,27 +3342,91 @@ dir(lrnr.model)</code></pre>
 <div class="output_area">
 
 
-<div class="output_html rendered_html output_subarea ">
 
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+TextDataLoaders<span class="ansi-blue-fg">.</span>from_df<span class="ansi-blue-fg">(</span>
+    df<span class="ansi-blue-fg">,</span>
+    path<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'.'</span><span class="ansi-blue-fg">,</span>
+    valid_pct<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.2</span><span class="ansi-blue-fg">,</span>
+    seed<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    text_col<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span>
+    label_col<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span>
+    label_delim<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    y_block<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    text_vocab<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    is_lm<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    valid_col<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    tok_tfm<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    tok_text_col<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'text'</span><span class="ansi-blue-fg">,</span>
+    seq_len<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">72</span><span class="ansi-blue-fg">,</span>
+    backwards<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    bs<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">64</span><span class="ansi-blue-fg">,</span>
+    val_bs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    shuffle<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    device<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Source:</span>   
+    <span class="ansi-blue-fg">@</span>classmethod
+    <span class="ansi-blue-fg">@</span>delegates<span class="ansi-blue-fg">(</span>DataLoaders<span class="ansi-blue-fg">.</span>from_dblock<span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">def</span> from_df<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">,</span> df<span class="ansi-blue-fg">,</span> path<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'.'</span><span class="ansi-blue-fg">,</span> valid_pct<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.2</span><span class="ansi-blue-fg">,</span> seed<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> text_col<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> label_col<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> label_delim<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> y_block<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+                text_vocab<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> is_lm<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> valid_col<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> tok_tfm<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> tok_text_col<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">"text"</span><span class="ansi-blue-fg">,</span> seq_len<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">72</span><span class="ansi-blue-fg">,</span> backwards<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+        <span class="ansi-blue-fg">"Create from `df` in `path` with `valid_pct`"</span>
+        blocks <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>TextBlock<span class="ansi-blue-fg">.</span>from_df<span class="ansi-blue-fg">(</span>text_col<span class="ansi-blue-fg">,</span> text_vocab<span class="ansi-blue-fg">,</span> is_lm<span class="ansi-blue-fg">,</span> seq_len<span class="ansi-blue-fg">,</span> backwards<span class="ansi-blue-fg">,</span> tok<span class="ansi-blue-fg">=</span>tok_tfm<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+        <span class="ansi-green-fg">if</span> y_block <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> is_lm<span class="ansi-blue-fg">:</span>
+            blocks<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>MultiCategoryBlock <span class="ansi-green-fg">if</span> is_listy<span class="ansi-blue-fg">(</span>label_col<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> len<span class="ansi-blue-fg">(</span>label_col<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">1</span> <span class="ansi-green-fg">else</span> CategoryBlock<span class="ansi-blue-fg">)</span>
+        <span class="ansi-green-fg">if</span> y_block <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> is_lm<span class="ansi-blue-fg">:</span> blocks <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span>y_block <span class="ansi-green-fg">if</span> is_listy<span class="ansi-blue-fg">(</span>y_block<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">[</span>y_block<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+        splitter <span class="ansi-blue-fg">=</span> RandomSplitter<span class="ansi-blue-fg">(</span>valid_pct<span class="ansi-blue-fg">,</span> seed<span class="ansi-blue-fg">=</span>seed<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> valid_col <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> ColSplitter<span class="ansi-blue-fg">(</span>valid_col<span class="ansi-blue-fg">)</span>
+        dblock <span class="ansi-blue-fg">=</span> DataBlock<span class="ansi-blue-fg">(</span>blocks<span class="ansi-blue-fg">=</span>blocks<span class="ansi-blue-fg">,</span>
+                           get_x<span class="ansi-blue-fg">=</span>ColReader<span class="ansi-blue-fg">(</span>tok_text_col<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+                           get_y<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span> <span class="ansi-green-fg">if</span> is_lm <span class="ansi-green-fg">else</span> ColReader<span class="ansi-blue-fg">(</span>label_col<span class="ansi-blue-fg">,</span> label_delim<span class="ansi-blue-fg">=</span>label_delim<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+                           splitter<span class="ansi-blue-fg">=</span>splitter<span class="ansi-blue-fg">)</span>
+        <span class="ansi-green-fg">return</span> cls<span class="ansi-blue-fg">.</span>from_dblock<span class="ansi-blue-fg">(</span>dblock<span class="ansi-blue-fg">,</span> df<span class="ansi-blue-fg">,</span> path<span class="ansi-blue-fg">=</span>path<span class="ansi-blue-fg">,</span> seq_len<span class="ansi-blue-fg">=</span>seq_len<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">File:</span>      ~/anaconda3/envs/csy/lib/python3.8/site-packages/fastai/text/data.py
+<span class="ansi-red-fg">Type:</span>      method
+</pre>
 </div>
 
 </div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">is_lm</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+<p>다음 자료를 예측하고 싶을때</p>
+<div class="highlight"><pre><span></span><span class="n">is_lm</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+<ul>
+<li>classification을 수행하고 싶을 때</li>
+<li>생성에 목적</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dls</span> <span class="o">=</span> <span class="n">TextDataLoaders</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">text_col</span><span class="o">=</span><span class="s1">'text'</span><span class="p">,</span><span class="n">is_lm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
 
 <div class="output_area">
 
@@ -3000,12 +3543,98 @@ dir(lrnr.model)</code></pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>xxbos는 하나의 내용이 끝나고 다른 내용이 시작된다는 의미</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="2단계">
 <a class="anchor" href="#2%EB%8B%A8%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>2단계<a class="anchor-link" href="#2%EB%8B%A8%EA%B3%84"> </a>
 </h3>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>language_model_learner<span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+language_model_learner<span class="ansi-blue-fg">(</span>
+    dls<span class="ansi-blue-fg">,</span>
+    arch<span class="ansi-blue-fg">,</span>
+    config<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    drop_mult<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1.0</span><span class="ansi-blue-fg">,</span>
+    backwards<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    pretrained<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    pretrained_fnames<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    loss_func<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    opt_func<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&lt;</span>function Adam at <span class="ansi-cyan-fg">0x7f9971cbd550</span><span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">,</span>
+    lr<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.001</span><span class="ansi-blue-fg">,</span>
+    splitter<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&lt;</span>function trainable_params at <span class="ansi-cyan-fg">0x7f997f97d940</span><span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">,</span>
+    cbs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    metrics<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    path<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    model_dir<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'models'</span><span class="ansi-blue-fg">,</span>
+    wd<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    wd_bn_bias<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    train_bn<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    moms<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0.95</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.85</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0.95</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Source:</span>   
+<span class="ansi-blue-fg">@</span>delegates<span class="ansi-blue-fg">(</span>Learner<span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">def</span> language_model_learner<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">,</span> arch<span class="ansi-blue-fg">,</span> config<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> drop_mult<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">,</span> backwards<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> pretrained<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> pretrained_fnames<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+    <span class="ansi-blue-fg">"Create a `Learner` with a language model from `dls` and `arch`."</span>
+    vocab <span class="ansi-blue-fg">=</span> _get_text_vocab<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">)</span>
+    model <span class="ansi-blue-fg">=</span> get_language_model<span class="ansi-blue-fg">(</span>arch<span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>vocab<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> config<span class="ansi-blue-fg">=</span>config<span class="ansi-blue-fg">,</span> drop_mult<span class="ansi-blue-fg">=</span>drop_mult<span class="ansi-blue-fg">)</span>
+    meta <span class="ansi-blue-fg">=</span> _model_meta<span class="ansi-blue-fg">[</span>arch<span class="ansi-blue-fg">]</span>
+    learn <span class="ansi-blue-fg">=</span> LMLearner<span class="ansi-blue-fg">(</span>dls<span class="ansi-blue-fg">,</span> model<span class="ansi-blue-fg">,</span> loss_func<span class="ansi-blue-fg">=</span>CrossEntropyLossFlat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> splitter<span class="ansi-blue-fg">=</span>meta<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'split_lm'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+    url <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">'url_bwd'</span> <span class="ansi-green-fg">if</span> backwards <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">'url'</span>
+    <span class="ansi-green-fg">if</span> pretrained <span class="ansi-green-fg">or</span> pretrained_fnames<span class="ansi-blue-fg">:</span>
+        <span class="ansi-green-fg">if</span> pretrained_fnames <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+            fnames <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>learn<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">/</span>learn<span class="ansi-blue-fg">.</span>model_dir<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">f'{fn}.{ext}'</span> <span class="ansi-green-fg">for</span> fn<span class="ansi-blue-fg">,</span>ext <span class="ansi-green-fg">in</span> zip<span class="ansi-blue-fg">(</span>pretrained_fnames<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'pth'</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'pkl'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+        <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+            <span class="ansi-green-fg">if</span> url <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> meta<span class="ansi-blue-fg">:</span>
+                warn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"There are no pretrained weights for that architecture yet!"</span><span class="ansi-blue-fg">)</span>
+                <span class="ansi-green-fg">return</span> learn
+            model_path <span class="ansi-blue-fg">=</span> untar_data<span class="ansi-blue-fg">(</span>meta<span class="ansi-blue-fg">[</span>url<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">,</span> c_key<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'model'</span><span class="ansi-blue-fg">)</span>
+            <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span> fnames <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>list<span class="ansi-blue-fg">(</span>model_path<span class="ansi-blue-fg">.</span>glob<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f'*.{ext}'</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">for</span> ext <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'pth'</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'pkl'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
+            <span class="ansi-green-fg">except</span> IndexError<span class="ansi-blue-fg">:</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f'The model in {model_path} is incomplete, download again'</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span> <span class="ansi-green-fg">raise</span>
+        learn <span class="ansi-blue-fg">=</span> learn<span class="ansi-blue-fg">.</span>load_pretrained<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>fnames<span class="ansi-blue-fg">)</span>
+    <span class="ansi-green-fg">return</span> learn
+<span class="ansi-red-fg">File:</span>      ~/anaconda3/envs/csy/lib/python3.8/site-packages/fastai/text/learner.py
+<span class="ansi-red-fg">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -3053,31 +3682,6 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_html rendered_html output_subarea ">
-
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: left;">
@@ -3090,9 +3694,9 @@ dir(lrnr.model)</code></pre>
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.575245</td>
-      <td>0.245803</td>
-      <td>00:11</td>
+      <td>0.278352</td>
+      <td>0.125034</td>
+      <td>00:15</td>
     </tr>
   </tbody>
 </table>
@@ -3137,31 +3741,6 @@ dir(lrnr.model)</code></pre>
 
 <div class="output_html rendered_html output_subarea ">
 
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-
 </div>
 
 </div>
@@ -3171,7 +3750,7 @@ dir(lrnr.model)</code></pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>'h e l l l o . h e l l . e l l o ? ? h e l l o ! ! h e l l o !'</pre>
+<pre>'h e l l o . h e l l o ! h e l l o ! h e l l o ? h e l l o ? h e'</pre>
 </div>
 
 </div>
