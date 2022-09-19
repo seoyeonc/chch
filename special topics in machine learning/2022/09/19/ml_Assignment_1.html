@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Assignment 1 (09.19) | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Assignment 1 (09.19)" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/2022/09/19/ml_Assignment_1.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/2022/09/19/ml_Assignment_1.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/2022/09/19/ml_Assignment_1.html","@type":"BlogPosting","headline":"Assignment 1 (09.19)","dateModified":"2022-09-19T00:00:00-05:00","datePublished":"2022-09-19T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/2022/09/19/ml_Assignment_1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Assignment 1 (09.19)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-19T00:00:00-05:00" itemprop="datePublished">
+        Sep 19, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Machine Learning">Special Topics in Machine Learning</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-09-19-ml_Assignment_1.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-09-19-ml_Assignment_1.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-09-19-ml_Assignment_1.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1.-이미지자료분석">1. 이미지자료분석 </a></li>
+<li class="toc-entry toc-h2"><a href="#2.-추천시스템">2. 추천시스템 </a></li>
+<li class="toc-entry toc-h2"><a href="#3.-시퀀스자료분석">3. 시퀀스자료분석 </a></li>
+<li class="toc-entry toc-h2"><a href="#4.-리눅스명령어">4. 리눅스명령어 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-09-19-ml_Assignment_1.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>제출은 <code>이름(학번).ipynb</code> 파일과 <code>이름(학번).html</code>파일 2개를 제출할 것. </li>
+<li>ipynb 혹은 html 파일을 이용한 제출이 익숙하지 않은 학생은 질문할 것. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">fastai.collab</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">fastai.text.all</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-이미지자료분석">
+<a class="anchor" href="#1.-%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>1</code>. 이미지자료분석<a class="anchor-link" href="#1.-%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래를 이용하여 MNIST_SAMPLE 이미지 자료를 다운로드 받고 dls오브젝트를 만들어라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">MNIST_SAMPLE</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dls</span><span class="o">.</span><span class="n">show_batch</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> cnn_learner를 이용하여 lrnr 오브젝트를 생성하라.</p>
+<ul>
+<li>arch 는 resnet34 로 설정할 것 </li>
+<li>metrics 는 error_rate 로 설정할 것 </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span><span class="n">resnet34</span><span class="p">,</span><span class="n">metrics</span><span class="o">=</span><span class="n">error_rate</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> fine_tune 을 이용하여 lrnr 오브젝트를 학습하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.268103</td>
+      <td>0.190582</td>
+      <td>0.052993</td>
+      <td>00:08</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.051633</td>
+      <td>0.017265</td>
+      <td>0.005397</td>
+      <td>00:08</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> 아래를 이용하여 X,y를 만들어라.</p>
+<div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">one_batch</span><span class="p">()</span>
+</pre></div>
+<p>X,y의 shape을 조사하라. X에는 몇개의 이미지가 있는가? 이미지의 size는 얼마인가?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">one_batch</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([64, 3, 28, 28])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Answer</strong></p>
+<ul>
+<li>X에는 64개의 이미지가 들어있다.</li>
+<li>image size는 28 $\times$ 28 이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([64])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 아래의 코드를 이용하여 X의 두번째 이미지가 어떠한 숫자를 의미하는지 확인하라. (그림보고 3인지 7인지 확인하여 답을 쓸 것)</p>
+<div class="highlight"><pre><span></span><span class="n">show_image</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>그리고 show_image가 정의된 파일의 경로를 확인하고 show_image가 python 내장함수 인지, torch에서 지원하는 함수인지 fastai에서 지원하는 함수인지 파악하라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_image</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;AxesSubplot:&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Answer</strong></p>
+<ul>
+<li>X의 2번째 이미지는 7이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>X
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Type:</span>            TensorImage
+<span class="ansi-red-fg">String form:</span>    
+TensorImage([[[[-2.1179, -2.1179, -2.1179,  ..., -2.1179, -2.1179, -2.1179],
+           [-2.1179,  &lt;...&gt;          [-1.8044, -1.8044, -1.8044,  ..., -1.8044, -1.8044, -1.8044]]]],
+           device='cuda:0')
+<span class="ansi-red-fg">Length:</span>          64
+<span class="ansi-red-fg">File:</span>            ~/anaconda3/envs/csy/lib/python3.8/site-packages/fastai/torch_core.py
+<span class="ansi-red-fg">Docstring:</span>       &lt;no docstring&gt;
+<span class="ansi-red-fg">Class docstring:</span> A `Tensor` which support subclass pickling, and maintains metadata when casting or after methods
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Answer</strong></p>
+<ul>
+<li>fastai에서 지원하는 함수임을 확인하였다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> lrnr 오브젝트를 이용하여 AI가 X[0]을 어떤 값으로 판단하는지 확인하라. 올바르게 판단하였는가? 올바르게 판단했다면 몇 프로의 확신으로 판단하였는가?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>TensorBase([[ 1.6290, -2.4423]], device='cuda:0', grad_fn=&lt;AliasBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-추천시스템">
+<a class="anchor" href="#2.-%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>2</code>. 추천시스템<a class="anchor-link" href="#2.-%EC%B6%94%EC%B2%9C%EC%8B%9C%EC%8A%A4%ED%85%9C"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래를 이용하여 rcmd_anal.csv 를 다운로드 받고 dls오브젝트를 만들어라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/guebin/DL2022/master/_notebooks/2022-09-08-rcmd_anal.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> 73번 유저가 먹은 아이템 및 평점을 출력하는 코드를 작성하라. 이를 기반으로 73번 유저가 어떠한 취향인지 파악하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> dls와 lrnr 오브젝트를 생성하고 lrnr 오브젝트를 학습하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> 아래와 같은 데이터 프레임을 생성하고 df_new 에 저장하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 아래의 코드를 이용하여 73번 유저의 취향을 파악하라. 73번 유저가 커피3, 커피5를 먹는다면 얼마정도의 평점을 줄 것이라 예측되는가?</p>
+<div class="highlight"><pre><span></span><span class="n">_dl</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">test_dl</span><span class="p">(</span><span class="n">df_new</span><span class="p">)</span>
+<span class="n">lrnr</span><span class="o">.</span><span class="n">get_preds</span><span class="p">(</span><span class="n">dl</span><span class="o">=</span><span class="n">_dl</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-시퀀스자료분석">
+<a class="anchor" href="#3.-%EC%8B%9C%ED%80%80%EC%8A%A4%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>3</code>. 시퀀스자료분석<a class="anchor-link" href="#3.-%EC%8B%9C%ED%80%80%EC%8A%A4%EC%9E%90%EB%A3%8C%EB%B6%84%EC%84%9D"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래를 이용하여 자료를 다운로드 받아라.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/guebin/DL2022/master/_notebooks/2022-09-19-human_numbers_100.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> TextDataLoaders.from_df을 이용하여 dls오브젝트를 만들어라.</p>
+<ul>
+<li>is_lm = True 로 설정할 것 </li>
+<li>seq_len = 5 로 설정할 것 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> lrnr 오브젝트를 만들어라.</p>
+<ul>
+<li>arch = AWD_LSTM 이용 </li>
+<li>metrics = accuracy 이용 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> lrnr오브젝트에서 fine_tune(3) 메소드를 이용하여 모형을 학습하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 'one , two ,' 이후에 이어질 50개의 단어를 생성하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> 'twenty , twenty one , ' 이후에 이어질 50개의 단어를 생성하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-리눅스명령어">
+<a class="anchor" href="#4.-%EB%A6%AC%EB%88%85%EC%8A%A4%EB%AA%85%EB%A0%B9%EC%96%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>4</code>. 리눅스명령어<a class="anchor-link" href="#4.-%EB%A6%AC%EB%88%85%EC%8A%A4%EB%AA%85%EB%A0%B9%EC%96%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Collab 에서 (혹은 리눅스기반 서버에서) 아래의 명령어를 순서대로 실행해보라.</p>
+
+<pre><code>!ls
+!ls -a 
+!ls .
+!ls .. 
+!ls sample
+!mkdir asdf 
+!wget https://raw.githubusercontent.com/guebin/DL2022/master/_notebooks/2022-09-08-rcmd_anal.csv
+!cp 2022-09-08-rcmd_anal.csv ./asdf 
+!ls ./asdf 
+!rm 2022-09-08-rcmd_anal.csv 
+!rm -rf asdf</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>각 명령들이 무엇을 의미하는지 간단히 서술하라.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/special%20topics%20in%20machine%20learning/2022/09/19/ml_Assignment_1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
