@@ -137,6 +137,7 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#Data">Data </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#적합">적합 </a></li>
 <li class="toc-entry toc-h3"><a href="#평균반응,-개별-y-추정">평균반응, 개별 y 추정 </a></li>
 <li class="toc-entry toc-h3"><a href="#잔차분석">잔차분석 </a></li>
 <li class="toc-entry toc-h3"><a href="#책-예제">책 예제 </a></li>
@@ -426,26 +427,32 @@ window.onload = wrap_img;
 </div>
     
 
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
+<div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1">### hat y = hat (E(y|X=x)) = hat beta_0 +hat beta_1 * x</span>
-
-<span class="c1">#### H0 : beta0 =0 vs H1 : beta0 != 0</span>
-<span class="c1">#### H0 : beta1 =0 vs H1 : beta1 != 0</span>
-</pre></div>
-
-    </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="적합">
+<a class="anchor" href="#%EC%A0%81%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>적합<a class="anchor-link" href="#%EC%A0%81%ED%95%A9"> </a>
+</h3>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\hat{ y} = \widehat{(E(y|X=x))} = \hat{\beta_0} + \hat{\beta_1} * x$</p>
 
 </div>
-    
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$H_0$ : $\beta_0$ =0 vs $H_1$ : $\beta_0 \ne 0$</p>
+<p>$H_0$ : $\beta_1 =0$ vs $H_1$ : $\beta_1 \ne 0$</p>
 
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1162,6 +1169,148 @@ F-statistic: 576.8 on 1 and 9 DF,  p-value: 1.798e-09
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">model1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x</th>
+<td>1</td>
+<td>313.04348</td>
+<td>313.043478</td>
+<td>45.24034</td>
+<td>0.0001486582</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>8</td>
+<td> 55.35652</td>
+<td>  6.919565</td>
+<td>      NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">model2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x</th>
+<td>1</td>
+<td>3769.1895</td>
+<td>3769.1895</td>
+<td>576.8138</td>
+<td>1.79763e-09</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>9</td>
+<td>  58.8105</td>
+<td>   6.5345</td>
+<td>      NA</td>
+<td>         NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2446,6 +2595,30 @@ F-statistic: 576.8 on 1 and 9 DF,  p-value: 1.798e-09
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Loading required package: zoo
+
+
+Attaching package: ‘zoo’
+
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
