@@ -1,0 +1,11 @@
+The dataset is from: https://archive.ics.uci.edu/ml/datasets/individual+household+electric+power+consumption.
+
+The original source is:
+
+    Georges Hebrail (georges.hebrail '@' edf.fr), Senior Researcher, EDF R&D, Clamart, France
+    Alice Berard, TELECOM ParisTech Master of Engineering Internship at EDF R&D, Clamart, France
+
+This is a subset of the original dataset. The dataset has been cleaned up to fill in missing values. 
+This dataset is made available under the “Creative Commons Attribution 4.0 International (CC BY 4.0)” license.
+The text of the license is available here: https://creativecommons.org/licenses/by/4.0/
+
