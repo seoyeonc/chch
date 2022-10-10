@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      10 min read
     
 </span></p>
 
@@ -369,6 +369,161 @@ result in much longer training times.</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Global_active_power</th>
+      <th>Global_reactive_power</th>
+      <th>Voltage</th>
+      <th>Global_intensity</th>
+      <th>Sub_metering_1</th>
+      <th>Sub_metering_2</th>
+      <th>Sub_metering_3</th>
+    </tr>
+    <tr>
+      <th>datetime</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2006-12-16 17:24:00</th>
+      <td>4.216</td>
+      <td>0.418</td>
+      <td>234.84</td>
+      <td>18.4</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:25:00</th>
+      <td>5.360</td>
+      <td>0.436</td>
+      <td>233.63</td>
+      <td>23.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:26:00</th>
+      <td>5.374</td>
+      <td>0.498</td>
+      <td>233.29</td>
+      <td>23.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:27:00</th>
+      <td>5.388</td>
+      <td>0.502</td>
+      <td>233.74</td>
+      <td>23.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:28:00</th>
+      <td>3.666</td>
+      <td>0.528</td>
+      <td>235.68</td>
+      <td>15.8</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:29:00</th>
+      <td>3.520</td>
+      <td>0.522</td>
+      <td>235.02</td>
+      <td>15.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:30:00</th>
+      <td>3.702</td>
+      <td>0.520</td>
+      <td>235.09</td>
+      <td>15.8</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:31:00</th>
+      <td>3.700</td>
+      <td>0.520</td>
+      <td>235.22</td>
+      <td>15.8</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:32:00</th>
+      <td>3.668</td>
+      <td>0.510</td>
+      <td>233.99</td>
+      <td>15.8</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2006-12-16 17:33:00</th>
+      <td>3.662</td>
+      <td>0.510</td>
+      <td>233.86</td>
+      <td>15.8</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>16.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -440,6 +595,34 @@ result in much longer training times.</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[0.43377912, 0.47826087, 0.04036551, ..., 0.        , 0.01282051,
+        0.85      ],
+       [0.55716135, 0.49885584, 0.0355582 , ..., 0.        , 0.01282051,
+        0.8       ],
+       [0.55867127, 0.56979405, 0.03420739, ..., 0.        , 0.02564103,
+        0.85      ],
+       ...,
+       [0.03710095, 0.        , 0.05983313, ..., 0.        , 0.        ,
+        0.        ],
+       [0.03559103, 0.        , 0.06515693, ..., 0.        , 0.        ,
+        0.        ],
+       [0.03774806, 0.        , 0.06730234, ..., 0.        , 0.01282051,
+        0.        ]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -454,6 +637,131 @@ result in much longer training times.</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+      <td>86400.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.156411</td>
+      <td>0.147141</td>
+      <td>0.064697</td>
+      <td>0.152278</td>
+      <td>0.016950</td>
+      <td>0.024085</td>
+      <td>0.375711</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.144040</td>
+      <td>0.134578</td>
+      <td>0.013900</td>
+      <td>0.139343</td>
+      <td>0.086787</td>
+      <td>0.097022</td>
+      <td>0.433595</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.021786</td>
+      <td>0.000000</td>
+      <td>0.055344</td>
+      <td>0.024752</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.131795</td>
+      <td>0.132723</td>
+      <td>0.065713</td>
+      <td>0.123762</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.239431</td>
+      <td>0.224256</td>
+      <td>0.074652</td>
+      <td>0.227723</td>
+      <td>0.000000</td>
+      <td>0.012821</td>
+      <td>0.850000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.979077</td>
+      <td>1.000000</td>
+      <td>0.107350</td>
+      <td>0.980198</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -747,6 +1055,109 @@ window size based on n_past and n_future.</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/20
+   2159/Unknown - 81s 34ms/step - loss: 0.0505 - mae: 0.0505
+Epoch 1: val_loss improved from inf to 0.04422, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 89s 37ms/step - loss: 0.0505 - mae: 0.0505 - val_loss: 0.0442 - val_mae: 0.0442
+Epoch 2/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0439 - mae: 0.0439
+Epoch 2: val_loss improved from 0.04422 to 0.04272, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 85s 37ms/step - loss: 0.0439 - mae: 0.0439 - val_loss: 0.0427 - val_mae: 0.0427
+Epoch 3/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0425 - mae: 0.0425
+Epoch 3: val_loss improved from 0.04272 to 0.04196, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 86s 37ms/step - loss: 0.0425 - mae: 0.0425 - val_loss: 0.0420 - val_mae: 0.0420
+Epoch 4/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0415 - mae: 0.0415
+Epoch 4: val_loss improved from 0.04196 to 0.04132, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 86s 37ms/step - loss: 0.0415 - mae: 0.0415 - val_loss: 0.0413 - val_mae: 0.0413
+Epoch 5/20
+2158/2159 [============================&gt;.] - ETA: 0s - loss: 0.0408 - mae: 0.0408
+Epoch 5: val_loss improved from 0.04132 to 0.04013, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 86s 37ms/step - loss: 0.0408 - mae: 0.0408 - val_loss: 0.0401 - val_mae: 0.0401
+Epoch 6/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0404 - mae: 0.0404
+Epoch 6: val_loss improved from 0.04013 to 0.04001, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0404 - mae: 0.0404 - val_loss: 0.0400 - val_mae: 0.0400
+Epoch 7/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0399 - mae: 0.0399
+Epoch 7: val_loss improved from 0.04001 to 0.03924, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0399 - mae: 0.0399 - val_loss: 0.0392 - val_mae: 0.0392
+Epoch 8/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0395 - mae: 0.0395
+Epoch 8: val_loss improved from 0.03924 to 0.03906, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0395 - mae: 0.0395 - val_loss: 0.0391 - val_mae: 0.0391
+Epoch 9/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0392 - mae: 0.0392
+Epoch 9: val_loss did not improve from 0.03906
+2159/2159 [==============================] - 86s 37ms/step - loss: 0.0392 - mae: 0.0392 - val_loss: 0.0395 - val_mae: 0.0395
+Epoch 10/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0390 - mae: 0.0390
+Epoch 10: val_loss improved from 0.03906 to 0.03870, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 85s 37ms/step - loss: 0.0390 - mae: 0.0390 - val_loss: 0.0387 - val_mae: 0.0387
+Epoch 11/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0389 - mae: 0.0389
+Epoch 11: val_loss improved from 0.03870 to 0.03863, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 88s 37ms/step - loss: 0.0389 - mae: 0.0389 - val_loss: 0.0386 - val_mae: 0.0386
+Epoch 12/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0387 - mae: 0.0387
+Epoch 12: val_loss improved from 0.03863 to 0.03841, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0387 - mae: 0.0387 - val_loss: 0.0384 - val_mae: 0.0384
+Epoch 13/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0385 - mae: 0.0385
+Epoch 13: val_loss did not improve from 0.03841
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0385 - mae: 0.0385 - val_loss: 0.0385 - val_mae: 0.0385
+Epoch 14/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0384 - mae: 0.0384
+Epoch 14: val_loss did not improve from 0.03841
+2159/2159 [==============================] - 86s 37ms/step - loss: 0.0384 - mae: 0.0384 - val_loss: 0.0385 - val_mae: 0.0385
+Epoch 15/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0383 - mae: 0.0383
+Epoch 15: val_loss did not improve from 0.03841
+2159/2159 [==============================] - 88s 38ms/step - loss: 0.0383 - mae: 0.0383 - val_loss: 0.0385 - val_mae: 0.0385
+Epoch 16/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0381 - mae: 0.0381
+Epoch 16: val_loss improved from 0.03841 to 0.03818, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 86s 38ms/step - loss: 0.0381 - mae: 0.0381 - val_loss: 0.0382 - val_mae: 0.0382
+Epoch 17/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0380 - mae: 0.0380
+Epoch 17: val_loss did not improve from 0.03818
+2159/2159 [==============================] - 88s 38ms/step - loss: 0.0380 - mae: 0.0380 - val_loss: 0.0382 - val_mae: 0.0382
+Epoch 18/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0381 - mae: 0.0381
+Epoch 18: val_loss improved from 0.03818 to 0.03805, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0381 - mae: 0.0381 - val_loss: 0.0380 - val_mae: 0.0380
+Epoch 19/20
+2159/2159 [==============================] - ETA: 0s - loss: 0.0379 - mae: 0.0379
+Epoch 19: val_loss improved from 0.03805 to 0.03779, saving model to model/my_checkpoint.ckpt
+2159/2159 [==============================] - 87s 38ms/step - loss: 0.0379 - mae: 0.0379 - val_loss: 0.0378 - val_mae: 0.0378
+Epoch 20/20
+2158/2159 [============================&gt;.] - ETA: 0s - loss: 0.0378 - mae: 0.0378
+Epoch 20: val_loss did not improve from 0.03779
+2159/2159 [==============================] - 87s 37ms/step - loss: 0.0378 - mae: 0.0378 - val_loss: 0.0380 - val_mae: 0.0380
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;keras.callbacks.History at 0x7fe259081810&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
@@ -769,6 +1180,22 @@ window size based on n_past and n_future.</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tensorflow.python.checkpoint.checkpoint.CheckpointLoadStatus at 0x7fe0e8622620&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -812,6 +1239,30 @@ window size based on n_past and n_future.</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>539/539 [==============================] - 7s 10ms/step - loss: 0.0378 - mae: 0.0378
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0.03778756782412529, 0.03778761625289917]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
