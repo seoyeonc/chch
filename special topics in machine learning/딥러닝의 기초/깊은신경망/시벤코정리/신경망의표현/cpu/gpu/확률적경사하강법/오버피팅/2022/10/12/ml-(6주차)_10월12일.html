@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>(6주차) 10월12일 – draft | Seoyeon Choi</title>
+<title>기계학습 특강 (6주차) 10월5일 | Seoyeon Choi</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="(6주차) 10월12일 – draft" />
-<meta name="author" content="최규빈" />
+<meta property="og:title" content="기계학습 특강 (6주차) 10월5일" />
+<meta name="author" content="최서연" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="딥러닝의 기초 - 깊은신경망(2)– 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅" />
 <meta property="og:description" content="딥러닝의 기초 - 깊은신경망(2)– 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅" />
-<link rel="canonical" href="https://seoyeonc.github.io/chch/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" />
-<meta property="og:url" content="https://seoyeonc.github.io/chch/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98%20%EA%B8%B0%EC%B4%88/%EA%B9%8A%EC%9D%80%EC%8B%A0%EA%B2%BD%EB%A7%9D/%EC%8B%9C%EB%B2%A4%EC%BD%94%EC%A0%95%EB%A6%AC/%EC%8B%A0%EA%B2%BD%EB%A7%9D%EC%9D%98%ED%91%9C%ED%98%84/cpu/gpu/%ED%99%95%EB%A5%A0%EC%A0%81%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95/%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98%20%EA%B8%B0%EC%B4%88/%EA%B9%8A%EC%9D%80%EC%8B%A0%EA%B2%BD%EB%A7%9D/%EC%8B%9C%EB%B2%A4%EC%BD%94%EC%A0%95%EB%A6%AC/%EC%8B%A0%EA%B2%BD%EB%A7%9D%EC%9D%98%ED%91%9C%ED%98%84/cpu/gpu/%ED%99%95%EB%A5%A0%EC%A0%81%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95/%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" />
 <meta property="og:site_name" content="Seoyeon Choi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-10-12T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"딥러닝의 기초 - 깊은신경망(2)– 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅","url":"https://seoyeonc.github.io/chch/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html","@type":"BlogPosting","headline":"(6주차) 10월12일 – draft","dateModified":"2022-10-12T00:00:00-05:00","datePublished":"2022-10-12T00:00:00-05:00","author":{"@type":"Person","name":"최규빈"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html"},"@context":"https://schema.org"}</script>
+{"description":"딥러닝의 기초 - 깊은신경망(2)– 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅","url":"https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98%20%EA%B8%B0%EC%B4%88/%EA%B9%8A%EC%9D%80%EC%8B%A0%EA%B2%BD%EB%A7%9D/%EC%8B%9C%EB%B2%A4%EC%BD%94%EC%A0%95%EB%A6%AC/%EC%8B%A0%EA%B2%BD%EB%A7%9D%EC%9D%98%ED%91%9C%ED%98%84/cpu/gpu/%ED%99%95%EB%A5%A0%EC%A0%81%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95/%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html","@type":"BlogPosting","headline":"기계학습 특강 (6주차) 10월5일","dateModified":"2022-10-12T00:00:00-05:00","datePublished":"2022-10-12T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/special%20topics%20in%20machine%20learning/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98%20%EA%B8%B0%EC%B4%88/%EA%B9%8A%EC%9D%80%EC%8B%A0%EA%B2%BD%EB%A7%9D/%EC%8B%9C%EB%B2%A4%EC%BD%94%EC%A0%95%EB%A6%AC/%EC%8B%A0%EA%B2%BD%EB%A7%9D%EC%9D%98%ED%91%9C%ED%98%84/cpu/gpu/%ED%99%95%EB%A5%A0%EC%A0%81%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95/%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,11 +88,11 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(6주차) 10월12일 -- draft</h1><p class="page-description">딥러닝의 기초 - 깊은신경망(2)-- 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-12T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">기계학습 특강 (6주차) 10월5일</h1><p class="page-description">딥러닝의 기초 - 깊은신경망(2)-- 시벤코정리, 신경망의표현, CPU vs GPU, 확률적경사하강법, 오버피팅</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-12T00:00:00-05:00" itemprop="datePublished">
         Oct 12, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">최규빈</span></span>
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
@@ -100,6 +100,37 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#Special Topics in Machine Learning">Special Topics in Machine Learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#딥러닝의 기초">딥러닝의 기초</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#깊은신경망">깊은신경망</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#시벤코정리">시벤코정리</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#신경망의표현">신경망의표현</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#CPU">CPU</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#GPU">GPU</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#확률적경사하강법">확률적경사하강법</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/chch/categories/#오버피팅">오버피팅</a>
+        
+      
+      </p>
     
 
     
@@ -128,7 +159,6 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#강의영상">강의영상 </a></li>
 <li class="toc-entry toc-h2"><a href="#imports">imports </a></li>
 <li class="toc-entry toc-h2"><a href="#시벤코정리">시벤코정리 </a>
 <ul>
@@ -197,15 +227,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="강의영상">
-<a class="anchor" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>강의영상<a class="anchor-link" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81"> </a>
-</h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -6136,15 +6157,7 @@ $$\underset{(n,784)}{\bf X} \overset{l_1}{\to} \underset{(n,64)}{\boldsymbol u^{
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="seoyeonc/chch"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/chch/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" hidden></a>
+  </div><a class="u-url" href="/chch/special%20topics%20in%20machine%20learning/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98%20%EA%B8%B0%EC%B4%88/%EA%B9%8A%EC%9D%80%EC%8B%A0%EA%B2%BD%EB%A7%9D/%EC%8B%9C%EB%B2%A4%EC%BD%94%EC%A0%95%EB%A6%AC/%EC%8B%A0%EA%B2%BD%EB%A7%9D%EC%9D%98%ED%91%9C%ED%98%84/cpu/gpu/%ED%99%95%EB%A5%A0%EC%A0%81%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95/%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85/2022/10/12/ml-(6%EC%A3%BC%EC%B0%A8)_10%EC%9B%9412%EC%9D%BC.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
