@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>YOLO(You only look once) | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="YOLO(You only look once)" />
+<meta name="author" content="최서연" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/yolo/2022/10/23/YOLO_%EA%B0%9C%EB%85%90.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/yolo/2022/10/23/YOLO_%EA%B0%9C%EB%85%90.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/yolo/2022/10/23/YOLO_%EA%B0%9C%EB%85%90.html","@type":"BlogPosting","headline":"YOLO(You only look once)","dateModified":"2022-10-23T00:00:00-05:00","datePublished":"2022-10-23T00:00:00-05:00","author":{"@type":"Person","name":"최서연"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/yolo/2022/10/23/YOLO_%EA%B0%9C%EB%85%90.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">YOLO(You only look once)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-23T00:00:00-05:00" itemprop="datePublished">
+        Oct 23, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">최서연</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/chch/categories/#YOLO">YOLO</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-10-23-YOLO_개념.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-10-23-YOLO_%EA%B0%9C%EB%85%90.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-10-23-YOLO_개념.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Object-Detection-문제-영역의-출력값">Object Detection 문제 영역의 출력값 </a></li>
+<li class="toc-entry toc-h3"><a href="#Open-Image-Dataset-Ground-Truth">Open Image Dataset Ground Truth </a></li>
+<li class="toc-entry toc-h3"><a href="#Metric-1">Metric 1 </a></li>
+<li class="toc-entry toc-h3"><a href="#Metric-2">Metric 2 </a></li>
+<li class="toc-entry toc-h3"><a href="#Metric-3">Metric 3 </a></li>
+<li class="toc-entry toc-h3"><a href="#Object-Detection-Datasets">Object Detection Datasets </a></li>
+<li class="toc-entry toc-h3"><a href="#Yolo-concept">Yolo concept </a></li>
+<li class="toc-entry toc-h3"><a href="#Non-Maximum-Suppression-Algorithm-동작-과정">Non-Maximum Suppression Algorithm 동작 과정 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-23-YOLO_개념.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Object-Detection-문제-영역의-출력값">
+<a class="anchor" href="#Object-Detection-%EB%AC%B8%EC%A0%9C-%EC%98%81%EC%97%AD%EC%9D%98-%EC%B6%9C%EB%A0%A5%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Detection 문제 영역의 출력값<a class="anchor-link" href="#Object-Detection-%EB%AC%B8%EC%A0%9C-%EC%98%81%EC%97%AD%EC%9D%98-%EC%B6%9C%EB%A0%A5%EA%B0%92"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>x_min : 물체의 Bounding Box 의 왼쪽 위 (Left-Top) x 좌표</li>
+<li>y_min : 물체의 Bounding Box 의 왼쪽 위 (Left-Top) y 좌표</li>
+<li>x_max : 물체의 Bounding Box 의 오른쪽 아래 (Right - Bottom) x 좌표</li>
+<li>y_max : 물체의 Bounding Box 의 오른쪽 아래 (Right - Bottom) y 좌표</li>
+<li>class : Bounding BOx에 속한 물체의 class</li>
+<li>confidence : Bounding Box에 실체 물제가 있을 것이라고 확신하는 정도를 나타내는 값(0.0~1.0 사이의 값)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Open-Image-Dataset-Ground-Truth">
+<a class="anchor" href="#Open-Image-Dataset-Ground-Truth" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open Image Dataset Ground Truth<a class="anchor-link" href="#Open-Image-Dataset-Ground-Truth"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Obhect Detection 문제 영역의 Ground Truth 데이터는 사람이 지정한 Bounding Box와 Class Label</li>
+<li>정답 Ground Truth 데이터와 비교했을때, 예측 값의 성능을 비교하기 위한 Metric이 필요</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Metric-1">
+<a class="anchor" href="#Metric-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metric 1<a class="anchor-link" href="#Metric-1"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Intersection over Union(IoU) Metric</strong></p>
+<ul>
+<li>IoU은 1개의 Bounding Box와 1개의 Bounding Box가 얼마나 일치하는 지를 0.0~1.0 사이의 값으로 표현</li>
+<li>2개의 Bounding Box가 일치할수록 1.0에 가까운 값이 되고, 일치하지 않을 수록 0.0에 가까운 값</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Metric-2">
+<a class="anchor" href="#Metric-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metric 2<a class="anchor-link" href="#Metric-2"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Precision, Recall, F1</strong></p>
+<ul>
+<li>Precision : 정밀도, 검색된 결과 중 관련 있는 것으로 분류된 결과물의 비율
+
+$$\text{Precision} = \frac{\text{TP}}{\text{TP + FP}}$$
+</li>
+<li>Recall : 재현율, 관련 있는 것으로 분류된 항목들 중 실제 검색된 항목들의 비율
+
+$$\text{Recall} = \frac{\text{TP}}{\text{TP + FN}}$$
+</li>
+<li>F1 : 정밀도와 재현율의 조화 평균, 정밀도와 재현율을 한 번에 비교 가능
+
+$$\text{F1} = 2 - \frac{\text{precision - Recall}}{\text{Precision + Recall}}$$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Average Precision(AP)</strong></p>
+<ul>
+<li>Positive_판단 기준 : 일정한 임계치의 IoU를 넘기면 맞춘 것으로 간주</li>
+<li>Average Precision(AP) : 재현율 별 정밀도의 평균</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Mean Average Precision(MAP)</strong></p>
+<ul>
+<li>class 들의 평균 정밀도의 평균</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Metric-3">
+<a class="anchor" href="#Metric-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metric 3<a class="anchor-link" href="#Metric-3"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>MS COCO Metric</strong></p>
+<ul>
+<li>IoU가 0.5,0.55,0.6,0.65,.. 일떄의 평균 정밀도를 구하는 법 등</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Object-Detection-Datasets">
+<a class="anchor" href="#Object-Detection-Datasets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Detection Datasets<a class="anchor-link" href="#Object-Detection-Datasets"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Object Detection 문제를 학습 시키기 위해 정답 Bounding Box와 Label이 지정된 이미지 필요</li>
+<li>대표적인 Object Detection을 위한 데이터셋으로 Pascal VOC, MS COCO 데이터 셋 등 존재</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Pascal VOC Dataset</li>
+</ol>
+<ul>
+<li>20 classes, 4 categories<ul>
+<li>Person(person)</li>
+<li>Animal(bird, cat, cow, dog, horse, sheep)</li>
+<li>Vehicle(aeroplane, bicycle, boat, bus, car, motorbike, train)</li>
+<li>Indoor(bottle, chair, dining table, potted plant, sofa, tv/monitor))<ul>
+<li>VOC2007</li>
+<li>VOC2012</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>MS-COCO</li>
+</ol>
+<ul>
+<li>Microsoft, 80 labels</li>
+</ul>
+<ol>
+<li>KITTI</li>
+</ol>
+<ul>
+<li>자율주행연구 위한 이미지</li>
+<li>21 training sequences, 29 test sequences</li>
+<li>8 classes<ul>
+<li>Car, Van, Truck, Pedestrian, Person(sitting), Cyclist, Tram, Misc</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Open Image Dataset v4</li>
+</ol>
+<ul>
+<li>Google, 600 labels</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Yolo-concept">
+<a class="anchor" href="#Yolo-concept" aria-hidden="true"><span class="octicon octicon-link"></span></a>Yolo concept<a class="anchor-link" href="#Yolo-concept"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>image를 $S \times S \text{ Grid Cell}$로 나누고 Grid Cell 별로 B개의 Bounding Box 예측</li>
+<li>YOLO 모델 최종 Output : $S \times S \times (5 * B + c)(5:x,y,w,h,\text{ confidence})$</li>
+<li>ex) S = 7, B = 2, C = 20, then $7 \times 7 \times 30$ 이 output</li>
+</ul>
+<p>$x,y,w,h,\text{ confidence}$</p>
+<ul>
+<li>x :  grid cell 내의 x 위치 (0~1 사이의 값)</li>
+<li>y : grid cell 내의 y 위치 (0~1 사이의 값)</li>
+<li>w : 전체 이미지 대비의 width (0~1 사이의 값)</li>
+<li>h : 전체 이미지 대비의 height (0~1 사이의 값)</li>
+<li>confidence : 이미지 내의 object가 있을 것이라고 확신하는 정도(0~1 사이의 값)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Non-Maximum-Suppression-Algorithm-동작-과정">
+<a class="anchor" href="#Non-Maximum-Suppression-Algorithm-%EB%8F%99%EC%9E%91-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>Non-Maximum Suppression Algorithm 동작 과정<a class="anchor-link" href="#Non-Maximum-Suppression-Algorithm-%EB%8F%99%EC%9E%91-%EA%B3%BC%EC%A0%95"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>confidence $\leq$ 이하의 Bounding Box를 제거</li>
+<li>class 별로 confidenxe가 가장 높은 Bounding Box 가 앞으로 오도록 전체 Bounding Box를 내림차순 정렬</li>
+<li>가장 confidence가 높은 Bounding Box와 나머지 Bounding Box를 비교해서 2개의 Bounding Box의 IoU $\geq$ 0.5라면 Confidence 가 작은 Bounding Box를 제거</li>
+<li>제거되지 않은 Bounding Box 중에서 Confidence가 가장 높은 Bounding Box와 나머지 BOunding Box간에 3번 과정 반복</li>
+<li>3,4 과정을 전체 Bounding Box에 대해서 진행</li>
+<li>2~5 과정을 전체 class에 대해서 진행</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/yolo/2022/10/23/YOLO_%EA%B0%9C%EB%85%90.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
