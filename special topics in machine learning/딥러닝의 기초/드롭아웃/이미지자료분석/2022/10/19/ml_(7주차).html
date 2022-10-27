@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -294,7 +294,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fdec0178970&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f58e565a670&gt;]</pre>
 </div>
 
 </div>
@@ -382,7 +382,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fdec0078820&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f58e0546b20&gt;]</pre>
 </div>
 
 </div>
@@ -529,7 +529,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fdec006c340&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f58e0530fd0&gt;]</pre>
 </div>
 
 </div>
@@ -619,7 +619,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fdeac78db50&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f58e04a4d30&gt;]</pre>
 </div>
 
 </div>
@@ -3137,7 +3137,7 @@ torch.Size([12665, 1])
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>31.370193004608154</pre>
+<pre>39.31594634056091</pre>
 </div>
 
 </div>
@@ -3883,7 +3883,7 @@ torch.Size([12665, 1])
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(140596138798144, 140596138798144)</pre>
+<pre>(140021490006720, 140021490006720)</pre>
 </div>
 
 </div>
@@ -3983,6 +3983,14 @@ torch.Size([12665, 1])
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>20221026 수업</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="BCEWithLogitsLoss">
 <a class="anchor" href="#BCEWithLogitsLoss" aria-hidden="true"><span class="octicon octicon-link"></span></a>BCEWithLogitsLoss<a class="anchor-link" href="#BCEWithLogitsLoss"> </a>
 </h3>
@@ -3995,6 +4003,20 @@ torch.Size([12665, 1])
 <p><code>-</code> BCEWithLogitsLoss = Sigmoid + BCELoss</p>
 <ul>
 <li>왜 써요? 수치적으로 더 안정 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>torch.nn.BCEWithLogitsLoss</p>
+<ul>
+<li>This loss combines a <code>Sigmoid</code> layer and the <code>BCELoss</code> in one single
+class. This version is more numerically stable than using a plain <code>Sigmoid</code>
+followed by a <code>BCELoss</code> as, by combining the operations into one layer,
+we take advantage of the log-sum-exp trick for <strong>numerical stability</strong>.</li>
 </ul>
 
 </div>
@@ -4188,62 +4210,62 @@ Args:
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.889900</td>
-      <td>0.560870</td>
+      <td>0.956781</td>
+      <td>0.642780</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.612171</td>
-      <td>0.301406</td>
+      <td>0.709626</td>
+      <td>0.419758</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.454254</td>
-      <td>0.169214</td>
+      <td>0.554641</td>
+      <td>0.248010</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.347069</td>
-      <td>0.091621</td>
+      <td>0.431661</td>
+      <td>0.118707</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>0.268378</td>
-      <td>0.055864</td>
+      <td>0.331514</td>
+      <td>0.059536</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>0.210726</td>
-      <td>0.039006</td>
+      <td>0.256312</td>
+      <td>0.035956</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>0.168054</td>
-      <td>0.029737</td>
+      <td>0.200917</td>
+      <td>0.025288</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>0.135890</td>
-      <td>0.023940</td>
+      <td>0.159611</td>
+      <td>0.019510</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>0.111190</td>
-      <td>0.019964</td>
+      <td>0.128254</td>
+      <td>0.015889</td>
       <td>00:00</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>0.091900</td>
-      <td>0.017047</td>
+      <td>0.104057</td>
+      <td>0.013373</td>
       <td>00:00</td>
     </tr>
   </tbody>
@@ -4295,6 +4317,94 @@ Args:
   (3): Flatten(start_dim=1, end_dim=-1)
   (4): Linear(in_features=2304, out_features=1, bias=True)
 )</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>시각화 위해서 cpu로 옮겨주기</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[-9.4061],
+        [-6.7910],
+        [-7.9819],
+        ...,
+        [ 4.3685],
+        [ 4.4061],
+        [ 5.4793]], grad_fn=&lt;AddmmBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>sigmoid 취하기 전이지 우리는 bcewithlogiticsLoss 썼잖아, 그래서 0~1사이 아님</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a2</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor(0.5000)</pre>
 </div>
 
 </div>
