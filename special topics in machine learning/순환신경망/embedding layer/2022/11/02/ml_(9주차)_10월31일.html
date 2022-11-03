@@ -296,7 +296,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>hyperblic tangent(<a href="https://en.wikipedia.org/wiki/Hyperbolic_functions">https://en.wikipedia.org/wiki/Hyperbolic_functions</a>)</p>
 <ul>
-<li>sigmoid(범위가0~1)와 차이점(범위가 -1~1)</li>
+<li>sigmoid(범위가0 ~ 1)와 차이점(범위가 -1 ~ 1)</li>
 </ul>
 
 </div>
@@ -809,6 +809,14 @@ window.onload = wrap_img;
 <li>$(x_i,y_i)=(1,0)$ 이면 $\hat{w}=0$일 경우 $y_i \approx \hat{w}x_i$로 만드는 것이 가능 </li>
 </ul>
 <p>상황을 종합해보니 $\hat{w}=0$으로 학습되는 것이 그나마 최선</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>0에 무엇을 곱하든 0이 되어서 학습이 안 돼</p>
 
 </div>
 </div>
@@ -2619,7 +2627,7 @@ tensor([[-2.8288]], requires_grad=True)</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(서연 필기)sigmoid하면 0에 머무르는 값 존재, 조금 사용하면 학습 능력이 떨어지기도</p>
+<p>(서연 필기)sigmoid하면 0에 머무르는 값 존재해서 0.5에 머무르는 경향, 조금 사용하면 학습 능력이 떨어지기도</p>
 
 </div>
 </div>
@@ -3125,6 +3133,14 @@ tensor([[-2.8288]], requires_grad=True)</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 차이점: 파라메터수에 차이가 있다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>파라메터 적게 쓰는게 비용측면에서 좋으니까</p>
 
 </div>
 </div>
