@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>딥러닝2022 중간고사 – 풀이 | Seoyeon Choi</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="딥러닝2022 중간고사 – 풀이" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://seoyeonc.github.io/chch/2022/10/28/(%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC)_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.html" />
+<meta property="og:url" content="https://seoyeonc.github.io/chch/2022/10/28/(%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC)_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.html" />
+<meta property="og:site_name" content="Seoyeon Choi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-28T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://seoyeonc.github.io/chch/2022/10/28/(%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC)_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.html","@type":"BlogPosting","headline":"딥러닝2022 중간고사 – 풀이","dateModified":"2022-10-28T00:00:00-05:00","datePublished":"2022-10-28T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://seoyeonc.github.io/chch/2022/10/28/(%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC)_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/chch/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://seoyeonc.github.io/chch/feed.xml" title="Seoyeon Choi" /><link rel="shortcut icon" type="image/x-icon" href="/chch/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/chch/">Seoyeon Choi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/chch/about/">About Me</a><a class="page-link" href="/chch/search/">Search</a><a class="page-link" href="/chch/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">딥러닝2022 중간고사 -- 풀이</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-28T00:00:00-05:00" itemprop="datePublished">
+        Oct 28, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/seoyeonc/chch/tree/master/_notebooks/2022-10-28-(중간고사)_딥러닝2022_중간고사풀이.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/chch/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/seoyeonc/chch/master?filepath=_notebooks%2F2022-10-28-%28%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%29_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/seoyeonc/chch/blob/master/_notebooks/2022-10-28-(중간고사)_딥러닝2022_중간고사풀이.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/chch/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-28-(중간고사)_딥러닝2022_중간고사풀이.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-&#53356;&#47204;&#47553;&#51012;-&#53685;&#54620;-&#51060;&#48120;&#51648;-&#48516;&#49437;-&#48143;-CAM.-(50&#51216;)----&#54400;&#51060;&#49373;&#47029;"><code>1</code>. &#53356;&#47204;&#47553;&#51012; &#53685;&#54620; &#51060;&#48120;&#51648; &#48516;&#49437; &#48143; CAM. (50&#51216;) -- &#54400;&#51060;&#49373;&#47029;<a class="anchor-link" href="#1.-&#53356;&#47204;&#47553;&#51012;-&#53685;&#54620;-&#51060;&#48120;&#51648;-&#48516;&#49437;-&#48143;-CAM.-(50&#51216;)----&#54400;&#51060;&#49373;&#47029;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> 두 가지 키워드로 크롤링을 수행하여 이미지자료를 모아라.</p>
+<ul>
+<li>키워드는 {'iu','hynn'}을 제외하고 본인이 선택할 것) </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> ImageDataLoaders.from_folder 를 이용하여 dls를 만들어라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> resnet34를 이용하여 학습하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> CAM (class activation mapping)을 이용하여 (3)의 모형의 판단근거를 시각화하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-&#45796;&#51020;&#51012;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(30&#51216;)"><code>2</code>. &#45796;&#51020;&#51012; &#51069;&#44256; &#47932;&#51020;&#50640; &#45813;&#54616;&#46972;. (30&#51216;)<a class="anchor-link" href="#2.-&#45796;&#51020;&#51012;-&#51069;&#44256;-&#47932;&#51020;&#50640;-&#45813;&#54616;&#46972;.-(30&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>주어진 자료가 아래와 같다고 하자.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">7676</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ϵ</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.5</span><span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">ϵ</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f696ef38650&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>아래와 같은 모형을 가정하고 물음에 답하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$y_i = w_0+w_1 x_i +\epsilon_i, \quad \epsilon_i \overset{iid}{\sim} N(0,\sigma^2)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> ??를 적당하게 채워 아래와 같은 네트워크를 설정하고 최초의 예측값이 $\hat{y}_i=-5+10x_i$가 출력되도록 net의 가중치를 조정하라.</p>
+<div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">out_features</span><span class="o">=</span><span class="err">??</span><span class="p">,</span><span class="n">bias</span><span class="o">=</span><span class="err">??</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]])</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> 학습률은 0.1로 설정하고 torch.optim.Adam을 이용하여 optimizer를 선언하라. $(\hat{w}_0,\hat{w}_1)=(-5,10)$에서 MSELoss의 미분계수 $\frac{\partial}{\partial {\bf W}}loss(w_0,w_1) ~\Big|_{~\hat{w}_0,\hat{w}_1}$를 구하고 이를 바탕으로 $(\hat{w}_0,\hat{w}_1)$의 값을 1회 갱신하라. 계산된 미분계수값과 갱신된 $(\hat{w}_0,\hat{w}_1)$의 값을 출력하라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">optimizr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1">## step1</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1">## step2 </span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1">## step3</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+    <span class="c1">## step4</span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor([[-15.7290,  14.7198]])
+tensor([[-4.9000,  9.9000]])
+---
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> (2)에서 설정한 optimizer를 이용하여 $(\hat{w}_0,\hat{w}_1)$의 값을 5회 갱신한 값을 구하여라.</p>
+<ul>
+<li>문제(2)에 갱신한 1회를 포함하여 5회임. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="c1">## step1 </span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+    <span class="c1">## step2 </span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1">## step3</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+    <span class="c1">## step4 </span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor([[-15.5179,  14.4789]])
+tensor([[-4.8000,  9.8000]])
+---
+tensor([[-15.3068,  14.2382]])
+tensor([[-4.7001,  9.7002]])
+---
+tensor([[-15.0960,  13.9976]])
+tensor([[-4.6003,  9.6004]])
+---
+tensor([[-14.8852,  13.7572]])
+tensor([[-4.5006,  9.5008]])
+---
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 학습률을 0.2로 설정하고 torch.optim.SGD를 이용하여 새로운 optimizr를 선언하라. (3)의 결과로 총 5회 갱신된 값에 이어서 10회 추가로 학습하라. 학습된 값은 얼마인가?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">optimizr2</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1">## step1 </span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+    <span class="c1">## step2 </span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1">## step3</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+    <span class="c1">## step4</span>
+    <span class="n">optimizr2</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">optimizr2</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tensor([[-14.6748,  13.5172]])
+tensor([[-1.5657,  6.7973]])
+---
+tensor([[-8.5044,  6.9790]])
+tensor([[0.1352, 5.4015]])
+---
+tensor([[-4.9476,  3.5827]])
+tensor([[1.1247, 4.6850]])
+---
+tensor([[-2.8889,  1.8262]])
+tensor([[1.7025, 4.3198]])
+---
+tensor([[-1.6928,  0.9227]])
+tensor([[2.0411, 4.1352]])
+---
+tensor([[-0.9951,  0.4611]])
+tensor([[2.2401, 4.0430]])
+---
+tensor([[-0.5868,  0.2271]])
+tensor([[2.3575, 3.9976]])
+---
+tensor([[-0.3471,  0.1097]])
+tensor([[2.4269, 3.9756]])
+---
+tensor([[-0.2058,  0.0516]])
+tensor([[2.4680, 3.9653]])
+---
+tensor([[-0.1223,  0.0233]])
+tensor([[2.4925, 3.9607]])
+---
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> (4)의 수렴값이 학습이 잘 되었다고 생각하는가? 잘 되었다고 생각하면 그 근거는 무엇인가? (단, $(w_0,w_1)$의 참값은 모른다고 가정한다)</p>
+<ul>
+<li>hint: 미분값을 근거로 대답할 것</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(풀이)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>최종업데이트에서 계산된 미분계수가 거의 0이므로 잘 수렴했다고 판단되어 진다. (이 경우 손실함수가 convex 이므로 미분계수가 0인 지점이 global minimum이라 주장가능)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-&#45796;&#51020;&#51012;-&#51069;&#44256;-&#52280;-&#44144;&#51667;&#51012;-&#54032;&#45800;&#54616;&#46972;.-(20&#51216;)"><code>3</code>. &#45796;&#51020;&#51012; &#51069;&#44256; &#52280; &#44144;&#51667;&#51012; &#54032;&#45800;&#54616;&#46972;. (20&#51216;)<a class="anchor-link" href="#3.-&#45796;&#51020;&#51012;-&#51069;&#44256;-&#52280;-&#44144;&#51667;&#51012;-&#54032;&#45800;&#54616;&#46972;.-(20&#51216;)"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assignment1의 1번: 아래는 fastai를 사용하여 MNIST 이미지자료중 일부를 분석하는 코드 중 일부이다. (Assignment1의 1번 문항 참고)</p>
+<div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">MNIST_SAMPLE</span><span class="p">)</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">suffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
+<span class="n">lrnr</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">arch</span> <span class="o">=</span> <span class="n">resnet34</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">error_rate</span><span class="p">)</span>
+<span class="n">lrnr</span><span class="o">.</span><span class="n">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">one_batch</span><span class="p">()</span>
+<span class="n">lrnr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">))</span>
+</pre></div>
+<p>마지막 <code>lrnr.model(X[0].reshape(1,3,28,28))</code>의 실행결과는 아래와 같다.</p>
+
+<pre><code>TensorBase([[ 3.4148, -5.0356]], device='cuda:0', grad_fn=&lt;AliasBackward0&gt;)</code></pre>
+<p>위의 코드를 올바르게 해석한 것을 모두 고르라.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(1)</code> MNIST 이미지를 분석하였으므로 X는 흑백이미지의 형태로 저장되어 있을 것이다. 즉 텐서 ${\bf X}$의 shape은 (n,1,28,28) 과 같은 형태일 것이다.</p>
+<ul>
+<li>hint: "lrnr.model(X[0].reshape(1,3,28,28))" 코드를 잘 관찰하세요.. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">False</span> <span class="c1"># 채널=3이므로 칼라이미지로 저장되어있음. </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(2)</code> <code>lrnr.model(X[0].reshape(1,3,28,28))</code> 의 실행결과로 미루어 볼때 손실함수는 torch.nn.CrossEntropyLoss 를 사용했을 것이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(3)</code> 위의 코드는 resnet34를 이용한 transfer learning 을 구현하였다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(4)</code> 현재 <code>lrnr.model</code>와 <code>X[0]</code>는 모두 GPU연산이 가능한 저장장치에 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span> <span class="c1"># lrnr.model(X[0].reshape(1,3,28,28)) 의 연산결과로 유추가능</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(5)</code> <code>TensorBase([[ 3.4148, -5.0356]], device='cuda:0', grad_fn=&lt;AliasBackward0&gt;)</code>의 결과에 softmax함수를 취하게 되면 <code>[0,1]</code> 근처의 값이 나올것이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">False</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(6)</code> torch.nn.Linear(in_features=1,out_features=1,bias=True) 는 학습가능한 파라메터수가 2개이다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(7)</code> 아래 2개의 레이어에 대한 학습가능한 파레메터 수는 같다.</p>
+<ul>
+<li>torch.nn.Linear(in_features=4,out_features=1,bias=False)</li>
+<li>torch.nn.Conv2d(in_channels=1,out_channels=1,kernel_size=(2,2),bias=False)</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(8)</code> 아래의 네트워크에서 K를 충분히 크게 설정하면 모든 1차원 연속함수를 원하는 정확도로 근사시킬 수 있다.</p>
+<div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">out_features</span><span class="o">=</span><span class="n">K</span><span class="p">),</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">K</span><span class="p">,</span><span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">False</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(9)</code> torch.nn.Dropout(0.9)을 이용하여 생성된 layer는 10%의 layer input을 임의로 0으로 만든다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">False</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>(10)</code> 아래와 같은 모형에서 자료가 생성되었다고 하자.</p>
+<ul>
+<li>$y_i \sim Ber(\pi_i),\quad $ where $\pi_i = \frac{\exp(w_0+w_1x_i)}{1+\exp(w_0+w_1x_i)}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이 경우 다음과 같은 네트워크와 손실함수를 선택한다면 손실함수는 항상 convex function이 된다.</p>
+<div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/chch/2022/10/28/(%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC)_%EB%94%A5%EB%9F%AC%EB%8B%9D2022_%EC%A4%91%EA%B0%84%EA%B3%A0%EC%82%AC%ED%92%80%EC%9D%B4.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/chch/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/chch/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/chch/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/seoyeonc" target="_blank" title="seoyeonc"><svg class="svg-icon grey"><use xlink:href="/chch/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
