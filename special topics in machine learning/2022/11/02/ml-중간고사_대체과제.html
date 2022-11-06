@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      8 min read
     
 </span></p>
 
@@ -1550,50 +1550,6 @@ torch.Size([8, 1024])
 </div>
     
 
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'Species'</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0         setosa
-1         setosa
-2         setosa
-3         setosa
-4         setosa
-         ...    
-145    virginica
-146    virginica
-147    virginica
-148    virginica
-149    virginica
-Name: Species, Length: 150, dtype: object</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1625,29 +1581,7 @@ Name: Species, Length: 150, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> 
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">4</span><span class="p">),)</span>
-<span class="n">optimizr</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-<span class="n">loss_fn</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1659,42 +1593,92 @@ Name: Species, Length: 150, dtype: object</pre>
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-57-78969eb9b5ba&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>net<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ansi-cyan-fg">_call_impl</span><span class="ansi-blue-fg">(self, *input, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1188</span>         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-<span class="ansi-green-intense-fg ansi-bold">   1189</span>                 or _global_forward_hooks or _global_forward_pre_hooks):
-<span class="ansi-green-fg">-&gt; 1190</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> forward_call<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>input<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1191</span>         <span class="ansi-red-fg"># Do not call functions when jit is used</span>
-<span class="ansi-green-intense-fg ansi-bold">   1192</span>         full_backward_hooks<span class="ansi-blue-fg">,</span> non_full_backward_hooks <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/container.py</span> in <span class="ansi-cyan-fg">forward</span><span class="ansi-blue-fg">(self, input)</span>
-<span class="ansi-green-intense-fg ansi-bold">    202</span>     <span class="ansi-green-fg">def</span> forward<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> input<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    203</span>         <span class="ansi-green-fg">for</span> module <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 204</span><span class="ansi-red-fg">             </span>input <span class="ansi-blue-fg">=</span> module<span class="ansi-blue-fg">(</span>input<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    205</span>         <span class="ansi-green-fg">return</span> input
-<span class="ansi-green-intense-fg ansi-bold">    206</span> 
+<div class="output_text output_subarea output_execute_result">
+<pre>'torch.FloatTensor'</pre>
+</div>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ansi-cyan-fg">_call_impl</span><span class="ansi-blue-fg">(self, *input, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1188</span>         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-<span class="ansi-green-intense-fg ansi-bold">   1189</span>                 or _global_forward_hooks or _global_forward_pre_hooks):
-<span class="ansi-green-fg">-&gt; 1190</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> forward_call<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>input<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1191</span>         <span class="ansi-red-fg"># Do not call functions when jit is used</span>
-<span class="ansi-green-intense-fg ansi-bold">   1192</span>         full_backward_hooks<span class="ansi-blue-fg">,</span> non_full_backward_hooks <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
+</div>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/linear.py</span> in <span class="ansi-cyan-fg">forward</span><span class="ansi-blue-fg">(self, input)</span>
-<span class="ansi-green-intense-fg ansi-bold">    112</span> 
-<span class="ansi-green-intense-fg ansi-bold">    113</span>     <span class="ansi-green-fg">def</span> forward<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> input<span class="ansi-blue-fg">:</span> Tensor<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> Tensor<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 114</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> F<span class="ansi-blue-fg">.</span>linear<span class="ansi-blue-fg">(</span>input<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>weight<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>bias<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    115</span> 
-<span class="ansi-green-intense-fg ansi-bold">    116</span>     <span class="ansi-green-fg">def</span> extra_repr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-&gt;</span> str<span class="ansi-blue-fg">:</span>
+</div>
+</div>
 
-<span class="ansi-red-fg">RuntimeError</span>: mat1 and mat2 shapes cannot be multiplied (150x4 and 150x4)</pre>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([150, 4])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>torch.Size([150, 2])
+</pre>
 </div>
 </div>
 
@@ -1711,24 +1695,280 @@ Name: Species, Length: 150, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
-<span class="n">net</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> 
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">4</span><span class="p">),)</span>
-<span class="n">optimizr</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-<span class="n">loss_fn</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+</pre></div>
 
-<span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> 
-    <span class="c1">## 1 </span>
-    <span class="n">Xhat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
-    <span class="c1">## 2 </span>
-    <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">Xhat</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> 
-    <span class="c1">## 3 </span>
-    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-    <span class="c1">## 4 </span>
-    <span class="n">optimizr</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="n">optimizr</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span> 
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">a1</span><span class="p">(</span><span class="n">l1</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Z</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'torch.FloatTensor'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Z</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[-0.1683,  0.9019],
+        [-0.2348,  0.9122],
+        [-0.1404,  0.8822],
+        [-0.2398,  0.8930],
+        [-0.1435,  0.8896]], grad_fn=&lt;SliceBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">bias</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">(</span><span class="n">l1</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>torch.Size([150, 4])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Xhat</span> <span class="o">=</span> <span class="n">a2</span><span class="p">(</span><span class="n">l2</span><span class="p">(</span><span class="n">l1</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Xhat</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'torch.FloatTensor'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Xhat</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tensor([[0.3363, 0.6536, 0.7001, 0.4965],
+        [0.3390, 0.6531, 0.7018, 0.4942],
+        [0.3439, 0.6459, 0.6899, 0.4974],
+        [0.3522, 0.6412, 0.6877, 0.4938],
+        [0.3402, 0.6494, 0.6942, 0.4973]], grad_fn=&lt;SliceBackward0&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">optimizr</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss_fn</span><span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1770,39 +2010,6 @@ Name: Species, Length: 150, dtype: object</pre>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-50-3f2507c86b32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> fig<span class="ansi-blue-fg">,</span>ax <span class="ansi-blue-fg">=</span> plt<span class="ansi-blue-fg">.</span>subplots<span class="ansi-blue-fg">(</span>figsize<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>ax<span class="ansi-blue-fg">.</span>imshow<span class="ansi-blue-fg">(</span>torch<span class="ansi-blue-fg">.</span>concat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>X<span class="ansi-blue-fg">,</span>Z<span class="ansi-blue-fg">,</span>Xhat<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> ax<span class="ansi-blue-fg">.</span>set_xticks<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>arange<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> ax<span class="ansi-blue-fg">.</span>set_xticklabels<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">r'$X_1$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$X_2$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$X_3$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$X_4$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$Z_1$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$Z_2$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$\hat{X}_1$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$\hat{X}_2$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$\hat{X}_3$'</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">r'$\hat{X}_4$'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> ax<span class="ansi-blue-fg">.</span>vlines<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3.5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">5.5</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>ymin<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">0.5</span><span class="ansi-blue-fg">,</span>ymax<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">9.5</span><span class="ansi-blue-fg">,</span>lw<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span>color<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'red'</span><span class="ansi-blue-fg">,</span>linestyle<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'dashed'</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'Z' is not defined</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1857,6 +2064,32 @@ Name: Species, Length: 150, dtype: object</pre>
 
 </div>
 
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> 
+    <span class="c1">## 1 </span>
+    <span class="c1">#Xhat = net(X) </span>
+    <span class="c1">## 2 </span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">Xhat</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> 
+    <span class="c1">## 3 </span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="c1">## 4 </span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">optimizr</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
