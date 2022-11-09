@@ -3355,7 +3355,6 @@ torch.Size([8, 1024])
     <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span>
     <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
     <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -3400,6 +3399,14 @@ torch.Size([8, 1024])
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>loss_fn(net<a href="net%5B1%5D(net%5B0%5D(Z">2</a>)),y)</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -3422,47 +3429,37 @@ torch.Size([8, 1024])
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+    
 
-<div class="output_area">
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1218-a9bbaa6d0852&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-red-fg">## 1</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-red-fg">## 2</span>
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">     </span>loss<span class="ansi-blue-fg">=</span>loss_fn<span class="ansi-blue-fg">(</span>net<span class="ansi-blue-fg">(</span>Z<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-red-fg">## 3</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     loss<span class="ansi-blue-fg">.</span>backward<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soft</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">()</span>
+</pre></div>
 
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/module.py</span> in <span class="ansi-cyan-fg">_call_impl</span><span class="ansi-blue-fg">(self, *input, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1188</span>         if not (self._backward_hooks or self._forward_hooks or self._forward_pre_hooks or _global_backward_hooks
-<span class="ansi-green-intense-fg ansi-bold">   1189</span>                 or _global_forward_hooks or _global_forward_pre_hooks):
-<span class="ansi-green-fg">-&gt; 1190</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> forward_call<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>input<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1191</span>         <span class="ansi-red-fg"># Do not call functions when jit is used</span>
-<span class="ansi-green-intense-fg ansi-bold">   1192</span>         full_backward_hooks<span class="ansi-blue-fg">,</span> non_full_backward_hooks <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/modules/loss.py</span> in <span class="ansi-cyan-fg">forward</span><span class="ansi-blue-fg">(self, input, target)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1174</span>         return F.cross_entropy(input, target, weight=self.weight,
-<span class="ansi-green-intense-fg ansi-bold">   1175</span>                                ignore_index<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>ignore_index<span class="ansi-blue-fg">,</span> reduction<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>reduction<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">-&gt; 1176</span><span class="ansi-red-fg">                                label_smoothing=self.label_smoothing)
-</span><span class="ansi-green-intense-fg ansi-bold">   1177</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1178</span> 
-
-<span class="ansi-green-fg">~/anaconda3/envs/py37/lib/python3.7/site-packages/torch/nn/functional.py</span> in <span class="ansi-cyan-fg">cross_entropy</span><span class="ansi-blue-fg">(input, target, weight, size_average, ignore_index, reduce, reduction, label_smoothing)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3024</span>     <span class="ansi-green-fg">if</span> size_average <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">or</span> reduce <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   3025</span>         reduction <span class="ansi-blue-fg">=</span> _Reduction<span class="ansi-blue-fg">.</span>legacy_get_string<span class="ansi-blue-fg">(</span>size_average<span class="ansi-blue-fg">,</span> reduce<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 3026</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> torch<span class="ansi-blue-fg">.</span>_C<span class="ansi-blue-fg">.</span>_nn<span class="ansi-blue-fg">.</span>cross_entropy_loss<span class="ansi-blue-fg">(</span>input<span class="ansi-blue-fg">,</span> target<span class="ansi-blue-fg">,</span> weight<span class="ansi-blue-fg">,</span> _Reduction<span class="ansi-blue-fg">.</span>get_enum<span class="ansi-blue-fg">(</span>reduction<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> ignore_index<span class="ansi-blue-fg">,</span> label_smoothing<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3027</span> 
-<span class="ansi-green-intense-fg ansi-bold">   3028</span> 
-
-<span class="ansi-red-fg">RuntimeError</span>: expected scalar type Long but found Float</pre>
+    </div>
 </div>
 </div>
 
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soft</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">Z</span><span class="p">))</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
